@@ -1,0 +1,79 @@
+
+
+<div class="m-auto max-w-72">
+
+  <div class="flex flex-row py-8 text-center align-middle text-base font-normal text-gray-900 dark:text-white">
+
+    <img src="./../../../../../assets/img/avatarmaximo.jpg" class="w-16 h-16 rounded-full hover:animate-spin mr-2"
+      alt="Maximous" />
+    Hey ! If you are alredy signed just log here.
+  </div>
+</div>
+
+<div
+  class="m-auto w-2/3 max-w-sm min-w-80 p-4 bg-white  rounded-lg sm:border md:shadow-md sm:p-6 md:p-8 md:border-gray-200 dark:bg-gray-800 md:dark:border-gray-700">
+  <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+    <!-- <div class="text-xl font-medium text-gray-900 dark:text-white">Sign in to our platform</div> -->
+    <!--
+    <div>
+      <label class="form-label" class="block mb-1 mt-2 text-xs font-medium text-gray-900 dark:text-white">Name:</label>
+      <input class="form-control" formControlName="names" type="text"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+        placeholder="">
+    </div> -->
+
+    <div>
+      <label class="form-label" class="block mb-1 mt-2 text-xs font-medium text-gray-900 dark:text-white">Email:</label>
+      <div class="relative">
+        <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+          <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor" viewBox="0 0 20 16">
+            <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z" />
+            <path
+              d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z" />
+          </svg>
+        </div>
+        <input class="form-control" formControlName="email" type="email" id="email-address-icon"
+          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          placeholder="" value="">
+      </div>
+    </div>
+
+    <div>
+      <label class="form-label"
+        class="block mb-1 mt-2 text-xs font-medium text-gray-900 dark:text-white">Password:</label>
+      <input class="form-control" formControlName="password" type="password"
+        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        placeholder="•••••••••" required>
+    </div>
+
+    <div class="mt-8">
+      <button type="submit"
+        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+        Log In
+      </button>
+    </div>
+
+  </form>
+
+  <div class="mt-4">
+    <!-- <span class="small-text providers">Have a Google acount?</span>
+    <app-button-providers [isLogin]="true" /> -->
+    <span class="small-text log-in-redirect">Don’t have an account yet?   <span class="hover:underline cursor-pointer"  (click)="navToSignIn()">Register</span></span>
+  </div>
+
+  <div class="mt-4">
+    <button type="button" (click)="clickGoogleButton()"
+    class="text-white text-center inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+    <svg class="w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+        viewBox="0 0 18 19">
+        <path fill-rule="evenodd"
+          d="M8.842 18.083a8.8 8.8 0 0 1-8.65-8.948 8.841 8.841 0 0 1 8.8-8.652h.153a8.464 8.464 0 0 1 5.7 2.257l-2.193 2.038A5.27 5.27 0 0 0 9.09 3.4a5.882 5.882 0 0 0-.2 11.76h.124a5.091 5.091 0 0 0 5.248-4.057L14.3 11H9V8h8.34c.066.543.095 1.09.088 1.636-.086 5.053-3.463 8.449-8.4 8.449l-.186-.002Z"
+          clip-rule="evenodd" />
+      </svg>
+      Login in with Google
+    </button>
+  </div>
+
+
+</div>

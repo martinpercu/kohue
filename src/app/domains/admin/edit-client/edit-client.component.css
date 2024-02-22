@@ -1,0 +1,23 @@
+input {
+  border-width: 1px;
+  &.is-valid {
+    border: 1px solid green;
+  }
+  &.is-invalid {
+    border: 1px solid red;
+  }
+}
+
+.messages {
+  opacity: 0;
+  transition: all 1.2s ease-in;
+  &.active {
+    opacity: 1;
+  }
+}
+
+button {
+  &.buttonDisabled {
+    background-color: lightgrey;
+  }
+}
