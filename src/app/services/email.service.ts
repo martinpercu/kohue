@@ -19,7 +19,7 @@ export class EmailService {
   async sendEmail(form: any) {
     emailjs.init(emailjsInitVar);
     console.log(form);
-    let response = await emailjs.send("service_4wbv4ud", "template_n5608jq", {
+    let response = await emailjs.send("service_y1zbger", "template_n5608jq", {
       fullname: form.fullname,
       client_email: form.email,
     });

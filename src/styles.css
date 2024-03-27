@@ -2,3 +2,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  accent-color: rgb(75, 84, 253);;
+}
+
+input {
+  outline-color: rgb(75, 84, 253);
+}
+
+/* :focus {
+  border: 2px solid green;
+} */
+
+:focus-visible {
+  /* border-radius: 20px; */
+  /* border: 2px solid green; */
+  border-color: rgb(75, 84, 253);;
+}
+
+
+
+

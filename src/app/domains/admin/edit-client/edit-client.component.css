@@ -1,12 +1,15 @@
 input {
   border-width: 1px;
   &.is-valid {
-    border: 1px solid green;
+    border: 1px solid rgb(129, 226, 129);
+    background-color: rgb(245, 253, 243);
   }
   &.is-invalid {
-    border: 1px solid red;
+    border: 1px solid rgb(255, 186, 186);
+    background-color: rgb(254, 242, 242);
   }
 }
+
 
 .messages {
   opacity: 0;
