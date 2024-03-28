@@ -4,10 +4,12 @@ import { Router, RouterLinkWithHref } from '@angular/router';
 import { ClientService } from '@services/client.service';
 import { Client } from '@models/client.model';
 
+import { NavbarComponent } from '@shared/navbar/navbar.component';
+
 @Component({
   selector: 'app-clients-full',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterLinkWithHref],
+  imports: [ReactiveFormsModule, RouterLinkWithHref, NavbarComponent],
   templateUrl: './clients-full.component.html',
   styleUrl: './clients-full.component.css'
 })

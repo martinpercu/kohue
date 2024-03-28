@@ -19,11 +19,13 @@ export const routes: Routes = [
   },
   {
     path: 'admin',
-    component: ClientsFullComponent
+    component: ClientsFullComponent,
+    // ...canActivate(() => redirectUnauthorizedTo(['login']))
   },
   {
     path: 'admin/:id',
-    component: EditClientComponent
+    component: EditClientComponent,
+    // ...canActivate(() => redirectUnauthorizedTo(['login']))
   },
   {
     path: 'signin',
