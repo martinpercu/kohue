@@ -43,33 +43,16 @@ export class JoinmailComponent {
     const response = await this.clientService.addClient(this.formJoinMail.value);
     console.log(response);
     this.navToJoined();
-    // const form = this.formJoinMail.value;
-    this.emailsender.sendEmail(this.formJoinMail.value);
-    // this.sendEmail()
-  }
-
-  // private async sendEmail() {
-  //   emailjs.init('WBAY4V6yXv5MXO115');
-  //   console.log(this.formJoinMail.value);
-  //   let response = await emailjs.send("service_4wbv4ud","template_n5608jq",{
-  //     fullname: this.formJoinMail.value.fullname,
-  //     client_email: this.formJoinMail.value.email,
-  //     });
-
-  //     alert('message send it OK')
-  //  }
+    // this.emailsender.sendEmail(this.formJoinMail.value); // PROD
+    alert('not send we are in DEV'); // DEV
+  };
 
   navToJoined() {
     this.router.navigate(['joinedmaillist'])
-  }
-
-
-  // navToDash() {
-  //   this.router.navigate(['dashboard'])
-  // }
+  };
 
   navToSignIn() {
     this.router.navigate(['signin'])
-  }
+  };
 
 }

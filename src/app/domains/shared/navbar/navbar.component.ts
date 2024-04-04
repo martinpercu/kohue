@@ -14,12 +14,16 @@ export class NavbarComponent {
   private authService = inject(AuthService);
   private router = inject(Router);
 
-  logOut() {
-    this.authService.logout()
-    .then(() => {
-      this.router.navigate(['login'])
-    })
-    .catch(error => console.log(error));
+  // logOut() {
+  //   this.authService.logout()
+  //   .then(() => {
+  //     this.router.navigate(['login'])
+  //   })
+  //   .catch(error => console.log(error));
+  // }
+
+  navJointhelist() {
+    this.router.navigate(['join'])
   }
 
 }
