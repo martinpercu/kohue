@@ -23,7 +23,7 @@ export class EmailService {
       fullname: form.fullname,
       client_email: form.email,
     });
-    alert('message send it OK')
+    // alert('message send it OK')
     console.log(response);
   }
 
