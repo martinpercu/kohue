@@ -1,20 +1,21 @@
 import { Routes } from '@angular/router';
 import { LayoutComponent } from '@shared/layout/layout.component';
-import { ClientsFullComponent } from '@admin/clients-full/clients-full.component'
-import { EditClientComponent } from '@admin/edit-client/edit-client.component'
-import { SigninComponent } from '@users/signin/signin.component'
-import { LoginComponent } from '@users/login/login.component'
-import { DashboardComponent } from '@users/dashboard/dashboard.component'
-import { EditComponent } from '@users/edit/edit.component'
-import { JoinmailComponent } from '@users/joinmail/joinmail.component'
-import { JoinedmaillistComponent } from '@users/joinedmaillist/joinedmaillist.component'
+import { ClientsFullComponent } from '@admin/clients-full/clients-full.component';
+import { EditClientComponent } from '@admin/edit-client/edit-client.component';
+import { SigninComponent } from '@users/signin/signin.component';
+import { LoginComponent } from '@users/login/login.component';
+import { DashboardComponent } from '@users/dashboard/dashboard.component';
+import { EditComponent } from '@users/edit/edit.component';
+import { JoinmailComponent } from '@users/joinmail/joinmail.component';
+import { JoinedmaillistComponent } from '@users/joinedmaillist/joinedmaillist.component';
+import { NotfoundComponent } from '@shared/notfound/notfound.component';
 
 import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard'
 
 
 export const routes: Routes = [
   {
-    path: '',
+    path: 'test',
     component: LayoutComponent
   },
   {
@@ -52,6 +53,10 @@ export const routes: Routes = [
     path: 'edit',
     component: EditComponent,
     ...canActivate(() => redirectUnauthorizedTo(['login']))
+  },
+  {
+    path: '',
+    component: NotfoundComponent,
   },
   // {
   //   path: 'admin',
