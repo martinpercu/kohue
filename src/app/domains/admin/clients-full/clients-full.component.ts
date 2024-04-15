@@ -6,10 +6,12 @@ import { Client } from '@models/client.model';
 
 import { NavbarComponent } from '@shared/navbar/navbar.component';
 
+import { ButtonlogoutComponent } from '@shared/buttonlogout/buttonlogout.component'
+
 @Component({
   selector: 'app-clients-full',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterLinkWithHref, NavbarComponent],
+  imports: [ReactiveFormsModule, RouterLinkWithHref, NavbarComponent, ButtonlogoutComponent],
   templateUrl: './clients-full.component.html',
   styleUrl: './clients-full.component.css'
 })
