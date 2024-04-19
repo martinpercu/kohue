@@ -42,10 +42,14 @@ export class SigninComponent {
 
   navToDash() {
     this.router.navigate(['dashboard'])
-  }
+  };
 
   navToLogin() {
     this.router.navigate(['login'])
-  }
+  };
+
+  navToHome() {
+    this.router.navigate(['test'])
+  };
 
 }

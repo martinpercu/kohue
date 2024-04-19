@@ -58,4 +58,8 @@ export class JoinmailComponent {
     this.router.navigate(['signin'])
   };
 
+  navToHome() {
+    this.router.navigate(['test'])
+  };
+
 }
