@@ -43,11 +43,12 @@ export class JoinmailComponent {
   }
 
   async onSubmit() {
-    const response = await this.clientService.addClient(this.formJoinMail.value);
-    console.log(response);
-    this.navToJoined();
-    this.emailsender.sendEmail(this.formJoinMail.value); // PROD
-    // alert('not send we are in DEV'); // DEV
+    // const response = await this.clientService.addClient(this.formJoinMail.value);
+    // console.log(response);
+    // this.navToJoined();
+    // this.emailsender.sendEmail(this.formJoinMail.value); // PROD
+    alert('not send we are in DEV'); // DEV
+    this.navToJoined();// DEV
   };
 
   navToJoined() {
