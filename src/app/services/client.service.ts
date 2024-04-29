@@ -48,9 +48,9 @@ export class ClientService {
       })
   };
 
-  addUserWithId(user: Client, userUID: any) {
+  addUserWithId(user: Client, userId: any) {
     const usersRef = collection(this.firestore, 'users');
-    return setDoc(doc(usersRef, userUID), user)
+    return setDoc(doc(usersRef, userId), user)
   }
 
 

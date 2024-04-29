@@ -29,7 +29,7 @@ export class SigninComponent {
 
   constructor() {
     this.formReg = new FormGroup({
-      fullname: new FormControl(),
+      firstname: new FormControl(),
       email: new FormControl(),
       password: new FormControl()
     })
@@ -49,7 +49,7 @@ export class SigninComponent {
 
 
   async createRegisteredUser(userBasic: Client, userUID: any) {
-    userBasic.clientUID = userUID;
+    console.log(userBasic);
     const response = await this.clientService.addUserWithId(userBasic, userUID);
     console.log(response);
     // this.navToJoined();
