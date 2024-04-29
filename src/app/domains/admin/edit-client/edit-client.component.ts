@@ -5,6 +5,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Client } from '@models/client.model';
 import { ClientService } from '@services/client.service';
 
+import { phonePath } from '@shared/icon-paths/icons'
+
 
 @Component({
   selector: 'app-edit-client',
@@ -26,6 +28,9 @@ export class EditClientComponent {
   client!: Client;
   clientId!: string;
 
+  phonePath:string;
+  color:string;
+
 
   constructor() {
     const id = String(this.activatedRoute.snapshot.paramMap.get('id'));
@@ -33,7 +38,10 @@ export class EditClientComponent {
       this.clientId = id
       console.log('hay parametro', this.clientId);
       this.getClient()
-    }
+    };
+
+    this.phonePath = phonePath;
+    this.color = "green";
 
   }
 
