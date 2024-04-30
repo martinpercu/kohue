@@ -44,13 +44,13 @@ export class JoinmailComponent {
 
   async onSubmit() {
     this.client = this.formJoinMail.value;
-    this.client.clientUID = "3215"
+    // this.client.clientUID = "3215"
 
 
     const response = await this.clientService.addClient(this.client);
     console.log(response);
     this.navToJoined();
-    this.emailsender.sendEmail(this.formJoinMail.value); // PROD
+    this.emailsender.sendEmailJoin(this.formJoinMail.value); // PROD
     // alert('not send we are in DEV'); // DEV
     // this.navToJoined();// DEV
   };

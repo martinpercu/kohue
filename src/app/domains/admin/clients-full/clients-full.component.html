@@ -1,4 +1,4 @@
-<app-navbar></app-navbar>
+<!-- <app-navbar></app-navbar> -->
 
 <div class="m-auto w-1/2 min-w-96">
 
@@ -50,7 +50,7 @@
           @if (client.byPhone) { Phone }.
         </td>
         <td class="px-6 py-4">
-          <a [routerLink]="[client.id]" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">View/Edit </a>
+          <a [routerLink]="[client.clientUID]" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">View/Edit </a>
         </td>
       </tr>
 

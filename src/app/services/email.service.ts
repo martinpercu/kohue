@@ -16,7 +16,7 @@ export class EmailService {
   }
 
 
-  async sendEmail(form: any) {
+  async sendEmailJoin(form: any) {
     // // prod
     // emailjs.init(emailjsInitVar);
     // console.log(form);
@@ -28,6 +28,20 @@ export class EmailService {
 
     // dev
     alert('No email service running') // dev
+  };
+
+  async sendEmailRegister(form: any) {
+    // // prod
+    // emailjs.init(emailjsInitVar);
+    // console.log(form);
+    // let response = await emailjs.send("service_qx5ggkb", "template_n5608jq", {
+    //   fullname: form.fullname,
+    //   client_email: form.email,
+    // });
+    // console.log(response);
+
+    // dev
+    alert('Register email not service running') // dev
 
   }
 

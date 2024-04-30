@@ -1,10 +1,11 @@
 export interface Client {
-  id: string;
-  clientUID?: string;
+  // id?: string;
+  clientUID: string;
+  email: string;
   fullname?: string;
   firstname?: string;
+  middlename?: string;
   lastname?: string;
-  email: string;
   address?: string;
   addressExtra?: string;
   state?: string;
