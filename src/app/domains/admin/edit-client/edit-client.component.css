@@ -1,12 +1,13 @@
+
 input {
   border-width: 1px;
   &.is-valid {
-    border: 1px solid rgb(129, 226, 129);
-    background-color: rgb(245, 253, 243);
+    border: 1px solid rgb(106, 187, 106);
+    background-color: rgba(245, 253, 243, 0.196);
   }
   &.is-invalid {
-    border: 1px solid rgb(255, 186, 186);
-    background-color: rgb(254, 242, 242);
+    border: 1px solid rgb(238, 145, 145);
+    background-color: rgba(254, 242, 242, 0.562);
   }
 }
 

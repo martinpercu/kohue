@@ -22,11 +22,6 @@ export class ClientService {
     return collectionData(clientsRef, { idField: 'clientUID' }) as Observable<Client[]>
   };
 
-  deleteClient(client: Client) {
-    const clientDocRef = doc(this.firestore, `clientsjoinedlist/${client.clientUID}`);
-    return deleteDoc(clientDocRef)
-  };
-
   async getOneClient(clientId: string) {
     // const clientDocRef = doc(this.firestore, `clientsjoinedlist/${clientId}`);
     const clientDocRef = doc(this.firestore, 'clientsjoinedlist', clientId);
@@ -48,11 +43,49 @@ export class ClientService {
       })
   };
 
+  deleteClient(client: Client) {
+    const clientDocRef = doc(this.firestore, `clientsjoinedlist/${client.clientUID}`);
+    return deleteDoc(clientDocRef)
+  };
+
+
+
+
   addUserWithId(user: Client, userId: any) {
     const usersRef = collection(this.firestore, 'users');
     return setDoc(doc(usersRef, userId), user)
   }
 
+  getUsers(): Observable<Client[]> {
+    const usersRef = collection(this.firestore, 'users');
+    return collectionData(usersRef, { idField: 'clientUID' }) as Observable<Client[]>
+  };
+
+  async getOneUser(userId: string) {
+    // const clientDocRef = doc(this.firestore, `users/${clientId}`);
+    const userDocRef = doc(this.firestore, 'users', userId);
+    console.log(userDocRef);
+    const user = (await getDoc(userDocRef)).data();
+    console.log(user);
+    return user as Client
+  };
+
+  updateOneUser(user: any, userId: string) {
+    const userDocRef = doc(this.firestore, 'users', userId);
+    updateDoc(userDocRef, user)
+      .then(() => {
+        console.log('User updated');
+        alert('User Updated');
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+  };
+
+  deleteUser(user: Client) {
+    const userDocRef = doc(this.firestore, `users/${user.clientUID}`);
+    return deleteDoc(userDocRef)
+  };
 
   // // add student
   // addStudent(student : Student) {

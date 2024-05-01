@@ -1,0 +1,18 @@
+<nav class="bg-xdark">
+  <div class="max-w-screen-xl flex flex-wrap items-center justify-between py-1 px-3 sm:py-4 sm:px-8">
+
+    <app-buttonlogout></app-buttonlogout>
+
+    <div class="flex-row">
+      <button (click)="showAll()" class="button_navbar">
+        All
+      </button>
+      <button (click)="showUsers()" class="button_navbar">
+        Users
+      </button>
+      <button (click)="showJoined()" class="button_navbar">
+        Joined
+      </button>
+    </div>
+  </div>
+</nav>

@@ -13,8 +13,9 @@ export interface Client {
   zipCode?: string;
   country?: string;
   phone?: string;
+  birthdate?: string;
+  optionalText?: string;
   byPhone?: boolean;
   byEmail?: boolean;
-  adult?: boolean;
   agree?: boolean;
 }
