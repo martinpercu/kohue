@@ -34,7 +34,7 @@ export class LoginComponent {
     this.authService.login(this.formLogin.value)
       .then(response => {
         console.log(response);
-        this.navToDash();
+        this.navToEdit();
       })
       .catch(error => console.log(error));
   }
@@ -43,13 +43,13 @@ export class LoginComponent {
     this.authService.loginWithGoogle()
       .then(response => {
         console.log(response);
-        this.navToDash();
+        this.navToEdit();
     })
     .catch(error => console.log(error));
   }
 
-  navToDash() {
-    this.router.navigate(['dashboard'])
+  navToEdit() {
+    this.router.navigate(['edit'])
   }
 
   navToSignIn() {

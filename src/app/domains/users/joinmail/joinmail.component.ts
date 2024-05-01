@@ -6,7 +6,7 @@ import { Client } from '@models/client.model'
 
 import { EmailService } from '@services/email.service';
 
-import { NavbarComponent } from '@shared/navbar/navbar.component'
+import { NavbarComponent } from '@shared/navbar/navbar.component';
 
 
 
