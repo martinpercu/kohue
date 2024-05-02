@@ -46,7 +46,6 @@ export class JoinmailComponent {
     this.client = this.formJoinMail.value;
     // this.client.clientUID = "3215"
 
-
     const response = await this.clientService.addClient(this.client);
     console.log(response);
     this.navToJoined();

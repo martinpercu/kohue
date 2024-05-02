@@ -10,8 +10,6 @@ import { phonePath } from '@shared/icon-paths/icons';
 import { AdminNavbarComponent } from '@admin/admin-navbar/admin-navbar.component';
 
 
-
-
 @Component({
   selector: 'app-edit-user',
   standalone: true,
@@ -34,7 +32,6 @@ export class EditUserComponent {
 
   phonePath:string;
   color:string;
-
 
 
   constructor() {
@@ -64,9 +61,9 @@ export class EditUserComponent {
 
   private buildForm() {
     this.form = this.formBuilder.group({
-      fullname: [this.user.fullname, [Validators.minLength(4)]],
-      firstname: [this.user.firstname, [Validators.required, Validators.minLength(3), Validators.maxLength(30)]],
-      middlename: [this.user.middlename, [Validators.maxLength(20)]],
+      fullname: [this.user.fullname, [Validators.minLength(2)]],
+      firstname: [this.user.firstname, [Validators.required, Validators.minLength(2), Validators.maxLength(30)]],
+      // middlename: [this.user.middlename, [Validators.maxLength(20)]],
       lastname: [this.user.lastname, [Validators.minLength(3), Validators.maxLength(30)]],
       email: [this.user.email, [Validators.required, Validators.email]],
       address: [this.user.address, Validators.minLength(8)],
@@ -78,9 +75,16 @@ export class EditUserComponent {
       optionalText: [this.user.optionalText],
       country: [this.user.country],
       birthdate: [this.user.birthdate, [Validators.required, Validators.minLength(7)]],
-      agree: [false],
+      // agree: [false],
       byEmail: [this.user.byEmail],
       byPhone: [this.user.byPhone],
+      billSameShip: [this.user.billSameShip],
+      xaddress: [this.user.xaddress],
+      xaddressExtra: [this.user.xaddressExtra],
+      xcity: [this.user.xcity],
+      xstate: [this.user.xstate],
+      xzipCode: [this.user.xzipCode],
+      // xcountry: [this.user.xcountry],
     });
   };
 
@@ -106,9 +110,9 @@ export class EditUserComponent {
   get firstnameField() {
     return this.form.get('firstname')
   };
-  get middlenameField() {
-    return this.form.get('middlename')
-  };
+  // get middlenameField() {
+  //   return this.form.get('middlename')
+  // };
   get lastnameField() {
     return this.form.get('lastname')
   };
@@ -124,18 +128,52 @@ export class EditUserComponent {
   get byPhoneField() {
     return this.form.get('byPhone')
   };
+
   get addressField() {
     return this.form.get('address')
+  };
+  get addressExtraField() {
+    return this.form.get('addressExtra')
+  };
+  get cityField() {
+    return this.form.get('city')
+  };
+  get stateField() {
+    return this.form.get('state')
   };
   get zipCodeField() {
     return this.form.get('zipCode')
   };
+
   get adultField() {
     return this.form.get('adult')
   };
   get agreeField() {
     return this.form.get('agree')
   };
+
+  get billSameShipField() {
+    return this.form.get('billSameShip')
+  };
+
+  get xaddressField() {
+    return this.form.get('xaddress')
+  };
+  get xaddressExtraField() {
+    return this.form.get('xaddressExtra')
+  };
+  get xcityField() {
+    return this.form.get('xcity')
+  };
+  get xstateField() {
+    return this.form.get('xstate')
+  };
+  get xzipCodeField() {
+    return this.form.get('xzipCode')
+  };
+
+
+
 
   // FIRST name
   get isfirstnameFieldValid() {
@@ -144,13 +182,13 @@ export class EditUserComponent {
   get isfirstnameFieldInvalid() {
     return this.firstnameField!.touched && this.firstnameField!.invalid
   };
-  // MIDDLENAME
-  get ismiddlenameFieldValid() {
-    return this.middlenameField!.touched && this.middlenameField!.valid
-  };
-  get ismiddlenameFieldInvalid() {
-    return this.middlenameField!.touched && this.middlenameField!.invalid
-  };
+  // // MIDDLENAME
+  // get ismiddlenameFieldValid() {
+  //   return this.middlenameField!.touched && this.middlenameField!.valid
+  // };
+  // get ismiddlenameFieldInvalid() {
+  //   return this.middlenameField!.touched && this.middlenameField!.invalid
+  // };
   // LAST name
   get islastnameFieldValid() {
     return this.lastnameField!.touched && this.lastnameField!.valid
@@ -171,6 +209,85 @@ export class EditUserComponent {
   };
   get isphoneFieldInvalid() {
     return this.phoneField!.touched && this.phoneField!.invalid
+  };
+  // ADDRESS
+  get addressFieldValid() {
+    return this.addressField!.touched && this.addressField!.valid
+  };
+  get addressFieldInvalid() {
+    return this.addressField!.touched && this.addressField!.invalid
+  };
+  // ADDRESS Extra
+  get addressExtraFieldValid() {
+    return this.addressExtraField!.touched && this.addressExtraField!.valid
+  };
+  get addressExtraFieldInvalid() {
+    return this.addressExtraField!.touched && this.addressExtraField!.invalid
+  };
+  // CITY
+  get cityFieldValid() {
+    return this.cityField!.touched && this.cityField!.valid
+  };
+  get cityFieldInvalid() {
+    return this.cityField!.touched && this.cityField!.invalid
+  };
+  // STATE
+  get stateFieldValid() {
+    return this.stateField!.touched && this.stateField!.valid
+  };
+  get stateFieldInvalid() {
+    return this.stateField!.touched && this.stateField!.invalid
+  };
+  // ZIP CODE
+  get zipCodeFieldValid() {
+    return this.zipCodeField!.touched && this.zipCodeField!.valid
+  };
+  get zipCodeFieldInvalid() {
+    return this.zipCodeField!.touched && this.zipCodeField!.invalid
+  };
+
+  // BILL Same as SHIPPING
+  get isbillSameShipFieldValid() {
+    return this.billSameShipField!.touched && this.billSameShipField!.valid
+  };
+  get isbillSameShipFieldInvalid() {
+    return this.billSameShipField!.touched && this.billSameShipField!.invalid
+  };
+
+  // X ADDRESS
+  get xaddressFieldValid() {
+    return this.xaddressField!.touched && this.xaddressField!.valid
+  };
+  get xaddressFieldInvalid() {
+    return this.xaddressField!.touched && this.xaddressField!.invalid
+  };
+  // X ADDRESS Extra xaddressExtra
+  get xaddressExtraFieldValid() {
+    return this.xaddressExtraField!.touched && this.xaddressExtraField!.valid
+  };
+  get xaddressExtraFieldInvalid() {
+    return this.xaddressExtraField!.touched && this.xaddressExtraField!.invalid
+  };
+  // X CITY
+  get xcityFieldValid() {
+    return this.xcityField!.touched && this.xcityField!.valid
+  };
+  get xcityFieldInvalid() {
+    return this.xcityField!.touched && this.xcityField!.invalid
+  };
+  // X STATE
+  get xstateFieldValid() {
+    return this.xstateField!.touched && this.xstateField!.valid
+  };
+  get xstateFieldInvalid() {
+    return this.xstateField!.touched && this.xstateField!.invalid
+  };
+  // X ZIP CODE
+  get xzipCodeFieldValid() {
+    return this.xzipCodeField!.touched && this.xzipCodeField!.valid
+  };
+  get xzipCodeFieldInvalid() {
+    return this.xzipCodeField!.touched && this.xzipCodeField!.invalid
   };
 
 }
