@@ -6,6 +6,12 @@
 
   <form [formGroup]="form" (ngSubmit)="saveUser($event)">
 
+
+    <div class="text-lg flex justify-center mt-4 mb-2">
+      Personal Information
+
+    </div>
+
     <div class="grid gap-6 mb-6 sm:grid-cols-3">
 
       <div>
@@ -20,21 +26,9 @@
           @if (firstnameField!.hasError('required')){<div class="pb-4 pt-1 text-sm text-red-600">You must write
             something</div> }
           @if (firstnameField!.hasError('minlength')){<div class="pb-4 pt-1 text-sm text-red-600">
-            At Least 3 letters please</div> }
+            At Least 2 letters please</div> }
         </div>
       </div>
-
-      <!-- <div>
-        <label class="block mb-2 text-sm font-medium text-gray-900">
-          Middle Name:
-        </label>
-        <input type="text" formControlName="middlename" class="x_input" [class.is-valid]="ismiddlenameFieldValid"
-          [class.is-invalid]="ismiddlenameFieldInvalid" />
-        <div class="messages absolute" [class.active]="middlenameField!.touched && middlenameField!.invalid">
-          @if (middlenameField!.hasError('maxlength')){<div class="pb-4 pt-1 text-sm text-red-600">No more than 20
-            letters</div> }
-        </div>
-      </div> -->
 
       <div>
         <label class="block mb-2 text-sm font-medium text-gray-900">
@@ -46,7 +40,7 @@
           @if (lastnameField!.hasError('maxlength')){<div class="pb-4 pt-1 text-sm text-red-600">No more than 30
             letters</div> }
           @if (lastnameField!.hasError('minlength')){<div class="pb-4 pt-1 text-sm text-red-600">
-            At Least 3 letters please</div> }
+            At Least 2 letters please</div> }
         </div>
       </div>
 
@@ -61,6 +55,75 @@
             This input is required</div> }
         </div>
       </div>
+
+
+      <div>
+        <label class="form-label" class="block mb-1 mt-1 text-sm font-medium text-gray-900 ">
+          Phone number:</label>
+        <div class="relative">
+          <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+            <svg class="w-4 h-4 text-gray-500 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor" viewBox="0 0 19 18">
+              <path
+                d="M18 13.446a3.02 3.02 0 0 0-.946-1.985l-1.4-1.4a3.054 3.054 0 0 0-4.218 0l-.7.7a.983.983 0 0 1-1.39 0l-2.1-2.1a.983.983 0 0 1 0-1.389l.7-.7a2.98 2.98 0 0 0 0-4.217l-1.4-1.4a2.824 2.824 0 0 0-4.218 0c-3.619 3.619-3 8.229 1.752 12.979C6.785 16.639 9.45 18 11.912 18a7.175 7.175 0 0 0 5.139-2.325A2.9 2.9 0 0 0 18 13.446Z" />
+            </svg>
+          </div>
+          <input type="tel" formControlName="phone" class="x_input_with_icon" [class.is-valid]="isphoneFieldValid"
+            [class.is-invalid]="isphoneFieldInvalid" placeholder="123-456-7890" />
+        </div>
+        <div class="messages absolute" [class.active]="phoneField!.touched && phoneField!.invalid">
+          @if (phoneField!.hasError('minlength')){<div class="pb-4 pt-1 text-sm text-red-600">
+            At least 9 number for phones</div> }
+        </div>
+      </div>
+
+
+      <div>
+        <label class="block mb-2 text-sm font-medium text-gray-900">Birthday:</label>
+        <input type="date" formControlName="birthdate" class="x_input" />
+      </div>
+
+
+      <div class="flex mt-4 mb-4 py-1">
+        <div class="flex items-center me-4">
+          <label for="inline-checked-checkbox" class="ms-2 text-sm font-medium text-gray-900 ">
+            Conctact by... </label>
+        </div>
+        <div class="flex items-center me-4">
+          <input type="checkbox" formControlName="byEmail"
+            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2  ">
+          <label class="ms-2 text-sm font-medium text-gray-900 ">
+            Email
+          </label>
+        </div>
+        <div class="flex items-center me-4">
+          <input type="checkbox" formControlName="byPhone"
+            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2">
+          <label class="ms-2 text-sm font-medium text-gray-900 ">
+            Phone
+          </label>
+        </div>
+      </div>
+
+
+    </div>
+
+    <div class="text-lg justify-center mt-6 mb-2">
+      <div>
+        <label class="block mb-2 text-sm font-medium text-gray-900">Optional:</label>
+        <!-- <input type="text" formControlName="optionalText" class="x_input" /> -->
+        <textarea formControlName="optionalText"  rows="4"
+          class="block p-2.5 w-full text-sm text-gray-900 bg-transparent rounded-lg border border-gray-400"></textarea>
+      </div>
+    </div>
+
+
+    <div class="text-lg flex justify-center mt-12 mb-2">
+      Shipping Information
+
+    </div>
+    <div class="grid gap-6 mb-6 sm:grid-cols-3">
+
 
 
       <div>
@@ -152,56 +215,6 @@
       </div>
 
 
-      <div>
-        <label class="form-label" class="block mb-1 mt-1 text-sm font-medium text-gray-900 ">
-          Phone number:</label>
-        <div class="relative">
-          <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
-            <svg class="w-4 h-4 text-gray-500 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-              fill="currentColor" viewBox="0 0 19 18">
-              <path
-                d="M18 13.446a3.02 3.02 0 0 0-.946-1.985l-1.4-1.4a3.054 3.054 0 0 0-4.218 0l-.7.7a.983.983 0 0 1-1.39 0l-2.1-2.1a.983.983 0 0 1 0-1.389l.7-.7a2.98 2.98 0 0 0 0-4.217l-1.4-1.4a2.824 2.824 0 0 0-4.218 0c-3.619 3.619-3 8.229 1.752 12.979C6.785 16.639 9.45 18 11.912 18a7.175 7.175 0 0 0 5.139-2.325A2.9 2.9 0 0 0 18 13.446Z" />
-            </svg>
-          </div>
-          <input type="tel" formControlName="phone" class="x_input_with_icon" [class.is-valid]="isphoneFieldValid"
-            [class.is-invalid]="isphoneFieldInvalid" placeholder="123-456-7890" />
-        </div>
-        <div class="messages absolute" [class.active]="phoneField!.touched && phoneField!.invalid">
-          @if (phoneField!.hasError('minlength')){<div class="pb-4 pt-1 text-sm text-red-600">
-            At least 9 number for phones</div> }
-        </div>
-      </div>
-
-
-
-
-      <div>
-        <label class="block mb-2 text-sm font-medium text-gray-900">Birthday:</label>
-        <input type="date" formControlName="birthdate" class="x_input" />
-      </div>
-
-
-      <div class="flex mt-4 mb-4 py-1">
-        <div class="flex items-center me-4">
-          <label for="inline-checked-checkbox" class="ms-2 text-sm font-medium text-gray-900 ">
-            Conctact by... </label>
-        </div>
-        <div class="flex items-center me-4">
-          <input type="checkbox" formControlName="byEmail"
-            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2  ">
-          <label class="ms-2 text-sm font-medium text-gray-900 ">
-            Email
-          </label>
-        </div>
-        <div class="flex items-center me-4">
-          <input type="checkbox" formControlName="byPhone"
-            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2">
-          <label class="ms-2 text-sm font-medium text-gray-900 ">
-            Phone
-          </label>
-        </div>
-      </div>
-
       <!-- <div>
         <label class="block mb-2 text-sm font-medium text-gray-900">Country:</label>
         <input type="text" formControlName="country"
@@ -211,13 +224,13 @@
       <div class="flex mt-4 mb-4 py-1">
         <div class="flex items-center me-4">
           <label for="inline-checked-checkbox" class="ms-2 text-sm font-medium text-gray-900 ">
-            BILLING SAME as... </label>
+            BILL address DIF than Shipping??. </label>
         </div>
         <div class="flex items-center me-4">
-          <input type="checkbox" formControlName="billSameShip"
+          <input type="checkbox" formControlName="billDifThanShip"
             class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2  ">
           <label class="ms-2 text-sm font-medium text-gray-900 ">
-            Same as
+            YES
           </label>
         </div>
 
@@ -227,6 +240,16 @@
 
 
 
+    </div>
+
+
+
+
+    <div class="text-lg flex justify-center mt-12 mb-2">
+      Billing Information
+
+    </div>
+    <div class="grid gap-6 mb-6 sm:grid-cols-3">
 
 
       <div>

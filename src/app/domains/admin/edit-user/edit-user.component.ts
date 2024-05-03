@@ -47,7 +47,6 @@ export class EditUserComponent {
 
   };
 
-
   ngOnInit() {
 
   };
@@ -61,24 +60,22 @@ export class EditUserComponent {
 
   private buildForm() {
     this.form = this.formBuilder.group({
-      fullname: [this.user.fullname, [Validators.minLength(2)]],
       firstname: [this.user.firstname, [Validators.required, Validators.minLength(2), Validators.maxLength(30)]],
-      // middlename: [this.user.middlename, [Validators.maxLength(20)]],
-      lastname: [this.user.lastname, [Validators.minLength(3), Validators.maxLength(30)]],
+      lastname: [this.user.lastname, [Validators.minLength(2), Validators.maxLength(30)]],
       email: [this.user.email, [Validators.required, Validators.email]],
-      address: [this.user.address, Validators.minLength(8)],
-      addressExtra: [this.user.addressExtra],
-      city: [this.user.city],
-      state: [this.user.state],
-      zipCode: [this.user.zipCode, Validators.minLength(5)],
       phone: [this.user.phone, [Validators.minLength(9)]],
-      optionalText: [this.user.optionalText],
-      country: [this.user.country],
       birthdate: [this.user.birthdate, [Validators.required, Validators.minLength(7)]],
-      // agree: [false],
       byEmail: [this.user.byEmail],
       byPhone: [this.user.byPhone],
-      billSameShip: [this.user.billSameShip],
+      optionalText: [this.user.optionalText, Validators.maxLength(80)],
+      address: [this.user.address, Validators.minLength(8)],
+      addressExtra: [this.user.addressExtra],
+      city: [this.user.city, [Validators.minLength(2)]],
+      state: [this.user.state],
+      zipCode: [this.user.zipCode, Validators.minLength(5)],
+      country: [this.user.country],
+      // agree: [false],
+      billDifThanShip: [this.user.billDifThanShip],
       xaddress: [this.user.xaddress],
       xaddressExtra: [this.user.xaddressExtra],
       xcity: [this.user.xcity],
@@ -104,15 +101,9 @@ export class EditUserComponent {
   };
 
 
-  // get fullnameField() {
-  //   return this.form.get('fullname')
-  // };
   get firstnameField() {
     return this.form.get('firstname')
   };
-  // get middlenameField() {
-  //   return this.form.get('middlename')
-  // };
   get lastnameField() {
     return this.form.get('lastname')
   };
@@ -122,11 +113,17 @@ export class EditUserComponent {
   get phoneField() {
     return this.form.get('phone')
   };
+  get birthdateField() {
+    return this.form.get('birthdate')
+  };
   get byEmailField() {
     return this.form.get('byEmail')
   };
   get byPhoneField() {
     return this.form.get('byPhone')
+  };
+  get optionalTextField() {
+    return this.form.get('optionalText')
   };
 
   get addressField() {
@@ -145,15 +142,15 @@ export class EditUserComponent {
     return this.form.get('zipCode')
   };
 
-  get adultField() {
-    return this.form.get('adult')
-  };
-  get agreeField() {
-    return this.form.get('agree')
-  };
+  // get adultField() {
+  //   return this.form.get('adult')
+  // };
+  // get agreeField() {
+  //   return this.form.get('agree')
+  // };
 
-  get billSameShipField() {
-    return this.form.get('billSameShip')
+  get billDifThanShipField() {
+    return this.form.get('billDifThanShip')
   };
 
   get xaddressField() {
@@ -182,13 +179,6 @@ export class EditUserComponent {
   get isfirstnameFieldInvalid() {
     return this.firstnameField!.touched && this.firstnameField!.invalid
   };
-  // // MIDDLENAME
-  // get ismiddlenameFieldValid() {
-  //   return this.middlenameField!.touched && this.middlenameField!.valid
-  // };
-  // get ismiddlenameFieldInvalid() {
-  //   return this.middlenameField!.touched && this.middlenameField!.invalid
-  // };
   // LAST name
   get islastnameFieldValid() {
     return this.lastnameField!.touched && this.lastnameField!.valid
@@ -210,6 +200,36 @@ export class EditUserComponent {
   get isphoneFieldInvalid() {
     return this.phoneField!.touched && this.phoneField!.invalid
   };
+  // BIRTHDATE
+  get isbirthdateFieldValid() {
+    return this.birthdateField!.touched && this.birthdateField!.valid
+  };
+  get isbirthdateFieldInvalid() {
+    return this.birthdateField!.touched && this.birthdateField!.invalid
+  };
+  // BY phone
+  get isbyPhoneFieldValid() {
+    return this.byPhoneField!.touched && this.byPhoneField!.valid
+  };
+  get isbyPhoneFieldInvalid() {
+    return this.byPhoneField!.touched && this.byPhoneField!.invalid
+  };
+  // BY email
+  get isbyEmailFieldValid() {
+    return this.byEmailField!.touched && this.byEmailField!.valid
+  };
+  get isbyEmailFieldInvalid() {
+    return this.byEmailField!.touched && this.byEmailField!.invalid
+  };
+  // OPTIONAL TEXT
+  get isoptionalTextFieldValid() {
+    return this.optionalTextField!.touched && this.optionalTextField!.valid
+  };
+  get isoptionalTextFieldInvalid() {
+    return this.optionalTextField!.touched && this.optionalTextField!.invalid
+  };
+
+
   // ADDRESS
   get addressFieldValid() {
     return this.addressField!.touched && this.addressField!.valid
@@ -246,13 +266,15 @@ export class EditUserComponent {
     return this.zipCodeField!.touched && this.zipCodeField!.invalid
   };
 
+
   // BILL Same as SHIPPING
-  get isbillSameShipFieldValid() {
-    return this.billSameShipField!.touched && this.billSameShipField!.valid
+  get isbillDifThanShipFieldValid() {
+    return this.billDifThanShipField!.touched && this.billDifThanShipField!.valid
   };
-  get isbillSameShipFieldInvalid() {
-    return this.billSameShipField!.touched && this.billSameShipField!.invalid
+  get isbillDifThanShipFieldInvalid() {
+    return this.billDifThanShipField!.touched && this.billDifThanShipField!.invalid
   };
+
 
   // X ADDRESS
   get xaddressFieldValid() {

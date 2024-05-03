@@ -37,8 +37,7 @@ export class JoinmailComponent {
   private buildForm() {
     this.formJoinMail = this.formBuilder.group({
       fullname: ['', [Validators.required, Validators.minLength(4)]],
-      email: ['', [Validators.required, Validators.email]],
-      byEmail: [true],
+      email: ['', [Validators.required, Validators.email]]
     });
   }
 

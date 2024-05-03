@@ -4,7 +4,6 @@ export interface Client {
   email: string;
   fullname?: string;
   firstname?: string;
-  middlename?: string;
   lastname?: string;
   phone?: string;
   birthdate?: string;
@@ -18,7 +17,7 @@ export interface Client {
   city?: string;
   zipCode?: string;
   country?: string;
-  billSameShip?: boolean;
+  billDifThanShip?: boolean;
   xaddress?: string;
   xaddressExtra?: string;
   xstate?: string;
