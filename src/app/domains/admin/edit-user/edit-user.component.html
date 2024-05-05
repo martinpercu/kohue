@@ -21,12 +21,12 @@
         <input type="text" formControlName="firstname" class="x_input" [class.is-valid]="isfirstnameFieldValid"
           [class.is-invalid]="isfirstnameFieldInvalid" />
         <div class="messages absolute" [class.active]="firstnameField!.touched && firstnameField!.invalid">
-          @if (firstnameField!.hasError('maxlength')){<div class="pb-4 pt-1 text-sm text-red-600">No more than 30
-            letters</div> }
-          @if (firstnameField!.hasError('required')){<div class="pb-4 pt-1 text-sm text-red-600">You must write
-            something</div> }
+          @if (firstnameField!.hasError('maxlength')){<div class="pb-4 pt-1 text-sm text-red-600">
+            No more than 30 letters</div> }
+          @if (firstnameField!.hasError('required')){<div class="pb-4 pt-1 text-sm text-red-600">
+            You must write something</div> }
           @if (firstnameField!.hasError('minlength')){<div class="pb-4 pt-1 text-sm text-red-600">
-            At Least 2 letters please</div> }
+            At least 2 letters please</div> }
         </div>
       </div>
 
@@ -53,6 +53,8 @@
             This is not a valid email</div> }
           @if (emailField!.hasError('required')){<div class="pb-4 pt-1 text-sm text-red-600">
             This input is required</div> }
+          @if (emailField!.hasError('maxlength')){<div class="pb-4 pt-1 text-sm text-red-600">
+            No more than 80 letters </div> }
         </div>
       </div>
 
@@ -74,6 +76,10 @@
         <div class="messages absolute" [class.active]="phoneField!.touched && phoneField!.invalid">
           @if (phoneField!.hasError('minlength')){<div class="pb-4 pt-1 text-sm text-red-600">
             At least 9 number for phones</div> }
+          @if (phoneField!.hasError('maxlength')){<div class="pb-4 pt-1 text-sm text-red-600">
+            No more than 15 letters</div> }
+          @if (phoneField!.hasError('pattern')){<div class="pb-4 pt-1 text-sm text-red-600">
+            patterns</div> }
         </div>
       </div>
 
@@ -348,7 +354,7 @@
 
 
     <button [disabled]="form.invalid" [class.buttonDisabled]="form.invalid" type="submit"
-      class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+      class="button">
       Save USER
     </button>
 

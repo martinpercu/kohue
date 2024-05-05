@@ -46,7 +46,8 @@ export class SigninComponent {
         this.client = {
           firstname: this.formReg.value.firstname,
           email: this.formReg.value.email,
-          clientUID: response.user.uid
+          clientUID: response.user.uid,
+          billDifThanShip: false
         };
 
         console.log(this.client);

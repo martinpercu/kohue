@@ -18,6 +18,8 @@ export interface Client {
   zipCode?: string;
   country?: string;
   billDifThanShip?: boolean;
+  xfirstname?: string;
+  xlastname?: string;
   xaddress?: string;
   xaddressExtra?: string;
   xstate?: string;

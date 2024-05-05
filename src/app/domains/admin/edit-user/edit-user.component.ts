@@ -1,11 +1,9 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common'
 import { FormControl, Validators, FormGroup, ReactiveFormsModule, FormBuilder } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Client } from '@models/client.model';
 import { ClientService } from '@services/client.service';
-
-import { phonePath } from '@shared/icon-paths/icons';
 
 import { AdminNavbarComponent } from '@admin/admin-navbar/admin-navbar.component';
 
@@ -30,9 +28,6 @@ export class EditUserComponent {
   user!: Client;
   userId!: string;
 
-  phonePath:string;
-  color:string;
-
 
   constructor() {
     const id = String(this.activatedRoute.snapshot.paramMap.get('id'));
@@ -41,15 +36,11 @@ export class EditUserComponent {
       console.log('hay parametro', this.userId);
       this.getUser()
     };
-
-    this.phonePath = phonePath;
-    this.color = "green";
-
   };
 
-  ngOnInit() {
+  // ngOnInit() {
 
-  };
+  // };
 
   async getUser() {
     const userGetted = await this.clientService.getOneUser(this.userId);
@@ -62,8 +53,8 @@ export class EditUserComponent {
     this.form = this.formBuilder.group({
       firstname: [this.user.firstname, [Validators.required, Validators.minLength(2), Validators.maxLength(30)]],
       lastname: [this.user.lastname, [Validators.minLength(2), Validators.maxLength(30)]],
-      email: [this.user.email, [Validators.required, Validators.email]],
-      phone: [this.user.phone, [Validators.minLength(9)]],
+      email: [this.user.email, [Validators.required, Validators.email, Validators.maxLength(80)]],
+      phone: [this.user.phone, [Validators.minLength(9), Validators.maxLength(15), Validators.pattern("^[0-9]*$")]],
       birthdate: [this.user.birthdate, [Validators.required, Validators.minLength(7)]],
       byEmail: [this.user.byEmail],
       byPhone: [this.user.byPhone],
@@ -73,8 +64,7 @@ export class EditUserComponent {
       city: [this.user.city, [Validators.minLength(2)]],
       state: [this.user.state],
       zipCode: [this.user.zipCode, Validators.minLength(5)],
-      country: [this.user.country],
-      // agree: [false],
+      // country: [this.user.country],
       billDifThanShip: [this.user.billDifThanShip],
       xaddress: [this.user.xaddress],
       xaddressExtra: [this.user.xaddressExtra],
@@ -85,10 +75,6 @@ export class EditUserComponent {
     });
   };
 
-
-  // getValue() {
-  //   console.log(this.fullnameField!.value);
-  // };
 
   saveUser(event: Event) {
     if (this.form.valid) {
