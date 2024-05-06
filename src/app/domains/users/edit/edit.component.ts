@@ -72,7 +72,7 @@ export class EditComponent {
       lastname: [this.user.lastname, [Validators.minLength(2), Validators.maxLength(30)]],
       email: [this.user.email, [Validators.required, Validators.email, Validators.maxLength(80)]],
       phone: [this.user.phone, [Validators.minLength(9), Validators.maxLength(15), Validators.pattern("^[0-9]*$")]],
-      birthdate: [this.user.birthdate, [Validators.required, Validators.minLength(7)]],
+      birthdate: [this.user.birthdate, [Validators.minLength(7)]],
       byEmail: [this.user.byEmail],
       byPhone: [this.user.byPhone],
       optionalText: [this.user.optionalText, Validators.maxLength(80)],

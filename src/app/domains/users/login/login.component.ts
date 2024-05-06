@@ -50,6 +50,10 @@ export class LoginComponent {
 
   navToEdit() {
     this.router.navigate(['edit'])
+  };
+
+  navToJoin() {
+    this.router.navigate(['join'])
   }
 
   navToSignIn() {

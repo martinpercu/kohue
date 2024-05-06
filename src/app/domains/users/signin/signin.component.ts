@@ -58,10 +58,13 @@ export class SigninComponent {
   };
 
   async createRegisteredUser(userBasic: Client, userUID: any) {
-    const response = await this.clientService.addUserWithId(userBasic, userUID);
+    const response = await this.clientService.addUserWithId(userBasic, userUID).then(() => {
+      this.navToEdit();
+      this.emailsender.sendEmailRegister(this.formReg.value);
+    });
     console.log(response);
-    this.navToEdit();
-    this.emailsender.sendEmailRegister(this.formReg.value);
+    // this.navToEdit();
+    // this.emailsender.sendEmailRegister(this.formReg.value);
   };
 
   navToDash() {

@@ -10,11 +10,11 @@
 
 
 @if(user) {
-<div class="m-auto min-w-80 max-w-4xl p-2 rounded-lg border sm:p-6 md:p-8 border-green-400">
+<div class="m-auto min-w-80 max-w-4xl p-2 rounded-lg sm:p-6 md:p-8">
 
   <form [formGroup]="form" (ngSubmit)="saveUser($event)">
 
-    <div class="text-lg flex justify-center mt-2 mb-2">
+    <div class="text-lg flex justify-center mt-2 mb-2 uppercase">
       Personal Information
     </div>
 
@@ -53,7 +53,7 @@
             {{this.user.phone}}
           </div>
           <div>
-            {{this.user.birthdate}}
+            {{this.user.birthdate | date }}
           </div>
           <div class="text-nowrap">
             @if(this.user.byEmail && !this.user.byPhone){ by email }
@@ -81,7 +81,7 @@
             Birth date:
           </div>
           <div>
-            {{this.user.birthdate}}
+            {{ this.user.birthdate | date }}
           </div>
           <div class="text-nowrap">
             Contact by:
@@ -218,7 +218,7 @@
 
       <div class="text-lg justify-center mt-6 mb-2">
         <div>
-          <label class="block mb-2 text-sm font-medium text-gray-900">Optional:</label>
+          <label class="block mb-2 text-sm font-medium text-gray-900">Optional notes:</label>
           <!-- <input type="text" formControlName="optionalText" class="x_input" /> -->
           <textarea formControlName="optionalText" rows="2"
             class="block p-2.5 w-full text-sm text-gray-900 bg-transparent rounded-lg border border-gray-400"></textarea>
@@ -233,9 +233,9 @@
     }
 
 
-    @if(this.user.firstname && this.user.birthdate) {
+    <!-- @if(this.user.firstname && this.user.birthdate) { -->
 
-    <div class="text-lg flex justify-center mt-12 mb-2">
+    <div class="text-lg flex justify-center mt-12 mb-2 uppercase">
       Shipping Address
     </div>
 
@@ -413,10 +413,10 @@
     </div>
     }
 
-    @if(this.user.billDifThanShip == true) {
+    <!-- @if(this.user.billDifThanShip == true) { -->
 
-    <div class="text-lg flex justify-center mt-12 mb-2">
-      Billing Information
+    <div class="text-lg flex justify-center mt-12 mb-2 uppercase">
+      Billing Address
     </div>
 
     @if(editBilling == false) {
@@ -586,9 +586,9 @@
     </div>
     }
 
-    } <!-- This is for billing address ===> needs address + city + state + zipcode -->
+    <!-- }  This is for billing address ===> if shipping not same as billing -->
 
-    } <!-- This last "}" is from if user firstname + birthdate -->
+    <!-- }  This last "}" is from if user firstname + birthdate -->
 
 
 
