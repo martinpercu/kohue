@@ -32,6 +32,7 @@ export class SigninComponent {
   constructor() {
     this.formReg = new FormGroup({
       firstname: new FormControl(),
+      lastname: new FormControl(),
       email: new FormControl(),
       password: new FormControl()
     })
@@ -45,6 +46,7 @@ export class SigninComponent {
         console.log(response.user.uid);
         this.client = {
           firstname: this.formReg.value.firstname,
+          lastname: this.formReg.value.lastname,
           email: this.formReg.value.email,
           clientUID: response.user.uid,
           billDifThanShip: false
@@ -52,7 +54,9 @@ export class SigninComponent {
 
         console.log(this.client);
         this.createRegisteredUser(this.client, response.user.uid);
-        this.router.navigate(['edit']);
+        // .then(() => {
+        //   this.router.navigate(['edit']);
+        // });
       })
       .catch(error => console.log(error));
   };

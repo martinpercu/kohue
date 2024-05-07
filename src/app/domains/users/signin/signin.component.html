@@ -8,18 +8,23 @@
   </div>
 </div>
 
-<div
-class="m-auto w-3/4 max-w-sm sm:max-w-lg min-w-80 p-4 bg-transparent rounded-lg sm:p-6"
->
+<div class="m-auto w-3/4 max-w-md sm:max-w-lg min-w-80 p-4 bg-transparent rounded-lg sm:p-6">
   <form [formGroup]="formReg" (ngSubmit)="onSubmit()">
     <!-- <div class="text-xl font-medium text-gray-900 dark:text-white">Sign in to our platform</div> -->
 
-    <div>
-      <label class="form-label" class="block mb-1 mt-2 text-xs font-medium text-gray-900 dark:text-white">Firstname:</label>
-      <input class="form-control" formControlName="firstname" type="text"
-        class="x_input"
-        placeholder="">
-    </div>
+    <div class="grid gap-4 sm:grid-cols-2">
+      <div>
+        <label class="form-label" class="block mb-1 mt-2 text-xs font-medium text-gray-900 dark:text-white">First
+          name:</label>
+        <input class="form-control" formControlName="firstname" type="text" class="x_input" placeholder="">
+      </div>
+
+      <div>
+        <label class="form-label" class="block mb-1 mt-2 text-xs font-medium text-gray-900 dark:text-white">Last
+          name:</label>
+        <input class="form-control" formControlName="lastname" type="text" class="x_input" placeholder="">
+      </div>
+
 
     <div>
       <label class="form-label" class="block mb-1 mt-2 text-xs font-medium text-gray-900 dark:text-white">Email:</label>
@@ -33,22 +38,21 @@ class="m-auto w-3/4 max-w-sm sm:max-w-lg min-w-80 p-4 bg-transparent rounded-lg 
           </svg>
         </div>
         <input class="form-control" formControlName="email" type="email" id="email-address-icon"
-          class="x_input_with_icon"
-          placeholder="" value="">
+          class="x_input_with_icon" placeholder="" value="">
       </div>
     </div>
 
     <div>
       <label class="form-label"
         class="block mb-1 mt-2 text-xs font-medium text-gray-900 dark:text-white">Password:</label>
-      <input class="form-control" formControlName="password" type="password"
-        class="x_input"
-        placeholder="•••••••••" required>
+      <input class="form-control" formControlName="password" type="password" class="x_input" placeholder="•••••••••"
+        required>
     </div>
+  </div>
+
 
     <div class="mt-8">
-      <button type="submit"
-        class="button login uppercase">
+      <button type="submit" class="button login uppercase">
         Sign In
       </button>
     </div>
@@ -58,15 +62,15 @@ class="m-auto w-3/4 max-w-sm sm:max-w-lg min-w-80 p-4 bg-transparent rounded-lg 
   <div class="mt-4">
     <!-- <span class="small-text providers">Have a Google acount?</span>
     <app-button-providers [isLogin]="true" /> -->
-    <span class="small-text log-in-redirect">Already registered?    <span class="hover:underline cursor-pointer"  (click)="navToLogin()">Log in</span></span>
+    <span class="small-text log-in-redirect">Already registered? <span class="hover:underline cursor-pointer"
+        (click)="navToLogin()">Log in</span></span>
 
   </div>
 
   <div class="mt-4">
     <div>
-      <button type="button"
-      class="button inline-flex items-center">
-      <svg class="w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+      <button type="button" class="button inline-flex items-center">
+        <svg class="w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
           viewBox="0 0 18 19">
           <path fill-rule="evenodd"
             d="M8.842 18.083a8.8 8.8 0 0 1-8.65-8.948 8.841 8.841 0 0 1 8.8-8.652h.153a8.464 8.464 0 0 1 5.7 2.257l-2.193 2.038A5.27 5.27 0 0 0 9.09 3.4a5.882 5.882 0 0 0-.2 11.76h.124a5.091 5.091 0 0 0 5.248-4.057L14.3 11H9V8h8.34c.066.543.095 1.09.088 1.636-.086 5.053-3.463 8.449-8.4 8.449l-.186-.002Z"
