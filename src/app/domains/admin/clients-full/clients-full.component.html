@@ -14,6 +14,9 @@
     <thead class="text-xs text-gray-700 uppercase bg-gray-50">
       <tr>
         <th scope="col" class="px-6 py-3">
+          Fist Name
+        </th>
+        <th scope="col" class="px-6 py-3">
           Full Name
         </th>
         <th scope="col" class="px-6 py-3">
@@ -28,6 +31,9 @@
       @for (client of clients; track client; let i = $index)
       {
       <tr class="odd:bg-white even:bg-gray-50 border-b">
+        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+          {{client.firstname}}
+        </th>
         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
           {{client.fullname}}
         </th>
