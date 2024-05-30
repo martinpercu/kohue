@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "vineyardsinandes"
-  }
+    "default": "vineyardsinandes",
+    "kohuewines": "kohuewines-d544f"
+  },
+  "targets": {},
+  "etags": {}
 }
