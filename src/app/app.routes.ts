@@ -12,11 +12,16 @@ import { EditComponent } from '@users/edit/edit.component';
 import { JoinmailComponent } from '@users/joinmail/joinmail.component';
 import { JoinedmaillistComponent } from '@users/joinedmaillist/joinedmaillist.component';
 import { NotfoundComponent } from '@shared/notfound/notfound.component';
+import { StripeComponent  } from '@users/stripe/stripe.component';
 
 import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard'
 
 
 export const routes: Routes = [
+  {
+    path: 'stripe',
+    component: StripeComponent
+  },
   {
     path: 'test',
     component: LayoutComponent
