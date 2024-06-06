@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { loadStripe, Stripe } from '@stripe/stripe-js';
-// import { AngularFireFunctions } from '@angular/fire/functions';
+import { Functions } from '@angular/fire/functions';
 
 import { stripePublic } from '@env/environment'
 
@@ -15,9 +15,8 @@ import { stripePublic } from '@env/environment'
 export class StripeComponent {
   // private stripe: Stripe;
 
-  // constructor(private fns: AngularFireFunctions) {
+  // private fns = inject(Functions);
 
-  // }
 
   // async ngOnInit() {
   //   this.stripe = await loadStripe(stripePublic);
@@ -74,9 +73,9 @@ export class StripeComponent {
   //         console.log(result);
   //         if (result.error) {
   //           const errorElement = document.getElementById('card-errors');
-  //           errorElement.textContent = result.error.message;
+  //           // errorElement.textContent = result.error.message;
   //         } else {
-  //           this.stripeSourceHandler(result.source);
+  //           // this.stripeSourceHandler(result.source);
   //         }
   //       });
   //     });
