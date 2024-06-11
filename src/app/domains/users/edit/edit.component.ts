@@ -2,6 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common'
 
 import { NavbarComponent } from '@shared/navbar/navbar.component';
+import { NavbarsignedComponent } from '@shared/navbarsigned/navbarsigned.component';
 import { Client } from '@models/client.model'
 import { Router } from '@angular/router';
 import { FormControl, Validators, FormGroup, ReactiveFormsModule, FormBuilder } from '@angular/forms';
@@ -13,7 +14,7 @@ import { ClientService } from '@services/client.service';
 @Component({
   selector: 'app-edit',
   standalone: true,
-  imports: [NavbarComponent, ReactiveFormsModule, CommonModule],
+  imports: [NavbarsignedComponent, NavbarComponent, ReactiveFormsModule, CommonModule],
   templateUrl: './edit.component.html',
   styleUrl: './edit.component.css'
 })

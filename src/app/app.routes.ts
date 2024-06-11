@@ -6,6 +6,7 @@ import { UsersFullComponent } from '@admin/users-full/users-full.component';
 import { EditUserComponent } from '@admin/edit-user/edit-user.component';
 import { AcquireComponent } from '@users/acquire/acquire.component';
 import { SigninComponent } from '@users/signin/signin.component';
+import { BuywineComponent } from '@users/buywine/buywine.component';
 import { LoginComponent } from '@users/login/login.component';
 import { DashboardComponent } from '@users/dashboard/dashboard.component';
 import { EditComponent } from '@users/edit/edit.component';
@@ -13,11 +14,16 @@ import { JoinmailComponent } from '@users/joinmail/joinmail.component';
 import { JoinedmaillistComponent } from '@users/joinedmaillist/joinedmaillist.component';
 import { NotfoundComponent } from '@shared/notfound/notfound.component';
 import { StripeComponent  } from '@users/stripe/stripe.component';
+import { MonoproductComponent  } from '@shop/monoproduct/monoproduct.component';
 
 import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard'
 
 
 export const routes: Routes = [
+  {
+    path: 'mono',
+    component: MonoproductComponent
+  },
   {
     path: 'stripe',
     component: StripeComponent
@@ -62,6 +68,11 @@ export const routes: Routes = [
   {
     path: 'signin',
     component: SigninComponent
+  },
+  {
+    path: 'buywine',
+    component: BuywineComponent,
+    ...canActivate(() => redirectUnauthorizedTo(['acquire']))
   },
   {
     path: 'acquire',

@@ -12,8 +12,16 @@
 };
 
 .button_navbar {
-  @apply font-buttonFont text-brandgold text-center items-center bg-xdark hover:bg-xbrown focus:ring-1 focus:outline-none focus:ring-xlight font-medium rounded-md text-sm px-2 py-1 sm:px-6 sm:py-2;
+  @apply hover:cursor-pointer font-buttonFont text-brandgold text-center items-center bg-xdark hover:bg-xbrown focus:ring-1 focus:outline-none focus:ring-xlight font-medium rounded-md text-sm px-2 py-1 sm:px-6 sm:py-2;
 };
+
+.navbar_cart {
+  @apply hover:cursor-pointer font-buttonFont text-brandgold text-center items-center bg-xdark hover:bg-xbrown focus:ring-1 focus:outline-none focus:ring-xlight font-medium rounded-md text-sm;
+};
+
+.hover_pointer {
+  @apply hover:cursor-pointer
+}
 
 .x_input {
   @apply bg-transparent border-gray-400 border text-gray-900 text-sm rounded-lg w-full p-2.5;
