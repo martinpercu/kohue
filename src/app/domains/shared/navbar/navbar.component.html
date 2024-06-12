@@ -1,16 +1,16 @@
 <nav class="bg-xdark hidden sm:block">
   <div class="flex justify-between py-1 px-3 sm:py-4 sm:px-8">
 
-    <div (click)="navToHome()" class="flex-row">
+    <div (click)="navToHome()"  class="my-auto">
       <img src="./../../../../assets/img/kohue-sello-name.svg" class="h-4 sm:h-7 hover:cursor-pointer"
         alt="Kohue Wines" />
     </div>
 
-    <div class="flex-row">
+    <div class="flex flex-row">
       <button (click)="navJointhelist()" class="button_navbar mr-1 uppercase">
         Join the List
       </button>
-      <button (click)="navEdit()" class="button_navbar uppercase">
+      <button (click)="navMembers()" class="button_navbar uppercase">
         Members
       </button>
     </div>
@@ -45,7 +45,7 @@
         </button>
       </div>
       <div class="">
-        <button (click)="navEdit()" class="button_navbar uppercase">
+        <button (click)="navMembers()" class="button_navbar uppercase">
           Members
         </button>
       </div>

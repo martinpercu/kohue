@@ -1,4 +1,4 @@
-import { Component, inject, signal } from '@angular/core';
+import { Component, EventEmitter, Output, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
 
 
@@ -11,11 +11,13 @@ import { Router } from '@angular/router';
 })
 export class NavbarsignedComponent {
 
-  private router = inject(Router);
+  @Output() showMonoproduct = new EventEmitter();
 
+  private router = inject(Router);
 
   hideSideMenu = signal(true);
   cart: any = signal('sed');
+  showWine = false;
 
 
   // logOut() {
@@ -36,15 +38,23 @@ export class NavbarsignedComponent {
   };
 
   navEdit() {
-    this.router.navigate(['edit'])
+    this.router.navigate(['members'])
   };
 
   navAcquire() {
     this.router.navigate(['acquire'])
   };
 
-  navBuywine() {
-    this.router.navigate(['buywine'])
+  // navBuywine() {
+  //   this.router.navigate(['members']);
+  // };
+
+  showWines() {
+    // this.router.navigate(['mono']);
+    this.showWine = !this.showWine;
+    console.log('en nav' + "  " + this.showWine);
+
+    this.showMonoproduct.emit(this.showWine);
   };
 
 }

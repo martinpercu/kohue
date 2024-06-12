@@ -59,15 +59,13 @@ export class SigninComponent {
 
   async createRegisteredUser(userBasic: Client, userUID: any) {
     const response = await this.clientService.addUserWithId(userBasic, userUID).then(() => {
-      // this.navToEdit();
       console.log(this.formReg.value);
       console.log(this.client);
       this.emailsender.sendEmailRegister(this.client);
-      this.router.navigate(['edit']);
+      this.navToShopArea();
+      // this.router.navigate(['edit']);
     });
-    console.log(response);
-    // this.navToEdit();
-    // this.emailsender.sendEmailRegister(this.formReg.value);
+    console.log("shoud be empty/null ==>  " + response);
   };
 
   signGoogle() {
@@ -94,8 +92,8 @@ export class SigninComponent {
     this.router.navigate(['dashboard'])
   };
 
-  navToEdit() {
-    this.router.navigate(['edit'])
+  navToShopArea() {
+    this.router.navigate(['members'])
   };
 
   navToHome() {

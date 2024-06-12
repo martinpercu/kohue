@@ -1,5 +1,12 @@
 <!-- <app-navbar></app-navbar> -->
-<app-navbarsigned></app-navbarsigned>
+<!-- <app-navbarsigned (showMonoproduct)="fromNavbar($event)"></app-navbarsigned> -->
+<!-- <div >
+  <app-monoproduct></app-monoproduct>
+</div> -->
+
+@if(showWine == true) {
+  <app-monoproduct></app-monoproduct>
+}
 
 <!-- <div class="mt-4 flex justify-center text-pretty text-xl">
 

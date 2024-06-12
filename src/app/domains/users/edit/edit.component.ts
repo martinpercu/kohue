@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common'
 
 import { NavbarComponent } from '@shared/navbar/navbar.component';
@@ -11,10 +11,13 @@ import { AuthService } from '@services/auth.service';
 import { ClientService } from '@services/client.service';
 
 
+import { MonoproductComponent } from '@shop/monoproduct/monoproduct.component';
+
+
 @Component({
   selector: 'app-edit',
   standalone: true,
-  imports: [NavbarsignedComponent, NavbarComponent, ReactiveFormsModule, CommonModule],
+  imports: [NavbarsignedComponent, NavbarComponent, ReactiveFormsModule, CommonModule, MonoproductComponent],
   templateUrl: './edit.component.html',
   styleUrl: './edit.component.css'
 })
@@ -33,6 +36,12 @@ export class EditComponent {
   editPersoInfo: boolean = false;
   editShipping: boolean = false;
   editBilling: boolean = false;
+
+  showWine: boolean = false;
+
+  fromNavbar(event: boolean) {
+    this.showWine = event
+  }
 
   constructor() {
     // this.userUid = this.auth.getUserUid();

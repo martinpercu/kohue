@@ -19,8 +19,8 @@ export class LayoutComponent {
     this.router.navigate(['join'])
   };
 
-  navToEdit() {
-    this.router.navigate(['edit'])
+  navToShopArea() {
+    this.router.navigate(['members'])
   };
 
   navToAcquire() {
