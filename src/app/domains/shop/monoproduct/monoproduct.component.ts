@@ -1,6 +1,8 @@
-import { Component, Output, EventEmitter,  } from '@angular/core';
+import { Component, Output, EventEmitter, signal, inject } from '@angular/core';
 import { NavbarsignedComponent } from '@shared/navbarsigned/navbarsigned.component';
-import { Product } from '@models/product.model'
+import { Product } from '@models/product.model';
+
+import { CartService  } from '@services/cart.service'
 
 @Component({
   selector: 'app-monoproduct',
@@ -10,6 +12,12 @@ import { Product } from '@models/product.model'
   styleUrl: './monoproduct.component.css'
 })
 export class MonoproductComponent {
+
+  cart = signal<Product[]>([]);
+
+  private cartService = inject(CartService);
+
+
 
   monoproduct: Product = {
     id: 22,
@@ -25,12 +33,13 @@ export class MonoproductComponent {
     quantity: 1
   };
 
-  @Output() addToCart = new EventEmitter();
+  // @Output() addToCart = new EventEmitter();
 
   addToCartHandler() {
     console.log('clicking from the child');
     // this.addToCart.emit('este produto goes to the cart ==> ' + this.product.title + "\n" + "this is the price ===> " + this.product.price);
-    this.addToCart.emit(this.monoproduct);
+    // this.addToCart.emit(this.monoproduct);
+    this.cartService.addToCart(this.monoproduct);
   }
 
 }

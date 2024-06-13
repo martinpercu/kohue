@@ -9,7 +9,8 @@ import { Category } from '@models/category.model'
 export class CartService {
 
   cart = signal<Product[]>([]);
-  totalAmount = computed(() => {
+
+  subTotalAmount = computed(() => {
     const cart = this.cart();
     return cart.reduce((total, product) => total + product.price, 0);
   });
@@ -17,9 +18,26 @@ export class CartService {
   totalItems = computed(() => {
     const cart = this.cart();
     return cart.reduce((total, product) => total + product.quantity, 0);
-  })
+  });
 
-  realCart = signal<Product[]>([]);
+  shipping = signal<number>(150);
+  shippingAmount = signal<number>(150);
+
+  totalAmount = computed(() => this.subTotalAmount() + this.shipping())
+
+
+
+  // shippingAmount = computed(() => this.subTotalAmount + this.shipping);
+
+  x = signal(5);
+  y = signal(3);
+  z = computed(() => this.x() + this.y());
+  // console.log(z()); // 8
+
+
+  // totalAmount = (this.shippingAmount + this.subTotalAmount);
+
+  // realCart = signal<Product[]>([]);
 
   constructor() { }
 
@@ -47,8 +65,33 @@ export class CartService {
       console.log('No same product');
       this.cart.update(previousState => [...previousState, product]);
     };
-
     console.log(this.cart());
+  };
+
+  removeOneItem(product: Product) {
+    const pricePerUnit = product.price / product.quantity;
+    console.log(pricePerUnit);
+      const myProductIndex = this.cart().findIndex(item => item.id === product.id)
+      console.log(myProductIndex);
+      this.cart.update((cart) => {
+        return cart.map((item, position) => {
+          if (position === myProductIndex) {
+            return {
+              ...item,
+              quantity: item.quantity - 1,
+              price: item.price - pricePerUnit
+            }
+          }
+          else {
+            return item
+          }
+        })
+      })
+    console.log(this.cart());
+  };
+
+  addShippingMethod() {
+
   }
 
 }

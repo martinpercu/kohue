@@ -1,6 +1,10 @@
 import { Component, EventEmitter, Output, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { CartService  } from '@services/cart.service';
+
+import { Product } from '@models/product.model';
+
 
 @Component({
   selector: 'app-navbarsigned',
@@ -14,23 +18,33 @@ export class NavbarsignedComponent {
   @Output() showMonoproduct = new EventEmitter();
 
   private router = inject(Router);
+  private cartService = inject(CartService);
 
   hideSideMenu = signal(true);
-  cart: any = signal('sed');
   showWine = false;
 
+  cart = this.cartService.cart;
+  subTotalAmount = this.cartService.subTotalAmount;
+  totalItems = this.cartService.totalItems;
 
-  // logOut() {
-  //   this.authService.logout()
-  //   .then(() => {
-  //     this.router.navigate(['login'])
-  //   })
-  //   .catch(error => console.log(error));
-  // }
+
+  shippingAmount = this.cartService.shippingAmount;
+
+  totalAmount = this.cartService.totalAmount;
+
+  product!: Product;
 
 
   toggleSideMenu() {
-    this.hideSideMenu.update(previousState => !previousState)
+    if(this.totalItems() > 0) {
+      this.hideSideMenu.update(previousState => !previousState)
+    } else {
+      console.log('not change status no items');
+    }
+  }
+
+  toggleSideMenuFromCart() {
+      this.hideSideMenu.update(previousState => !previousState)
   }
 
   navToHome() {
@@ -56,5 +70,9 @@ export class NavbarsignedComponent {
 
     this.showMonoproduct.emit(this.showWine);
   };
+
+  removeFromCart(product: Product) {
+    this.cartService.removeOneItem(product);
+  }
 
 }
