@@ -1,7 +1,7 @@
-import { Injectable, signal, computed } from '@angular/core';
-import { Product } from '@models/product.model'
-import { ProductCart } from '@models/product-cart.model'
-import { Category } from '@models/category.model'
+import { Injectable, signal, computed, inject } from '@angular/core';
+import { Product } from '@models/product.model';
+import { ProductCart } from '@models/product-cart.model';
+import { Category } from '@models/category.model';
 
 @Injectable({
   providedIn: 'root'
@@ -20,10 +20,11 @@ export class CartService {
     return cart.reduce((total, product) => total + product.quantity, 0);
   });
 
-  shipping = signal<number>(150);
-  shippingAmount = signal<number>(150);
+  // shipping = signal<number>(150);
+  shippingAmount = signal<number>(0);
 
-  totalAmount = computed(() => this.subTotalAmount() + this.shipping())
+  totalAmount = computed(() => this.subTotalAmount() + this.shippingAmount())
+
 
 
 
@@ -90,8 +91,11 @@ export class CartService {
     console.log(this.cart());
   };
 
-  addShippingMethod() {
+  setShippingAmount(guita:number) {
+    this.shippingAmount.set(guita);
+    console.log(this.shippingAmount());
 
   }
+
 
 }

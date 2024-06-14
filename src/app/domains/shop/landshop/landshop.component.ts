@@ -2,12 +2,13 @@ import { Component } from '@angular/core';
 import { EditComponent } from '@users/edit/edit.component';
 import { NavbarsignedComponent } from '@shared/navbarsigned/navbarsigned.component';
 import { MonoproductComponent } from '@shop/monoproduct/monoproduct.component';
+import { ShippingmethodComponent } from '@shop/shippingmethod/shippingmethod.component';
 
 
 @Component({
   selector: 'app-landshop',
   standalone: true,
-  imports: [EditComponent, NavbarsignedComponent, MonoproductComponent],
+  imports: [EditComponent, NavbarsignedComponent, MonoproductComponent, ShippingmethodComponent],
   templateUrl: './landshop.component.html',
   styleUrl: './landshop.component.css'
 })

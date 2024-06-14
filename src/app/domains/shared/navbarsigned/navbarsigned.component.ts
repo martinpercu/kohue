@@ -4,12 +4,14 @@ import { Router } from '@angular/router';
 import { CartService  } from '@services/cart.service';
 
 import { Product } from '@models/product.model';
+import { ShippingmethodComponent } from '@shop/shippingmethod/shippingmethod.component';
+
 
 
 @Component({
   selector: 'app-navbarsigned',
   standalone: true,
-  imports: [],
+  imports: [ShippingmethodComponent],
   templateUrl: './navbarsigned.component.html',
   styleUrl: './navbarsigned.component.css'
 })
