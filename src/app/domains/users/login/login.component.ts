@@ -34,7 +34,7 @@ export class LoginComponent {
     this.authService.login(this.formLogin.value)
       .then(response => {
         console.log(response);
-        this.navToEdit();
+        this.navToShop();
       })
       .catch(error => console.log(error));
   }
@@ -43,21 +43,25 @@ export class LoginComponent {
     this.authService.loginWithGoogle()
       .then(response => {
         console.log(response);
-        this.navToEdit();
+        this.navToShop();
     })
     .catch(error => console.log(error));
   }
 
-  navToEdit() {
-    this.router.navigate(['edit'])
-  };
+  // navToEdit() {
+  //   this.router.navigate(['edit'])
+  // };
 
   navToJoin() {
     this.router.navigate(['join'])
-  }
+  };
 
   navToSignIn() {
     this.router.navigate(['signin'])
+  };
+
+  navToShop() {
+    this.router.navigate(['members'])
   }
 
 }

@@ -20,25 +20,10 @@ export class CartService {
     return cart.reduce((total, product) => total + product.quantity, 0);
   });
 
-  // shipping = signal<number>(150);
   shippingAmount = signal<number>(0);
+  shippingText = signal<string>('');
 
-  totalAmount = computed(() => this.subTotalAmount() + this.shippingAmount())
-
-
-
-
-  // shippingAmount = computed(() => this.subTotalAmount + this.shipping);
-
-  x = signal(5);
-  y = signal(3);
-  z = computed(() => this.x() + this.y());
-  // console.log(z()); // 8
-
-
-  // totalAmount = (this.shippingAmount + this.subTotalAmount);
-
-  // realCart = signal<Product[]>([]);
+  totalAmount = computed(() => this.subTotalAmount() + this.shippingAmount());
 
   constructor() { }
 
@@ -69,7 +54,34 @@ export class CartService {
     console.log(this.cart());
   };
 
-  removeOneItem(product: Product) {
+  addToCartFromCart(product: Product) {
+    const pricePerUnit = product.price / product.quantity;
+    if (this.cart().find(item => item.id === product.id)) {
+      const myProductIndex = this.cart().findIndex(item => item.id === product.id)
+      console.log(myProductIndex);
+      this.cart.update((cart) => {
+        return cart.map((item, position) => {
+          if (position === myProductIndex) {
+            return {
+              ...item,
+              quantity: item.quantity + 1,
+              price: item.price + pricePerUnit
+            }
+          }
+          else {
+            return item
+          }
+        })
+      })
+    }
+    else {
+      console.log('No same product');
+      this.cart.update(previousState => [...previousState, product]);
+    };
+    console.log(this.cart());
+  };
+
+  substractOneItem(product: Product) {
     const pricePerUnit = product.price / product.quantity;
     console.log(pricePerUnit);
       const myProductIndex = this.cart().findIndex(item => item.id === product.id)
@@ -91,10 +103,38 @@ export class CartService {
     console.log(this.cart());
   };
 
+  removeFullItem(product: Product) {
+    // const pricePerUnit = product.price / product.quantity;
+    // console.log(pricePerUnit);
+      const myProductIndex = this.cart().findIndex(item => item.id === product.id)
+      console.log(myProductIndex);
+      this.cart.update((cart) => {
+        return cart.map((item, position) => {
+          if (position === myProductIndex) {
+            return {
+              ...item,
+              quantity: item.quantity - product.quantity,
+              price: item.price - product.price
+            }
+          }
+          else {
+            return item
+          }
+        })
+      })
+    console.log(this.cart());
+  };
+
+
+
   setShippingAmount(guita:number) {
     this.shippingAmount.set(guita);
     console.log(this.shippingAmount());
+  };
 
+  setShippingText(text:string) {
+    this.shippingText.set(text);
+    console.log(this.shippingText());
   }
 
 
