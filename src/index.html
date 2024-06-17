@@ -9,6 +9,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+  <script src="https://js.stripe.com/v3/"></script>
+  <script>
+    const stripe = Stripe('pk_test_51PMADwRtorj52eamxBgdinQ0NGIorYFdBntN2INjZgEmbbhSWeoUymXiwxFx6GWRdadBsfIQAWsUzjdx0ZPoHW2300P3LOBKDc');
+    const elements = stripe.elements();
+  </script>
 </head>
 <body class="bodyBackground">
   <app-root></app-root>

@@ -1,0 +1,41 @@
+<p>card-stripe works!</p>
+
+<div class="creditCard">
+  <div class="StripeElementContainer">
+    <div #cardInfo class="cardInput" id="card-element"></div>
+    @if(cardError) {
+    <div class="error">
+      {{ cardError }} ==> error
+    </div>
+    }
+  </div>
+  <button>BUTTON TEST</button>
+  <button (click)="addCardPlusOwner()">addCardPlusOwner</button>
+
+  <button (click)="clickToken()">Create Token </button>
+  <!--<button (click)="clickPay()">Paagcfdfar</button>
+  <button (click)="clickPaycreatePaymentMethod()">clickPaycreatePaymentMethod</button>  -->
+</div>
+<button (click)="createUser()">Create User</button>
+
+<!--
+<div class="flower">
+  <img width="400px" height="300px" src="../assets/flower.jpg"/>
+  <div class="text"> Buy a beatiful flower for <strong> 20$</strong></div>
+</div>
+
+<div class="content card">
+  <h2 class="title"> Payment </h2>
+
+  <form action="/charge" method="post" id="payment-form">
+
+    <div class="paymentBox">
+      <div id="card-element">
+      </div>
+
+      <button id="button"> Pay </button>
+      <div id="card-errors" role="alert"></div>
+    </div>
+
+  </form>
+</div> -->

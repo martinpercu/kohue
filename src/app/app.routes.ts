@@ -12,15 +12,20 @@ import { EditComponent } from '@users/edit/edit.component';
 import { JoinmailComponent } from '@users/joinmail/joinmail.component';
 import { JoinedmaillistComponent } from '@users/joinedmaillist/joinedmaillist.component';
 import { NotfoundComponent } from '@shared/notfound/notfound.component';
-import { StripeComponent  } from '@users/stripe/stripe.component';
 import { MonoproductComponent  } from '@shop/monoproduct/monoproduct.component';
 import { LandshopComponent  } from '@shop/landshop/landshop.component';
 import { ShippingmethodComponent  } from '@shop/shippingmethod/shippingmethod.component';
 
 import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard'
+import { CardStripeComponent } from '@shop/card-stripe/card-stripe.component';
 
 
 export const routes: Routes = [
+  {
+    path: 'card',
+    component: CardStripeComponent,
+    ...canActivate(() => redirectUnauthorizedTo(['acquire']))
+  },
   {
     path: 'ship',
     component: ShippingmethodComponent,
@@ -35,10 +40,6 @@ export const routes: Routes = [
     path: 'mono',
     component: MonoproductComponent,
     ...canActivate(() => redirectUnauthorizedTo(['acquire']))
-  },
-  {
-    path: 'stripe',
-    component: StripeComponent
   },
   {
     path: 'test',
