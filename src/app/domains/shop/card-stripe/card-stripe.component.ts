@@ -3,6 +3,11 @@ import { Component, ElementRef, NgZone, ViewChild, inject, AfterViewInit } from 
 import { StripeService } from '@services/stripe.service';
 import { lastValueFrom } from 'rxjs';
 
+import { CartService } from '@services/cart.service';
+import { AuthService } from '@services/auth.service';
+import { ClientService } from '@services/client.service';
+
+import { Client } from '@models/client.model'
 
 @Component({
   selector: 'app-card-stripe',
@@ -22,9 +27,27 @@ export class CardStripeComponent implements AfterViewInit {
 
   private ngZone = inject(NgZone);
   private stripeService = inject(StripeService);
+  private cartService = inject(CartService);
+  private auth = inject(AuthService);
+  private clientService = inject(ClientService);
 
   algo: any;
   algo2: any;
+  algo3: any;
+
+  totalAmount = this.cartService.totalAmount;
+
+  private userId! : any;
+  user!: Client;
+
+  constructor() {
+    const id = this.auth.getUserUid();
+    if (id) {
+      this.userId = id
+      console.log('IN STRIPE CARD hay parametro', this.userId);
+      // this.getUser()
+    }
+  };
 
 
   ngAfterViewInit(): void {
@@ -62,10 +85,6 @@ export class CardStripeComponent implements AfterViewInit {
     this.card.mount(this.cardInfo.nativeElement);
     this.card.addEventListener('change', this.onChange.bind(this));
 
-    // this.payment = elements.create('payment');
-    // this.payment.mount(this.paymentInfo.nativeElement);
-    // this.payment.addEventListener('change', this.onChange2.bind(this));
-
   }
 
   onChange({ error }: any) {
@@ -81,20 +100,29 @@ export class CardStripeComponent implements AfterViewInit {
   };
 
 
+  async getUser() {
+    const userGetted = await this.clientService.getOneUser(this.userId);
+    this.user = userGetted
+    console.log(this.user);
+    return userGetted
+  };
+
+
   async createUser() {
-    const user = {
-      name: "aaMarcico Juan pelado",
-      email: "aamarcico@masdfr.com",
-      phone: "654856452"
+    const user = await this.getUser();
+    console.log(user);
+    const userStripe = {
+      name: user.firstname,
+      email: user.email
     }
-    const algo$ = await this.stripeService.createUser(user);
+    const algo$ = await this.stripeService.createUser(userStripe);
     this.algo = await lastValueFrom(algo$);
     console.log(algo$);
     console.log(this.algo);
   };
 
   async createTokenAndPay() {
-    const amount = 1500
+    const amount = 4500
     const { token, error } = await stripe.createToken(this.card);
     if (token) {
       console.log('token');
@@ -102,9 +130,9 @@ export class CardStripeComponent implements AfterViewInit {
       console.log(token.id);
       console.log('amount');
       console.log(amount);
-      // const algo2$ = await this.stripeService.cardTokenCharge(token, amount);
-      // this.algo2 = await lastValueFrom(algo2$);
-      // console.log(this.algo2);
+      const algo2$ = await this.stripeService.cardTokenCharge(token, amount);
+      this.algo2 = await lastValueFrom(algo2$);
+      console.log(this.algo2);
 
     } else {
       this.ngZone.run(() => {
@@ -117,7 +145,8 @@ export class CardStripeComponent implements AfterViewInit {
   async addCardPlusOwner() {
     const ownerInfo = {
       owner: {
-        name: 'MaTROLO'
+        name: 'MaTROLO5',
+        email: 'carlitos5@elamo.com'
       },
       amount: 2500,
     }
@@ -125,8 +154,9 @@ export class CardStripeComponent implements AfterViewInit {
     if (source) {
       console.log('source');
       console.log(source);
-      // const regreso = this.stripeService.charge2(source);
-      // console.log(regreso);
+      const algo3$ = await this.stripeService.charge2(source);
+      this.algo3 = await lastValueFrom(algo3$);
+      console.log(this.algo3);
 
     } else {
       this.ngZone.run(() => {

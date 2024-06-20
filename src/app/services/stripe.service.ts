@@ -22,7 +22,7 @@ export class StripeService {
   charge2(source:any) {
     console.log('in service stripe CHARGE FRONT ==>' );
     console.log(source);
-    return this.http.post(`${environment.apiURL}/stripe_checkout_2`, {
+    return this.http.post(`${environment.apiURL}/stripe_check`, {
       source: source
     });
   };

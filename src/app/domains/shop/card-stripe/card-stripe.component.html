@@ -20,7 +20,11 @@
       <!--<button (click)="clickPay()">Paagcfdfar</button>
   <button (click)="clickPaycreatePaymentMethod()">clickPaycreatePaymentMethod</button>  -->
     </div>
+    @if(totalAmount()) {
+      <div>daleeee {{ totalAmount() }}</div>
+    }
     <div (click)="createUser()">Create User (no need the card)</div>
+
   </div>
 
 </div>
