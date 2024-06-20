@@ -4,15 +4,25 @@
 (showMonoproduct)="fromNavbar($event)"
 (cartOnOff)="fromNavbarCart($event)"></app-navbarsigned>
 
-@if(showCart == true) {
-  <app-cart (cartOnOff)="fromNavbarCart($event)"></app-cart>
-}
-<!--
+<div class="m-auto sm:flex sm:flex-row min-w-80 max-w-4xl p-2 rounded-lg sm:p-6 md:p-8 text-center">
+  <div class="sm:w-7/12">
+    <app-card-stripe></app-card-stripe>
+  </div>
+  <div class="sm:w-5/12">
+    @if(showCart == true) {
+      <app-cart (cartOff)="fromNavbarCart($event)"
+      ></app-cart>
+    }
+  </div>
+</div>
+
+
+
 @if(showWine == true) {
-  <app-monoproduct></app-monoproduct>
-} -->
+  <app-monoproduct (cartOnOff)="fromProduct($event)"></app-monoproduct>
+}
 <!-- <app-shippingmethod></app-shippingmethod> -->
-<app-monoproduct (cartOnOff)="fromProduct($event)"></app-monoproduct>
+<!-- <app-monoproduct (cartOnOff)="fromProduct($event)"></app-monoproduct> -->
 
 @if(showEditAccount == true) {
   <app-edit></app-edit>

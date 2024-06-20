@@ -32,30 +32,30 @@ export class CardStripeComponent implements AfterViewInit {
       style: {
         base: {
           // iconColor: '#c4f0ff',
-          iconColor: 'green',
-          color: '#ccc',
-          fontWeight: '400',
-          fontFamily: 'Roboto, Open Sans, Segoe UI, sans-serif',
-          fontSize: '16px',
-          fontSmoothing: 'antialiased',
-          ':-webkit-autofill': {
-            color: '#fce883',
-          },
-          ':focus': {
-            fontSize: '18px',
-            fontWeight: '600'
-          },
-          '::placeholder': {
-            color: '#87BBFD',
-          },
+          // iconColor: 'green',
+          // color: '#ccc',
+          // fontWeight: '400',
+          // fontFamily: 'Roboto, Open Sans, Segoe UI, sans-serif',
+          // fontSize: '16px',
+          // fontSmoothing: 'antialiased',
+          // ':-webkit-autofill': {
+          //   color: '#fce883',
+          // },
+          // ':focus': {
+          //   fontSize: '18px',
+          //   fontWeight: '600'
+          // },
+          // '::placeholder': {
+          //   color: '#87BBFD',
+          // },
         },
-        invalid: {
-          iconColor: '#FFC7EE',
-          color: '#FFC7EE',
-        },
-        complete: {
-          color: '#e7e319',
-        }
+        // invalid: {
+        //   iconColor: '#FFC7EE',
+        //   color: '#FFC7EE',
+        // },
+        // complete: {
+        //   color: '#e7e319',
+        // }
       },
       hidePostalCode: true,
     });
@@ -93,8 +93,8 @@ export class CardStripeComponent implements AfterViewInit {
     console.log(this.algo);
   };
 
-  async clickToken() {
-    const amount = 15000
+  async createTokenAndPay() {
+    const amount = 1500
     const { token, error } = await stripe.createToken(this.card);
     if (token) {
       console.log('token');
@@ -102,9 +102,9 @@ export class CardStripeComponent implements AfterViewInit {
       console.log(token.id);
       console.log('amount');
       console.log(amount);
-      const algo2$ = await this.stripeService.cardTokenCharge(token, amount);
-      this.algo2 = await lastValueFrom(algo2$);
-      console.log(this.algo2);
+      // const algo2$ = await this.stripeService.cardTokenCharge(token, amount);
+      // this.algo2 = await lastValueFrom(algo2$);
+      // console.log(this.algo2);
 
     } else {
       this.ngZone.run(() => {
@@ -125,8 +125,8 @@ export class CardStripeComponent implements AfterViewInit {
     if (source) {
       console.log('source');
       console.log(source);
-      const regreso = this.stripeService.charge2(source);
-      console.log(regreso);
+      // const regreso = this.stripeService.charge2(source);
+      // console.log(regreso);
 
     } else {
       this.ngZone.run(() => {

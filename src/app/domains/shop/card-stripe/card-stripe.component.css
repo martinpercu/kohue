@@ -1,5 +1,5 @@
 .creditCard {
-  width: 360px;
+  /* width: 360px;
   height: 130px;
   border: 4px dashed pink;
   border-radius: 12px;
@@ -7,33 +7,25 @@
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  background: #beb2e3;
+  background: #beb2e3; */
 }
 
 .StripeElementContainer {
-  background-color: rgb(31, 117, 193);
+  /* background-color: rgb(31, 117, 193);
   margin: 5px;
   padding: 5px;
-  border: 2px solid red;
+  border: 2px solid red; */
 }
 
 .cardInput {
   color: rgb(255, 251, 0);
 }
 
-.StripeElement {
-  background-color: rgb(243, 236, 234);
-  padding: 10px;
-  margin: 5px;
-}
-
 .error {
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  color: violet;
+  /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+  color: red;
 }
 
-
-/*
 
 .StripeElement {
   box-sizing: border-box;
@@ -54,9 +46,24 @@
   width: 100%;
 }
 
-.text {
+#card-errors {
+  position: relative;
+  color: red;
   text-align: center;
+  width: 100%;
+  top: 40px;
+  font-size: small;
 }
+
+.StripeElement--focus {
+  box-shadow: 0 1px 3px 0 #cfd7df;
+}
+
+.StripeElement--invalid {
+  border-color: #fa755a;
+}
+
+
 
 form {
   position: relative;
@@ -73,6 +80,16 @@ form {
   float: left;
   box-sizing: border-box;
 }
+
+
+
+.text {
+  text-align: center;
+}
+
+
+/*
+
 
 .title {
   box-sizing: border-box;
@@ -128,12 +145,6 @@ button {
   font-size: small;
 }
 
-h2 {
-  height: 20px;
-  text-align: center;
-  font-weight: bold;
-  margin-top: 20px;
-}
 
 .card {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -145,15 +156,4 @@ h2 {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-.content {
-  margin-top: 20px !important;
-  width: 400px;
-  height: 200px;
-  margin: auto;
-}
-
-.flower {
-  margin: auto;
-  height: fit-content;
-  width: fit-content;
 } */

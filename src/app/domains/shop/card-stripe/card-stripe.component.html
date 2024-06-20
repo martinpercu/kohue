@@ -1,23 +1,29 @@
-<p>card-stripe works!</p>
+<div class="m-auto min-w-80 max-w-4xl rounded-lg text-center">
 
-<div class="creditCard">
-  <div class="StripeElementContainer">
-    <div #cardInfo class="cardInput" id="card-element"></div>
-    @if(cardError) {
-    <div class="error">
-      {{ cardError }} ==> error
-    </div>
-    }
-  </div>
-  <button>BUTTON TEST</button>
-  <button (click)="addCardPlusOwner()">addCardPlusOwner</button>
+  <div class="border border-gray-500 rounded-lg shadow">
 
-  <button (click)="clickToken()">Create Token </button>
-  <!--<button (click)="clickPay()">Paagcfdfar</button>
+    <div class="creditCard w-2/3 m-auto">
+      <div class="StripeElementContainer">
+        <div #cardInfo class="cardInput" id="card-element"></div>
+        @if(cardError) {
+        <div class="error">
+          {{ cardError }}
+        </div>
+        }
+      </div>
+
+      <div (click)="createTokenAndPay()">Create Token + pay $15</div>
+
+      <div (click)="addCardPlusOwner()">addCardPlusOwner</div>
+
+
+      <!--<button (click)="clickPay()">Paagcfdfar</button>
   <button (click)="clickPaycreatePaymentMethod()">clickPaycreatePaymentMethod</button>  -->
-</div>
-<button (click)="createUser()">Create User</button>
+    </div>
+    <div (click)="createUser()">Create User (no need the card)</div>
+  </div>
 
+</div>
 <!--
 <div class="flower">
   <img width="400px" height="300px" src="../assets/flower.jpg"/>

@@ -48,7 +48,7 @@ export const routes: Routes = [
   {
     path: 'admin',
     component: ClientsFullComponent,
-    // ...canActivate(() => redirectUnauthorizedTo(['login']))
+    ...canActivate(() => redirectUnauthorizedTo(['login']))
   },
   {
     path: 'joinedadmin',
