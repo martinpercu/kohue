@@ -1,5 +1,6 @@
 export interface Client {
   // id?: string;
+  stripeCustomerId?: string;
   clientUID: string;
   email: string;
   fullname?: string;

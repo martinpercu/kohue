@@ -37,7 +37,7 @@ export class CardStripeComponent implements AfterViewInit {
 
   totalAmount = this.cartService.totalAmount;
 
-  private userId! : any;
+  private userId!: any;
   user!: Client;
 
   constructor() {
@@ -122,35 +122,40 @@ export class CardStripeComponent implements AfterViewInit {
     console.log(this.algo);
   };
 
-  async createTokenAndPay() {
-    const amount = 4500
-    const { token, error } = await stripe.createToken(this.card);
-    if (token) {
-      console.log('token');
-      console.log(token);
-      console.log(token.id);
-      console.log('amount');
-      console.log(amount);
-      const algo2$ = await this.stripeService.cardTokenCharge(token, amount);
-      this.algo2 = await lastValueFrom(algo2$);
-      console.log(this.algo2);
 
-    } else {
-      this.ngZone.run(() => {
-        this.cardError = error.message;
-      });
-    }
-  };
-
-
-  async addCardPlusOwner() {
+  async startPayment() {
+    const user = await this.getUser();
+    if (!user.fullname) {
+      user.fullname = user.firstname + " " + user.lastname;
+    };
+    console.log(user.fullname);
     const ownerInfo = {
       owner: {
-        name: 'Caballero del Zodiaco',
-        email: 'ateneaLover@zodiak.com'
+        name: user.fullname,
+        email: user.email,
+        phone: user.phone,
+        address: {
+          city: user.city,
+          country: 'US',
+          postal_code: user.zipCode,
+          line1: user.address,
+          line2: user.addressExtra,
+          state: user.state
+        }
       },
-      amount: 12500,
-    }
+      // amount: 12500,
+      amount: this.totalAmount(),
+    };
+
+    console.log(ownerInfo);
+    this.payAndCreateUser(ownerInfo);
+
+  };
+
+  async payAndCreateUser(ownerInfo: any) {
+    console.log(ownerInfo);
+
+
     const { source } = await stripe.createSource(this.card, ownerInfo);
     if (source) {
       console.log('source');
@@ -158,11 +163,45 @@ export class CardStripeComponent implements AfterViewInit {
       const algo3$ = await this.stripeService.charge2(source);
       this.algo3 = await lastValueFrom(algo3$);
       console.log(this.algo3);
+      console.log(this.user);
+      this.user.stripeCustomerId = this.algo3.customer
+      console.log(this.user);
+
+      if(this.algo3.customer) {
+        this.user.stripeCustomerId = this.algo3.customer
+        console.log(this.user);
+        this.clientService.updateOneUser(this.user, this.user.clientUID);
+      }
+
 
     } else {
       this.ngZone.run(() => {
         // this.cardError = error.message;
       });
     }
+
   }
+
+
+  // async createTokenAndPay() {
+  //   const amount = 4500
+  //   const { token, error } = await stripe.createToken(this.card);
+  //   if (token) {
+  //     console.log('token');
+  //     console.log(token);
+  //     console.log(token.id);
+  //     console.log('amount');
+  //     console.log(amount);
+  //     const algo2$ = await this.stripeService.cardTokenCharge(token, amount);
+  //     this.algo2 = await lastValueFrom(algo2$);
+  //     console.log(this.algo2);
+
+  //   } else {
+  //     this.ngZone.run(() => {
+  //       this.cardError = error.message;
+  //     });
+  //   }
+  // };
+
+
 }
