@@ -81,6 +81,7 @@ export class CardStripeComponent implements AfterViewInit {
         // }
       },
       hidePostalCode: true,
+      disableLink: true
     });
     this.card.mount(this.cardInfo.nativeElement);
     this.card.addEventListener('change', this.onChange.bind(this));
@@ -145,10 +146,10 @@ export class CardStripeComponent implements AfterViewInit {
   async addCardPlusOwner() {
     const ownerInfo = {
       owner: {
-        name: 'MaTROLO5',
-        email: 'carlitos5@elamo.com'
+        name: 'Caballero del Zodiaco',
+        email: 'ateneaLover@zodiak.com'
       },
-      amount: 2500,
+      amount: 12500,
     }
     const { source } = await stripe.createSource(this.card, ownerInfo);
     if (source) {
