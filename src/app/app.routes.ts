@@ -52,7 +52,7 @@ export const routes: Routes = [
     ...canActivate(() => redirectUnauthorizedTo(['acquire']))
   },
   {
-    path: 'test',
+    path: '',
     component: LayoutComponent
   },
   {
@@ -111,7 +111,7 @@ export const routes: Routes = [
     ...canActivate(() => redirectUnauthorizedTo(['login']))
   },
   {
-    path: '',
+    path: 'test',
     component: NotfoundComponent,
   },
   // {
