@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 .bodyBackground {
-  @apply bg-xlight;
+  @apply bg-xlight h-full;
 };
 
 .button {
