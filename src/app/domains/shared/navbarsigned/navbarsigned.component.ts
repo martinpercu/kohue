@@ -24,7 +24,7 @@ export class NavbarsignedComponent {
   private cartService = inject(CartService);
 
   // hideSideMenu = signal(true);
-  showWine = true;
+  showWine = false;
   // showCart = false;
 
   cart = this.cartService.cart;
@@ -59,7 +59,7 @@ export class NavbarsignedComponent {
   // }
 
   navToHome() {
-    this.router.navigate(['test'])
+    this.router.navigate([''])
   };
 
   navEdit() {

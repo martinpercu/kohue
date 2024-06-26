@@ -10,11 +10,11 @@ export class MonoproductService {
 
   monoproduct: Product = {
     id: 22,
-    title: "Tri pack Kohue Wine Malbec 2023",
-    price: 430,
-    image: "./../../../../assets/img/vino-botella.png",
+    title: "Tri-pack Kohue Wine Malbec 2021",
+    price: 435,
+    image: "./../../../../assets/img/Botella-Kohue-2021-small.png",
     description: "Terrebile vinagre va como trompada de mono",
-    images: ["./../../../../assets/img/vino-botella.png", "./../../../../assets/img/vino-botella.png"],
+    images: ["./../../../../assets/img/Botella-Kohue-2021-small.png", "./../../../../assets/img/Botella-Kohue-2021-small.png"],
     category: {
       id: 100,
       name: "Wines"

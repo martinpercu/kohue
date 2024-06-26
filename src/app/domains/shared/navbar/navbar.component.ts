@@ -17,7 +17,7 @@ export class NavbarComponent {
 
 
   navToHome() {
-    this.router.navigate(['test'])
+    this.router.navigate([''])
   };
 
   navJointhelist() {

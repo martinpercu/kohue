@@ -4,13 +4,15 @@ import { NavbarsignedComponent } from '@shared/navbarsigned/navbarsigned.compone
 import { MonoproductComponent } from '@shop/monoproduct/monoproduct.component';
 import { ShippingmethodComponent } from '@shop/shippingmethod/shippingmethod.component';
 import { CartComponent } from '@shop/cart/cart.component';
-import { CardStripeComponent } from '@shop/card-stripe/card-stripe.component'
+import { CardStripeComponent } from '@shop/card-stripe/card-stripe.component';
+import { FooterComponent } from '@shared/footer/footer.component'
+
 
 
 @Component({
   selector: 'app-landshop',
   standalone: true,
-  imports: [EditComponent, NavbarsignedComponent, MonoproductComponent, ShippingmethodComponent, CartComponent, CardStripeComponent],
+  imports: [EditComponent, NavbarsignedComponent, FooterComponent, MonoproductComponent, ShippingmethodComponent, CartComponent, CardStripeComponent],
   templateUrl: './landshop.component.html',
   styleUrl: './landshop.component.css'
 })

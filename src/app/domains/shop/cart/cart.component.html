@@ -20,7 +20,7 @@
           <div class="grid grid-cols-3 items-center">
 
             <div class="col-span-1">
-              <img class="rounded-full" [src]="product.images" [alt]="product.title">
+              <img class="rounded-full max-h-32 m-auto" [src]="product.image" [alt]="product.title">
             </div>
 
             <div class="col-span-2 flex flex-col gap-2">
@@ -76,11 +76,11 @@
       <div class="mt-4">
         @if(totalAmount() && shippingAmount() > 0){
         <div (click)="checkoutToggleCartOnLand()" class="button">
-          ${{ totalAmount()}} - Checkout to Land
+          ${{ totalAmount()}} - Checkout
         </div>
         }
         @if(totalAmount() && shippingAmount() == 0) {
-        <div class="button_off">
+        <div (click)="alertAddShippingMethod()" class="button_off">
           ${{ totalAmount() }} - Checkout
         </div>
         }
@@ -94,6 +94,7 @@
 
 }
 
+<!--
 @if(showCartInLand == true) {
 <div class="w-full max-w-md px-4 bg-transparent border border-gray-500 rounded-lg shadow">
   <div class="flow-root">
@@ -104,7 +105,7 @@
         <div class="grid grid-cols-3 items-center">
 
           <div class="col-span-1">
-            <img class="rounded-full" [src]="product.images" [alt]="product.title">
+            <img class="rounded-full" [src]="product.image" [alt]="product.title">
           </div>
 
           <div class="col-span-2 flex flex-col gap-2">
@@ -153,7 +154,6 @@
 
       <div class="text-right my-2 font-normal hover:cursor-pointer">
         Shipping {{ shippingText() }} <span class="font-semibold"> $ {{ shippingAmount() }}</span>
-        <!-- Shipping <app-shippingmethod></app-shippingmethod> <span class="font-semibold"> $ {{ shippingAmount() }}</span> -->
       </div>
     </div>
 
@@ -176,3 +176,4 @@
 </div>
 
 }
+-->

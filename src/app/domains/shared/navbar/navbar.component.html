@@ -1,23 +1,23 @@
-<nav class="bg-xdark hidden sm:block">
-  <div class="flex justify-between py-1 px-3 sm:py-4 sm:px-8">
+  <nav class="bg-xdark hidden sm:block">
+    <div class="flex justify-between py-1 px-3 sm:py-4 sm:px-8">
 
-    <div (click)="navToHome()"  class="my-auto">
-      <img src="./../../../../assets/img/kohue-sello-name.svg" class="h-4 sm:h-7 hover:cursor-pointer"
-        alt="Kohue Wines" />
+      <div (click)="navToHome()" class="my-auto">
+        <img src="./../../../../assets/img/kohue-sello-name.svg" class="h-4 sm:h-7 hover:cursor-pointer"
+          alt="Kohue Wines" />
+      </div>
+
+      <div class="flex flex-row">
+        <button (click)="navJointhelist()" class="button_navbar mr-1 uppercase">
+          Join the List
+        </button>
+        <button (click)="navMembers()" class="button_navbar uppercase">
+          Members
+        </button>
+      </div>
     </div>
+  </nav>
 
-    <div class="flex flex-row">
-      <button (click)="navJointhelist()" class="button_navbar mr-1 uppercase">
-        Join the List
-      </button>
-      <button (click)="navMembers()" class="button_navbar uppercase">
-        Members
-      </button>
-    </div>
-  </div>
-</nav>
-
-<!-- <nav class="bg-xdark sm:hidden">
+  <!-- <nav class="bg-xdark sm:hidden">
 
   <div class="max-w-screen-xl flex py-2 px-7 justify-center">
 
@@ -30,27 +30,28 @@
 
 </nav> -->
 
-<nav class="bg-xdark sm:hidden">
+  <nav class="bg-xdark sm:hidden">
 
-  <div class="max-w-screen-xl flex py-2 px-7">
+    <div class="max-w-screen-xl flex py-2 px-7">
 
-    <div (click)="navToHome()" class="flex-none w-1/6">
-      <img src="./../../../../assets/img/kohue-sello.svg" class="h-7 hover:cursor-pointer" alt="Kohue Wines" />
+      <div (click)="navToHome()" class="flex-none w-1/6">
+        <img src="./../../../../assets/img/kohue-sello.svg" class="h-7 hover:cursor-pointer" alt="Kohue Wines" />
+      </div>
+
+      <div class="flex flex-1 gap-4 justify-end">
+        <div class="">
+          <button (click)="navJointhelist()" class="button_navbar uppercase">
+            Join the List
+          </button>
+        </div>
+        <div class="">
+          <button (click)="navMembers()" class="button_navbar uppercase">
+            Members
+          </button>
+        </div>
+      </div>
+
     </div>
 
-    <div class="flex flex-1 gap-4 justify-end">
-      <div class="">
-        <button (click)="navJointhelist()" class="button_navbar uppercase">
-          Join the List
-        </button>
-      </div>
-      <div class="">
-        <button (click)="navMembers()" class="button_navbar uppercase">
-          Members
-        </button>
-      </div>
-    </div>
+  </nav>
 
-  </div>
-
-</nav>
