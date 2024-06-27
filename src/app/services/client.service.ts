@@ -75,7 +75,7 @@ export class ClientService {
     updateDoc(userDocRef, user)
       .then(() => {
         console.log('User updated');
-        alert('User Updated');
+        // alert('User Updated');
       })
       .catch((error) => {
         console.log(error);

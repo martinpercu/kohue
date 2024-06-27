@@ -9,20 +9,23 @@
     <div class="flex flex-row">
       @if(showWine){
       <div (click)="showWines()" class="button_navbar mr-1 uppercase">
-        hide Wine
+        Hide Wine
       </div>
       }@if(!showWine){
       <div (click)="showWines()" class="button_navbar mr-1 uppercase">
-        show Wine
+        Shop Wine
       </div>
       }
 
       <!-- <div (click)="navBuywine()" class="button_navbar mr-1 uppercase">
         buy Wine
       </div> -->
-      <div (click)="navEdit()" class="button_navbar uppercase">
+
+      <div class="button_navbar uppercase">
+      <!-- <div (click)="showAccountHandler()" class="button_navbar uppercase"> -->
         Account
       </div>
+
       <div (click)="toggleSideMenu()" class="navbar_cart">
         @if(totalItems() > 0){
         <div class="absolute right-4 top-2 rounded-full h-5 w-5 bg-xbrown text-brandgold font-light">{{ totalItems() }}
@@ -51,16 +54,19 @@
     <div class="flex flex-1 gap-4 justify-end">
       @if(showWine){
       <div (click)="showWines()" class="button_navbar mr-1 uppercase">
-        hide Wine
+        Hide Wine
       </div>
       }@if(!showWine){
       <div (click)="showWines()" class="button_navbar mr-1 uppercase">
-        show Wine
+        Shop Wine
       </div>
       }
-      <div (click)="navEdit()" class="button_navbar uppercase">
+
+      <div class="button_navbar uppercase">
+      <!-- <div (click)="showAccountHandler()" class="button_navbar uppercase"> -->
         Account
       </div>
+
       <div (click)="toggleSideMenu()" class="navbar_cart">
         @if(totalItems() > 0){
         <div class="absolute right-4 top-2 rounded-full h-5 w-5 bg-xbrown text-brandgold font-light">{{ totalItems() }}

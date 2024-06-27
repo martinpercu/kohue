@@ -19,12 +19,14 @@ export class NavbarsignedComponent {
 
   @Output() showMonoproduct = new EventEmitter();
   @Output() cartOnOff = new EventEmitter();
+  @Output() showAccount = new EventEmitter();
 
   private router = inject(Router);
   private cartService = inject(CartService);
 
   // hideSideMenu = signal(true);
   showWine = false;
+  showUserAccount = true;
   // showCart = false;
 
   cart = this.cartService.cart;
@@ -80,6 +82,12 @@ export class NavbarsignedComponent {
     console.log('en nav' + "  " + this.showWine);
     this.showMonoproduct.emit(this.showWine);
   };
+
+  showAccountHandler() {
+    this.showUserAccount = !this.showUserAccount;
+    console.log('en nav' + "  " + this.showUserAccount);
+    this.showAccount.emit(this.showUserAccount);
+  }
 
   // removeFromCart(product: Product) {
   //   this.cartService.removeOneItem(product);

@@ -26,8 +26,8 @@ export class LandshopComponent {
 
 
 
-  fromNavbar(event: boolean) {
-    this.showWine = event
+  fromNavbarMonoproduct(event: boolean) {
+    this.showWine = event;
   };
 
   fromNavbarInLand(event: boolean) {
@@ -46,12 +46,20 @@ export class LandshopComponent {
   fromCartToCheckout(event: boolean) {
     console.log(event);
     this.showCartInLand = event
-  }
+  };
 
   fromProduct(event: boolean) {
     console.log(event);
     console.log("qsdfqdfqsdf");
     this.showCart = event;
+    console.log(event);
+    console.log("qsdfqdfqsdf");
+  };
+
+  fromNavbarAccountHandler(event: boolean) {
+    console.log(event);
+    console.log("qsdfqdfqsdf");
+    this.showEditAccount = event;
     console.log(event);
     console.log("qsdfqdfqsdf");
   }

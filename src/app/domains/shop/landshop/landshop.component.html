@@ -1,9 +1,8 @@
 <!-- <p>landshop works!</p> -->
 <!-- <app-navbarsigned></app-navbarsigned> -->
 <div class="fixed w-full z-10">
-  <app-navbarsigned
-    (showMonoproduct)="fromNavbar($event)"
-    (cartOnOff)="fromNavbarCart($event)">
+  <app-navbarsigned (showMonoproduct)="fromNavbarMonoproduct($event)" (cartOnOff)="fromNavbarCart($event)"
+    (showAccount)="fromNavbarAccountHandler($event)">
   </app-navbarsigned>
 </div>
 
@@ -23,9 +22,12 @@
 
 
   @if(showCart == true) {
-    <app-cart (cartOff)="fromNavbarCart($event)"></app-cart>
-    }
+  <app-cart (cartOff)="fromNavbarCart($event)"></app-cart>
+  }
 
+  <div [class.hidden]="!showCart">
+    <app-cart (cartOff)="fromNavbarCart($event)"></app-cart>
+  </div>
 
 
 
@@ -35,9 +37,11 @@
   <!-- <app-shippingmethod></app-shippingmethod> -->
   <!-- <app-monoproduct (cartOnOff)="fromProduct($event)"></app-monoproduct> -->
 
-  @if(showEditAccount == true) {
-  <app-edit></app-edit>
-  }
+  <!-- <div class="hidden" [class="showEditAccount"]> -->
+  <div [class.hidden]="!showEditAccount">
+    <app-edit></app-edit>
+  </div>
+
 
 </div>
 
