@@ -1,25 +1,29 @@
+import { CookieService } from 'ngx-cookie-service';
+
 import { Component, inject } from '@angular/core';
 
-import { AgegateService } from '@services/agegate.service'
 
 @Component({
   selector: 'app-agegate',
   standalone: true,
   imports: [],
+  providers: [CookieService],
   templateUrl: './agegate.component.html',
   styleUrl: './agegate.component.css'
 })
 export class AgegateComponent {
 
-  private agegateService = inject(AgegateService);
+  private cookieService = inject(CookieService);
 
   showGate:boolean;
 
   showAlert:boolean;
 
+  cookieValue: string = '';
+
   constructor() {
     this.showAlert = false
-    const older = this.agegateService.getItem('ageKey');
+    const older = this.cookieService.get('ageKey');
     console.log(older);
     if(older == 'older') {
       // alert('vamoooo');
@@ -27,23 +31,25 @@ export class AgegateComponent {
     }else{
       // alert('pendejo');
       this.showGate = true
-    }
+    };
+
+
    };
 
 
   saveToLocalStorage() {
-    this.agegateService.setItem('ageKey', 'older');
+    this.cookieService.set('ageKey', 'older', { expires: 364, sameSite: 'Lax' });
     this.showGate = false
   };
 
   retrieveFromLocalStorage() {
-    const value = this.agegateService.getItem('ageKey');
+    const value2 = this.cookieService.get('ageKey');
     this.showAlert = true;
   };
 
   clearLocalStorage() {
-    const value = this.agegateService.clear();
-    console.log(value);
+    const value2 = this.cookieService.get('ageKey');
+    console.log(value2);
   };
 
   goToLink(url: string) {
