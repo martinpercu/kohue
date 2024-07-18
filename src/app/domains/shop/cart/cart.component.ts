@@ -97,12 +97,12 @@ export class CartComponent {
   };
 
   checkoutToggleCartOnLand() {
-    // console.log(' 1 st in cart showCartInLand==>  ' + this.showCartInLand);
-    // this.showCartInLand = true;
-    // this.showCartInNav = false;
-    // console.log(' 2nd in cart showCartInLand==>  ' + this.showCartInLand);
-    // // this.cartInLandOnOff.emit(this.showCartInLand);
-    // // this.toggleSideMenuFromCart();
+    console.log(' 1 st in cart showCartInLand==>  ' + this.showCartInLand);
+    this.showCartInLand = true;
+    this.showCartInNav = false;
+    console.log(' 2nd in cart showCartInLand==>  ' + this.showCartInLand);
+    // this.cartInLandOnOff.emit(this.showCartInLand);
+    // this.toggleSideMenuFromCart();
     alert('At this point start getting payment from client');
   };
 

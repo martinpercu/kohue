@@ -38,7 +38,7 @@ export class AgegateComponent {
 
 
   saveToLocalStorage() {
-    this.cookieService.set('ageKey', 'older', { expires: 364, sameSite: 'Lax' });
+    this.cookieService.set('ageKey', 'older', { expires: 31, sameSite: 'Lax' });
     this.showGate = false
   };
 
