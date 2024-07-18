@@ -22,7 +22,9 @@ export class LandshopComponent {
   showEditAccount: boolean = true;
 
   showCart: boolean = false
-  showCartInLand: boolean = false;
+  showCartInLand!: boolean;
+
+  showStripeAndCart: boolean = false;
 
 
 
@@ -43,6 +45,11 @@ export class LandshopComponent {
     this.showCart = event
   };
 
+  fromNavbarCartStripe(event: boolean) {
+    console.log(event);
+    this.showStripeAndCart = event
+  };
+
   fromCartToCheckout(event: boolean) {
     console.log(event);
     this.showCartInLand = event
@@ -50,7 +57,7 @@ export class LandshopComponent {
 
   fromProduct(event: boolean) {
     console.log(event);
-    console.log("qsdfqdfqsdf");
+    console.log("this.showCart  ==>  ", event);
     this.showCart = event;
     console.log(event);
     console.log("qsdfqdfqsdf");
@@ -62,6 +69,19 @@ export class LandshopComponent {
     this.showEditAccount = event;
     console.log(event);
     console.log("qsdfqdfqsdf");
+  };
+
+  fromNavbarStripeAndCart(data: any) {
+    console.log(data);
+    if(data.cartOn != null) {
+      console.log('in cartOn so not null');
+      this.showCart = data.cartOn;
+    }
+    if(data.stripeOn != null) {
+      console.log('in stripeOn so not null');
+      this.showStripeAndCart = data.stripeOn;
+    };
+    this.showWine = false;
   }
 
 

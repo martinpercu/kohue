@@ -9,25 +9,42 @@
 <div class="pt-14">
 
 
-  <!-- <div class="m-auto sm:flex sm:flex-row min-w-80 max-w-4xl p-2 rounded-lg sm:p-6 md:p-8 text-center">
-    <div class="sm:w-7/12">
+  <div class="m-auto sm:flex sm:flex-row min-w-80 max-w-4xl p-2 rounded-lg sm:p-6 md:p-8 text-center">
+    @if(showStripeAndCart == true) {
+    <div class="sm:w-1/2">
       <app-card-stripe></app-card-stripe>
     </div>
+    <div class="sm:w-1/12">
+
+    </div>
+    }
     <div class="sm:w-5/12">
       @if(showCart == true) {
-      <app-cart (cartOff)="fromNavbarCart($event)"></app-cart>
+      <!-- <app-cart (cartOff)="fromNavbarCart($event)" (stripeOnCartOn)="fromNavbarCartStripe($event)"></app-cart> -->
+      <app-cart (stripeOnCartOn)="fromNavbarStripeAndCart($event)"></app-cart>
       }
     </div>
-  </div> -->
 
-
-  @if(showCart == true) {
-  <app-cart (cartOff)="fromNavbarCart($event)"></app-cart>
-  }
-
-  <div [class.hidden]="!showCart">
-    <app-cart (cartOff)="fromNavbarCart($event)"></app-cart>
   </div>
+
+
+  <!--
+  @if(showCart == true) {
+    <div> Show Cart TRUE</div>
+      <app-cart (cartOff)="fromNavbarCart($event)"></app-cart>
+
+  } -->
+
+  <!-- <app-cart (cartOff)="fromNavbarCart($event)"></app-cart> -->
+
+
+  <!-- @if(showCart == true) {
+    <app-cart (cartOff)="fromNavbarCart($event)"></app-cart>
+  } -->
+
+  <!-- <div [class.hidden]="!showCart">
+    <app-cart (cartOff)="fromNavbarCart($event)"></app-cart>
+  </div> -->
 
 
 
