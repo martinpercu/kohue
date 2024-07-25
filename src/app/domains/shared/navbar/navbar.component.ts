@@ -22,8 +22,17 @@ export class NavbarComponent {
   //   .catch(error => console.log(error));
   // }
 
+
+  navToHome() {
+    this.router.navigate(['test'])
+  };
+
   navJointhelist() {
     this.router.navigate(['join'])
-  }
+  };
+
+  navSignIn() {
+    this.router.navigate(['signin'])
+  };
 
 }

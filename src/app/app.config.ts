@@ -10,8 +10,8 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes),
-    importProvidersFrom(provideFirebaseApp(() => initializeApp(environment))), // prod
-    // importProvidersFrom(provideFirebaseApp(() => initializeApp(dev_environment))), // dev
+    // importProvidersFrom(provideFirebaseApp(() => initializeApp(environment))), // prod
+    importProvidersFrom(provideFirebaseApp(() => initializeApp(dev_environment))), // dev
     importProvidersFrom(provideAuth(() => getAuth())),
     importProvidersFrom(provideFirestore(() => getFirestore()))]
 };

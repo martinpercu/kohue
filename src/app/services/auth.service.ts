@@ -31,6 +31,7 @@ export class AuthService {
 
   logout() {
     return signOut(this.auth);
+    console.log('LogOUT from Authservice OK');
   }
 
 }

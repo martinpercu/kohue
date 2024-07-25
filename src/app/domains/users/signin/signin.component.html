@@ -1,11 +1,14 @@
+<app-navbar></app-navbar>
 
 <div class="m-auto max-w-72">
 
   <div class="flex flex-row py-8 text-center align-middle text-base font-normal text-gray-900 dark:text-white">
 
-    <img src="./../../../../../assets/img/avatarmaximo.jpg" class="w-16 h-16 rounded-full hover:animate-spin mr-2"
-      alt="Maximous" />
-    We are happy you are here. Please sign in to be contacted sooner.
+    <img src="./../../../../../assets/img/kohue-sello-dark.svg" class="w-16 h-16 rounded-full hover:cursor-pointer mr-2"
+      alt="Maximous" (click)="navToHome()" />
+    <!-- <img src="./../../../../../assets/img/avatarmaximo.jpg" class="w-16 h-16 rounded-full hover:animate-spin mr-2"
+      alt="Maximous" /> -->
+    We are happy you are here.  Please sign in to be contacted sooner.
   </div>
 </div>
 
@@ -48,7 +51,7 @@
 
     <div class="mt-8">
       <button type="submit"
-        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+        class="button login">
         Sign In
       </button>
     </div>
@@ -65,7 +68,7 @@
   <div class="mt-4">
     <div>
       <button type="button"
-      class="text-white text-center inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-10 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+      class="button inline-flex items-center">
       <svg class="w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
           viewBox="0 0 18 19">
           <path fill-rule="evenodd"

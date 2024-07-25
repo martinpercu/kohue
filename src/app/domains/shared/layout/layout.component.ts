@@ -1,13 +1,27 @@
-import { Component } from '@angular/core';
-import { NavbarComponent } from '@shared/navbar/navbar.component';
+import { Component, inject } from '@angular/core';
+// import { NavbarComponent } from '@shared/navbar/navbar.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-layout',
   standalone: true,
-  imports: [NavbarComponent],
+  imports: [],
+  // imports: [NavbarComponent],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.css'
 })
 export class LayoutComponent {
+
+  private router = inject(Router);
+
+
+  navJointhelist() {
+    this.router.navigate(['join'])
+  };
+
+  navSignIn() {
+    this.router.navigate(['signin'])
+  };
+
 
 }

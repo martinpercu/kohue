@@ -1,11 +1,14 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { NavbarComponent } from '@shared/navbar/navbar.component'
+
+
 
 @Component({
   selector: 'app-joinedmaillist',
   standalone: true,
-  imports: [],
+  imports: [NavbarComponent],
   templateUrl: './joinedmaillist.component.html',
   styleUrl: './joinedmaillist.component.css'
 })

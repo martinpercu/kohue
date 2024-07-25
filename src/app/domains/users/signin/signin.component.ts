@@ -1,14 +1,16 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { LayoutComponent } from '@shared/layout/layout.component';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '@services/auth.service';
+
+// import { LayoutComponent } from '@shared/layout/layout.component';
+import { NavbarComponent } from '@shared/navbar/navbar.component'
 
 
 @Component({
   selector: 'app-signin',
   standalone: true,
-  imports: [LayoutComponent, ReactiveFormsModule],
+  imports: [NavbarComponent, ReactiveFormsModule],
   templateUrl: './signin.component.html',
   styleUrl: './signin.component.css'
 })
@@ -40,10 +42,14 @@ export class SigninComponent {
 
   navToDash() {
     this.router.navigate(['dashboard'])
-  }
+  };
 
   navToLogin() {
     this.router.navigate(['login'])
-  }
+  };
+
+  navToHome() {
+    this.router.navigate(['test'])
+  };
 
 }
