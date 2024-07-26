@@ -1,0 +1,7 @@
+
+
+@media (min-height: 740px) {
+  .cover_background_tallest_screens {
+    background-size: cover;
+  }
+}

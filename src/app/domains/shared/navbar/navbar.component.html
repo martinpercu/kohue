@@ -2,7 +2,8 @@
   <div class="max-w-screen-xl flex flex-wrap items-center justify-between py-1 px-3 sm:py-4 sm:px-8">
 
     <div (click)="navToHome()" class="flex-row">
-      <img src="./../../../../assets/img/kohue-sello-name.svg" class="h-4 sm:h-7 hover:cursor-pointer" alt="Kohue Wines" />
+      <img src="./../../../../assets/img/kohue-sello-name.svg" class="h-4 sm:h-7 hover:cursor-pointer"
+        alt="Kohue Wines" />
     </div>
 
     <!-- <div class="flex-row md:order-2 space-x-3 md:space-x-0"> -->
@@ -19,17 +20,26 @@
 
 <nav class="bg-xdark sm:hidden">
 
-  <div class="max-w-screen-xl grid gap-2 grid-cols-2 grid-rows-1 py-2 px-12">
-    <div class="m-auto">
-      <button (click)="navJointhelist()" class="button_navbar">
-        Join the List
-      </button>
+  <div class="max-w-screen-xl flex py-2 px-7">
+
+    <div (click)="navToHome()" class="flex-none w-1/6">
+      <img src="./../../../../assets/img/kohue-sello.svg" class="h-7 hover:cursor-pointer" alt="Kohue Wines" />
     </div>
-    <div class="m-auto">
-      <button (click)="navSignIn()" class="button_navbar">
-        Acquire
-      </button>
+    <!-- <div class="flex-none w-1/6"></div> -->
+
+    <div class="flex flex-1 gap-4 justify-end">
+      <div class="">
+        <button (click)="navJointhelist()" class="button_navbar">
+          Join the List
+        </button>
+      </div>
+      <div class="">
+        <button (click)="navSignIn()" class="button_navbar">
+          Acquire
+        </button>
+      </div>
     </div>
   </div>
+
 
 </nav>

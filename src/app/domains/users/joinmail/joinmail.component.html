@@ -1,32 +1,43 @@
 <app-navbar></app-navbar>
 
-<div class="m-auto max-w-72">
-  <div class="text-center font-bold text-xl mt-6">
-    Join the Maillist !
+<div class="m-auto max-w-72 sm:max-w-lg">
+  <div class="text-center font-bold text-xl mt-6 sm:mt-10 sm:mb-4">
+    Join the Maillist
   </div>
 
-  <div class="flex flex-row py-8 text-center align-middle text-base font-normal text-gray-900 dark:text-white">
+  <!-- <div class="flex flex-row py-8 text-center align-middle text-base font-normal text-gray-900 dark:text-white">
 
-    <img src="./../../../../../assets/img/kohue-sello-dark.svg" class="w-16 h-16 rounded-full hover:cursor-pointer mr-2"
-      alt="Maximous"  (click)="navToHome()"  />
-      <!-- <img src="./../../../../../assets/img/avatarmaximo.jpg" class="w-16 h-16 rounded-full hover:animate-spin mr-2"
-        alt="Maximous" /> -->
-    To join our mailing list and learn more about future releases, please share your details below. Thank you for your interest!.
-  </div>
+        Thank you for your interest in Kohue Wines!<br>
+        Please join our mailing list to learn more about our project, updates throughout the year and access to future releases by entering your details below.
+  </div> -->
 </div>
 
 <div
-  class="m-auto w-2/3 max-w-sm min-w-80 p-4 bg-white  rounded-lg sm:border md:shadow-md sm:p-6 md:p-8 md:border-gray-200 dark:bg-gray-800 md:dark:border-gray-700">
-  <form [formGroup]="formJoinMail" (ngSubmit)="onSubmit()">
+  class="m-auto w-3/4 max-w-sm sm:max-w-lg min-w-80 p-4 bg-transparent rounded-lg sm:p-6"
+  >
 
-    <div>
-      <label class="form-label" class="block mb-1 mt-2 text-xs font-medium text-gray-900 dark:text-white">First & Last name:</label>
+
+  <div class="py-8 text-center align-middle text-base font-normal text-gray-900">
+
+    <!-- <img src="./../../../../../assets/img/kohue-sello-dark.svg" class="w-16 h-16 rounded-full hover:cursor-pointer mr-2"
+      alt="Maximous"  (click)="navToHome()"  /> -->
+
+    Thank you for your interest in Kohue Wines!<br>
+    Please join our mailing list to learn more about our project, updates throughout the year and access to future
+    releases by entering your details below.
+  </div>
+
+  <div class="flex flex-col sm:flex-row sm:gap-4">
+
+    <div class="sm:w-1/2">
+      <label class="form-label" class="block mb-1 mt-2 text-xs font-medium text-gray-900 dark:text-white">First & Last
+        name:</label>
       <input class="form-control" formControlName="fullname" type="text"
-        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+        class="x_input"
         placeholder="">
     </div>
 
-    <div>
+    <div class="sm:w-1/2">
       <label class="form-label" class="block mb-1 mt-2 text-xs font-medium text-gray-900 dark:text-white">Email:</label>
       <div class="relative">
         <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
@@ -38,19 +49,23 @@
           </svg>
         </div>
         <input class="form-control" formControlName="email" type="email" id="email-address-icon"
-          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          class="x_input_with_icon"
           placeholder="" value="">
       </div>
     </div>
+  </div>
+
+  <form [formGroup]="formJoinMail" (ngSubmit)="onSubmit()">
+
 
     <div class="mt-8">
-      <button type="submit"
-        class="button">
+      <button type="submit" class="button">
         Subscribe
       </button>
     </div>
 
   </form>
+
 
   <!-- <div class="mt-4">
    <span class="small-text providers">Have a Google acount?</span>
