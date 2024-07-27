@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { Firestore, collection, addDoc, collectionData, doc, deleteDoc, getDoc, updateDoc } from '@angular/fire/firestore';
+import { Firestore, collection, addDoc, collectionData, doc, deleteDoc, getDoc, updateDoc, setDoc } from '@angular/fire/firestore';
 import { Client } from '@models/client.model'
 import { Observable } from 'rxjs';
 
@@ -13,31 +13,31 @@ export class ClientService {
   constructor() { }
 
   addClient(client: Client) {
-    const clientsRef = collection(this.firestore, 'clients');
+    const clientsRef = collection(this.firestore, 'clientsjoinedlist');
     return addDoc(clientsRef, client)
-  }
+  };
 
   getClients(): Observable<Client[]> {
-    const clientsRef = collection(this.firestore, 'clients');
+    const clientsRef = collection(this.firestore, 'clientsjoinedlist');
     return collectionData(clientsRef, { idField: 'id' }) as Observable<Client[]>
-  }
+  };
 
   deleteClient(client: Client) {
-    const clientDocRef = doc(this.firestore, `clients/${client.id}`);
+    const clientDocRef = doc(this.firestore, `clientsjoinedlist/${client.id}`);
     return deleteDoc(clientDocRef)
-  }
+  };
 
   async getOneClient(clientId: string) {
-    // const clientDocRef = doc(this.firestore, `clients/${clientId}`);
-    const clientDocRef = doc(this.firestore, 'clients', clientId);
+    // const clientDocRef = doc(this.firestore, `clientsjoinedlist/${clientId}`);
+    const clientDocRef = doc(this.firestore, 'clientsjoinedlist', clientId);
     console.log(clientDocRef);
     const client = (await getDoc(clientDocRef)).data();
     console.log(client);
     return client as Client
-  }
+  };
 
   updateOneClient(client: any, clientId: string) {
-    const clientDocRef = doc(this.firestore, 'clients', clientId);
+    const clientDocRef = doc(this.firestore, 'clientsjoinedlist', clientId);
     updateDoc(clientDocRef, client)
       .then(() => {
         console.log('Client updated');
@@ -46,6 +46,11 @@ export class ClientService {
       .catch((error) => {
         console.log(error);
       })
+  };
+
+  addUserWithId(user: Client, userUID: any) {
+    const usersRef = collection(this.firestore, 'users');
+    return setDoc(doc(usersRef, userUID), user)
   }
 
 

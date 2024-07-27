@@ -43,12 +43,16 @@ export class JoinmailComponent {
   }
 
   async onSubmit() {
-    // const response = await this.clientService.addClient(this.formJoinMail.value);
-    // console.log(response);
-    // this.navToJoined();
-    // this.emailsender.sendEmail(this.formJoinMail.value); // PROD
-    alert('not send we are in DEV'); // DEV
-    this.navToJoined();// DEV
+    this.client = this.formJoinMail.value;
+    this.client.clientUID = "3215"
+
+
+    const response = await this.clientService.addClient(this.client);
+    console.log(response);
+    this.navToJoined();
+    this.emailsender.sendEmail(this.formJoinMail.value); // PROD
+    // alert('not send we are in DEV'); // DEV
+    // this.navToJoined();// DEV
   };
 
   navToJoined() {
