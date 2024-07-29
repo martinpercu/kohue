@@ -2,6 +2,8 @@ import { Routes } from '@angular/router';
 import { LayoutComponent } from '@shared/layout/layout.component';
 import { ClientsFullComponent } from '@admin/clients-full/clients-full.component';
 import { EditClientComponent } from '@admin/edit-client/edit-client.component';
+import { UsersFullComponent } from '@admin/users-full/users-full.component';
+import { EditUserComponent } from '@admin/edit-user/edit-user.component';
 import { SigninComponent } from '@users/signin/signin.component';
 import { LoginComponent } from '@users/login/login.component';
 import { DashboardComponent } from '@users/dashboard/dashboard.component';
@@ -24,8 +26,23 @@ export const routes: Routes = [
     // ...canActivate(() => redirectUnauthorizedTo(['login']))
   },
   {
-    path: 'admin/:id',
+    path: 'joinedadmin',
+    component: ClientsFullComponent,
+    // ...canActivate(() => redirectUnauthorizedTo(['login']))
+  },
+  {
+    path: 'joinedadmin/:id',
     component: EditClientComponent,
+    // ...canActivate(() => redirectUnauthorizedTo(['login']))
+  },
+  {
+    path: 'usersadmin',
+    component: UsersFullComponent,
+    // ...canActivate(() => redirectUnauthorizedTo(['login']))
+  },
+  {
+    path: 'usersadmin/:id',
+    component: EditUserComponent,
     // ...canActivate(() => redirectUnauthorizedTo(['login']))
   },
   {

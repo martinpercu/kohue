@@ -48,8 +48,8 @@ export class SigninComponent {
           email: this.formReg.value.email,
           clientUID: response.user.uid
         };
-        console.log(this.client);
 
+        console.log(this.client);
         this.createRegisteredUser(this.client, response.user.uid);
         this.router.navigate(['edit']);
       })

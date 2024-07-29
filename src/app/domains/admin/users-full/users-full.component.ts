@@ -6,28 +6,31 @@ import { Client } from '@models/client.model';
 
 import { NavbarComponent } from '@shared/navbar/navbar.component';
 
+import { ButtonlogoutComponent } from '@shared/buttonlogout/buttonlogout.component';
+
 import { AdminNavbarComponent } from '@admin/admin-navbar/admin-navbar.component';
 
 @Component({
-  selector: 'app-clients-full',
+  selector: 'app-users-full',
   standalone: true,
   imports: [ReactiveFormsModule, RouterLinkWithHref, NavbarComponent, AdminNavbarComponent],
-  templateUrl: './clients-full.component.html',
-  styleUrl: './clients-full.component.css'
+  templateUrl: './users-full.component.html',
+  styleUrl: './users-full.component.css'
 })
-export class ClientsFullComponent {
+export class UsersFullComponent {
 
   private clientService = inject(ClientService);
   private router = inject(Router);
 
   expand: boolean = true;
 
-  clients!: Client[];
+  users!: Client[];
+
 
   ngOnInit() {
-    this.clientService.getClients().subscribe(clients => {
-      this.clients = clients;
-      console.log(this.clients);
+    this.clientService.getUsers().subscribe(users => {
+      this.users = users;
+      console.log(this.users);
     })
   }
 
@@ -35,5 +38,6 @@ export class ClientsFullComponent {
     this.expand = !this.expand
     this.router.navigate(['edit', clientId])
   }
+
 
 }

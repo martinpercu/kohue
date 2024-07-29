@@ -1,0 +1,60 @@
+<!-- <app-navbar></app-navbar> -->
+<app-admin-navbar></app-admin-navbar>
+
+<div class="m-auto w-1/2 min-w-96">
+
+  <p class="py-8 text-lg text-gray-500 md:text-xl  text">
+    Users with account created
+  </p>
+</div>
+
+
+
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+  <table class="w-full text-sm text-left rtl:text-right text-gray-500 ">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50  ">
+      <tr>
+        <th scope="col" class="px-6 py-3">
+          Full Name
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Email
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Phone
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Contact by
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Action
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (user of users; track user; let i = $index)
+      {
+      <tr class="odd:bg-white even:bg-gray-50 border-b">
+        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap ">
+          {{user.fullname}}
+        </th>
+        <td class="px-6 py-4">
+          {{user.email}}
+        </td>
+        <td class="px-6 py-4">
+          {{user.phone}}
+        </td>
+        <td class="px-6 py-4">
+          @if (user.byEmail) { Email }
+          @if (user.byEmail && user.byPhone) { and }
+          @if (user.byPhone) { Phone }.
+        </td>
+        <td class="px-6 py-4">
+          <a [routerLink]="[user.clientUID]" class="font-medium text-blue-600  hover:underline">View/Edit </a>
+        </td>
+      </tr>
+
+      }
+    </tbody>
+  </table>
+</div>
