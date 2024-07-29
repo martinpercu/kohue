@@ -20,4 +20,9 @@ export class JoinedmaillistComponent {
     this.router.navigate(['/'])
   }
 
+
+  navToLinkFromEmail() {
+    this.router.navigate(['signin'])
+  }
+
 }

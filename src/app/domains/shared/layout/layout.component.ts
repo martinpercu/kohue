@@ -19,8 +19,8 @@ export class LayoutComponent {
     this.router.navigate(['join'])
   };
 
-  navSignIn() {
-    this.router.navigate(['signin'])
+  navToAcquire() {
+    this.router.navigate(['acquire'])
   };
 
 

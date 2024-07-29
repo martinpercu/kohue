@@ -4,6 +4,7 @@ import { ClientsFullComponent } from '@admin/clients-full/clients-full.component
 import { EditClientComponent } from '@admin/edit-client/edit-client.component';
 import { UsersFullComponent } from '@admin/users-full/users-full.component';
 import { EditUserComponent } from '@admin/edit-user/edit-user.component';
+import { AcquireComponent } from '@users/acquire/acquire.component';
 import { SigninComponent } from '@users/signin/signin.component';
 import { LoginComponent } from '@users/login/login.component';
 import { DashboardComponent } from '@users/dashboard/dashboard.component';
@@ -46,16 +47,20 @@ export const routes: Routes = [
     // ...canActivate(() => redirectUnauthorizedTo(['login']))
   },
   {
-    path: 'signin',
-    component: SigninComponent
-  },
-  {
     path: 'join',
     component: JoinmailComponent
   },
   {
     path: 'joinedmaillist',
     component: JoinedmaillistComponent
+  },
+  {
+    path: 'signin',
+    component: SigninComponent
+  },
+  {
+    path: 'acquire',
+    component: AcquireComponent
   },
   {
     path: 'login',

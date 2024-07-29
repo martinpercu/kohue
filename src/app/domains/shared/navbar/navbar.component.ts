@@ -31,8 +31,8 @@ export class NavbarComponent {
     this.router.navigate(['join'])
   };
 
-  navSignIn() {
-    this.router.navigate(['signin'])
+  navAcquire() {
+    this.router.navigate(['acquire'])
   };
 
 }

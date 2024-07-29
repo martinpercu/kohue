@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { LayoutComponent } from '@shared/layout/layout.component';
+
+import { NavbarComponent } from '@shared/navbar/navbar.component';
 
 @Component({
   selector: 'app-edit',
   standalone: true,
-  imports: [LayoutComponent],
+  imports: [NavbarComponent],
   templateUrl: './edit.component.html',
   styleUrl: './edit.component.css'
 })
