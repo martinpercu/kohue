@@ -8,6 +8,8 @@ import { ClientService } from '@services/client.service';
 // import { LayoutComponent } from '@shared/layout/layout.component';
 import { NavbarComponent } from '@shared/navbar/navbar.component'
 
+import { EmailService } from '@services/email.service';
+
 
 @Component({
   selector: 'app-signin',
@@ -21,15 +23,15 @@ export class SigninComponent {
   private authService = inject(AuthService);
   private router = inject(Router);
   private clientService = inject(ClientService);
+  private emailsender = inject(EmailService)
 
   formReg: FormGroup;
 
   client!: Client;
 
-
   constructor() {
     this.formReg = new FormGroup({
-      fullname: new FormControl(),
+      firstname: new FormControl(),
       email: new FormControl(),
       password: new FormControl()
     })
@@ -41,33 +43,40 @@ export class SigninComponent {
         console.log(response);
         console.log(response.user);
         console.log(response.user.uid);
-        this.createRegisteredUser(this.formReg.value, response.user.uid);
+        this.client = {
+          firstname: this.formReg.value.firstname,
+          email: this.formReg.value.email,
+          clientUID: response.user.uid
+        };
+        console.log(this.client);
+
+        this.createRegisteredUser(this.client, response.user.uid);
         this.router.navigate(['edit']);
       })
       .catch(error => console.log(error));
   };
 
-
   async createRegisteredUser(userBasic: Client, userUID: any) {
-    userBasic.clientUID = userUID;
     const response = await this.clientService.addUserWithId(userBasic, userUID);
     console.log(response);
-    // this.navToJoined();
-    // this.emailsender.sendEmail(this.formJoinMail.value); // PROD
-    // alert('not send we are in DEV'); // DEV
-    // this.navToJoined();// DEV
+    this.navToEdit();
+    this.emailsender.sendEmailRegister(this.formReg.value);
   };
 
   navToDash() {
     this.router.navigate(['dashboard'])
   };
 
-  navToLogin() {
-    this.router.navigate(['login'])
+  navToEdit() {
+    this.router.navigate(['edit'])
   };
 
   navToHome() {
     this.router.navigate(['test'])
+  };
+
+  navToLogin() {
+    this.router.navigate(['login'])
   };
 
 }

@@ -1,14 +1,4 @@
-@if (!client) {
-<div class="m-auto max-w-max pb-6 pt-12">
-
-  {{ phonePath }}
-
-
-</div>
-<div class="{{ this.color }}">
-qsdcqsdcqsdc
-
-</div>
+@if (client) {
 
 <div
   class="m-auto min-w-80 p-4  rounded-lg sm:border md:shadow-md sm:p-6 md:p-8 md:border-gray-200 dark:bg-gray-800 md:dark:border-gray-700">
@@ -84,27 +74,6 @@ qsdcqsdcqsdc
         </div>
       </div>
 
-      <div>
-        <label class="form-label" class="block mb-1 mt-1 text-sm font-medium text-gray-900 dark:text-white">
-          Phone number:</label>
-        <div class="relative">
-          <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
-            <svg class="w-4 h-4 text-red-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-              fill="currentColor" viewBox="0 0 19 18">
-              <path
-                d="M18 13.446a3.02 3.02 0 0 0-.946-1.985l-1.4-1.4a3.054 3.054 0 0 0-4.218 0l-.7.7a.983.983 0 0 1-1.39 0l-2.1-2.1a.983.983 0 0 1 0-1.389l.7-.7a2.98 2.98 0 0 0 0-4.217l-1.4-1.4a2.824 2.824 0 0 0-4.218 0c-3.619 3.619-3 8.229 1.752 12.979C6.785 16.639 9.45 18 11.912 18a7.175 7.175 0 0 0 5.139-2.325A2.9 2.9 0 0 0 18 13.446Z" />
-            </svg>
-            <svg class="w-4 h-4 text-red-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-              fill="currentColor" viewBox="0 0 19 18">
-              <path
-                d="sdcs;,sd,n" />
-            </svg>
-          </div>
-          <input type="tel" formControlName="phone"
-            class="x_input_with_icon"
-            placeholder="123-456-7890" />
-        </div>
-      </div>
 
       <div class="flex mt-4 mb-4 py-1">
 

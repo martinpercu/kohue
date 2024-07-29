@@ -19,11 +19,11 @@ export class ClientService {
 
   getClients(): Observable<Client[]> {
     const clientsRef = collection(this.firestore, 'clientsjoinedlist');
-    return collectionData(clientsRef, { idField: 'id' }) as Observable<Client[]>
+    return collectionData(clientsRef, { idField: 'clientUID' }) as Observable<Client[]>
   };
 
   deleteClient(client: Client) {
-    const clientDocRef = doc(this.firestore, `clientsjoinedlist/${client.id}`);
+    const clientDocRef = doc(this.firestore, `clientsjoinedlist/${client.clientUID}`);
     return deleteDoc(clientDocRef)
   };
 
@@ -48,9 +48,9 @@ export class ClientService {
       })
   };
 
-  addUserWithId(user: Client, userUID: any) {
+  addUserWithId(user: Client, userId: any) {
     const usersRef = collection(this.firestore, 'users');
-    return setDoc(doc(usersRef, userUID), user)
+    return setDoc(doc(usersRef, userId), user)
   }
 
 
