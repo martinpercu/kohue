@@ -1,5 +1,5 @@
 <nav class="bg-xdark hidden sm:block">
-  <div class="max-w-screen-xl flex flex-wrap items-center justify-between py-1 px-3 sm:py-4 sm:px-8">
+  <div class="flex justify-between py-1 px-3 sm:py-4 sm:px-8">
 
     <div (click)="navToHome()" class="flex-row">
       <img src="./../../../../assets/img/kohue-sello-name.svg" class="h-4 sm:h-7 hover:cursor-pointer"
@@ -7,17 +7,17 @@
     </div>
 
     <div class="flex-row">
-      <!-- <button (click)="navJointhelist()" class="button_navbar mr-1">
+      <button (click)="navJointhelist()" class="button_navbar mr-1 uppercase">
         Join the List
       </button>
-      <button (click)="navAcquire()" class="button_navbar">
-        Acquire
-      </button> -->
+      <button (click)="navEdit()" class="button_navbar uppercase">
+        Members
+      </button>
     </div>
   </div>
 </nav>
 
-<nav class="bg-xdark sm:hidden">
+<!-- <nav class="bg-xdark sm:hidden">
 
   <div class="max-w-screen-xl flex py-2 px-7 justify-center">
 
@@ -28,9 +28,9 @@
 
   </div>
 
-</nav>
+</nav> -->
 
-<!-- <nav class="bg-xdark sm:hidden">
+<nav class="bg-xdark sm:hidden">
 
   <div class="max-w-screen-xl flex py-2 px-7">
 
@@ -40,17 +40,17 @@
 
     <div class="flex flex-1 gap-4 justify-end">
       <div class="">
-        <button (click)="navJointhelist()" class="button_navbar">
+        <button (click)="navJointhelist()" class="button_navbar uppercase">
           Join the List
         </button>
       </div>
       <div class="">
-        <button (click)="navAcquire()" class="button_navbar">
-          Acquire
+        <button (click)="navEdit()" class="button_navbar uppercase">
+          Members
         </button>
       </div>
     </div>
 
   </div>
 
-</nav> -->
+</nav>
