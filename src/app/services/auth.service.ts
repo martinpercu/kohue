@@ -5,7 +5,7 @@ import {
   signInWithEmailAndPassword,
   signOut,
   signInWithPopup,
-  GoogleAuthProvider
+  GoogleAuthProvider,
 } from '@angular/fire/auth';
 
 @Injectable({
@@ -27,11 +27,18 @@ export class AuthService {
 
   loginWithGoogle() {
     return signInWithPopup(this.auth, new GoogleAuthProvider())
-  }
+  };
 
   logout() {
     return signOut(this.auth);
-    console.log('LogOUT from Authservice OK');
+    // console.log('LogOUT from Authservice OK');
+  };
+
+  getUserUid() {
+    if (this.auth.currentUser !== null) {
+      return this.auth.currentUser.uid
+    }
+    return null
   }
 
 }

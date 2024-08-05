@@ -37,15 +37,13 @@ export class JoinmailComponent {
   private buildForm() {
     this.formJoinMail = this.formBuilder.group({
       fullname: ['', [Validators.required, Validators.minLength(4)]],
-      email: ['', [Validators.required, Validators.email]],
-      byEmail: [true],
+      email: ['', [Validators.required, Validators.email]]
     });
   }
 
   async onSubmit() {
     this.client = this.formJoinMail.value;
     // this.client.clientUID = "3215"
-
 
     const response = await this.clientService.addClient(this.client);
     console.log(response);

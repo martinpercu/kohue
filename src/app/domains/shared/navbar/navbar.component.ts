@@ -31,6 +31,10 @@ export class NavbarComponent {
     this.router.navigate(['join'])
   };
 
+  navEdit() {
+    this.router.navigate(['edit'])
+  };
+
   navAcquire() {
     this.router.navigate(['acquire'])
   };
