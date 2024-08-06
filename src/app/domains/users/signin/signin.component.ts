@@ -71,6 +71,31 @@ export class SigninComponent {
     // this.emailsender.sendEmailRegister(this.formReg.value);
   };
 
+  signGoogle() {
+    this.authService.loginWithGoogle()
+    .then(response => {
+      console.log(response);
+      console.log(response.user);
+      console.log(response.user.uid);
+      if(response.user.email && response.user.displayName) {
+          this.client = {
+          firstname: response.user.displayName,
+          email: response.user.email,
+          clientUID: response.user.uid,
+          billDifThanShip: false
+        };
+      }
+
+
+      console.log(this.client);
+      this.createRegisteredUser(this.client, response.user.uid);
+      // .then(() => {
+      //   this.router.navigate(['edit']);
+      // });
+    })
+    .catch(error => console.log(error));
+  };
+
   navToDash() {
     this.router.navigate(['dashboard'])
   };

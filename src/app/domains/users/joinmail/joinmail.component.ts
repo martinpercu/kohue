@@ -30,6 +30,8 @@ export class JoinmailComponent {
 
   formJoinMail!: FormGroup;
 
+  fullname: [] = [];
+
   constructor() {
     this.buildForm();
   }
@@ -43,14 +45,16 @@ export class JoinmailComponent {
 
   async onSubmit() {
     this.client = this.formJoinMail.value;
-    // this.client.clientUID = "3215"
+    this.client.firstname = this.client.fullname?.split(' ')[0];
+
+    console.log(this.client);
+    // console.log(this.formJoinMail.value);
+
 
     const response = await this.clientService.addClient(this.client);
     console.log(response);
     this.navToJoined();
-    this.emailsender.sendEmailJoin(this.formJoinMail.value); // PROD
-    // alert('not send we are in DEV'); // DEV
-    // this.navToJoined();// DEV
+    this.emailsender.sendEmailJoin(this.client);
   };
 
   navToJoined() {
