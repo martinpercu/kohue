@@ -3,6 +3,7 @@
 # Environment Vars
 
 /src/environment
+/src/environments
 
 # Compiled output
 /dist

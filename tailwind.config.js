@@ -4,7 +4,14 @@ module.exports = {
     "./src/**/*.{html,ts}",
   ],
   theme: {
+    fontFamily: {
+      sans: ['Montserrat', 'sans-serif'],
+      // serif: ['Merriweather', 'serif'],
+    },
     extend: {
+      fontFamily: {
+        buttonFont: 'Roboto Slab', // Adds a new `font-button` class
+      },
       colors: {
         'brandlight': '#e8e2da',
         'brand': '#a8935f',
