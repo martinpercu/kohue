@@ -1,4 +1,4 @@
-import { Component, ElementRef, NgZone, ViewChild, inject, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, NgZone, ViewChild, inject, AfterViewInit, OnChanges } from '@angular/core';
 
 import { StripeService } from '@services/stripe.service';
 import { lastValueFrom } from 'rxjs';
@@ -40,6 +40,8 @@ export class CardStripeComponent implements AfterViewInit {
   private userId!: any;
   user!: Client;
 
+  userIsStripeOk: boolean = false;
+
   constructor() {
     const id = this.auth.getUserUid();
     if (id) {
@@ -47,6 +49,22 @@ export class CardStripeComponent implements AfterViewInit {
       console.log('IN STRIPE CARD hay parametro', this.userId);
       // this.getUser()
     }
+  };
+
+  // ngOnChanges() {
+
+  // }
+
+  async ngOnInit() {
+    console.log(this.userIsStripeOk);
+    this.user = await this.clientService.getOneUser(this.userId);
+    console.log(this.user);
+    if(!this.user.stripeCustomerId) {
+      this.createStripeUser();
+    } else {
+      this.userIsStripeOk = true
+      console.log("Stripe user ID ==>   ", this.user.stripeCustomerId);
+    };
   };
 
 
@@ -85,8 +103,7 @@ export class CardStripeComponent implements AfterViewInit {
     });
     this.card.mount(this.cardInfo.nativeElement);
     this.card.addEventListener('change', this.onChange.bind(this));
-
-  }
+  };
 
   onChange({ error }: any) {
     if (error) {
@@ -109,17 +126,29 @@ export class CardStripeComponent implements AfterViewInit {
   };
 
 
-  async createUser() {
-    const user = await this.getUser();
-    console.log(user);
+  async createStripeUser() {
+    // const user = await this.getUser();
+    console.log(this.user);
+    // const userStripe = {
+    //   name: user.firstname,
+    //   email: user.email
+    // };
     const userStripe = {
-      name: user.firstname,
-      email: user.email
+      name: "Jua erino",
+      email: "jacd@gigantes.com"
     }
-    const algo$ = await this.stripeService.createUser(userStripe);
-    this.algo = await lastValueFrom(algo$);
-    console.log(algo$);
+    // const algo$ = await this.stripeService.createUser(userStripe);
+    // this.algo = await lastValueFrom(algo$);
+    // console.log(algo$);
     console.log(this.algo);
+    console.log(userStripe);
+  };
+
+  async testAPI() {
+    const test$ = await this.stripeService.tester();
+    this.algo2 = await lastValueFrom(test$);
+    console.log(test$);
+    console.log(this.algo2);
   };
 
 
@@ -155,7 +184,6 @@ export class CardStripeComponent implements AfterViewInit {
   async payAndCreateUser(ownerInfo: any) {
     console.log(ownerInfo);
 
-
     const { source } = await stripe.createSource(this.card, ownerInfo);
     if (source) {
       console.log('source');
@@ -180,7 +208,7 @@ export class CardStripeComponent implements AfterViewInit {
       });
     }
 
-  }
+  };
 
 
   // async createTokenAndPay() {
