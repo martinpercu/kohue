@@ -17,7 +17,7 @@ module.exports = {
         'brand': '#a8935f',
         'brandgold': '#d9c38c',
         'xdark': '#4C4E56',
-        'xlight': '#e8e2da',
+        'xlight': '#eae6dd',
         'xbrown': '#615257',
       },
       backgroundImage: {
