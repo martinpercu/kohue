@@ -6,24 +6,25 @@ module.exports = {
   theme: {
     fontFamily: {
       sans: ['Montserrat', 'sans-serif'],
-      // serif: ['Merriweather', 'serif'],
+      serif: ['Engravers', 'serif'],
     },
     extend: {
       fontFamily: {
-        buttonFont: 'Roboto Slab', // Adds a new `font-button` class
+        buttonFont: 'Engravers', // Adds a new `font-button` class
       },
       colors: {
         'brandlight': '#e8e2da',
         'brand': '#a8935f',
         'brandgold': '#d9c38c',
-        'xdark': '#46464e',
+        'xdark': '#4C4E56',
         'xlight': '#e8e2da',
         'xbrown': '#615257',
       },
       backgroundImage: {
         'cordillera': "url('assets/img/cordillera-bw.jpg')",
-        'cordillera-sepia': "url('assets/img/cordillera-sepia.jpg')",
-        'cordillera-robada': "url('assets/img/promo_background.jpg')",
+        'cordillera-sepia': "url('assets/img/css/bg-cordillera.jpg')",
+        'cordillera-vertical': "url('assets/img/css/bg-cordillera-vertical.jpg')",
+        'nubes': "url('assets/img/css/bg-nubes.jpg')",
       }
     },
   },

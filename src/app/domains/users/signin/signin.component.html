@@ -1,33 +1,36 @@
 <app-navbar></app-navbar>
+<app-footer></app-footer>
 
-<div class="m-auto max-w-72">
+<div class="flex justify-center items-center py-4 px-10 pt-8">
+  <img class="h-6" src="./../../../../assets/img/kohue-name-dark.svg" alt="">
+</div>
 
-  <div class="flex flex-row py-8 text-center align-middle text-base font-normal text-gray-900 dark:text-white">
-
+<div class="pt-8">
+  <div class="px-4 text-pretty text-center align-middle text-base font-normal text-gray-900">
     Please enter details below to become a member.
   </div>
 </div>
 
-<div class="m-auto w-3/4 max-w-md sm:max-w-md min-w-80 p-4 bg-transparent sm:p-6">
+<div class="m-auto sm:w-3/4 max-w-md sm:max-w-xl min-w-80 p-4 px-12 sm:p-6">
   <form [formGroup]="formReg" (ngSubmit)="onSubmit()">
     <!-- <div class="text-xl font-medium text-gray-900 dark:text-white">Sign in to our platform</div> -->
 
     <div class="grid gap-2">
       <div>
-        <label class="form-label" class="block mb-1 mt-2 text-xs font-medium text-gray-900 dark:text-white">First
+        <label class="form-label" class="block mb-1 mt-2 text-xs font-medium text-gray-900 uppercase">First
           name:</label>
         <input class="form-control" formControlName="firstname" type="text" class="x_input" placeholder="">
       </div>
 
       <div>
-        <label class="form-label" class="block mb-1 mt-2 text-xs font-medium text-gray-900 dark:text-white">Last
+        <label class="form-label" class="block mb-1 mt-2 text-xs font-medium text-gray-900 uppercase">Last
           name:</label>
         <input class="form-control" formControlName="lastname" type="text" class="x_input" placeholder="">
       </div>
 
 
     <div>
-      <label class="form-label" class="block mb-1 mt-2 text-xs font-medium text-gray-900 dark:text-white">Email:</label>
+      <label class="form-label" class="block mb-1 mt-2 text-xs font-medium text-gray-900 uppercase">Email:</label>
       <div class="relative">
         <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
           <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +47,7 @@
 
     <div>
       <label class="form-label"
-        class="block mb-1 mt-2 text-xs font-medium text-gray-900 dark:text-white">Password:</label>
+        class="block mb-1 mt-2 text-xs font-medium text-gray-900 uppercase">Password:</label>
       <input class="form-control" formControlName="password" type="password" class="x_input" placeholder="•••••••••"
         required>
     </div>
@@ -52,7 +55,7 @@
 
 
     <div class="mt-8">
-      <button type="submit" class="button login uppercase">
+      <button type="submit" class="button login uppercase px-20 font-semibold">
         Sign In
       </button>
     </div>
@@ -62,12 +65,12 @@
   <div class="mt-4">
     <!-- <span class="small-text providers">Have a Google acount?</span>
     <app-button-providers [isLogin]="true" /> -->
-    <span class="small-text log-in-redirect">Already registered? <span class="hover:underline cursor-pointer"
+    <span class="log-in-redirect text-xs">Already registered? <span class="hover:underline cursor-pointer"
         (click)="navToLogin()">Log in</span></span>
 
   </div>
 
-  <div class="mt-4">
+  <div>
     <div>
       <button type="button" class="button inline-flex items-center" (click)="signGoogle()">
         <svg class="w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
