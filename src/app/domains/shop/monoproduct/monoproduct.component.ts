@@ -21,6 +21,7 @@ export class MonoproductComponent {
 
 
   @Output() cartOnOff = new EventEmitter();
+  @Output() monoproductOff = new EventEmitter();
 
 
   monoproduct: Product;
@@ -39,10 +40,15 @@ export class MonoproductComponent {
     // this.addToCart.emit(this.monoproduct);
     this.cartService.addToCart(this.monoproduct);
     this.showTheCart();
+    this.monoproductShowOff();
   };
 
   showTheCart() {
     this.cartOnOff.emit(true);
+  }
+
+  monoproductShowOff() {
+    this.monoproductOff.emit(false);
   }
 
 }

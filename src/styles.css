@@ -33,15 +33,15 @@
 };
 
 .minibutton {
-  @apply hover:cursor-pointer font-buttonFont text-brandgold text-center items-center bg-xdark hover:bg-xbrown font-medium rounded-md text-sm px-3 sm:px-5 py-2;
+  @apply hover:cursor-pointer font-sans text-brandgold text-center items-center bg-xdark hover:bg-xbrown font-medium rounded-md text-sm px-3 sm:px-5 py-2;
 };
 
 .minibuttonOf {
-  @apply font-buttonFont text-transparent text-center items-center focus:ring-1 focus:outline-none focus:ring-xlight rounded-md text-sm px-3 sm:px-5 py-2;
+  @apply font-sans text-transparent text-center items-center focus:ring-1 focus:outline-none focus:ring-xlight rounded-md text-sm px-3 sm:px-5 py-2;
 };
 
 .minibuttonReverse {
-  @apply hover:cursor-pointer font-buttonFont border border-xbrown text-xdark text-center items-center hover:bg-brandgold font-medium rounded-md text-sm px-3 sm:px-5 py-2;
+  @apply hover:cursor-pointer font-sans border border-xbrown text-xdark text-center items-center hover:bg-brandgold font-medium rounded-md text-sm px-3 sm:px-5 py-2;
 };
 
 .x_input {
