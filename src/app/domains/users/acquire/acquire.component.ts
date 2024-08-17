@@ -27,5 +27,9 @@ export class AcquireComponent {
     this.router.navigate(['edit'])
   };
 
+  navToHome() {
+    this.router.navigate([''])
+  };
+
 
 }

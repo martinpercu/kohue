@@ -2,7 +2,7 @@
   <app-navbar></app-navbar>
   <app-footer></app-footer>
 
-  <div class="flex justify-center items-center py-4 px-10 pt-8">
+  <div (click)="navToHome()" class="hover:cursor-pointer flex justify-center items-center py-4 px-10 pt-8">
     <img class="h-6" src="./../../../../assets/img/kohue-name-dark.svg" alt="">
   </div>
 
@@ -24,7 +24,7 @@
 
     <form [formGroup]="formJoinMail" (ngSubmit)="onSubmit()">
 
-      <div class="m-auto max-w-sm sm:max-w-lg min-w-80 ">
+      <div class="m-auto max-w-sm sm:max-w-lg min-w-72 ">
 
         <div class="flex flex-col sm:flex-row sm:gap-4">
 
@@ -55,7 +55,7 @@
 
 
       <div class="mt-8">
-        <button type="submit" class="button uppercase">
+        <button type="submit" class="button uppercase w-full">
           Subscribe
         </button>
       </div>
