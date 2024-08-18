@@ -1,12 +1,12 @@
 @if (showGate) {
   <div class="absolute flex flex-col z-50 w-screen h-full bg-gray-700 bg-opacity-95">
-    <div class="m-auto p-6 sm:p-10 bg-gray-100 border border-gray-200 rounded-2xl shadow">
+    <div class="m-auto py-4 px-1 sm:p-10 bg-gray-100 border border-gray-200 rounded-2xl shadow">
 
       <div class="flex flex-col items-center text-center">
         <div class="mb-3 text-2xl font-medium text-brand">Are you over 21 years old?</div>
         <div class="text-sm text-gray-500">Please verify your age to enter this site</div>
         @if(!showAlert) {
-          <div class="flex gap-6 p-10">
+          <div class="flex gap-2 py-6 sm:gap-6 sm:p-10">
             <div (click)="retrieveFromLocalStorage()" class="button_off">
               I am under 21
             </div>
