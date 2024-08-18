@@ -51,20 +51,19 @@ export class SigninComponent {
           clientUID: response.user.uid,
           billDifThanShip: false
         };
-
         console.log(this.client);
         this.createRegisteredUser(this.client, response.user.uid);
-        // .then(() => {
-        //   this.router.navigate(['edit']);
-        // });
       })
       .catch(error => console.log(error));
   };
 
   async createRegisteredUser(userBasic: Client, userUID: any) {
     const response = await this.clientService.addUserWithId(userBasic, userUID).then(() => {
-      this.navToEdit();
-      this.emailsender.sendEmailRegister(this.formReg.value);
+      // this.navToEdit();
+      console.log(this.formReg.value);
+      console.log(this.client);
+      this.emailsender.sendEmailRegister(this.client);
+      this.router.navigate(['edit']);
     });
     console.log(response);
     // this.navToEdit();
@@ -84,14 +83,9 @@ export class SigninComponent {
           clientUID: response.user.uid,
           billDifThanShip: false
         };
-      }
-
-
       console.log(this.client);
       this.createRegisteredUser(this.client, response.user.uid);
-      // .then(() => {
-      //   this.router.navigate(['edit']);
-      // });
+      };
     })
     .catch(error => console.log(error));
   };
