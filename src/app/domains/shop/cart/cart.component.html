@@ -99,12 +99,12 @@
 
         @if(shippingAmount() > 1) {
           @if(totalItems() == 1){
-            <div (click)="checkToStripeOne()" class="button">
+            <div (click)="checkoutToStripe()" class="button">
               ${{ totalAmount()}} - Checkout - 1
             </div>
             }
           @if(totalItems() == 2){
-            <div (click)="checkToStripeTwo()" class="button">
+            <div (click)="checkoutToStripe()" class="button">
               ${{ totalAmount()}} - Checkout - 2
             </div>
             }

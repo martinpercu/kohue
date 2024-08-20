@@ -1,13 +1,20 @@
 import { Component, inject, signal, Output, EventEmitter, SimpleChanges } from '@angular/core';
 import { Product } from '@models/product.model';
+import { lastValueFrom } from 'rxjs';
 
 import { CartService } from '@services/cart.service';
 import { ShippingService } from '@services/shipping.service';
+import { AuthService } from '@services/auth.service';
+import { ClientService } from '@services/client.service';
 
 
 import { ShippingmethodComponent } from '@shop/shippingmethod/shippingmethod.component';
 
 import { MonoproductService } from '@services/monoproduct.service';
+
+import { StripeService } from '@services/stripe.service';
+
+import { Client } from '@models/client.model'
 
 
 @Component({
@@ -30,6 +37,9 @@ export class CartComponent {
   private cartService = inject(CartService);
   private shippingService = inject(ShippingService);
   private monoproductService = inject(MonoproductService);
+  private stripeService = inject(StripeService);
+  private auth = inject(AuthService);
+  private clientService = inject(ClientService);
 
   showCart: boolean = true;
   showCartInNav: boolean = true;
@@ -52,6 +62,52 @@ export class CartComponent {
 
   product!: Product;
 
+  stripeSession!: any;
+
+  private userId!: any;
+  user!: Client;
+
+  userIsStripeOk: boolean = false;
+
+  constructor() {
+    const id = this.auth.getUserUid();
+    if (id) {
+      this.userId = id
+      console.log('IN CART nav user ID', this.userId);
+      // this.getUser()
+    }
+  };
+
+  async ngOnInit() {
+    console.log(this.userIsStripeOk);
+    this.user = await this.clientService.getOneUser(this.userId);
+    console.log(this.user);
+    if(!this.user.stripeCustomerId) {
+      this.createStripeUser();
+    } else {
+      this.userIsStripeOk = true
+      console.log("Stripe user ID ==>   ", this.user.stripeCustomerId);
+    };
+  };
+
+
+  async createStripeUser() {
+    // const user = await this.getUser();
+    console.log(this.user);
+    // const userStripe = {
+    //   name: user.firstname,
+    //   email: user.email
+    // };
+    const userStripe = {
+      name: "Jua erino",
+      email: "jacd@gigantes.com"
+    }
+    // const algo$ = await this.stripeService.createUser(userStripe);
+    // this.algo = await lastValueFrom(algo$);
+    // console.log(algo$);
+    // console.log(this.algo);
+    console.log(userStripe);
+  };
 
 
   closeCart() {
@@ -140,6 +196,21 @@ export class CartComponent {
     // alert('fli to 2 stripe');
     let astripe2Wines = "https://buy.stripe.com/test_eVa6q94Lv7XB3gQcMN";
     window.location.href = astripe2Wines;
+  };
+
+  async checkoutToStripe() {
+    const user = this.user;
+    const product = "este producto copado";
+    const quantity = this.totalItems()
+    console.log(user, product, quantity);
+    const sessionToWait$ = this.stripeService.getSessionCheckout(user, product, quantity);
+    this.stripeSession = await lastValueFrom(sessionToWait$);
+    console.log(sessionToWait$);
+    console.log(this.stripeSession);
+    if (this.stripeSession) {
+      let checkoutUrl = this.stripeSession.url;
+      window.location.href = checkoutUrl;
+    }
   };
 
 
