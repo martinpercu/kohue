@@ -1,0 +1,126 @@
+<nav class="bg-xdark hidden sm:block">
+  <div class="flex justify-between py-1 px-3 sm:py-4 sm:px-8">
+
+    <div (click)="navToHome()" class="my-auto">
+      <img src="./../../../../assets/img/kohue-sello-name.svg" class="h-4 sm:h-7 hover:cursor-pointer"
+        alt="Kohue Wines" />
+    </div>
+
+    <div class="flex flex-row">
+      @if(showWine){
+        <div (click)="showWines()" class="button_navbar mr-1 uppercase">
+        hide Wine
+      </div>
+      }@if(!showWine){
+        <div (click)="showWines()" class="button_navbar mr-1 uppercase">
+        show Wine
+      </div>
+      }
+
+      <!-- <div (click)="navBuywine()" class="button_navbar mr-1 uppercase">
+        buy Wine
+      </div> -->
+      <div (click)="navEdit()" class="button_navbar uppercase">
+        Account
+      </div>
+      <div (click)="toggleSideMenu()" class="navbar_cart">
+        <div class="absolute right-4 top-2 rounded-full h-5 w-5 bg-xbrown text-brandgold font-light">4</div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="w-8 h-8">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<nav class="bg-xdark sm:hidden">
+
+  <div class="max-w-screen-xl flex py-2 px-7">
+
+    <div (click)="navToHome()" class="flex-none w-1/6 my-auto">
+      <img src="./../../../../assets/img/kohue-sello.svg" class="h-7 hover:cursor-pointer" alt="Kohue Wines" />
+    </div>
+
+    <div class="flex flex-1 gap-4 justify-end">
+      @if(showWine){
+        <div (click)="showWines()" class="button_navbar mr-1 uppercase">
+        hide Wine
+      </div>
+      }@if(!showWine){
+        <div (click)="showWines()" class="button_navbar mr-1 uppercase">
+        show Wine
+      </div>
+      }
+      <div (click)="navEdit()" class="button_navbar uppercase">
+        Account
+      </div>
+      <div (click)="toggleSideMenu()" class="navbar_cart">
+        <!-- <div class="relative -left-5 rounded h-6 w-6 bg-blue-800 text-gray-200 text-sm">{{ cart().length }}</div> -->
+        <div class="absolute right-4 top-2 rounded-full h-5 w-5 bg-xbrown text-brandgold font-light">4</div>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+            stroke="currentColor" class="w-8 h-8">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+          </svg>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</nav>
+
+<div class="fixed border-l-4 top-0 right-0 bg-red z-40 w-72 h-screen p-4 overflow-y-auto transition-transform bg-white"
+  [class.translate-x-full]="hideSideMenu()">
+  <div class="flex justify-between items-center">
+    <!-- <p class="text-xl">My Cart</p>
+    <button class="p-3 border rounded relative" (click)="toggleSideMenu()">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+        class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button> -->
+  </div>
+  <div
+    class="w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700">
+    <div class="flex items-center justify-between mb-4">
+      <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">My Cart</h5>
+      <button class="border rounded relative" (click)="toggleSideMenu()">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+          class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    <div class="flow-root">
+      <ul role="list" class="divide-y divide-gray-200 dark:divide-gray-700">
+        @for (product of cart(); track $index) {
+        <li class="py-3 sm:py-4">
+          <div class="flex items-center">
+            <div class="flex-shrink-0">
+              <img class="w-8 h-8 rounded-full" [src]="product.images" [alt]="product.title">
+            </div>
+            <div class="flex-1 min-w-0 ms-4">
+              <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                {{ product.title }} "Titluklo producto"
+              </p>
+            </div>
+            <div class="inline-flex items-center text-base font-semibold text-gray-900 dark:text-white">
+              {{ product.price }} € (precio prioducto)
+            </div>
+          </div>
+        </li>
+        }
+      </ul>
+      <div class="items-center text-base text-right font-semibold text-gray-900 dark:text-white">
+        TOTAL (total amount totalAmount() ) €
+      </div>
+    </div>
+  </div>
+
+</div>

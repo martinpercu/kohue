@@ -8,11 +8,15 @@
 };
 
 .button {
-  @apply font-buttonFont text-brandgold text-center items-center bg-xdark hover:bg-xbrown focus:ring-1 focus:outline-none focus:ring-xlight font-medium rounded-md text-sm px-6 py-2;
+  @apply hover:cursor-pointer font-buttonFont text-brandgold text-center items-center bg-xdark hover:bg-xbrown focus:ring-1 focus:outline-none focus:ring-xlight font-medium rounded-md text-sm px-6 py-2;
 };
 
 .button_navbar {
-  @apply font-buttonFont text-brandgold text-center items-center bg-xdark hover:bg-xbrown focus:ring-1 focus:outline-none focus:ring-xlight font-medium rounded-md text-sm px-2 py-1 sm:px-6 sm:py-2;
+  @apply hover:cursor-pointer font-buttonFont text-brandgold text-center align-middle bg-xdark hover:bg-xbrown focus:ring-1 focus:outline-none focus:ring-xlight font-medium rounded-md text-sm px-2 py-1 sm:px-6 sm:py-2;
+};
+
+.navbar_cart {
+  @apply hover:cursor-pointer font-buttonFont text-brandgold text-center items-center bg-xdark hover:bg-xbrown focus:ring-1 focus:outline-none focus:ring-xlight font-medium text-sm;
 };
 
 .x_input {

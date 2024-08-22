@@ -13,11 +13,23 @@ import { JoinmailComponent } from '@users/joinmail/joinmail.component';
 import { JoinedmaillistComponent } from '@users/joinedmaillist/joinedmaillist.component';
 import { NotfoundComponent } from '@shared/notfound/notfound.component';
 import { StripeComponent  } from '@users/stripe/stripe.component';
+import { MonoproductComponent  } from '@shop/monoproduct/monoproduct.component';
+import { LandshopComponent  } from '@shop/landshop/landshop.component';
 
 import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard'
 
 
 export const routes: Routes = [
+  {
+    path: 'members',
+    component: LandshopComponent,
+    ...canActivate(() => redirectUnauthorizedTo(['acquire']))
+  },
+  {
+    path: 'mono',
+    component: MonoproductComponent,
+    ...canActivate(() => redirectUnauthorizedTo(['acquire']))
+  },
   {
     path: 'stripe',
     component: StripeComponent

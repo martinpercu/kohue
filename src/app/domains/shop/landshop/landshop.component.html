@@ -1,0 +1,14 @@
+<!-- <p>landshop works!</p> -->
+<!-- <app-navbarsigned></app-navbarsigned> -->
+<app-navbarsigned (showMonoproduct)="fromNavbar($event)"></app-navbarsigned>
+
+
+@if(showWine == true) {
+  <app-monoproduct></app-monoproduct>
+}
+
+
+@if(showEditAccount == true) {
+  <app-edit></app-edit>
+}
+

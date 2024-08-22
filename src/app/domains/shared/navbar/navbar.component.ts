@@ -14,13 +14,6 @@ export class NavbarComponent {
   private authService = inject(AuthService);
   private router = inject(Router);
 
-  // logOut() {
-  //   this.authService.logout()
-  //   .then(() => {
-  //     this.router.navigate(['login'])
-  //   })
-  //   .catch(error => console.log(error));
-  // }
 
 
   navToHome() {
@@ -31,12 +24,9 @@ export class NavbarComponent {
     this.router.navigate(['join'])
   };
 
-  navEdit() {
-    this.router.navigate(['edit'])
+  navMembers() {
+    this.router.navigate(['members'])
   };
 
-  navAcquire() {
-    this.router.navigate(['acquire'])
-  };
 
 }
