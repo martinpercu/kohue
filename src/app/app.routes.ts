@@ -15,11 +15,17 @@ import { NotfoundComponent } from '@shared/notfound/notfound.component';
 import { StripeComponent  } from '@users/stripe/stripe.component';
 import { MonoproductComponent  } from '@shop/monoproduct/monoproduct.component';
 import { LandshopComponent  } from '@shop/landshop/landshop.component';
+import { ShippingmethodComponent  } from '@shop/shippingmethod/shippingmethod.component';
 
 import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard'
 
 
 export const routes: Routes = [
+  {
+    path: 'ship',
+    component: ShippingmethodComponent,
+    ...canActivate(() => redirectUnauthorizedTo(['acquire']))
+  },
   {
     path: 'members',
     component: LandshopComponent,
