@@ -23,6 +23,8 @@ export class LoginComponent {
 
   formLogin: FormGroup;
 
+  showPassword: boolean = false;
+
   constructor() {
 
     this.formLogin = new FormGroup({
@@ -80,5 +82,10 @@ export class LoginComponent {
   navToHome() {
     this.router.navigate([''])
   };
+
+  showPasswordSwitch() {
+    console.log("entramos");
+    this.showPassword = !this.showPassword
+  }
 
 }

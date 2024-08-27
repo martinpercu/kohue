@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 <app-footer></app-footer>
 
-<div  (click)="navToHome()" class="hover:cursor-pointer flex justify-center items-center py-4 px-10 pt-8">
+<div (click)="navToHome()" class="hover:cursor-pointer flex justify-center items-center py-4 px-10 pt-8">
   <img class="h-6" src="./../../../../assets/img/kohue-name-dark.svg" alt="">
 </div>
 
@@ -23,30 +23,35 @@
       <label class="form-label" class="block mb-1 mt-2 text-xs font-medium text-gray-900 uppercase">Email:</label>
       <div class="relative">
         <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
-          <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-            fill="currentColor" viewBox="0 0 20 16">
+          <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+            viewBox="0 0 20 16">
             <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z" />
             <path
               d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z" />
           </svg>
         </div>
         <input class="form-control" formControlName="email" type="email" id="email-address-icon"
-          class="x_input_with_icon"
-          placeholder="" value="">
+          class="x_input_with_icon" placeholder="" value="">
       </div>
     </div>
 
     <div>
-      <label class="form-label"
-        class="block mb-1 mt-2 text-xs font-medium text-gray-900 uppercase">Password:</label>
-      <input class="form-control" formControlName="password" type="password"
-        class="x_input"
-        placeholder="•••••••••" required>
+      <label class="form-label" class="block mb-1 mt-2 text-xs font-medium text-gray-900 uppercase">Password:</label>
+      <input class="form-control" formControlName="password" type="{{showPassword ? 'text' : 'password'}}" class="x_input" placeholder="your-password"
+        required>
+      <div (click)="showPasswordSwitch()" class="w-full text-xs text-right cursor-pointer pt-2">
+        @if(showPassword == true) {
+          hide password
+        }
+        @if(showPassword == false) {
+          show password
+        }
+      </div>
     </div>
 
+
     <div class="mt-8">
-      <button type="submit"
-        class="button uppercase">
+      <button type="submit" class="button uppercase">
         Log In
       </button>
     </div>
@@ -62,7 +67,7 @@
     <span class="text-xs log-in-redirect">
       Are you new to Kohue wines? <br>
       Please
-      <span class="underline cursor-pointer"  (click)="navToJoin()">
+      <span class="underline cursor-pointer" (click)="navToJoin()">
         join our mailing list
       </span>
       and get access to creating an account.
