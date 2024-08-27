@@ -50,7 +50,7 @@ export class SigninComponent {
           lastname: this.formReg.value.lastname,
           email: this.formReg.value.email,
           clientUID: response.user.uid,
-          billDifThanShip: false
+          billDifThanShip: true
         };
         console.log(this.client);
         this.createRegisteredUser(this.client, response.user.uid);

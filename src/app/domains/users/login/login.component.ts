@@ -33,12 +33,17 @@ export class LoginComponent {
 
   onSubmit() {
     this.authService.login(this.formLogin.value)
-      .then(response => {
-        console.log(response);
-        this.navToShop();
-      })
-      .catch(error => console.log(error));
-  }
+      // .then(response => {
+      //   console.log(response);
+      //   if(response == undefined) {
+      //   }
+      //   else {
+      //     console.log("not undefinde");
+      //     // this.navToShop();
+      //   }
+      // })
+      // .catch(error => console.log(error));
+  };
 
   clickGoogleButton() {
     this.authService.loginWithGoogle()
@@ -47,6 +52,13 @@ export class LoginComponent {
         this.navToShop();
     })
     .catch(error => console.log(error));
+  };
+
+  forgotPassword() {
+    console.log(this.formLogin.value);
+    const email = this.formLogin.value.email;
+    console.log(email);
+    this.authService.forgotPassword(email);
   }
 
   // navToEdit() {
