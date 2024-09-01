@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output, inject, signal } from '@angular/core';
+import { Component, EventEmitter, Output, inject } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { CartService  } from '@services/cart.service';
@@ -18,12 +18,14 @@ import { ShippingmethodComponent } from '@shop/shippingmethod/shippingmethod.com
 export class NavbarsignedComponent {
 
   @Output() showMonoproduct = new EventEmitter();
+  @Output() cartOnOff = new EventEmitter();
 
   private router = inject(Router);
   private cartService = inject(CartService);
 
-  hideSideMenu = signal(true);
-  showWine = false;
+  // hideSideMenu = signal(true);
+  showWine = true;
+  // showCart = false;
 
   cart = this.cartService.cart;
   subTotalAmount = this.cartService.subTotalAmount;
@@ -38,16 +40,23 @@ export class NavbarsignedComponent {
 
 
   toggleSideMenu() {
+    // this.showCart = true;
     if(this.totalItems() > 0) {
-      this.hideSideMenu.update(previousState => !previousState)
+      this.cartOnOff.emit(true);
     } else {
       console.log('not change status no items');
-    }
+    };
+    // if(this.totalItems() > 0) {
+    //   this.hideSideMenu.update(previousState => !previousState);
+    //   this.cartOnOff.emit(this.hideSideMenu);
+    // } else {
+    //   console.log('not change status no items');
+    // };
   }
 
-  toggleSideMenuFromCart() {
-      this.hideSideMenu.update(previousState => !previousState)
-  }
+  // toggleSideMenuFromCart() {
+  //     this.hideSideMenu.update(previousState => !previousState)
+  // }
 
   navToHome() {
     this.router.navigate(['test'])
@@ -69,12 +78,11 @@ export class NavbarsignedComponent {
     // this.router.navigate(['mono']);
     this.showWine = !this.showWine;
     console.log('en nav' + "  " + this.showWine);
-
     this.showMonoproduct.emit(this.showWine);
   };
 
-  removeFromCart(product: Product) {
-    this.cartService.removeOneItem(product);
-  }
+  // removeFromCart(product: Product) {
+  //   this.cartService.removeOneItem(product);
+  // }
 
 }

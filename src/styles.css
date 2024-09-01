@@ -11,12 +11,24 @@
   @apply hover:cursor-pointer font-buttonFont text-brandgold text-center items-center bg-xdark hover:bg-xbrown focus:ring-1 focus:outline-none focus:ring-xlight font-medium rounded-md text-sm px-6 py-2;
 };
 
+.button_off {
+  @apply hover:cursor-pointer font-buttonFont text-gray-400 text-center items-center bg-gray-200 hover:bg-gray-300 focus:ring-1 focus:outline-none focus:ring-xlight font-normal rounded-md text-sm px-6 py-2;
+};
+
 .button_navbar {
   @apply hover:cursor-pointer font-buttonFont text-brandgold text-center align-middle bg-xdark hover:bg-xbrown focus:ring-1 focus:outline-none focus:ring-xlight font-medium rounded-md text-sm px-2 py-1 sm:px-6 sm:py-2;
 };
 
 .navbar_cart {
   @apply hover:cursor-pointer font-buttonFont text-brandgold text-center items-center bg-xdark hover:bg-xbrown focus:ring-1 focus:outline-none focus:ring-xlight font-medium text-sm;
+};
+
+.minibutton {
+  @apply hover:cursor-pointer font-buttonFont text-brandgold text-center items-center bg-xdark hover:bg-xbrown focus:ring-1 focus:outline-none focus:ring-xlight font-medium rounded-md text-sm px-3 sm:px-5 py-2;
+};
+
+.minibuttonReverse {
+  @apply hover:cursor-pointer font-buttonFont border border-xbrown text-xdark text-center items-center hover:bg-brandgold focus:ring-1 focus:outline-none focus:ring-xlight font-medium rounded-md text-sm px-3 sm:px-5 py-2;
 };
 
 .x_input {

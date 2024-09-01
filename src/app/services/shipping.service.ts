@@ -12,17 +12,29 @@ export class ShippingService {
 
 
   setValue(loquesea: any) {
-    if (loquesea == 'shipChoice-1') {
+    if (loquesea == 'UPS Next day') {
       this.cartService.setShippingAmount(80)
     }
-    if (loquesea == 'shipChoice-2') {
+    if (loquesea == 'UPS 2nd day') {
       this.cartService.setShippingAmount(65)
     }
-    if (loquesea == 'shipChoice-3') {
+    if (loquesea == 'UPS 3 days') {
       this.cartService.setShippingAmount(40)
     }
-    if (loquesea == 'shipChoice-4') {
+    if (loquesea == 'UPS Ground') {
       this.cartService.setShippingAmount(33)
     }
+  };
+
+  setShippingTextValue(loquesea:any) {
+    console.log(typeof(loquesea));
+    this.cartService.setShippingText(loquesea)
   }
+
+  setText() {
+    return 'hello'
+
+  }
+
+
 }
