@@ -7,6 +7,7 @@ import { ShippingService } from '@services/shipping.service';
 
 import { ShippingmethodComponent } from '@shop/shippingmethod/shippingmethod.component';
 
+import { MonoproductService } from '@services/monoproduct.service';
 
 
 @Component({
@@ -18,12 +19,17 @@ import { ShippingmethodComponent } from '@shop/shippingmethod/shippingmethod.com
 })
 export class CartComponent {
 
-  @Output() cartOnOff = new EventEmitter();
+  @Output() cartOff = new EventEmitter();
+  @Output() wineOff = new EventEmitter();
+
 
   private cartService = inject(CartService);
   private shippingService = inject(ShippingService);
+  private monoproductService = inject(MonoproductService);
 
   showCart: boolean = true;
+  showCartInNav: boolean = true;
+  showCartInLand: boolean = false;
 
 
   // hideSideMenu = signal(false);
@@ -44,11 +50,11 @@ export class CartComponent {
 
 
 
-  toggleSideMenuFromCart() {
+  closeCart() {
     console.log(' 1 st in cart showCart==>  ' + this.showCart);
-    this.showCart = !this.showCart;
+    this.showCart = false;
     console.log(' 2nd in cart showCart==>  ' + this.showCart);
-    this.cartOnOff.emit(this.showCart);
+    this.cartOff.emit(this.showCart);
   };
 
   subtractOneFromCart(product: Product) {
@@ -61,10 +67,17 @@ export class CartComponent {
     this.cartService.addToCartFromCart(product);
   };
 
+  addOneFromCartFromZero() {
+    this.product = this.monoproductService.returnMonoproduct();
+    console.log(this.product);
+    this.cartService.addToCart(this.product);
+  };
+
   removeProduct(product: Product) {
     this.cartService.removeFullItem(product);
     this.checkIfNoItemes();
     console.log(this.shippingAmount());
+    this.closeCart();
   };
 
   checkIfNoItemes() {
@@ -73,5 +86,22 @@ export class CartComponent {
     } else {
       console.log('still items in cart');
     }
+  };
+
+  toggleCartOnNav() {
+    console.log(' 1 st in cart showCart==>  ' + this.showCartInNav);
+    this.showCartInNav = !this.showCartInNav;
+    console.log(' 2nd in cart showCart==>  ' + this.showCartInNav);
+    // this.cartInLandOnOff.emit(this.showCartInNav);
+    this.closeCart();
+  };
+
+  checkoutToggleCartOnLand() {
+    console.log(' 1 st in cart showCartInLand==>  ' + this.showCartInLand);
+    this.showCartInLand = true;
+    this.showCartInNav = false;
+    console.log(' 2nd in cart showCartInLand==>  ' + this.showCartInLand);
+    // this.cartInLandOnOff.emit(this.showCartInLand);
+    // this.toggleSideMenuFromCart();
   };
 }

@@ -27,6 +27,10 @@
   @apply hover:cursor-pointer font-buttonFont text-brandgold text-center items-center bg-xdark hover:bg-xbrown focus:ring-1 focus:outline-none focus:ring-xlight font-medium rounded-md text-sm px-3 sm:px-5 py-2;
 };
 
+.minibuttonOf {
+  @apply font-buttonFont text-transparent text-center items-center focus:ring-1 focus:outline-none focus:ring-xlight font-medium rounded-md text-sm px-3 sm:px-5 py-2;
+};
+
 .minibuttonReverse {
   @apply hover:cursor-pointer font-buttonFont border border-xbrown text-xdark text-center items-center hover:bg-brandgold focus:ring-1 focus:outline-none focus:ring-xlight font-medium rounded-md text-sm px-3 sm:px-5 py-2;
 };
