@@ -12,15 +12,22 @@
         }
       </div>
 
-      <div (click)="createTokenAndPay()">Create Token + pay $15</div>
-
-      <div (click)="addCardPlusOwner()">addCardPlusOwner</div>
+      <!-- <div (click)="createTokenAndPay()">Create Token + pay $15</div> -->
 
 
       <!--<button (click)="clickPay()">Paagcfdfar</button>
   <button (click)="clickPaycreatePaymentMethod()">clickPaycreatePaymentMethod</button>  -->
     </div>
-    <div (click)="createUser()">Create User (no need the card)</div>
+    @if(totalAmount()) {
+    <div>daleeee {{ totalAmount() }}</div>
+    }
+
+    <div class="mt-12 pt-4">
+      <div class="button" (click)="addCardPlusOwner()">addCardPlusOwner + pay  {{ totalAmount() }}</div>
+
+    </div>
+    <!-- <div (click)="createUser()">Create User (no need the card)</div> -->
+
   </div>
 
 </div>
