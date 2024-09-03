@@ -5,14 +5,16 @@ import { MonoproductComponent } from '@shop/monoproduct/monoproduct.component';
 import { ShippingmethodComponent } from '@shop/shippingmethod/shippingmethod.component';
 import { CartComponent } from '@shop/cart/cart.component';
 import { CardStripeComponent } from '@shop/card-stripe/card-stripe.component';
-import { FooterComponent } from '@shared/footer/footer.component'
+import { FooterComponent } from '@shared/footer/footer.component';
+
+import { StaytunedComponent } from '@shop/staytuned/staytuned.component';
 
 
 
 @Component({
   selector: 'app-landshop',
   standalone: true,
-  imports: [EditComponent, NavbarsignedComponent, FooterComponent, MonoproductComponent, ShippingmethodComponent, CartComponent, CardStripeComponent],
+  imports: [EditComponent, NavbarsignedComponent, FooterComponent, MonoproductComponent, ShippingmethodComponent, CartComponent, CardStripeComponent, StaytunedComponent],
   templateUrl: './landshop.component.html',
   styleUrl: './landshop.component.css'
 })
@@ -26,6 +28,12 @@ export class LandshopComponent {
 
   showStripeAndCart: boolean = false;
 
+  showStayTune: boolean = false;
+
+
+  constructor() {
+    this.showStayTune = false;
+  }
 
 
   fromNavbarMonoproduct(event: boolean) {
@@ -87,6 +95,11 @@ export class LandshopComponent {
       this.showStripeAndCart = data.stripeOn;
     };
     this.showWine = false;
+  };
+
+  fromNavbarAndStayTuned(data: any) {
+    console.log(data);
+    this.showStayTune = data
   }
 
 

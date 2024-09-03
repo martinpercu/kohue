@@ -2,11 +2,16 @@
 <!-- <app-navbarsigned></app-navbarsigned> -->
 <div class="fixed w-full z-10">
   <app-navbarsigned (showMonoproduct)="fromNavbarMonoproduct($event)" (cartOnOff)="fromNavbarCart($event)"
-    (showAccount)="fromNavbarAccountHandler($event)">
+    (showAccount)="fromNavbarAccountHandler($event)" (showStayTuned)="fromNavbarAndStayTuned($event)">
   </app-navbarsigned>
 </div>
 
+@if(showStayTune == true) {
+  <app-staytuned (showStayTuned)="fromNavbarAndStayTuned($event)"> </app-staytuned>
+}
+
 <div class="pt-14">
+
 
 
   <!-- <div class="m-auto sm:flex sm:flex-row min-w-80 max-w-4xl p-2 rounded-lg sm:p-6 md:p-8 text-center">
@@ -50,7 +55,8 @@
 
 
   @if(showWine == true) {
-  <app-monoproduct (cartOnOff)="fromProduct($event)" (monoproductOff)="fromProductCloserMonoproduct($event)"></app-monoproduct>
+  <app-monoproduct (cartOnOff)="fromProduct($event)"
+    (monoproductOff)="fromProductCloserMonoproduct($event)"></app-monoproduct>
   }
 
   <!-- <app-shippingmethod></app-shippingmethod> -->

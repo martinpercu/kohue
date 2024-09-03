@@ -20,6 +20,7 @@ export class NavbarsignedComponent {
   @Output() showMonoproduct = new EventEmitter();
   @Output() cartOnOff = new EventEmitter();
   @Output() showAccount = new EventEmitter();
+  @Output() showStayTuned = new EventEmitter();
 
   private router = inject(Router);
   private cartService = inject(CartService);
@@ -32,7 +33,6 @@ export class NavbarsignedComponent {
   cart = this.cartService.cart;
   subTotalAmount = this.cartService.subTotalAmount;
   totalItems = this.cartService.totalItems;
-
 
   shippingAmount = this.cartService.shippingAmount;
 
@@ -94,7 +94,8 @@ export class NavbarsignedComponent {
   // }
 
   alertCartStayAlert() {
-    alert('Coming this fall 2024. Stay tuned!')
+    // alert('Coming this fall 2024. Stay tuned!')
+    this.showStayTuned.emit(true);
   }
 
 }
