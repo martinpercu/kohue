@@ -1,76 +1,78 @@
-<div class="bg-nubes bg-cover bg-center h-screen">
-  <app-navbar></app-navbar>
-  <app-footer></app-footer>
+<div class="fixed p-0 m-0 top-0 left-0 w-full h-full">
 
-  <div (click)="navToHome()" class="hover:cursor-pointer flex justify-center items-center py-4 px-10 pt-8">
-    <img class="h-6" src="./../../../../assets/img/kohue-name-dark.svg" alt="">
-  </div>
+  <div class="bg-nubes bg-cover bg-center h-screen">
+    <app-navbar></app-navbar>
+    <app-footer></app-footer>
 
-
-  <div class="m-auto max-w-72 sm:max-w-lg">
-    <div class="text-center text-xdark font-bold text-xl mt-6 sm:mt-10 sm:mb-4 uppercase">
-      Join the Mailing List
-    </div>
-  </div>
-
-  <div class="m-auto w-3/4 rounded-lg">
-
-
-    <div class="m-auto pt-4 pb-6 max-w-sm sm:max-w-3xl text-center text-sm sm:text-base font-normal text-gray-900">
-      Please join our mailing list to learn more about our project, updates throughout the year and access to future
-      releases by entering your details below.
+    <div (click)="navToHome()" class="hover:cursor-pointer flex justify-center items-center py-4 px-10 pt-8">
+      <img class="h-6" src="./../../../../assets/img/kohue-name-dark.svg" alt="">
     </div>
 
 
-    <form [formGroup]="formJoinMail" (ngSubmit)="onSubmit()">
+    <div class="m-auto max-w-72 sm:max-w-lg">
+      <div class="text-center text-xdark font-bold text-xl mt-6 sm:mt-10 sm:mb-4 uppercase">
+        Join the Mailing List
+      </div>
+    </div>
 
-      <div class="m-auto max-w-sm sm:max-w-lg ">
+    <div class="m-auto w-3/4 rounded-lg">
 
-        <div class="flex flex-col sm:flex-row sm:gap-4">
 
-          <div class="sm:w-1/2">
-            <label class="form-label" class="block mb-1 mt-2 text-xs font-medium text-gray-900">First &
-              Last
-              name:</label>
-            <input class="form-control" formControlName="fullname" type="text" class="x_input" placeholder="">
-          </div>
+      <div class="m-auto pt-4 pb-6 max-w-sm sm:max-w-3xl text-center text-sm sm:text-base font-normal text-gray-900">
+        Please join our mailing list to learn more about our project, updates throughout the year and access to future
+        releases by entering your details below.
+      </div>
 
-          <div class="sm:w-1/2">
-            <label class="form-label"
-              class="block mb-1 mt-2 text-xs font-medium text-gray-900">Email:</label>
-            <div class="relative">
-              <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
-                <svg class="w-4 h-4 text-gray-500" aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 16">
-                  <path d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z" />
-                  <path
-                    d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z" />
-                </svg>
+
+      <form [formGroup]="formJoinMail" (ngSubmit)="onSubmit()">
+
+        <div class="m-auto max-w-sm sm:max-w-lg ">
+
+          <div class="flex flex-col sm:flex-row sm:gap-4">
+
+            <div class="sm:w-1/2">
+              <label class="form-label" class="block mb-1 mt-2 text-xs font-medium text-gray-900">First &
+                Last
+                name:</label>
+              <input class="form-control" formControlName="fullname" type="text" class="x_input" placeholder="">
+            </div>
+
+            <div class="sm:w-1/2">
+              <label class="form-label" class="block mb-1 mt-2 text-xs font-medium text-gray-900">Email:</label>
+              <div class="relative">
+                <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                  <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    fill="currentColor" viewBox="0 0 20 16">
+                    <path
+                      d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z" />
+                    <path
+                      d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z" />
+                  </svg>
+                </div>
+                <input class="form-control" formControlName="email" type="email" id="email-address-icon"
+                  class="x_input_with_icon" placeholder="" value="">
               </div>
-              <input class="form-control" formControlName="email" type="email" id="email-address-icon"
-                class="x_input_with_icon" placeholder="" value="">
             </div>
           </div>
+
+
+          <div class="mt-8">
+            <button type="submit" class="button uppercase w-full">
+              Subscribe
+            </button>
+          </div>
+
+
+
         </div>
 
 
-      <div class="mt-8">
-        <button type="submit" class="button uppercase w-full">
-          Subscribe
-        </button>
-      </div>
 
 
-
-      </div>
-
+      </form>
 
 
-
-    </form>
-
-
-    <!-- <div class="mt-4">
+      <!-- <div class="mt-4">
    <span class="small-text providers">Have a Google acount?</span>
     <app-button-providers [isLogin]="true" />
     <span class="small-text log-in-redirect">Don’t have an account yet?   <span class="hover:underline cursor-pointer"  (click)="navToSignIn()">Register</span></span>
@@ -78,8 +80,14 @@
 
 
 
+
+    </div>
+
+
+    <!-- <div class="pb-40 sm:pb-0">
+
+  </div> -->
+
   </div>
-
-
 
 </div>
