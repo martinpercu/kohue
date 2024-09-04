@@ -1,8 +1,10 @@
 {
   "projects": {
     "default": "kohuewines-d544f",
-    "kohuewines": "kohuewines-d544f"
+    "kohuewines": "kohuewines-d544f",
+    "tester": "vineyardsinandes"
   },
   "targets": {},
-  "etags": {}
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
 }
