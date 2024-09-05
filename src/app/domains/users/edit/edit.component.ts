@@ -71,7 +71,7 @@ export class EditComponent {
 
   async getUser() {
     const userGetted = await this.clientService.getOneUser(this.userId);
-    this.user = userGetted
+    this.user = userGetted;
     console.log(this.user);
     this.buildForm();
   };
@@ -108,7 +108,10 @@ export class EditComponent {
     if (this.form.valid) {
     console.log(this.form.value);
     this.clientService.updateOneUser(this.form.value, this.userId);
-    this.user = this.form.value;
+    // this.user = this.form.value;
+    console.log(this.userId);
+
+    this.getUser();
     this.editPersoInfo = false;
     this.editShipping = false;
     this.editBilling = false;

@@ -134,7 +134,7 @@ export class CartComponent {
     // const userForUpdate = this.user;
     // console.log(userForUpdate);
 
-    // this.clientService.updateOneUser(userForUpdate, this.user.clientUID)
+    this.clientService.updateOneUser(this.user, this.user.clientUID)
   }
 
 
