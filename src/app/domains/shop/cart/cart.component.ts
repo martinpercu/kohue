@@ -69,6 +69,8 @@ export class CartComponent {
 
   userIsStripeOk: boolean = false;
 
+  stripeUser!: any;
+
   constructor() {
     const id = this.auth.getUserUid();
     if (id) {
@@ -79,35 +81,61 @@ export class CartComponent {
   };
 
   async ngOnInit() {
-    console.log(this.userIsStripeOk);
+    // console.log(this.user.stripeCustomerId);
     this.user = await this.clientService.getOneUser(this.userId);
     console.log(this.user);
-    if(!this.user.stripeCustomerId) {
+    if(this.user.stripeCustomerId == "none") {
       this.createStripeUser();
     } else {
-      this.userIsStripeOk = true
+      // this.userIsStripeOk = true
       console.log("Stripe user ID ==>   ", this.user.stripeCustomerId);
     };
   };
 
-
   async createStripeUser() {
-    // const user = await this.getUser();
+    const firstNameStripe = this.user.firstname;
+    const lastNameStripe = this.user.lastname;
+    const fullnameStripe = firstNameStripe + ' ' + lastNameStripe;
     console.log(this.user);
-    // const userStripe = {
-    //   name: user.firstname,
-    //   email: user.email
-    // };
-    const userStripe = {
-      name: "Jua erino",
-      email: "jacd@gigantes.com"
+    const shippingForStripe = {
+      address: {
+        city: this.user.city,
+        country: "US",
+        line1: this.user.address,
+        line2: this.user.addressExtra,
+        postal_code: this.user.zipCode,
+        state: this.user.state
+      },
+      name: fullnameStripe
     }
-    // const algo$ = await this.stripeService.createUser(userStripe);
-    // this.algo = await lastValueFrom(algo$);
-    // console.log(algo$);
-    // console.log(this.algo);
-    console.log(userStripe);
+    const userStripeCreatedForStripe = {
+      name: this.user.firstname,
+      email: this.user.email,
+      shipping: shippingForStripe
+    };
+    console.log(userStripeCreatedForStripe);
+
+    const stripeUser$ = await this.stripeService.createUser(userStripeCreatedForStripe);
+    this.stripeUser = await lastValueFrom(stripeUser$);
+    console.log(stripeUser$);
+    console.log(this.stripeUser);
+    console.log(this.user);
+    this.user.stripeCustomerId = this.stripeUser.id;
+    console.log(this.user);
+    // console.log(userStripeCreatedForStripe);
+    this.updateUserAfterStripeCreation();
+
   };
+
+  async updateUserAfterStripeCreation() {
+    console.log("in update after stripe creation");
+    // console.log(stripeUser);
+    console.log(this.user);
+    // const userForUpdate = this.user;
+    // console.log(userForUpdate);
+
+    // this.clientService.updateOneUser(userForUpdate, this.user.clientUID)
+  }
 
 
   closeCart() {
