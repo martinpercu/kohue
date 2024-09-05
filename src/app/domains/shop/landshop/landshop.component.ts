@@ -33,6 +33,7 @@ export class LandshopComponent {
 
   constructor() {
     this.showStayTune = false;
+    this.showWine = true;
   }
 
 
