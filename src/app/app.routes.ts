@@ -15,12 +15,22 @@ import { NotfoundComponent } from '@shared/notfound/notfound.component';
 import { MonoproductComponent  } from '@shop/monoproduct/monoproduct.component';
 import { LandshopComponent  } from '@shop/landshop/landshop.component';
 import { ShippingmethodComponent  } from '@shop/shippingmethod/shippingmethod.component';
+import { CardStripeComponent } from '@shop/card-stripe/card-stripe.component';
+import { TermsComponent } from '@shared/terms/terms.component';
+import { PrivacyComponent } from '@shared/privacy/privacy.component';
 
 import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard'
-import { CardStripeComponent } from '@shop/card-stripe/card-stripe.component';
 
 
 export const routes: Routes = [
+  {
+    path: 'terms',
+    component: TermsComponent
+  },
+  {
+    path: 'privacy',
+    component: PrivacyComponent
+  },
   {
     path: 'card',
     component: CardStripeComponent,
@@ -42,7 +52,7 @@ export const routes: Routes = [
     ...canActivate(() => redirectUnauthorizedTo(['acquire']))
   },
   {
-    path: 'test',
+    path: '',
     component: LayoutComponent
   },
   {
@@ -101,7 +111,7 @@ export const routes: Routes = [
     ...canActivate(() => redirectUnauthorizedTo(['login']))
   },
   {
-    path: '',
+    path: 'test',
     component: NotfoundComponent,
   },
   // {
