@@ -4,13 +4,14 @@ import { Router } from '@angular/router';
 import { AuthService } from '@services/auth.service';
 
 // import { LayoutComponent } from '@shared/layout/layout.component';
-import { NavbarComponent } from '@shared/navbar/navbar.component'
+import { NavbarComponent } from '@shared/navbar/navbar.component';
+import { FooterComponent } from '@shared/footer/footer.component';
 
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [NavbarComponent, ReactiveFormsModule],
+  imports: [NavbarComponent, ReactiveFormsModule, FooterComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })

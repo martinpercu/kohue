@@ -41,7 +41,9 @@ export class MonoproductComponent {
   // @Output() addToCart = new EventEmitter();
 
   constructor() {
-    this.monoproduct = this.monoproductService.returnMonoproduct()
+    this.monoproduct = this.monoproductService.returnMonoproduct();
+    console.log(this.monoproduct);
+
    }
 
   addToCartHandler() {

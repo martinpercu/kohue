@@ -7,6 +7,7 @@ import { Client } from '@models/client.model'
 import { EmailService } from '@services/email.service';
 
 import { NavbarComponent } from '@shared/navbar/navbar.component';
+import { FooterComponent } from '@shared/footer/footer.component'
 
 
 
@@ -14,7 +15,7 @@ import { NavbarComponent } from '@shared/navbar/navbar.component';
 @Component({
   selector: 'app-joinmail',
   standalone: true,
-  imports: [NavbarComponent,ReactiveFormsModule],
+  imports: [NavbarComponent, ReactiveFormsModule, FooterComponent],
   templateUrl: './joinmail.component.html',
   styleUrl: './joinmail.component.css'
 })

@@ -4,13 +4,15 @@ import { NavbarsignedComponent } from '@shared/navbarsigned/navbarsigned.compone
 import { MonoproductComponent } from '@shop/monoproduct/monoproduct.component';
 import { ShippingmethodComponent } from '@shop/shippingmethod/shippingmethod.component';
 import { CartComponent } from '@shop/cart/cart.component';
-import { CardStripeComponent } from '@shop/card-stripe/card-stripe.component'
+import { CardStripeComponent } from '@shop/card-stripe/card-stripe.component';
+import { FooterComponent } from '@shared/footer/footer.component'
+
 
 
 @Component({
   selector: 'app-landshop',
   standalone: true,
-  imports: [EditComponent, NavbarsignedComponent, MonoproductComponent, ShippingmethodComponent, CartComponent, CardStripeComponent],
+  imports: [EditComponent, NavbarsignedComponent, FooterComponent, MonoproductComponent, ShippingmethodComponent, CartComponent, CardStripeComponent],
   templateUrl: './landshop.component.html',
   styleUrl: './landshop.component.css'
 })
@@ -24,8 +26,8 @@ export class LandshopComponent {
 
 
 
-  fromNavbar(event: boolean) {
-    this.showWine = event
+  fromNavbarMonoproduct(event: boolean) {
+    this.showWine = event;
   };
 
   fromNavbarInLand(event: boolean) {
@@ -44,12 +46,20 @@ export class LandshopComponent {
   fromCartToCheckout(event: boolean) {
     console.log(event);
     this.showCartInLand = event
-  }
+  };
 
   fromProduct(event: boolean) {
     console.log(event);
     console.log("qsdfqdfqsdf");
     this.showCart = event;
+    console.log(event);
+    console.log("qsdfqdfqsdf");
+  };
+
+  fromNavbarAccountHandler(event: boolean) {
+    console.log(event);
+    console.log("qsdfqdfqsdf");
+    this.showEditAccount = event;
     console.log(event);
     console.log("qsdfqdfqsdf");
   }
