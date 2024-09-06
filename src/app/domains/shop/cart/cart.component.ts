@@ -139,11 +139,15 @@ export class CartComponent {
 
 
   closeCart() {
+    console.log(this.totalItems());
+
     // console.log(' 1 st in cart showCart==>  ' + this.showCart);
     // this.showCart = false;
     // console.log(' 2nd in cart showCart==>  ' + this.showCart);
-    // this.cartOff.emit(this.showCart);
-    this.stripeOnCartOn.emit({stripeOn:null, cartOn:false});
+    this.cartOff.emit(false);
+    console.log('closeing cart ???');
+
+    // this.stripeOnCartOn.emit({stripeOn:null, cartOn:false});
   };
 
   subtractOneFromCart(product: Product) {
