@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common'
 
 import { NavbarComponent } from '@shared/navbar/navbar.component';
 import { NavbarsignedComponent } from '@shared/navbarsigned/navbarsigned.component';
-import { Client } from '@models/client.model'
+import { Client } from '@models/client.model';
 import { Router } from '@angular/router';
 import { FormControl, Validators, FormGroup, ReactiveFormsModule, FormBuilder } from '@angular/forms';
 
@@ -12,6 +12,9 @@ import { ClientService } from '@services/client.service';
 
 
 import { MonoproductComponent } from '@shop/monoproduct/monoproduct.component';
+
+
+import { StripeService } from '@services/stripe.service';
 
 
 @Component({
@@ -26,7 +29,8 @@ export class EditComponent {
   private auth = inject(AuthService);
   private clientService = inject(ClientService);
   private router = inject(Router);
-  private formBuilder = inject(FormBuilder)
+  private formBuilder = inject(FormBuilder);
+  private stripeService = inject(StripeService);
 
   form!: FormGroup;
 
@@ -74,7 +78,19 @@ export class EditComponent {
     this.user = userGetted;
     console.log(this.user);
     this.buildForm();
+    if(this.user.stripeCustomerId == 'none') {
+      alert('tiene NONE')
+    }
+    else {
+      this.syncStripeAccount();
+    }
   };
+
+  syncStripeAccount() {
+    // alert('entramos en Sinc')
+    this.stripeService.updateStripeUser(this.user);
+  }
+
 
   private buildForm() {
     this.form = this.formBuilder.group({
@@ -111,13 +127,15 @@ export class EditComponent {
     // this.user = this.form.value;
     console.log(this.userId);
 
-    this.getUser();
+    this.getUser(); // very important each time save!!!
     this.editPersoInfo = false;
     this.editShipping = false;
     this.editBilling = false;
     } else {
       this.form.markAllAsTouched();
-    }
+    };
+
+
   };
 
 
