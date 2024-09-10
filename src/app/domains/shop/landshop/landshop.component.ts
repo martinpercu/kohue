@@ -39,7 +39,7 @@ export class LandshopComponent {
 
   showStripeAndCart: boolean = false;
 
-  showStayTune: boolean = false;
+  showStayTune!: boolean;
 
   private userId!: any;
   user!: Client;
@@ -57,14 +57,19 @@ export class LandshopComponent {
       // this.getUser()
     };
     console.log(this.user);
-
   }
 
   async ngOnInit() {
     // console.log(this.user.stripeCustomerId);
     this.user = await this.clientService.getOneUser(this.userId);
-    this.knowIfUserHasBuyed();
+    console.log(this.user);
 
+    if (this.user.stripeCustomerId == 'none' ) {
+      this.showWine = true
+    }
+    else {
+      this.knowIfUserHasBuyed();
+    }
   };
 
 
@@ -139,7 +144,7 @@ export class LandshopComponent {
     const user = this.user;
     console.log(user);
 
-    const test$ = this.stripeService.tester2(user);
+    const test$ = this.stripeService.getPaimentsByUser(user);
     this.test = await lastValueFrom(test$);
     console.log(test$);
     console.log(this.test);
@@ -152,7 +157,6 @@ export class LandshopComponent {
     else {
       console.log('Este ya compró');
       this.showWine = false;
-      // alert('Este compró');
     }
   }
 

@@ -56,7 +56,7 @@ export class StripeService {
   };
 
 
-  tester2(user: any) {
+  getPaimentsByUser(user: any) {
     return this.http.post(`${environment.apiURL}/payment_intents_by_user`, {
       user: user,
     });

@@ -247,13 +247,13 @@ export class CartComponent {
     }
   };
 
-  async testStripe() {
-    const user = this.user;
-    const test$ = this.stripeService.tester2(user);
-    this.test = await lastValueFrom(test$);
-    console.log(test$);
-    console.log(this.test);
-  }
+  // async testStripe() {
+  //   const user = this.user;
+  //   const test$ = this.stripeService.getPaimentsByUser(user);
+  //   this.test = await lastValueFrom(test$);
+  //   console.log(test$);
+  //   console.log(this.test);
+  // }
 
 
 }
