@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { EditComponent } from '@users/edit/edit.component';
 import { NavbarsignedComponent } from '@shared/navbarsigned/navbarsigned.component';
 import { MonoproductComponent } from '@shop/monoproduct/monoproduct.component';
@@ -8,6 +8,13 @@ import { CardStripeComponent } from '@shop/card-stripe/card-stripe.component';
 import { FooterComponent } from '@shared/footer/footer.component';
 
 import { StaytunedComponent } from '@shop/staytuned/staytuned.component';
+import { StripeService } from '@services/stripe.service';
+import { lastValueFrom } from 'rxjs';
+
+import { AuthService } from '@services/auth.service';
+import { ClientService } from '@services/client.service';
+
+import { Client } from '@models/client.model'
 
 
 
@@ -20,7 +27,11 @@ import { StaytunedComponent } from '@shop/staytuned/staytuned.component';
 })
 export class LandshopComponent {
 
-  showWine: boolean = false;
+  private stripeService = inject(StripeService);
+  private auth = inject(AuthService);
+  private clientService = inject(ClientService);
+
+  showWine!: boolean;
   showEditAccount: boolean = true;
 
   showCart: boolean = false
@@ -30,11 +41,31 @@ export class LandshopComponent {
 
   showStayTune: boolean = false;
 
+  private userId!: any;
+  user!: Client;
+  stripeUser!: any;
+  test!: any;
+
 
   constructor() {
     this.showStayTune = false;
-    this.showWine = true;
+    this.showWine = false;
+    const id = this.auth.getUserUid();
+    if (id) {
+      this.userId = id
+      console.log('IN CART nav user ID', this.userId);
+      // this.getUser()
+    };
+    console.log(this.user);
+
   }
+
+  async ngOnInit() {
+    // console.log(this.user.stripeCustomerId);
+    this.user = await this.clientService.getOneUser(this.userId);
+    this.knowIfUserHasBuyed();
+
+  };
 
 
   fromNavbarMonoproduct(event: boolean) {
@@ -101,8 +132,29 @@ export class LandshopComponent {
   fromNavbarAndStayTuned(data: any) {
     console.log(data);
     this.showStayTune = data
-  }
+  };
 
+
+  async knowIfUserHasBuyed() {
+    const user = this.user;
+    console.log(user);
+
+    const test$ = this.stripeService.tester2(user);
+    this.test = await lastValueFrom(test$);
+    console.log(test$);
+    console.log(this.test);
+    const compra = this.test.data.length;
+    console.log(compra);
+    if (compra == 0) {
+      console.log("no tiene compras");
+      this.showWine = true
+    }
+    else {
+      console.log('Este ya compró');
+      this.showWine = false;
+      // alert('Este compró');
+    }
+  }
 
 
 

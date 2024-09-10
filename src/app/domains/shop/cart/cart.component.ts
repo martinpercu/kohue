@@ -71,6 +71,8 @@ export class CartComponent {
 
   stripeUser!: any;
 
+  test!: any;
+
   constructor() {
     const id = this.auth.getUserUid();
     if (id) {
@@ -218,17 +220,17 @@ export class CartComponent {
     alert('Please choose a shipping method');
   };
 
-  checkToStripeOne() {
-    // alert('fli to 1 stripe');
-    let astripe1Wine = "https://buy.stripe.com/test_eVa3dXgud6Tx3gQaEE";
-    window.location.href = astripe1Wine;
-  };
+  // checkToStripeOne() {
+  //   // alert('fli to 1 stripe');
+  //   let astripe1Wine = "https://buy.stripe.com/test_eVa3dXgud6Tx3gQaEE";
+  //   window.location.href = astripe1Wine;
+  // };
 
-  checkToStripeTwo() {
-    // alert('fli to 2 stripe');
-    let astripe2Wines = "https://buy.stripe.com/test_eVa6q94Lv7XB3gQcMN";
-    window.location.href = astripe2Wines;
-  };
+  // checkToStripeTwo() {
+  //   // alert('fli to 2 stripe');
+  //   let astripe2Wines = "https://buy.stripe.com/test_eVa6q94Lv7XB3gQcMN";
+  //   window.location.href = astripe2Wines;
+  // };
 
   async checkoutToStripe() {
     const user = this.user;
@@ -244,6 +246,14 @@ export class CartComponent {
       window.location.href = checkoutUrl;
     }
   };
+
+  async testStripe() {
+    const user = this.user;
+    const test$ = this.stripeService.tester2(user);
+    this.test = await lastValueFrom(test$);
+    console.log(test$);
+    console.log(this.test);
+  }
 
 
 }
