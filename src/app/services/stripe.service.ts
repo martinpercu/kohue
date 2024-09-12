@@ -76,7 +76,7 @@ export class StripeService {
     const firstNameStripe = this.user.firstname;
     const lastNameStripe = this.user.lastname;
     const fullnameStripe = firstNameStripe + ' ' + lastNameStripe;
-    console.log(this.user);
+    // console.log(this.user);
     const shippingForStripe = {
       address: {
         city: this.user.city,
@@ -91,7 +91,8 @@ export class StripeService {
     const userStripeCreatedForStripe = {
       shipping: shippingForStripe
     };
-    console.log(userStripeCreatedForStripe);
+    console.log('The user info for shippng in Stripe');
+    // console.log(userStripeCreatedForStripe);
 
     const updatedUser$ = await this.http.post(`${environment.apiURL}/update_user`, {
       stripeId: this.user.stripeCustomerId,
@@ -103,10 +104,12 @@ export class StripeService {
     // const stripeUser$ = await this.createUser(userStripeCreatedForStripe);
     // this.stripeUser = await lastValueFrom(stripeUser$);
     // console.log(updatedUser$);
-    console.log(this.stripeUser);
-    console.log(this.user);
+
+    // console.log(this.stripeUser);
+    // console.log(this.user);
     this.user.stripeCustomerId = this.stripeUser.id;
-    console.log(this.user);
+
+    // console.log(this.user);
 
 
     // console.log(userStripeCreatedForStripe);

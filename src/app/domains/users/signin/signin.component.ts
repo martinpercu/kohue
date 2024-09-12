@@ -45,9 +45,9 @@ export class SigninComponent {
   onSubmit() {
     this.authService.register(this.formReg.value)
       .then(response => {
-        console.log(response);
-        console.log(response.user);
-        console.log(response.user.uid);
+        // console.log(response);
+        // console.log(response.user);
+        // console.log(response.user.uid);
         this.client = {
           firstname: this.formReg.value.firstname,
           lastname: this.formReg.value.lastname,
@@ -56,7 +56,7 @@ export class SigninComponent {
           billDifThanShip: true,
           stripeCustomerId: 'none'
         };
-        console.log(this.client);
+        // console.log(this.client);
         this.createRegisteredUser(this.client, response.user.uid);
       })
       .catch(error => console.log(error));
@@ -64,21 +64,21 @@ export class SigninComponent {
 
   async createRegisteredUser(userBasic: Client, userUID: any) {
     const response = await this.clientService.addUserWithId(userBasic, userUID).then(() => {
-      console.log(this.formReg.value);
-      console.log(this.client);
+      // console.log(this.formReg.value);
+      // console.log(this.client);
       this.emailsender.sendEmailRegister(this.client);
       this.navToShopArea();
       // this.router.navigate(['edit']);
     });
-    console.log("shoud be empty/null ==>  " + response);
+    // console.log("shoud be empty/null ==>  " + response);
   };
 
   signGoogle() {
     this.authService.loginWithGoogle()
     .then(response => {
-      console.log(response);
-      console.log(response.user);
-      console.log(response.user.uid);
+      // console.log(response);
+      // console.log(response.user);
+      // console.log(response.user.uid);
       if(response.user.email && response.user.displayName) {
           this.client = {
           firstname: response.user.displayName,
@@ -87,7 +87,7 @@ export class SigninComponent {
           billDifThanShip: true,
           stripeCustomerId: 'none'
         };
-      console.log(this.client);
+      // console.log(this.client);
       this.createRegisteredUser(this.client, response.user.uid);
       };
     })
@@ -111,7 +111,6 @@ export class SigninComponent {
   };
 
   showPasswordSwitch() {
-    console.log("entramos");
     this.showPassword = !this.showPassword
   }
 

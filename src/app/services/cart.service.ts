@@ -28,14 +28,16 @@ export class CartService {
   constructor() { }
 
   addToCart(product: Product) {
-    console.log(this.cart().find(x => x.quantity === 4));
+
+  // console.log(this.cart().find(x => x.quantity === 4));
+
   // The under (if) allow only to add if the quantity is 4 or less
   // This is to prevent add to cart from the LandShop - Monoproduct
     if (!this.cart().find(x => x.quantity >= 4)) {
       product.quantity = 1;
       if (this.cart().find(item => item.id === product.id)) {
         const myProductIndex = this.cart().findIndex(item => item.id === product.id)
-        console.log(myProductIndex);
+        // console.log(myProductIndex);
         this.cart.update((cart) => {
           return cart.map((item, position) => {
             if (position === myProductIndex) {
@@ -52,18 +54,18 @@ export class CartService {
         })
       }
       else {
-        console.log('No same product');
+        // console.log('No same product');
         this.cart.update(previousState => [...previousState, product]);
       };
     };
-    console.log(this.cart());
+    // console.log(this.cart());
   };
 
   addToCartFromCart(product: Product) {
     const pricePerUnit = product.price / product.quantity;
     if (this.cart().find(item => item.id === product.id)) {
       const myProductIndex = this.cart().findIndex(item => item.id === product.id)
-      console.log(myProductIndex);
+      // console.log(myProductIndex);
       this.cart.update((cart) => {
         return cart.map((item, position) => {
           if (position === myProductIndex) {
@@ -80,17 +82,17 @@ export class CartService {
       })
     }
     else {
-      console.log('No same product');
+      // console.log('No same product');
       this.cart.update(previousState => [...previousState, product]);
     };
-    console.log(this.cart());
+    // console.log(this.cart());
   };
 
   substractOneItem(product: Product) {
     const pricePerUnit = product.price / product.quantity;
-    console.log(pricePerUnit);
+    // console.log(pricePerUnit);
     const myProductIndex = this.cart().findIndex(item => item.id === product.id)
-    console.log(myProductIndex);
+    // console.log(myProductIndex);
     this.cart.update((cart) => {
       return cart.map((item, position) => {
         if (position === myProductIndex) {
@@ -105,14 +107,14 @@ export class CartService {
         }
       })
     })
-    console.log(this.cart());
+    // console.log(this.cart());
   };
 
   removeFullItem(product: Product) {
     // const pricePerUnit = product.price / product.quantity;
     // console.log(pricePerUnit);
     const myProductIndex = this.cart().findIndex(item => item.id === product.id)
-    console.log(myProductIndex);
+    // console.log(myProductIndex);
     this.cart.update((cart) => {
       return cart.map((item, position) => {
         if (position === myProductIndex) {
@@ -127,7 +129,7 @@ export class CartService {
         }
       })
     })
-    console.log(this.cart());
+    // console.log(this.cart());
   };
 
 

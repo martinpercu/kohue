@@ -17,6 +17,7 @@ module.exports = {
         'brand': '#a8935f',
         'brandgold': '#d9c38c',
         'xdark': '#4C4E56',
+        // 'xlight': '#82de79', // DEV COLOR
         'xlight': '#eae6dd',
         'xbrown': '#615257',
       },

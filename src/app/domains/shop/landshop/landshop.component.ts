@@ -45,6 +45,7 @@ export class LandshopComponent {
   user!: Client;
   stripeUser!: any;
   test!: any;
+  intentsByUser!: any;
 
 
   constructor() {
@@ -53,16 +54,15 @@ export class LandshopComponent {
     const id = this.auth.getUserUid();
     if (id) {
       this.userId = id
-      console.log('IN CART nav user ID', this.userId);
+      // console.log('IN CART nav user ID', this.userId);
       // this.getUser()
     };
-    console.log(this.user);
   }
 
   async ngOnInit() {
     // console.log(this.user.stripeCustomerId);
     this.user = await this.clientService.getOneUser(this.userId);
-    console.log(this.user);
+    // console.log(this.user);
 
     if (this.user.stripeCustomerId == 'none' ) {
       this.showWine = true
@@ -102,10 +102,10 @@ export class LandshopComponent {
 
   fromProduct(event: boolean) {
     console.log(event);
-    console.log("this.showCart  ==>  ", event);
+    // console.log("this.showCart  ==>  ", event);
     this.showCart = event;
-    console.log(event);
-    console.log("qsdfqdfqsdf");
+    // console.log(event);
+    // console.log("qsdfqdfqsdf");
   };
 
   fromProductCloserMonoproduct(event: boolean) {
@@ -135,27 +135,28 @@ export class LandshopComponent {
   };
 
   fromNavbarAndStayTuned(data: any) {
-    console.log(data);
+    console.log(data + ' this is staytuned status');
     this.showStayTune = data
   };
 
 
   async knowIfUserHasBuyed() {
     const user = this.user;
-    console.log(user);
+    console.log('the user to know if already buyed');
+    // console.log(user);
 
-    const test$ = this.stripeService.getPaimentsByUser(user);
-    this.test = await lastValueFrom(test$);
-    console.log(test$);
-    console.log(this.test);
-    const compra = this.test.data.length;
-    console.log(compra);
-    if (compra == 0) {
-      console.log("no tiene compras");
+    const paymentIntentsByUser$ = this.stripeService.getPaimentsByUser(user);
+    this.intentsByUser = await lastValueFrom(paymentIntentsByUser$);
+    // console.log(paymentIntentsByUser$);
+    // console.log(this.intentsByUser);
+    const dataLength = this.intentsByUser.data.length;
+    console.log(dataLength);
+    if (dataLength == 0) {
+      console.log("no buys");
       this.showWine = true
     }
     else {
-      console.log('Este ya compró');
+      console.log('This guy already buyed something');
       this.showWine = false;
     }
   }
