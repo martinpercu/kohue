@@ -125,7 +125,7 @@ export class CartComponent {
     // console.log(this.stripeUser);
     // console.log(this.user);
     this.user.stripeCustomerId = this.stripeUser.id;
-    console.log(this.user);
+    // console.log(this.user);
     // console.log(userStripeCreatedForStripe);
     this.updateUserAfterStripeCreation();
   };
@@ -133,7 +133,7 @@ export class CartComponent {
   async updateUserAfterStripeCreation() {
     console.log("in update after stripe creation");
     // console.log(stripeUser);
-    console.log(this.user);
+    // console.log(this.user);
     // const userForUpdate = this.user;
     // console.log(userForUpdate);
 
@@ -237,11 +237,11 @@ export class CartComponent {
     const user = this.user;
     const product = "este producto copado";
     const quantity = this.totalItems();
-    console.log(user, product, quantity);
+    // console.log(user, product, quantity);
     const sessionToWait$ = this.stripeService.getSessionCheckout(user, product, quantity);
     this.stripeSession = await lastValueFrom(sessionToWait$);
-    console.log(sessionToWait$);
-    console.log(this.stripeSession);
+    // console.log(sessionToWait$);
+    // console.log(this.stripeSession);
     if (this.stripeSession) {
       let checkoutUrl = this.stripeSession.url;
       window.location.href = checkoutUrl;
