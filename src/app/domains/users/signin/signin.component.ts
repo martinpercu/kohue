@@ -82,6 +82,7 @@ export class SigninComponent {
       if(response.user.email && response.user.displayName) {
           this.client = {
           firstname: response.user.displayName,
+          lastname: ' ',
           email: response.user.email,
           clientUID: response.user.uid,
           billDifThanShip: true,
