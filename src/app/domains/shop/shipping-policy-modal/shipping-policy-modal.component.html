@@ -1,0 +1,25 @@
+<div (click)="closeShippingPolicyAlert()" class="z-50 absolute top-0 flex flex-col w-screen h-full bg-gray-700 bg-opacity-95">
+
+
+  <div (click)="$event.stopPropagation()" class="m-auto py-4 px-1 sm:p-10 bg-gray-100 border border-gray-200 rounded-2xl shadow">
+
+    <div class="flex flex-col items-center text-center">
+      <div class="mb-3 px-4 text-2xl font-medium text-brand">Shipping POLICY</div>
+      <div class="text-sm pt-4 text-gray-500">Esto no es joda !</div>
+        <div class="flex gap-2 py-6 sm:pt-10 sm:gap-6 ">
+          <div  (click)="closeShippingPolicyAlert()" class="button">
+            CLOSE
+          </div>
+        </div>
+
+      <!-- <div class="text-sm text-red-600 mb-4">
+        We're sorry. We take seriously our responsability to limit <br>website access to adults of legal drinking age. <br>
+        For more information, please visit <div class="cursor-pointer underline">responsibility.org</div>
+      </div>
+      <div class="text-sm text-gray-500">By entering this website you are agreeing to our terms of
+        use and privacy policy</div> -->
+
+
+    </div>
+  </div>
+</div>
