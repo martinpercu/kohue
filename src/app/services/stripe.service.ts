@@ -56,11 +56,12 @@ export class StripeService {
     return this.http.get(`${environment.apiURL}/test`);
   };
 
-  getSessionCheckout(user: any, product:any, quantity:any) {
+  getSessionCheckout(user: any, product:any, quantity:any, stripeShippingId:any) {
     return this.http.post(`${environment.apiURL}/create-checkout-session`, {
       user: user,
       product: product,
-      quantity: quantity
+      quantity: quantity,
+      stripeShippingId: stripeShippingId
     });
   };
 

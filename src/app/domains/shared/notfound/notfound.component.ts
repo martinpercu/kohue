@@ -21,14 +21,14 @@ export class NotfoundComponent {
     const user = "blabla USER";
     const product = "este producto copado";
     const quantity = 3;
-    const test$ = this.stripeService.getSessionCheckout(user, product, quantity);
-    this.session = await lastValueFrom(test$);
-    console.log(test$);
-    console.log(this.session);
-    if (this.session) {
-      let checkoutUrl = this.session.url;
-      window.location.href = checkoutUrl;
-    }
+    // const test$ = this.stripeService.getSessionCheckout(user, product, quantity);
+    // this.session = await lastValueFrom(test$);
+    // console.log(test$);
+    // console.log(this.session);
+    // if (this.session) {
+    //   let checkoutUrl = this.session.url;
+    //   window.location.href = checkoutUrl;
+    // }
   };
 
   async testerComun() {

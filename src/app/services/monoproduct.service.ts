@@ -12,7 +12,8 @@ export class MonoproductService {
     id: 22,
     title: "2021 Kohue Wines Malbec",
     price: 435,
-    image: "./../../../../assets/img/Botella-Kohue-2021-small.png",
+    imageMobile: "./../../../../assets/img/Botella-Kohue-2024-Mobile.png",
+    imageDesktop: "./../../../../assets/img/Botella-Kohue-2024-Desktop.png",
     description: "Case of 3 bottles (750ml)",
     images: ["./../../../../assets/img/Botella-Kohue-2021-small.png", "./../../../../assets/img/Botella-Kohue-2021-small.png"],
     category: {

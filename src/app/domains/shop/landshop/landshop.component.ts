@@ -150,7 +150,8 @@ export class LandshopComponent {
     // console.log(paymentIntentsByUser$);
     // console.log(this.intentsByUser);
     const dataLength = this.intentsByUser.data.length;
-    console.log(dataLength);
+    // console.log(dataLength);
+    console.log("User data Lenght from Stripe");
     if (dataLength == 0) {
       console.log("no buys");
       this.showWine = true

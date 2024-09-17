@@ -47,7 +47,7 @@ export class CartComponent {
   showCartInNav: boolean = true;
   showCartInLand: boolean = false;
 
-  showPolicy: boolean = true;
+  showPolicy: boolean = false;
 
 
   // hideSideMenu = signal(false);
@@ -59,6 +59,7 @@ export class CartComponent {
 
   shippingAmount = this.cartService.shippingAmount;
   shippingText = this.cartService.shippingText;
+  shippingStripeId = this.cartService.shippingId;
 
   totalAmount = this.cartService.totalAmount;
 
@@ -241,8 +242,12 @@ export class CartComponent {
     const user = this.user;
     const product = "este producto copado";
     const quantity = this.totalItems();
+    const stripeShippingId = this.shippingStripeId();
     // console.log(user, product, quantity);
-    const sessionToWait$ = this.stripeService.getSessionCheckout(user, product, quantity);
+    // console.log(stripeShippingId);
+
+
+    const sessionToWait$ = this.stripeService.getSessionCheckout(user, product, quantity, stripeShippingId);
     this.stripeSession = await lastValueFrom(sessionToWait$);
     // console.log(sessionToWait$);
     // console.log(this.stripeSession);
@@ -265,8 +270,6 @@ export class CartComponent {
   };
 
   showShippingPolicy() {
-    console.log("ddddd");
-
     this.showPolicy = true
   }
 
