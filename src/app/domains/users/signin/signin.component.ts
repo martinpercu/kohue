@@ -67,7 +67,7 @@ export class SigninComponent {
       // console.log(this.formReg.value);
       // console.log(this.client);
 
-      // this.emailsender.sendEmailRegister(this.client);
+      this.emailsender.sendEmailRegister(this.client);
       this.navToShopArea();
 
       // this.router.navigate(['edit']);

@@ -14,15 +14,15 @@ export class ShippingService {
   setValue(loquesea: any) {
     if (loquesea == 'Pick up at Warehouse') {
       this.cartService.setShippingAmount(6);
-      this.cartService.setShippingStripeId('shr_1Pzh4ERtorj52eamXRL27RHT');
+      this.cartService.setShippingStripeId('shr_1Q1F5iRtorj52eam8u8CYusJ');
     }
     if (loquesea == 'Ground shipping') {
       this.cartService.setShippingAmount(20);
-      this.cartService.setShippingStripeId('shr_1Pzh4nRtorj52eamvxRLabqL');
+      this.cartService.setShippingStripeId('shr_1Q1F6ORtorj52eamZ8CP3yAi');
     }
     if (loquesea == 'Piola el shipping') {
-      this.cartService.setShippingAmount(45);
-      this.cartService.setShippingStripeId('shr_1Pzh5JRtorj52eamhpKyUEpL');
+      this.cartService.setShippingAmount(77);
+      this.cartService.setShippingStripeId('shr_1Q1F77Rtorj52eamdP5PbwGR');
     }
     if (loquesea == 'UPS Ground') {
       this.cartService.setShippingAmount(33)
