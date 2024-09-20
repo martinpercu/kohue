@@ -27,7 +27,7 @@ export class AuthService {
   async login({email, password}: any) {
     return signInWithEmailAndPassword(this.auth, email, password)
     .then(response => {
-        console.log(response);
+        // console.log(response);
         this.navToMembersArea();
       })
       .catch(error => {

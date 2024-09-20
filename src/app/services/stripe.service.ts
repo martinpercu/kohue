@@ -1,4 +1,4 @@
-import { Injectable, inject } from '@angular/core';
+import { Injectable, inject, signal } from '@angular/core';
 import { HttpClient  } from '@angular/common/http';
 import { environment } from '@env/environment';
 
@@ -17,6 +17,8 @@ export class StripeService {
 
   user!: Client;
   stripeUser!: any;
+
+  purchaseDate = signal<number>(0);
 
   constructor() { }
 
@@ -93,28 +95,13 @@ export class StripeService {
       shipping: shippingForStripe
     };
     console.log('The user info for shippng in Stripe');
-    // console.log(userStripeCreatedForStripe);
 
     const updatedUser$ = await this.http.post(`${environment.apiURL}/update_user`, {
       stripeId: this.user.stripeCustomerId,
       user: userStripeCreatedForStripe
     });
     this.stripeUser = await lastValueFrom(updatedUser$);
-
-
-    // const stripeUser$ = await this.createUser(userStripeCreatedForStripe);
-    // this.stripeUser = await lastValueFrom(stripeUser$);
-    // console.log(updatedUser$);
-
-    // console.log(this.stripeUser);
-    // console.log(this.user);
     this.user.stripeCustomerId = this.stripeUser.id;
-
-    // console.log(this.user);
-
-
-    // console.log(userStripeCreatedForStripe);
-    // this.updateUserAfterStripeCreation();
   };
 
   // async updateUserAfterStripeCreation() {
@@ -126,5 +113,10 @@ export class StripeService {
 
   //   this.clientService.updateOneUser(this.user, this.user.clientUID)
   // }
+
+  getTimeLastOrder(epoch: number) {
+    this.purchaseDate.set(epoch*1000);
+    // console.log(this.purchaseDate());
+  }
 
 }

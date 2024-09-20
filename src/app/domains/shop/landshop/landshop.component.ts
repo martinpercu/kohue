@@ -6,6 +6,7 @@ import { ShippingmethodComponent } from '@shop/shippingmethod/shippingmethod.com
 import { CartComponent } from '@shop/cart/cart.component';
 import { CardStripeComponent } from '@shop/card-stripe/card-stripe.component';
 import { FooterComponent } from '@shared/footer/footer.component';
+import { InfopurchaseComponent } from '@shop/infopurchase/infopurchase.component';
 
 import { StaytunedComponent } from '@shop/staytuned/staytuned.component';
 import { StripeService } from '@services/stripe.service';
@@ -13,15 +14,19 @@ import { lastValueFrom } from 'rxjs';
 
 import { AuthService } from '@services/auth.service';
 import { ClientService } from '@services/client.service';
+import { ShopService } from '@services/shop.service';
 
 import { Client } from '@models/client.model'
+// import { DatePipe } from '@angular/common';
+
+
 
 
 
 @Component({
   selector: 'app-landshop',
   standalone: true,
-  imports: [EditComponent, NavbarsignedComponent, FooterComponent, MonoproductComponent, ShippingmethodComponent, CartComponent, CardStripeComponent, StaytunedComponent],
+  imports: [EditComponent, NavbarsignedComponent, FooterComponent, MonoproductComponent, ShippingmethodComponent, CartComponent, CardStripeComponent, StaytunedComponent, InfopurchaseComponent],
   templateUrl: './landshop.component.html',
   styleUrl: './landshop.component.css'
 })
@@ -30,6 +35,7 @@ export class LandshopComponent {
   private stripeService = inject(StripeService);
   private auth = inject(AuthService);
   private clientService = inject(ClientService);
+  private shopService = inject(ShopService);
 
   showWine!: boolean;
   showEditAccount: boolean = true;
@@ -47,10 +53,15 @@ export class LandshopComponent {
   test!: any;
   intentsByUser!: any;
 
+  // purchaseDate!: number;
+  // purchaseDate = this.stripeService.purchaseDate;
+
+  showPurchase = this.shopService.showPurchase;
+
 
   constructor() {
     this.showStayTune = false;
-    this.showWine = false;
+    // this.showWine = true;
     const id = this.auth.getUserUid();
     if (id) {
       this.userId = id
@@ -64,7 +75,7 @@ export class LandshopComponent {
     this.user = await this.clientService.getOneUser(this.userId);
     // console.log(this.user);
 
-    if (this.user.stripeCustomerId == 'none' ) {
+    if (this.user.stripeCustomerId == 'none') {
       this.showWine = true
     }
     else {
@@ -123,11 +134,11 @@ export class LandshopComponent {
 
   fromNavbarStripeAndCart(data: any) {
     console.log(data);
-    if(data.cartOn != null) {
+    if (data.cartOn != null) {
       console.log('in cartOn so not null');
       this.showCart = data.cartOn;
     }
-    if(data.stripeOn != null) {
+    if (data.stripeOn != null) {
       console.log('in stripeOn so not null');
       this.showStripeAndCart = data.stripeOn;
     };
@@ -149,9 +160,14 @@ export class LandshopComponent {
     this.intentsByUser = await lastValueFrom(paymentIntentsByUser$);
     // console.log(paymentIntentsByUser$);
     // console.log(this.intentsByUser);
+    // const data = this.intentsByUser.data
+    // console.log(this.intentsByUser.data[0].created);
+    // console.log(data[0]);
+
+
     const dataLength = this.intentsByUser.data.length;
     // console.log(dataLength);
-    console.log("User data Lenght from Stripe");
+    // console.log("User data Lenght from Stripe");
     if (dataLength == 0) {
       console.log("no buys");
       this.showWine = true
@@ -159,8 +175,15 @@ export class LandshopComponent {
     else {
       console.log('This guy already buyed something');
       this.showWine = false;
+      const epoch = this.intentsByUser.data[0].created;
+      this.stripeService.getTimeLastOrder(epoch);
+      this.shopService.handlerShowPurchase(true)
     }
   }
+
+  // getTimeLastOrder(epoch: any) {
+  //   this.purchaseDate = epoch*1000;
+  // }
 
 
 

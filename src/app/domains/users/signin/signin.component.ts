@@ -66,8 +66,10 @@ export class SigninComponent {
     const response = await this.clientService.addUserWithId(userBasic, userUID).then(() => {
       // console.log(this.formReg.value);
       // console.log(this.client);
-      this.emailsender.sendEmailRegister(this.client);
+
+      // this.emailsender.sendEmailRegister(this.client);
       this.navToShopArea();
+
       // this.router.navigate(['edit']);
     });
     // console.log("shoud be empty/null ==>  " + response);

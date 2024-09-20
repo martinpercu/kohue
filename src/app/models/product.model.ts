@@ -3,6 +3,7 @@ import { Category } from './category.model'
 export interface Product {
   id: number;
   title: string;
+  titleCart: string;
   price: number;
   image?: string;
   imageMobile?: string;
