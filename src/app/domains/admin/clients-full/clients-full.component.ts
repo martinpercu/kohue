@@ -37,13 +37,10 @@ export class ClientsFullComponent {
   }
 
   deleteClient(client: Client) {
-    if (confirm('Do you really want to delete this guy. No hay marcha atras ???')) {
+    if (confirm(`Do you really want to delete ${client.firstname}.? \n\nGUARDA No hay marcha atrás!! `)) {
       console.log(client);
       this.clientService.deleteClient(client);
-
-      alert('lo borraste');
-    } else {
-      alert('no pasa nada.')
+      // alert('Y se borró');
     }
   }
 
