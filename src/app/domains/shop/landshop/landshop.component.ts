@@ -53,6 +53,8 @@ export class LandshopComponent {
   test!: any;
   intentsByUser!: any;
 
+  testRetrieve!: any;
+
   // purchaseDate!: number;
   // purchaseDate = this.stripeService.purchaseDate;
 
@@ -159,7 +161,7 @@ export class LandshopComponent {
     const paymentIntentsByUser$ = this.stripeService.getPaimentsByUser(user);
     this.intentsByUser = await lastValueFrom(paymentIntentsByUser$);
     // console.log(paymentIntentsByUser$);
-    // console.log(this.intentsByUser);
+    console.log(this.intentsByUser);
     // const data = this.intentsByUser.data
     // console.log(this.intentsByUser.data[0].created);
     // console.log(data[0]);
@@ -177,7 +179,14 @@ export class LandshopComponent {
       this.showWine = false;
       const epoch = this.intentsByUser.data[0].created;
       this.stripeService.getTimeLastOrder(epoch);
-      this.shopService.handlerShowPurchase(true)
+      this.shopService.handlerShowPurchase(true);
+
+      // this is test to retrieve transacctions from user
+
+      // const retrieveInfo$ = this.stripeService.retrieveUserTransactions(user);
+      // this.testRetrieve = await lastValueFrom(retrieveInfo$);
+      // console.log(this.testRetrieve);
+
     }
   }
 

@@ -36,4 +36,15 @@ export class ClientsFullComponent {
     this.router.navigate(['edit', clientId])
   }
 
+  deleteClient(client: Client) {
+    if (confirm('Do you really want to delete this guy. No hay marcha atras ???')) {
+      console.log(client);
+      this.clientService.deleteClient(client);
+
+      alert('lo borraste');
+    } else {
+      alert('no pasa nada.')
+    }
+  }
+
 }

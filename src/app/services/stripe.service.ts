@@ -74,6 +74,12 @@ export class StripeService {
     });
   };
 
+  retrieveUserTransactions(user: any) {
+    return this.http.post(`${environment.apiURL}/payment_intents_by_user`, {
+      user: user,
+    });
+  };
+
   async updateStripeUser(user: Client) {
     this.user = user;
     const firstNameStripe = this.user.firstname;
