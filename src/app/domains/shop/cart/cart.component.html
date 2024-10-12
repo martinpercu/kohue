@@ -1,6 +1,5 @@
-
 @if(showPolicy == true) {
-  <app-shipping-policy-modal (showStayTuned)="fromShippingPolicy($event)"></app-shipping-policy-modal>
+<app-shipping-policy-modal (showStayTuned)="fromShippingPolicy($event)"></app-shipping-policy-modal>
 }
 
 @if(showCartInNav == true) {
@@ -50,7 +49,7 @@
               </div>
               } -->
 
-              @if(product.quantity == 4) {
+              @if(product.quantity == 3) {
               <div class="text-center m-auto">
                 <div class="flex gap-4 sm:gap-4">
                   <div (click)="subtractOneFromCart(product)" class="minibutton">-</div>
@@ -63,64 +62,63 @@
                 </div> -->
               }
 
-              @if(product.quantity >= 1 && product.quantity <= 3) {
-              <div class="text-center m-auto">
+              @if(product.quantity >= 1 && product.quantity <= 2) { <div class="text-center m-auto">
                 <div class="flex gap-4 sm:gap-4">
                   <div (click)="subtractOneFromCart(product)" class="minibutton">-</div>
                   <div class="minibuttonReverse">{{ product.quantity }}</div>
                   <div (click)="addOneFromCart(product)" class="minibutton">+</div>
                 </div>
-              </div>
-              <!-- <div class="font-light text-center p-2 text-blue-500">
+            </div>
+            <!-- <div class="font-light text-center p-2 text-blue-500">
                 <span class="hover:cursor-pointer" (click)="removeProduct(product)">remove</span>
               </div> -->
-              }
+            }
 
-              @if(product.quantity == 0) {
-              <div class="text-center m-auto">
-                <div class="flex gap-4 sm:gap-4">
-                  <div class="minibuttonOf">-</div>
-                  <div class="minibuttonReverse">{{ product.quantity }}</div>
-                  <div (click)="addOneFromCartFromZero()" class="minibutton">+</div>
-                </div>
+            @if(product.quantity == 0) {
+            <div class="text-center m-auto">
+              <div class="flex gap-4 sm:gap-4">
+                <div class="minibuttonOf">-</div>
+                <div class="minibuttonReverse">{{ product.quantity }}</div>
+                <div (click)="addOneFromCartFromZero()" class="minibutton">+</div>
               </div>
-              }
-
             </div>
+            }
+
           </div>
-          }
-        </li>
-        }
-      </ul>
-      @if(totalItems() > 0) {
-      <div class="items-center text-base font-semibold text-gray-700">
+    </div>
+    }
+    </li>
+    }
+    </ul>
+    @if(totalItems() > 0) {
+    <div class="items-center text-base font-semibold text-gray-700">
 
-        @if(totalItems() == 4) {
-        <div class="font-light text-xs text-center pb-2 text-xdark">
-          <span class="">You've reached the maximum quantity limit.</span>
-        </div>
-        }
-
-        @if(totalItems() >= 5) {
-        <div class="font-light text-xs text-center pb-2 text-xdark">
-          <span class="font-bold text-red-500">The maximun quantity product is 4.</span>
-        </div>
-        }
-
-        <div class="text-right my-2 font-normal hover:cursor-pointer">
-          <!-- Shipping {{ shippingText() }} <span class="font-semibold"> $ {{ shippingAmount() }}</span> -->
-          Shipping <app-shippingmethod></app-shippingmethod>
-          <span class="font-semibold"> $ {{ shippingAmount() }}</span>
-        </div>
+      @if(totalItems() == 3) {
+      <div class="font-light text-xs text-center pb-2 text-xdark">
+        <span class="">You've reached the maximum quantity limit.</span>
       </div>
+      }
 
-      <div class="mt-4">
+      <!-- @if(totalItems() >= 4) {
+      <div class="font-light text-xs text-center pb-2 text-xdark">
+        <span class="font-bold text-red-500">The maximun quantity product is 4.</span>
+      </div>
+      } -->
 
-        @if(shippingAmount() > 1) {
-          <div (click)="checkoutToStripe()" class="button paddingOff">
-            ${{ totalAmount()}} - Checkout
-          </div>
-        <!-- @if(totalItems() == 1){
+      <div class="text-right my-2 font-normal hover:cursor-pointer">
+        <!-- Shipping {{ shippingText() }} <span class="font-semibold"> $ {{ shippingAmount() }}</span> -->
+        Shipping <app-shippingmethod></app-shippingmethod>
+        <span class="font-semibold"> $ {{ shippingAmount() }}</span>
+      </div>
+    </div>
+
+    <div class="mt-4">
+
+      @if(shippingAmount() || shippingText() == "Local Pick up") {
+      <div (click)="checkoutToStripe()" class="button paddingOff">
+        ${{ totalAmount()}} - Checkout
+      </div>
+      <!-- @if(totalItems() == 1){
         <div (click)="checkoutToStripe()" class="button paddingOff">
           ${{ totalAmount()}} - Checkout - 1
         </div>
@@ -130,9 +128,9 @@
           ${{ totalAmount()}} - Checkout - 2
         </div>
         } -->
-        }
+      }
 
-        <!-- @if(totalItems() == 1 && shippingAmount() > 1){
+      <!-- @if(totalItems() == 1 && shippingAmount() > 1){
         <div (click)="checkoutToggleCartToLand()" class="button">
           ${{ totalAmount()}} - Checkout--55
         </div>
@@ -144,26 +142,31 @@
         </div>
         } -->
 
-        @if(totalAmount() && shippingAmount() == 0) {
-        <div (click)="alertAddShippingMethod()" class="button_off">
-          ${{ totalAmount() }} - Checkout
-        </div>
-        }
+      @if(shippingAmount() == 0 && shippingText() != "Local Pick up") {
+      <div (click)="alertAddShippingMethod()" class="button_off">
+        ${{ totalAmount() }} - Checkout
       </div>
-
-
       }
-
-      <div class="font-light text-xs text-center pb-2 text-xdark pt-2">
-        <span (click)="showShippingPolicy()"  class="cursor-pointer underline">Shipping Policy.</span>
-      </div>
-
-      <div class="font-light text-xs text-center pb-2 text-xdark pt-2">
-        <span class="">You must be 21 years or older to purchase.</span>
-      </div>
-
     </div>
+
+
+    }
+
+    <div class="font-light text-xs text-center pb-2 text-xdark pt-6">
+      <span (click)="showShippingPolicy()" class="cursor-pointer underline">Shipping Policy.</span>
+    </div>
+
+    <div class="font-light text-xs text-center pb-2 text-xdark pt-4">
+      <!-- <span class="">You must be 21 years or older to purchase.</span><br> -->
+      <span class="">For assistance, please call 707-681-5128 or email us at info&#64;kohuewines.com.</span><br>
+      <span class="">State laws require someone 21 years of age or older to order online and to sign for the package at
+        delivery. It is preferable to ship to a business address.</span><br>
+      <span class="">Wine will ship out after release closes and before the holidays - subject to any weather
+        interruptions.</span>
+    </div>
+
   </div>
+</div>
 </div>
 
 }
