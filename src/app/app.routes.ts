@@ -113,7 +113,7 @@ export const routes: Routes = [
     ...canActivate(() => redirectUnauthorizedTo(['login']))
   },
   {
-    path: 'friends',
+    path: 'offering',
     component: DirectlinkComponent,
   },
   {
