@@ -8,13 +8,13 @@ import { MonoproductService  } from '@services/monoproduct.service';
 import { environment } from '@env/environment';
 
 @Component({
-  selector: 'app-directlink',
+  selector: 'app-directlink-2',
   standalone: true,
   imports: [NavbarsignedComponent, FooterComponent],
-  templateUrl: './directlink.component.html',
-  styleUrl: './directlink.component.css'
+  templateUrl: './directlink-2.component.html',
+  styleUrl: './directlink-2.component.css'
 })
-export class DirectlinkComponent {
+export class Directlink2Component {
 
   private monoproductService = inject(MonoproductService);
 
@@ -26,8 +26,9 @@ export class DirectlinkComponent {
   };
 
   toCheckoutLink() {
-    let checkoutUrl = environment.PAYMENT_LINK;
+    let checkoutUrl = environment.ASSOCIATE_PAYMENT_LINK;
     window.location.href = checkoutUrl;
   }
+
 
 }
