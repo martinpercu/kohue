@@ -18,6 +18,7 @@ import { Client } from '@models/client.model';
 
 import { ShippingPolicyModalComponent } from '@shop/shipping-policy-modal/shipping-policy-modal.component'
 
+import { environment } from '@env/environment'
 
 @Component({
   selector: 'app-cart',
@@ -255,11 +256,10 @@ export class CartComponent {
     const product = "este producto copado";
     const quantity = this.totalItems();
     const stripeShippingId = this.shippingStripeId();
-    // console.log(user, product, quantity);
-    // console.log(stripeShippingId);
+    const priceProductId = environment.PRICE_PRODUCT;
 
 
-    const sessionToWait$ = this.stripeService.getSessionCheckout(user, product, quantity, stripeShippingId);
+    const sessionToWait$ = this.stripeService.getSessionCheckout(user, product, quantity, stripeShippingId, priceProductId);
     this.stripeSession = await lastValueFrom(sessionToWait$);
     // console.log(sessionToWait$);
     // console.log(this.stripeSession);

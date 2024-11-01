@@ -118,7 +118,7 @@ export const routes: Routes = [
     component: DirectlinkComponent,
   },
   {
-    path: 'riverplate',
+    path: 'success_offering',
     component: Directlink2Component,
   },
   {

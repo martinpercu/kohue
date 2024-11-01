@@ -1,6 +1,8 @@
 import { Injectable, inject } from '@angular/core';
 import { CartService } from '@services/cart.service';
 
+import { environment } from '@env/environment'
+
 @Injectable({
   providedIn: 'root'
 })
@@ -23,17 +25,19 @@ export class ShippingService {
 
     const shippingOptions: { [key: string]: { [key: number]: { amount: number; stripeId: string } } } = {
       'Overnight': {
-        1: { amount: 70, stripeId: 'shr_1Q9DMORtorj52eamUIRTakJP' },
-        2: { amount: 90, stripeId: 'shr_1Q9DN1Rtorj52eam64QBfwox' },
-        3: { amount: 130, stripeId: 'shr_1Q9DNcRtorj52eamGqVLAmrT' },
+        1: { amount: 70, stripeId: environment.SHIP_OVERNIGHT_1 },
+        2: { amount: 90, stripeId: environment.SHIP_OVERNIGHT_2 },
+        3: { amount: 130, stripeId: environment.SHIP_OVERNIGHT_3 },
       },
       'Ground shipping': {
-        1: { amount: 35, stripeId: 'shr_1Q9DKCRtorj52eamOGY2Ji3I' },
-        2: { amount: 45, stripeId: 'shr_1Q9DKtRtorj52eamkwdF4Mpd' },
-        3: { amount: 85, stripeId: 'shr_1Q9DLaRtorj52eamd4NPoayQ' },
+        1: { amount: 35, stripeId: environment.SHIP_GROUND_1 },
+        2: { amount: 45, stripeId: environment.SHIP_GROUND_2 },
+        3: { amount: 85, stripeId: environment.SHIP_GROUND_3 },
       },
       'Local Pick up': {
-        1: { amount: 0, stripeId: 'shr_1Q9DOaRtorj52eamlK75bRNi' }, // For consistency, you can have this, even if it doesn't depend on quantity
+        1: { amount: 0, stripeId: environment.SHIP_LOCAL }, // For consistency, you can have this, even if it doesn't depend on quantity
+        2: { amount: 0, stripeId: environment.SHIP_LOCAL }, // For consistency, you can have this, even if it doesn't depend on quantity
+        3: { amount: 0, stripeId: environment.SHIP_LOCAL }, // For consistency, you can have this, even if it doesn't depend on quantity
       },
     };
 
