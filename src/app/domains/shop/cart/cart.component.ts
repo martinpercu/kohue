@@ -21,6 +21,10 @@ export class CartComponent {
 
   @Output() cartOff = new EventEmitter();
   @Output() wineOff = new EventEmitter();
+  @Output() stripeOn = new EventEmitter();
+
+
+  @Output() stripeOnCartOn = new EventEmitter<{stripeOn:any, cartOn:any}>();
 
 
   private cartService = inject(CartService);
@@ -51,10 +55,11 @@ export class CartComponent {
 
 
   closeCart() {
-    console.log(' 1 st in cart showCart==>  ' + this.showCart);
-    this.showCart = false;
-    console.log(' 2nd in cart showCart==>  ' + this.showCart);
-    this.cartOff.emit(this.showCart);
+    // console.log(' 1 st in cart showCart==>  ' + this.showCart);
+    // this.showCart = false;
+    // console.log(' 2nd in cart showCart==>  ' + this.showCart);
+    // this.cartOff.emit(this.showCart);
+    this.stripeOnCartOn.emit({stripeOn:null, cartOn:false});
   };
 
   subtractOneFromCart(product: Product) {
@@ -93,17 +98,32 @@ export class CartComponent {
     this.showCartInNav = !this.showCartInNav;
     console.log(' 2nd in cart showCart==>  ' + this.showCartInNav);
     // this.cartInLandOnOff.emit(this.showCartInNav);
-    this.closeCart();
+    // this.closeCart();
   };
 
-  checkoutToggleCartOnLand() {
+  stripeOnHandler() {
+    this.stripeOn.emit(true);
+  }
+
+  stripeOnAndAlsoCartOn() {
+    console.log('from child FUULLL');
+    this.stripeOnCartOn.emit({stripeOn:true, cartOn:true});
+  }
+
+  checkoutToggleCartToLand() {
+    this.stripeOnAndAlsoCartOn;
+
     console.log(' 1 st in cart showCartInLand==>  ' + this.showCartInLand);
     this.showCartInLand = true;
     this.showCartInNav = false;
     console.log(' 2nd in cart showCartInLand==>  ' + this.showCartInLand);
+    console.log(' cart showCartInNav==>  ' + this.showCartInNav);
     // this.cartInLandOnOff.emit(this.showCartInLand);
-    // this.toggleSideMenuFromCart();
-    alert('At this point start getting payment from client');
+    // this.toggleCartOnNav();
+    // this.closeCart();
+    console.log('At this point start getting payment from client');
+    // this.stripeOnHandler();
+    this.stripeOnAndAlsoCartOn();
   };
 
   alertAddShippingMethod() {
