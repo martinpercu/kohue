@@ -5,7 +5,7 @@
 </div> -->
 
 @if(showWine == true) {
-  <app-monoproduct></app-monoproduct>
+<app-monoproduct></app-monoproduct>
 }
 
 <!-- <div class="mt-4 flex justify-center text-pretty text-xl">
@@ -50,7 +50,7 @@
             Birth date:
           </div>
           <div class="text-nowrap">
-            Prefered contact by:
+            Preferred contact:
           </div>
         </div>
         <div class="grid grid-cols-4 text-sm">
@@ -188,7 +188,7 @@
         </div>
 
         <div class="pt-3 gap-4">
-          <label class="block mb-2 text-sm font-medium text-gray-900">Prefered contact:</label>
+          <label class="block mb-2 text-sm font-medium text-gray-900">Preferred contact:</label>
           <input type="checkbox" formControlName="byEmail"
             class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2  ">
           <label class="ms-2 text-sm font-medium text-gray-900 relative bottom-0.5">
@@ -401,11 +401,11 @@
         <div class="flex mt-4 mb-4 py-1">
           <div class="flex items-center me-4">
             <label for="inline-checked-checkbox" class="ms-2 text-sm font-medium text-gray-900 ">
-              BILL address DIF than Shipping??. </label>
+              Billing address other than shipping. </label>
           </div>
           <div class="flex items-center me-4">
             <input type="checkbox" formControlName="billDifThanShip"
-              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2  ">
+              class="w-4 h-4 bg-gray-100 border-gray-300 rounded focus:ring-green-500 focus:ring-2  ">
             <label class="ms-2 text-sm font-medium text-gray-900 ">
               YES
             </label>
@@ -423,176 +423,187 @@
 
     <!-- @if(this.user.billDifThanShip == true) { -->
 
+    @if(user.billDifThanShip == true ) {
+    <!-- <div>jajjajaajaj</div> -->
+
     <div class="text-lg flex justify-center mt-12 mb-2 uppercase">
       Billing Address
     </div>
 
-    @if(editBilling == false) {
-    <div class="p-4 bg-transparent border border-gray-500 rounded-lg">
 
-      <div class="flex sm:flex-row mb-2">
-        <div class="grow text-lg">
+      @if(editBilling == false) {
+      <div class="p-4 bg-transparent border border-gray-500 rounded-lg">
 
-          <div class="grid grid-row-4 text-sm">
-            <div>
-              {{this.user.xfirstname}} {{this.user.xlastname}}
+        <div class="flex sm:flex-row mb-2">
+          <div class="grow text-lg">
+
+            <div class="grid grid-row-4 text-sm">
+              <div>
+                {{this.user.xfirstname}} {{this.user.xlastname}}
+              </div>
+              <div>
+                {{this.user.xaddress}}
+              </div>
+              @if(this.user.xaddressExtra) {
+              <div>
+                {{this.user.xaddressExtra}}
+              </div>}
+              <div>
+                {{this.user.xcity}} @if(this.user.xcity && this.user.xstate){,} {{this.user.xstate}}
+              </div>
+              <div>
+                {{this.user.xzipCode}}
+              </div>
             </div>
-            <div>
-              {{this.user.xaddress}}
-            </div>
-            @if(this.user.xaddressExtra) {
-            <div>
-              {{this.user.xaddressExtra}}
-            </div>}
-            <div>
-              {{this.user.xcity}} @if(this.user.xcity && this.user.xstate){,} {{this.user.xstate}}
-            </div>
-            <div>
-              {{this.user.xzipCode}}
-            </div>
+            <!-- {{this.user.firstname}} {{this.user.lastname}} -->
           </div>
-          <!-- {{this.user.firstname}} {{this.user.lastname}} -->
-        </div>
-        <!-- <div (click)="copyfromShipping()" class="flex max-h-9 button hover:cursor-pointer">
-          Copy from Shipping
-        </div> -->
-        <div (click)="changeEditBilling()" class="flex max-h-9 button hover:cursor-pointer">
-          EDIT
-        </div>
-      </div>
-
-    </div>
-    }
-
-    @if(editBilling == true) {
-    <div class="p-4 bg-transparent border border-gray-500 rounded-lg">
-      <div class="grid gap-6 mb-6 sm:grid-cols-3">
-
-        <div>
-          <label class="block mb-2 text-sm font-medium text-gray-900 ">
-            First Name:
-          </label>
-          <input type="text" formControlName="xfirstname" class="x_input" [class.is-valid]="isxfirstnameFieldValid"
-            [class.is-invalid]="isxfirstnameFieldInvalid" />
-          <div class="messages absolute" [class.active]="xfirstnameField!.touched && xfirstnameField!.invalid">
-            @if (xfirstnameField!.hasError('maxlength')){<div class="pb-4 pt-1 text-sm text-red-600">
-              No more than 30 letters</div> }
-            @if (xfirstnameField!.hasError('minlength')){<div class="pb-4 pt-1 text-sm text-red-600">
-              At least 2 letters please</div> }
-          </div>
-        </div>
-
-        <div>
-          <label class="block mb-2 text-sm font-medium text-gray-900">
-            Last Name:
-          </label>
-          <input type="text" formControlName="xlastname" class="x_input" [class.is-valid]="isxlastnameFieldValid"
-            [class.is-invalid]="isxlastnameFieldInvalid" />
-          <div class="messages absolute" [class.active]="xlastnameField!.touched && xlastnameField!.invalid">
-            @if (xlastnameField!.hasError('maxlength')){<div class="pb-4 pt-1 text-sm text-red-600">No more than 30
-              letters</div> }
-            @if (xlastnameField!.hasError('minlength')){<div class="pb-4 pt-1 text-sm text-red-600">
-              At Least 2 letters please</div> }
-          </div>
-        </div>
-
-        <div>
-          <label class="block mb-2 text-sm font-medium text-gray-900">Address 1:</label>
-          <input type="text" formControlName="xaddress" class="x_input" />
-        </div>
-
-        <div>
-          <label class="block mb-2 text-sm font-medium text-gray-900">Address 2:</label>
-          <input type="text" formControlName="xaddressExtra" class="x_input" />
-        </div>
-
-        <div>
-          <label class="block mb-2 text-sm font-medium text-gray-900">City:</label>
-          <input type="text" formControlName="xcity" class="x_input" />
-        </div>
-
-
-        <div>
-
-          <label class="block mb-2 text-sm font-medium text-gray-900">State:</label>
-          <select formControlName="xstate" class="x_input">
-            <option></option>
-            <option>Alabama</option>
-            <option>Alaska</option>
-            <option>Arizona</option>
-            <option>Arkansas</option>
-            <option>California</option>
-            <option>Colorado</option>
-            <option>Connecticut</option>
-            <option>Delaware</option>
-            <option>Florida</option>
-            <option>Georgia</option>
-            <option>Hawaii</option>
-            <option>Idaho</option>
-            <option>Illinois</option>
-            <option>Indiana</option>
-            <option>Iowa</option>
-            <option>Kansas</option>
-            <option>Kentucky</option>
-            <option>Louisiana</option>
-            <option>Maine</option>
-            <option>Maryland</option>
-            <option>Massachusetts</option>
-            <option>Michigan</option>
-            <option>Minnesota</option>
-            <option>Mississippi</option>
-            <option>Missouri</option>
-            <option>Montana</option>
-            <option>Nebraska</option>
-            <option>Nevada</option>
-            <option>New Hampshire</option>
-            <option>New Jersey</option>
-            <option>New Mexico</option>
-            <option>New York</option>
-            <option>North Carolina</option>
-            <option>North Dakota</option>
-            <option>Ohio</option>
-            <option>Oklahoma</option>
-            <option>Oregon</option>
-            <option>Pennsylvania</option>
-            <option>Rhode Island</option>
-            <option>South Carolina</option>
-            <option>South Dakota</option>
-            <option>Tennessee</option>
-            <option>Texas</option>
-            <option>Utah</option>
-            <option>Vermont</option>
-            <option>Virginia</option>
-            <option>Washington</option>
-            <option>West Virginia</option>
-            <option>Wisconsin</option>
-            <option>Wyoming</option>
-          </select>
-        </div>
-
-        <div>
-          <label class="form-label" class="block mb-1 mt-1 text-sm font-medium text-gray-900 ">
-            ZIP code:</label>
-          <div class="relative">
-            <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
-              <svg class="w-4 h-4 text-gray-500 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                fill="currentColor" viewBox="0 0 16 20">
-                <path
-                  d="M8 0a7.992 7.992 0 0 0-6.583 12.535 1 1 0 0 0 .12.183l.12.146c.112.145.227.285.326.4l5.245 6.374a1 1 0 0 0 1.545-.003l5.092-6.205c.206-.222.4-.455.578-.7l.127-.155a.934.934 0 0 0 .122-.192A8.001 8.001 0 0 0 8 0Zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z" />
-              </svg>
-            </div>
-            <input type="tel" formControlName="xzipCode" class="x_input_with_icon" />
+          <!-- <div (click)="copyfromShipping()" class="flex max-h-9 button hover:cursor-pointer">
+            Copy from Shipping
+          </div> -->
+          <div (click)="changeEditBilling()" class="flex max-h-9 button hover:cursor-pointer">
+            EDIT
           </div>
         </div>
 
       </div>
+      }
+
+      @if(editBilling == true) {
+      <div class="p-4 bg-transparent border border-gray-500 rounded-lg">
+        <div class="grid gap-6 mb-6 sm:grid-cols-3">
+
+          <div>
+            <label class="block mb-2 text-sm font-medium text-gray-900 ">
+              First Name:
+            </label>
+            <input type="text" formControlName="xfirstname" class="x_input" [class.is-valid]="isxfirstnameFieldValid"
+              [class.is-invalid]="isxfirstnameFieldInvalid" />
+            <div class="messages absolute" [class.active]="xfirstnameField!.touched && xfirstnameField!.invalid">
+              @if (xfirstnameField!.hasError('maxlength')){<div class="pb-4 pt-1 text-sm text-red-600">
+                No more than 30 letters</div> }
+              @if (xfirstnameField!.hasError('minlength')){<div class="pb-4 pt-1 text-sm text-red-600">
+                At least 2 letters please</div> }
+            </div>
+          </div>
+
+          <div>
+            <label class="block mb-2 text-sm font-medium text-gray-900">
+              Last Name:
+            </label>
+            <input type="text" formControlName="xlastname" class="x_input" [class.is-valid]="isxlastnameFieldValid"
+              [class.is-invalid]="isxlastnameFieldInvalid" />
+            <div class="messages absolute" [class.active]="xlastnameField!.touched && xlastnameField!.invalid">
+              @if (xlastnameField!.hasError('maxlength')){<div class="pb-4 pt-1 text-sm text-red-600">No more than 30
+                letters</div> }
+              @if (xlastnameField!.hasError('minlength')){<div class="pb-4 pt-1 text-sm text-red-600">
+                At Least 2 letters please</div> }
+            </div>
+          </div>
+
+          <div>
+            <label class="block mb-2 text-sm font-medium text-gray-900">Address 1:</label>
+            <input type="text" formControlName="xaddress" class="x_input" />
+          </div>
+
+          <div>
+            <label class="block mb-2 text-sm font-medium text-gray-900">Address 2:</label>
+            <input type="text" formControlName="xaddressExtra" class="x_input" />
+          </div>
+
+          <div>
+            <label class="block mb-2 text-sm font-medium text-gray-900">City:</label>
+            <input type="text" formControlName="xcity" class="x_input" />
+          </div>
 
 
-      <button [disabled]="form.invalid" [class.buttonDisabled]="form.invalid" type="submit" class="button">
-        Save
-      </button>
-    </div>
+          <div>
+
+            <label class="block mb-2 text-sm font-medium text-gray-900">State:</label>
+            <select formControlName="xstate" class="x_input">
+              <option></option>
+              <option>Alabama</option>
+              <option>Alaska</option>
+              <option>Arizona</option>
+              <option>Arkansas</option>
+              <option>California</option>
+              <option>Colorado</option>
+              <option>Connecticut</option>
+              <option>Delaware</option>
+              <option>Florida</option>
+              <option>Georgia</option>
+              <option>Hawaii</option>
+              <option>Idaho</option>
+              <option>Illinois</option>
+              <option>Indiana</option>
+              <option>Iowa</option>
+              <option>Kansas</option>
+              <option>Kentucky</option>
+              <option>Louisiana</option>
+              <option>Maine</option>
+              <option>Maryland</option>
+              <option>Massachusetts</option>
+              <option>Michigan</option>
+              <option>Minnesota</option>
+              <option>Mississippi</option>
+              <option>Missouri</option>
+              <option>Montana</option>
+              <option>Nebraska</option>
+              <option>Nevada</option>
+              <option>New Hampshire</option>
+              <option>New Jersey</option>
+              <option>New Mexico</option>
+              <option>New York</option>
+              <option>North Carolina</option>
+              <option>North Dakota</option>
+              <option>Ohio</option>
+              <option>Oklahoma</option>
+              <option>Oregon</option>
+              <option>Pennsylvania</option>
+              <option>Rhode Island</option>
+              <option>South Carolina</option>
+              <option>South Dakota</option>
+              <option>Tennessee</option>
+              <option>Texas</option>
+              <option>Utah</option>
+              <option>Vermont</option>
+              <option>Virginia</option>
+              <option>Washington</option>
+              <option>West Virginia</option>
+              <option>Wisconsin</option>
+              <option>Wyoming</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="form-label" class="block mb-1 mt-1 text-sm font-medium text-gray-900 ">
+              ZIP code:</label>
+            <div class="relative">
+              <div class="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                <svg class="w-4 h-4 text-gray-500 " aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor" viewBox="0 0 16 20">
+                  <path
+                    d="M8 0a7.992 7.992 0 0 0-6.583 12.535 1 1 0 0 0 .12.183l.12.146c.112.145.227.285.326.4l5.245 6.374a1 1 0 0 0 1.545-.003l5.092-6.205c.206-.222.4-.455.578-.7l.127-.155a.934.934 0 0 0 .122-.192A8.001 8.001 0 0 0 8 0Zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z" />
+                </svg>
+              </div>
+              <input type="tel" formControlName="xzipCode" class="x_input_with_icon" />
+            </div>
+          </div>
+
+        </div>
+
+
+        <button [disabled]="form.invalid" [class.buttonDisabled]="form.invalid" type="submit" class="button">
+          Save
+        </button>
+      </div>
+      }
+
+
     }
+
+
+
+
 
     <!-- }  This is for billing address ===> if shipping not same as billing -->
 
@@ -602,3 +613,6 @@
 
 </div>
 }
+<div class="mb-10">
+
+</div>
