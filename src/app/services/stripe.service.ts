@@ -43,4 +43,8 @@ export class StripeService {
     });
   };
 
+  tester() {
+    return this.http.get(`${environment.apiURL}/test`);
+  }
+
 }
