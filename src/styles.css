@@ -3,47 +3,60 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: Engravers;
+  src: url("./assets/fonts/engravers-mt.ttf") format("truetype");
+}
+
 .bodyBackground {
   @apply bg-xlight h-full;
 };
 
 .button {
-  @apply hover:cursor-pointer font-buttonFont text-brandgold text-center items-center bg-xdark hover:bg-xbrown focus:ring-1 focus:outline-none focus:ring-xlight font-medium rounded-md text-sm px-6 py-2;
+  @apply hover:cursor-pointer font-sans text-white text-center items-center bg-xdark hover:bg-xbrown text-sm px-16 py-2;
 };
 
 .button_off {
-  @apply hover:cursor-pointer font-buttonFont text-gray-400 text-center items-center bg-gray-200 hover:bg-gray-300 focus:ring-1 focus:outline-none focus:ring-xlight font-normal rounded-md text-sm px-6 py-2;
+  @apply hover:cursor-pointer font-sans text-gray-400 text-center items-center bg-gray-200 hover:bg-gray-300 font-normal text-sm px-6 py-2;
 };
 
 .button_navbar {
-  @apply hover:cursor-pointer font-buttonFont text-brandgold text-center align-middle bg-xdark hover:bg-xbrown focus:ring-1 focus:outline-none focus:ring-xlight font-medium rounded-md text-sm px-2 py-1 sm:px-6 sm:py-2;
+  @apply hover:cursor-pointer font-buttonFont text-brandgold text-center align-middle bg-xdark hover:bg-xbrown font-medium text-sm px-2 py-1 sm:px-6 sm:py-2;
 };
 
+.button_navbar_notLogged {
+  @apply hover:cursor-pointer font-buttonFont text-xdark text-center align-middle hover:text-black font-medium rounded-md text-xs px-2 py-1 sm:px-6 sm:py-2;
+}
+
 .navbar_cart {
-  @apply hover:cursor-pointer font-buttonFont text-brandgold text-center items-center bg-xdark hover:bg-xbrown focus:ring-1 focus:outline-none focus:ring-xlight font-medium text-sm;
+  @apply hover:cursor-pointer font-buttonFont text-brandgold text-center items-center bg-xdark hover:bg-xbrown font-medium text-sm;
 };
 
 .minibutton {
-  @apply hover:cursor-pointer font-buttonFont text-brandgold text-center items-center bg-xdark hover:bg-xbrown focus:ring-1 focus:outline-none focus:ring-xlight font-medium rounded-md text-sm px-3 sm:px-5 py-2;
+  @apply hover:cursor-pointer font-sans text-brandgold text-center items-center bg-xdark hover:bg-xbrown font-medium rounded-md text-sm px-3 sm:px-5 py-2;
 };
 
 .minibuttonOf {
-  @apply font-buttonFont text-transparent text-center items-center focus:ring-1 focus:outline-none focus:ring-xlight font-medium rounded-md text-sm px-3 sm:px-5 py-2;
+  @apply font-sans text-transparent text-center items-center focus:ring-1 focus:outline-none focus:ring-xlight rounded-md text-sm px-3 sm:px-5 py-2;
 };
 
 .minibuttonReverse {
-  @apply hover:cursor-pointer font-buttonFont border border-xbrown text-xdark text-center items-center hover:bg-brandgold focus:ring-1 focus:outline-none focus:ring-xlight font-medium rounded-md text-sm px-3 sm:px-5 py-2;
+  @apply hover:cursor-pointer font-sans border border-xbrown text-xdark text-center items-center hover:bg-brandgold font-medium rounded-md text-sm px-3 sm:px-5 py-2;
 };
 
 .x_input {
-  @apply bg-transparent border-gray-400 border text-gray-900 text-sm rounded-lg w-full p-2.5;
+  @apply bg-transparent border-gray-500 border text-gray-900 text-sm w-full p-2.5;
 };
 
 .x_input_with_icon {
-  @apply bg-transparent border-gray-400 border text-gray-900 text-sm rounded-lg w-full ps-10 p-2.5;
+  @apply bg-transparent border-gray-500 border text-gray-900 text-sm w-full ps-10 p-2.5;
 };
 
 :focus-visible {
   outline: 1px solid rgb(156 163 175);
 }
 
+/* .paddingOff {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+} */
