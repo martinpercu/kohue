@@ -49,7 +49,7 @@
 
 
   @if(showWine == true) {
-  <app-monoproduct (cartOnOff)="fromProduct($event)"></app-monoproduct>
+  <app-monoproduct (cartOnOff)="fromProduct($event)" (monoproductOff)="fromProductCloserMonoproduct($event)"></app-monoproduct>
   }
   <!-- <app-shippingmethod></app-shippingmethod> -->
   <!-- <app-monoproduct (cartOnOff)="fromProduct($event)"></app-monoproduct> -->
