@@ -12,7 +12,7 @@ export class MonoproductService {
     id: 22,
     title: "2021 Kohue Malbec",
     titleCart: "2021 Kohue Malbec 3-Pack",
-    price: 435,
+    price: 555,
     imageMobile: "./../../../../assets/img/Botella-Kohue-2024-Mobile.png",
     imageDesktop: "./../../../../assets/img/Botella-Kohue-2024-Desktop.png",
     description: "Case of 3 bottles (750ml)",
