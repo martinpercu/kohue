@@ -72,7 +72,7 @@ export class StripeService {
   getDirectLinkSessionCheckout(product:any, quantity:any, stripeShippingId1:any, stripeShippingId2:any, stripeShippingId3:any, priceProductId:any) {
     return this.http.post(`${environment.apiURL}/directlink-create-checkout-session`, {
       product: product,
-      quantity: "1",
+      quantity: quantity,
       stripeShippingId1: stripeShippingId1,
       stripeShippingId2: stripeShippingId2,
       stripeShippingId3: stripeShippingId3,
