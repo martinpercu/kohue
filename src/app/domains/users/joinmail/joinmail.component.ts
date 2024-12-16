@@ -67,7 +67,7 @@ export class JoinmailComponent {
   };
 
   navToHome() {
-    this.router.navigate(['test'])
+    this.router.navigate([''])
   };
 
 }

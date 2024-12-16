@@ -98,7 +98,7 @@ export class SigninComponent {
   };
 
   navToHome() {
-    this.router.navigate(['test'])
+    this.router.navigate([''])
   };
 
   navToLogin() {
