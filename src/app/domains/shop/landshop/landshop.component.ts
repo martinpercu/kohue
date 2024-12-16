@@ -63,6 +63,11 @@ export class LandshopComponent {
     console.log("qsdfqdfqsdf");
   };
 
+  fromProductCloserMonoproduct(event: boolean) {
+    console.log(event);
+    this.showWine = false
+  };
+
   fromNavbarAccountHandler(event: boolean) {
     console.log(event);
     console.log("qsdfqdfqsdf");
@@ -83,6 +88,7 @@ export class LandshopComponent {
     };
     this.showWine = false;
   }
+
 
 
 

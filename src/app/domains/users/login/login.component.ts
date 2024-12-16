@@ -63,6 +63,10 @@ export class LoginComponent {
 
   navToShop() {
     this.router.navigate(['members'])
-  }
+  };
+
+  navToHome() {
+    this.router.navigate([''])
+  };
 
 }
