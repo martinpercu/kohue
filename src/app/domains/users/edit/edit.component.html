@@ -18,7 +18,7 @@
 
 
 @if(user) {
-<div class="m-auto min-w-80 max-w-4xl p-2 rounded-lg sm:p-6 md:p-8">
+<div class="m-auto min-w-80 max-w-4xl p-2  sm:p-6 md:p-8">
 
   <form [formGroup]="form" (ngSubmit)="saveUser($event)">
 
@@ -27,14 +27,14 @@
     </div>
 
     @if(editPersoInfo == false) {
-    <div class="p-4 bg-transparent border border-gray-500 rounded-lg">
+    <div class="p-4 bg-transparent border border-gray-500 ">
 
       <div class="flex sm:flex-row mb-2">
         <div class="grow text-lg">
           {{this.user.firstname}} {{this.user.lastname}}
         </div>
-        <div (click)="changeEditPersonalInfo()" class="flex-none button hover:cursor-pointer">
-          EDIT
+        <div (click)="changeEditPersonalInfo()" class="flex-none hover:cursor-pointer underline pr-4 text-base tracking-wider">
+          Edit
         </div>
       </div>
 
@@ -111,7 +111,7 @@
     }
 
     @if(editPersoInfo == true) {
-    <div class="p-4 bg-transparent border border-gray-500 rounded-lg">
+    <div class="p-4 bg-transparent border border-gray-500 ">
       <div class="grid gap-6 mb-6 sm:grid-cols-3">
 
         <div>
@@ -229,7 +229,7 @@
           <label class="block mb-2 text-sm font-medium text-gray-900">Optional notes:</label>
           <!-- <input type="text" formControlName="optionalText" class="x_input" /> -->
           <textarea formControlName="optionalText" rows="2"
-            class="block p-2.5 w-full text-sm text-gray-900 bg-transparent rounded-lg border border-gray-400"></textarea>
+            class="block p-2.5 w-full text-sm text-gray-900 bg-transparent  border border-gray-400"></textarea>
         </div>
       </div>
 
@@ -249,7 +249,7 @@
 
     @if(editShipping == false) {
 
-    <div class="p-4 bg-transparent border border-gray-500 rounded-lg">
+    <div class="p-4 bg-transparent border border-gray-500 ">
 
       <div class="flex sm:flex-row mb-2">
         <div class="grow text-lg">
@@ -275,8 +275,8 @@
           </div>
           <!-- {{this.user.firstname}} {{this.user.lastname}} -->
         </div>
-        <div (click)="changeEditShipping()" class="flex-none max-h-9 button hover:cursor-pointer">
-          EDIT
+        <div (click)="changeEditShipping()" class="flex-none hover:cursor-pointer underline pr-4 text-base tracking-wider">
+          Edit
         </div>
       </div>
 
@@ -286,7 +286,7 @@
 
 
     @if(editShipping == true) {
-    <div class="p-4 bg-transparent border border-gray-500 rounded-lg">
+    <div class="p-4 bg-transparent border border-gray-500 ">
       <div class="grid gap-6 mb-6 sm:grid-cols-3">
 
 
@@ -432,7 +432,7 @@
 
 
       @if(editBilling == false) {
-      <div class="p-4 bg-transparent border border-gray-500 rounded-lg">
+      <div class="p-4 bg-transparent border border-gray-500 ">
 
         <div class="flex sm:flex-row mb-2">
           <div class="grow text-lg">
@@ -460,8 +460,8 @@
           <!-- <div (click)="copyfromShipping()" class="flex max-h-9 button hover:cursor-pointer">
             Copy from Shipping
           </div> -->
-          <div (click)="changeEditBilling()" class="flex max-h-9 button hover:cursor-pointer">
-            EDIT
+          <div (click)="changeEditBilling()" class="flex-none hover:cursor-pointer underline pr-4 text-base tracking-wider">
+            Edit
           </div>
         </div>
 
@@ -469,7 +469,7 @@
       }
 
       @if(editBilling == true) {
-      <div class="p-4 bg-transparent border border-gray-500 rounded-lg">
+      <div class="p-4 bg-transparent border border-gray-500 ">
         <div class="grid gap-6 mb-6 sm:grid-cols-3">
 
           <div>
