@@ -6,15 +6,16 @@ import { Client } from '@models/client.model'
 import { ClientService } from '@services/client.service';
 
 // import { LayoutComponent } from '@shared/layout/layout.component';
-import { NavbarComponent } from '@shared/navbar/navbar.component'
+import { NavbarComponent } from '@shared/navbar/navbar.component';
 
 import { EmailService } from '@services/email.service';
+import { FooterComponent } from '@shared/footer/footer.component';
 
 
 @Component({
   selector: 'app-signin',
   standalone: true,
-  imports: [NavbarComponent, ReactiveFormsModule],
+  imports: [NavbarComponent, ReactiveFormsModule, FooterComponent],
   templateUrl: './signin.component.html',
   styleUrl: './signin.component.css'
 })
