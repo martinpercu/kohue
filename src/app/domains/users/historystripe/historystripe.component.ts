@@ -1,18 +1,21 @@
 import { Component, inject } from '@angular/core';
+import { DatePipe } from '@angular/common';
 import { StripeService } from '@services/stripe.service';
 
 import { AuthService } from '@services/auth.service';
 import { ClientService } from '@services/client.service';
 
 import { Client } from '@models/client.model';
+import { StripeOrderModel } from '@models/stripeorder.model';
 
 
 @Component({
   selector: 'app-historystripe',
   standalone: true,
-  imports: [],
+  imports: [DatePipe],
   templateUrl: './historystripe.component.html',
-  styleUrl: './historystripe.component.css'
+  styleUrl: './historystripe.component.css',
+  // providers: [DatePipe]
 })
 export class HistorystripeComponent {
 
@@ -23,6 +26,10 @@ export class HistorystripeComponent {
 
   private userId!: any;
   user!: Client;
+
+  stripeOrder!: StripeOrderModel;
+  // stripeOrders!: [StripeOrderModel];
+  stripeOrders!: any;
 
 
 
@@ -36,23 +43,19 @@ export class HistorystripeComponent {
   }
 
   async ngOnInit() {
-    // console.log(this.user.stripeCustomerId);
     this.user = await this.clientService.getOneUser(this.userId);
-    // console.log(this.user);
-
     if (this.user.stripeCustomerId == 'none') {
       console.log('NO StripeCustomer ID');
-
     }
     else {
       console.log('this user has StripeCustomer ID');
+      this.getStripeOrders();
     }
   };
 
-  async testHistory() {
-    alert('dfssdf');
-    const customerSessionHistory = await this.stripeService.getCustomerSessionHistory(this.user);
-    console.log(customerSessionHistory);
+  async getStripeOrders() {
+    this.stripeOrders = await this.stripeService.getCustomerSessionHistory(this.user);
+    console.log(this.stripeOrders);
 
   };
 
