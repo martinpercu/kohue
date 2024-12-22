@@ -2,12 +2,12 @@
   <div class="flex justify-between py-1 px-3 sm:py-4 sm:px-8">
 
     <div (click)="navToHome()" class="my-auto">
-      <img src="./../../../../assets/img/kohue-sello-name.svg" class="h-4 sm:h-7 hover:cursor-pointer"
+      <img src="./../../../../assets/img/kohue-name-white.svg" class="h-2 sm:h-4 hover:cursor-pointer"
         alt="Kohue Wines" />
     </div>
 
     <div class="flex flex-row">
-      @if(showWine){
+      <!-- @if(showWine){
       <div (click)="showWines()" class="button_navbar mr-1 uppercase">
         Hide Wine
       </div>
@@ -15,20 +15,16 @@
       <div (click)="showWines()" class="button_navbar mr-1 uppercase">
         Shop Wine
       </div>
-      }
+      } -->
 
-      <!-- <div (click)="navBuywine()" class="button_navbar mr-1 uppercase">
-        buy Wine
+      <!-- <div class="button_navbar uppercase"> -->
+      <!-- <div (click)="showAccountHandler()" class="button_navbar uppercase"> -->
+        <!-- Account
       </div> -->
 
-      <div class="button_navbar uppercase">
-      <!-- <div (click)="showAccountHandler()" class="button_navbar uppercase"> -->
-        Account
-      </div>
-
-      <div (click)="toggleSideMenu()" class="navbar_cart">
+      <!-- <div (click)="toggleSideMenu()" class="navbar_cart">
         @if(totalItems() > 0){
-        <div class="absolute right-4 top-2 rounded-full h-5 w-5 bg-xbrown text-brandgold font-light">{{ totalItems() }}
+        <div class="absolute right-4 top-2 rounded-full h-5 w-5 bg-xbrown text-white font-light">{{ totalItems() }}
         </div>
         }
         <div>
@@ -38,7 +34,10 @@
               d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
           </svg>
         </div>
-      </div>
+      </div> -->
+
+
+
     </div>
   </div>
 </nav>
@@ -47,12 +46,18 @@
 
   <div class="max-w-screen-xl flex py-2 px-7">
 
-    <div (click)="navToHome()" class="flex-none w-1/6 my-auto">
-      <img src="./../../../../assets/img/kohue-sello.svg" class="h-7 hover:cursor-pointer" alt="Kohue Wines" />
+
+    <div (click)="navToHome()" class="my-auto">
+      <img src="./../../../../assets/img/kohue-name-white.svg" class="h-3 sm:h-4 hover:cursor-pointer"
+        alt="Kohue Wines" />
     </div>
 
+    <!-- <div (click)="navToHome()" class="flex-none w-1/6 my-auto">
+      <img src="./../../../../assets/img/kohue-sello.svg" class="h-7 hover:cursor-pointer" alt="Kohue Wines" />
+    </div> -->
+
     <div class="flex flex-1 gap-4 justify-end">
-      @if(showWine){
+      <!-- @if(showWine){
       <div (click)="showWines()" class="button_navbar mr-1 uppercase">
         Hide Wine
       </div>
@@ -60,14 +65,16 @@
       <div (click)="showWines()" class="button_navbar mr-1 uppercase">
         Shop Wine
       </div>
-      }
+      } -->
 
-      <div class="button_navbar uppercase">
+      <!-- <div class="button_navbar uppercase"> -->
       <!-- <div (click)="showAccountHandler()" class="button_navbar uppercase"> -->
-        Account
-      </div>
+        <!-- Account
+      </div> -->
 
-      <div (click)="toggleSideMenu()" class="navbar_cart">
+
+
+      <!-- <div (click)="toggleSideMenu()" class="navbar_cart">
         @if(totalItems() > 0){
         <div class="absolute right-4 top-2 rounded-full h-5 w-5 bg-xbrown text-brandgold font-light">{{ totalItems() }}
         </div>
@@ -79,82 +86,12 @@
               d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
           </svg>
         </div>
-      </div>
+      </div> -->
+
+
+
     </div>
 
   </div>
 
 </nav>
-
-<!--
-<div
-  class="fixed border-l-4 top-0 right-0 bg-red z-40 w-72 sm:w-96 h-screen p-4 overflow-y-auto transition-transform bg-white"
-  [class.translate-x-full]="hideSideMenu()">
-  <div class="w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow">
-    <div class="flex items-center justify-between mb-4">
-      <h5 class="text-xl font-bold leading-none text-gray-700">My Cart</h5>
-      <button class="border rounded relative" (click)="toggleSideMenuFromCart()">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-          class="w-6 h-6">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
-    </div>
-    <div class="flow-root py-4">
-      <ul role="list" class="divide-y divide-gray-200">
-        @for (product of cart(); track $index) {
-        <li class="py-3 sm:py-4">
-          @if(product.quantity > 0) {
-          <div class="flex items-center">
-            <div class="flex-shrink-0">
-              <img class="w-8 h-8 rounded-full" [src]="product.images" [alt]="product.title">
-            </div>
-            <div class="flex-0 min-w-0 ms-2">
-              <p class="text-sm font-medium text-gray-700 truncate">
-                {{ product.quantity }} x
-              </p>
-            </div>
-            <div class="flex-1 min-w-0 ms-2">
-              <p class="text-sm font-medium text-gray-700 truncate">
-                {{ product.title }}
-              </p>
-            </div>
-            <div class="inline-flex items-center text-base font-semibold text-gray-700">
-              ${{ product.price }}
-            </div>
-            <div (click)="removeFromCart(product)"
-              class="inline-flex items-center text-base font-semibold text-gray-700">
-              remove
-            </div>
-          </div>
-          }
-        </li>
-        }
-      </ul>
-      @if(totalItems() > 0) {
-      <div class="">
-        <div class="items-center text-base font-semibold text-gray-700">
-          <div class="text-right">
-            <app-shippingmethod></app-shippingmethod>
-          </div>
-          @if(shippingAmount() > 0) {
-            <div class="text-right my-2 font-normal">
-              Shipping <span class="font-semibold"> $ {{ shippingAmount() }}</span>
-            </div>
-          }
-
-
-        </div>
-        <div class="items-center text-base text-right font-semibold text-gray-700">
-          TOTAL $ {{ totalAmount() }}
-        </div>
-
-      </div>
-
-      }
-
-    </div>
-  </div>
-
-</div>
--->

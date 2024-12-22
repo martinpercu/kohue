@@ -3,6 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
+input{
+  border-radius: 0;
+}
+
 @font-face {
   font-family: Engravers;
   src: url("./assets/fonts/engravers-mt.ttf") format("truetype");
@@ -21,7 +25,7 @@
 };
 
 .button_navbar {
-  @apply hover:cursor-pointer font-buttonFont text-brandgold text-center align-middle bg-xdark hover:bg-xbrown font-medium text-sm px-2 py-1 sm:px-6 sm:py-2;
+  @apply hover:cursor-pointer font-buttonFont text-white text-center align-middle bg-xdark hover:bg-xbrown font-medium text-sm px-2 py-1 sm:px-6 sm:py-2;
 };
 
 .button_navbar_notLogged {
@@ -29,7 +33,7 @@
 }
 
 .navbar_cart {
-  @apply hover:cursor-pointer font-buttonFont text-brandgold text-center items-center bg-xdark hover:bg-xbrown font-medium text-sm;
+  @apply hover:cursor-pointer font-buttonFont text-white text-center items-center bg-xdark hover:bg-xbrown font-medium text-sm;
 };
 
 .minibutton {
@@ -56,7 +60,7 @@
   outline: 1px solid rgb(156 163 175);
 }
 
-/* .paddingOff {
+.paddingOff {
   padding-left: 0 !important;
   padding-right: 0 !important;
-} */
+}
