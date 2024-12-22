@@ -96,11 +96,32 @@
       </div>
 
       <div class="mt-4">
+
+        @if(shippingAmount() > 1) {
+          @if(totalItems() == 1){
+            <div (click)="checkToStripeOne()" class="button">
+              ${{ totalAmount()}} - Checkout - 1
+            </div>
+            }
+          @if(totalItems() == 2){
+            <div (click)="checkToStripeTwo()" class="button">
+              ${{ totalAmount()}} - Checkout - 2
+            </div>
+            }
+        }
+
+
+        <!-- @if(totalItems() == 1 && shippingAmount() > 1){
+        <div (click)="checkoutToggleCartToLand()" class="button">
+          ${{ totalAmount()}} - Checkout--55
+        </div>
+        }
+
         @if(totalAmount() && shippingAmount() > 0){
         <div (click)="checkoutToggleCartToLand()" class="button">
           ${{ totalAmount()}} - Checkout
         </div>
-        }
+        } -->
         @if(totalAmount() && shippingAmount() == 0) {
         <div (click)="alertAddShippingMethod()" class="button_off">
           ${{ totalAmount() }} - Checkout
