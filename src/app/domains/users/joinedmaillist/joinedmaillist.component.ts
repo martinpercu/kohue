@@ -26,4 +26,8 @@ export class JoinedmaillistComponent {
     this.router.navigate(['signin'])
   }
 
+  navToHome() {
+    this.router.navigate([''])
+  };
+
 }
