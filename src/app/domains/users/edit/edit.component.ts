@@ -48,7 +48,7 @@ export class EditComponent {
     const id = this.auth.getUserUid();
     if (id) {
       this.userId = id
-      console.log('hay parametro', this.userId);
+      // console.log('hay parametro', this.userId);
       this.getUser()
     }
   };
