@@ -30,6 +30,9 @@ export class SigninComponent {
 
   client!: Client;
 
+  showPassword: boolean = false;
+
+
   constructor() {
     this.formReg = new FormGroup({
       firstname: new FormControl(),
@@ -104,5 +107,10 @@ export class SigninComponent {
   navToLogin() {
     this.router.navigate(['login'])
   };
+
+  showPasswordSwitch() {
+    console.log("entramos");
+    this.showPassword = !this.showPassword
+  }
 
 }

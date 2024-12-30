@@ -48,8 +48,17 @@
     <div>
       <label class="form-label"
         class="block mb-1 mt-2 text-xs font-medium text-gray-900 uppercase">Password:</label>
-      <input class="form-control" formControlName="password" type="password" class="x_input" placeholder="•••••••••"
+      <input class="form-control" formControlName="password" type="{{showPassword ? 'text' : 'password'}}" class="x_input" placeholder="your-password"
         required>
+
+      <div (click)="showPasswordSwitch()" class="w-full text-xs text-right cursor-pointer pt-2">
+        @if(showPassword == true) {
+          hide password
+        }
+        @if(showPassword == false) {
+          show password
+        }
+      </div>
     </div>
   </div>
 
