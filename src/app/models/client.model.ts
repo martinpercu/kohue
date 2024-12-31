@@ -27,4 +27,5 @@ export interface Client {
   xcity?: string;
   xzipCode?: string;
   xcountry?: string;
+  shippingForStripe?: object;
 }

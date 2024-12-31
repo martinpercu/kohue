@@ -49,13 +49,19 @@ export class JoinmailComponent {
     this.client.firstname = this.client.fullname?.split(' ')[0];
 
     console.log(this.client);
-    // console.log(this.formJoinMail.value);
+    console.log(this.formJoinMail.value);
+
+    if (this.client.email && this.client.fullname) {
+      const response = await this.clientService.addClient(this.client);
+      console.log(response);
+      this.navToJoined();
+      this.emailsender.sendEmailJoin(this.client);
+    }
+    else {
+      alert('Please fill all fields')
+    }
 
 
-    const response = await this.clientService.addClient(this.client);
-    console.log(response);
-    this.navToJoined();
-    this.emailsender.sendEmailJoin(this.client);
   };
 
   navToJoined() {
