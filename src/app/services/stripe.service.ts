@@ -55,4 +55,11 @@ export class StripeService {
     });
   };
 
+
+  getPaimentsByUser(user: any) {
+    return this.http.post(`${environment.apiURL}/payment_intents_by_user`, {
+      user: user,
+    });
+  };
+
 }

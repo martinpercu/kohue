@@ -53,7 +53,8 @@ export class SigninComponent {
           lastname: this.formReg.value.lastname,
           email: this.formReg.value.email,
           clientUID: response.user.uid,
-          billDifThanShip: true
+          billDifThanShip: true,
+          stripeCustomerId: 'none'
         };
         console.log(this.client);
         this.createRegisteredUser(this.client, response.user.uid);
@@ -83,7 +84,8 @@ export class SigninComponent {
           firstname: response.user.displayName,
           email: response.user.email,
           clientUID: response.user.uid,
-          billDifThanShip: false
+          billDifThanShip: true,
+          stripeCustomerId: 'none'
         };
       console.log(this.client);
       this.createRegisteredUser(this.client, response.user.uid);
