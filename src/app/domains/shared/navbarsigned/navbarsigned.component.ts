@@ -98,4 +98,9 @@ export class NavbarsignedComponent {
     this.showStayTuned.emit(true);
   }
 
+  showCartFasterToggle() {
+    alert('Coming this fall 2024. Stay tuned!')
+    this.cartOnOff.emit(true);
+  }
+
 }

@@ -34,17 +34,17 @@
                 ${{ product.price }}
               </div>
 
-              @if(product.quantity >= 3) {
+              <!-- @if(product.quantity >= 8) {
               <div class="text-center m-auto">
-                <div class="flex gap-4 sm:gap-4">
+                <div class="flex gap-4 sm:gap-4">aaa
                   <div (click)="subtractOneFromCart(product)" class="minibutton">-</div>
                   <div class="minibuttonReverse">{{ product.quantity }}</div>
                   <div class="minibuttonOf">-</div>
                 </div>
               </div>
-              }
+              } -->
 
-              @if(product.quantity == 2) {
+              @if(product.quantity == 4) {
               <div class="text-center m-auto">
                 <div class="flex gap-4 sm:gap-4">
                   <div (click)="subtractOneFromCart(product)" class="minibutton">-</div>
@@ -57,7 +57,7 @@
                 </div> -->
               }
 
-              @if(product.quantity == 1) {
+              @if(product.quantity >= 1 && product.quantity <= 3) {
               <div class="text-center m-auto">
                 <div class="flex gap-4 sm:gap-4">
                   <div (click)="subtractOneFromCart(product)" class="minibutton">-</div>
@@ -89,15 +89,15 @@
       @if(totalItems() > 0) {
       <div class="items-center text-base font-semibold text-gray-700">
 
-        @if(totalItems() == 2) {
+        @if(totalItems() == 4) {
         <div class="font-light text-xs text-center pb-2 text-xdark">
           <span class="">You've reached the maximum quantity limit.</span>
         </div>
         }
 
-        @if(totalItems() >= 3) {
+        @if(totalItems() >= 5) {
         <div class="font-light text-xs text-center pb-2 text-xdark">
-          <span class="font-bold text-red-500">The maximun quantity product is 2.</span>
+          <span class="font-bold text-red-500">The maximun quantity product is 4.</span>
         </div>
         }
 
@@ -111,7 +111,10 @@
       <div class="mt-4">
 
         @if(shippingAmount() > 1) {
-        @if(totalItems() == 1){
+          <div (click)="checkoutToStripe()" class="button paddingOff">
+            ${{ totalAmount()}} - Checkout - 15
+          </div>
+        <!-- @if(totalItems() == 1){
         <div (click)="checkoutToStripe()" class="button paddingOff">
           ${{ totalAmount()}} - Checkout - 1
         </div>
@@ -120,7 +123,7 @@
         <div (click)="checkoutToStripe()" class="button paddingOff">
           ${{ totalAmount()}} - Checkout - 2
         </div>
-        }
+        } -->
         }
 
         <!-- @if(totalItems() == 1 && shippingAmount() > 1){

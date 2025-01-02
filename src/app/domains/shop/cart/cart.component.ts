@@ -201,7 +201,7 @@ export class CartComponent {
   async checkoutToStripe() {
     const user = this.user;
     const product = "este producto copado";
-    const quantity = this.totalItems()
+    const quantity = this.totalItems();
     console.log(user, product, quantity);
     const sessionToWait$ = this.stripeService.getSessionCheckout(user, product, quantity);
     this.stripeSession = await lastValueFrom(sessionToWait$);
