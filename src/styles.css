@@ -12,6 +12,7 @@ input{
   src: url("./assets/fonts/engravers-mt.ttf") format("truetype");
 }
 
+
 .bodyBackground {
   @apply bg-xlight h-full;
 };
