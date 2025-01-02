@@ -31,8 +31,7 @@ export class MonoproductComponent {
   constructor() {
     this.monoproduct = this.monoproductService.returnMonoproduct();
     console.log(this.monoproduct);
-
-   }
+  };
 
   addToCartHandler() {
     console.log('clicking from the child');
@@ -45,10 +44,10 @@ export class MonoproductComponent {
 
   showTheCart() {
     this.cartOnOff.emit(true);
-  }
+  };
 
   monoproductShowOff() {
     this.monoproductOff.emit(false);
-  }
+  };
 
 }
