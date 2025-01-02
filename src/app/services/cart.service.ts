@@ -28,28 +28,33 @@ export class CartService {
   constructor() { }
 
   addToCart(product: Product) {
-    product.quantity = 1;
-    if (this.cart().find(item => item.id === product.id)) {
-      const myProductIndex = this.cart().findIndex(item => item.id === product.id)
-      console.log(myProductIndex);
-      this.cart.update((cart) => {
-        return cart.map((item, position) => {
-          if (position === myProductIndex) {
-            return {
-              ...item,
-              quantity: item.quantity + 1,
-              price: item.price + product.price
+    console.log(this.cart().find(x => x.quantity === 4));
+  // The under (if) allow only to add if the quantity is 4 or less
+  // This is to prevent add to cart from the LandShop - Monoproduct
+    if (!this.cart().find(x => x.quantity >= 4)) {
+      product.quantity = 1;
+      if (this.cart().find(item => item.id === product.id)) {
+        const myProductIndex = this.cart().findIndex(item => item.id === product.id)
+        console.log(myProductIndex);
+        this.cart.update((cart) => {
+          return cart.map((item, position) => {
+            if (position === myProductIndex) {
+              return {
+                ...item,
+                quantity: item.quantity + 1,
+                price: item.price + product.price
+              }
             }
-          }
-          else {
-            return item
-          }
+            else {
+              return item
+            }
+          })
         })
-      })
-    }
-    else {
-      console.log('No same product');
-      this.cart.update(previousState => [...previousState, product]);
+      }
+      else {
+        console.log('No same product');
+        this.cart.update(previousState => [...previousState, product]);
+      };
     };
     console.log(this.cart());
   };
@@ -84,55 +89,55 @@ export class CartService {
   substractOneItem(product: Product) {
     const pricePerUnit = product.price / product.quantity;
     console.log(pricePerUnit);
-      const myProductIndex = this.cart().findIndex(item => item.id === product.id)
-      console.log(myProductIndex);
-      this.cart.update((cart) => {
-        return cart.map((item, position) => {
-          if (position === myProductIndex) {
-            return {
-              ...item,
-              quantity: item.quantity - 1,
-              price: item.price - pricePerUnit
-            }
+    const myProductIndex = this.cart().findIndex(item => item.id === product.id)
+    console.log(myProductIndex);
+    this.cart.update((cart) => {
+      return cart.map((item, position) => {
+        if (position === myProductIndex) {
+          return {
+            ...item,
+            quantity: item.quantity - 1,
+            price: item.price - pricePerUnit
           }
-          else {
-            return item
-          }
-        })
+        }
+        else {
+          return item
+        }
       })
+    })
     console.log(this.cart());
   };
 
   removeFullItem(product: Product) {
     // const pricePerUnit = product.price / product.quantity;
     // console.log(pricePerUnit);
-      const myProductIndex = this.cart().findIndex(item => item.id === product.id)
-      console.log(myProductIndex);
-      this.cart.update((cart) => {
-        return cart.map((item, position) => {
-          if (position === myProductIndex) {
-            return {
-              ...item,
-              quantity: item.quantity - product.quantity,
-              price: item.price - product.price
-            }
+    const myProductIndex = this.cart().findIndex(item => item.id === product.id)
+    console.log(myProductIndex);
+    this.cart.update((cart) => {
+      return cart.map((item, position) => {
+        if (position === myProductIndex) {
+          return {
+            ...item,
+            quantity: item.quantity - product.quantity,
+            price: item.price - product.price
           }
-          else {
-            return item
-          }
-        })
+        }
+        else {
+          return item
+        }
       })
+    })
     console.log(this.cart());
   };
 
 
 
-  setShippingAmount(guita:number) {
+  setShippingAmount(guita: number) {
     this.shippingAmount.set(guita);
     console.log(this.shippingAmount());
   };
 
-  setShippingText(text:string) {
+  setShippingText(text: string) {
     this.shippingText.set(text);
     console.log(this.shippingText());
   }
