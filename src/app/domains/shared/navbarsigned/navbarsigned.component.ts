@@ -93,4 +93,8 @@ export class NavbarsignedComponent {
   //   this.cartService.removeOneItem(product);
   // }
 
+  alertCartStayAlert() {
+    alert('Coming this fall 2024. Stay tuned!')
+  }
+
 }
