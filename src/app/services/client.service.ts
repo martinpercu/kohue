@@ -64,9 +64,9 @@ export class ClientService {
   async getOneUser(userId: string) {
     // const clientDocRef = doc(this.firestore, `users/${clientId}`);
     const userDocRef = doc(this.firestore, 'users', userId);
-    console.log(userDocRef);
+    // console.log(userDocRef);
     const user = (await getDoc(userDocRef)).data();
-    console.log(user);
+    // console.log(user);
     return user as Client
   };
 

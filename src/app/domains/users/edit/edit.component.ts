@@ -76,10 +76,10 @@ export class EditComponent {
   async getUser() {
     const userGetted = await this.clientService.getOneUser(this.userId);
     this.user = userGetted;
-    console.log(this.user);
+    // console.log(this.user);
     this.buildForm();
     if(this.user.stripeCustomerId == 'none') {
-      alert('tiene NONE')
+      console.log('tiene NONE')
     }
     else {
       this.syncStripeAccount();
@@ -122,10 +122,10 @@ export class EditComponent {
 
   saveUser(event: Event) {
     if (this.form.valid) {
-    console.log(this.form.value);
+    // console.log(this.form.value);
     this.clientService.updateOneUser(this.form.value, this.userId);
     // this.user = this.form.value;
-    console.log(this.userId);
+    // console.log(this.userId);
 
     this.getUser(); // very important each time save!!!
     this.editPersoInfo = false;

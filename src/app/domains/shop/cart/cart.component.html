@@ -1,4 +1,10 @@
+
+@if(showPolicy == true) {
+  <app-shipping-policy-modal (showStayTuned)="fromShippingPolicy($event)"></app-shipping-policy-modal>
+}
+
 @if(showCartInNav == true) {
+
 
 <!-- <div> EStoy NAV</div> -->
 <div
@@ -148,7 +154,9 @@
 
       }
 
-
+      <div class="font-light text-xs text-center pb-2 text-xdark pt-2">
+        <span (click)="showShippingPolicy()"  class="cursor-pointer underline">Shipping Policy.</span>
+      </div>
 
     </div>
   </div>
