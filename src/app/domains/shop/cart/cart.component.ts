@@ -126,7 +126,6 @@ export class CartComponent {
     console.log(this.user);
     // console.log(userStripeCreatedForStripe);
     this.updateUserAfterStripeCreation();
-
   };
 
   async updateUserAfterStripeCreation() {
