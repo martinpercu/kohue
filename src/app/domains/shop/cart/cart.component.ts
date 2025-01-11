@@ -14,13 +14,15 @@ import { MonoproductService } from '@services/monoproduct.service';
 
 import { StripeService } from '@services/stripe.service';
 
-import { Client } from '@models/client.model'
+import { Client } from '@models/client.model';
+
+import { ShippingPolicyModalComponent } from '@shop/shipping-policy-modal/shipping-policy-modal.component'
 
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [ShippingmethodComponent],
+  imports: [ShippingmethodComponent, ShippingPolicyModalComponent],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css'
 })
@@ -45,6 +47,8 @@ export class CartComponent {
   showCartInNav: boolean = true;
   showCartInLand: boolean = false;
 
+  showPolicy: boolean = false;
+
 
   // hideSideMenu = signal(false);
 
@@ -55,6 +59,7 @@ export class CartComponent {
 
   shippingAmount = this.cartService.shippingAmount;
   shippingText = this.cartService.shippingText;
+  shippingStripeId = this.cartService.shippingId;
 
   totalAmount = this.cartService.totalAmount;
 
@@ -77,7 +82,7 @@ export class CartComponent {
     const id = this.auth.getUserUid();
     if (id) {
       this.userId = id
-      console.log('IN CART nav user ID', this.userId);
+      // console.log('IN CART nav user ID', this.userId);
       // this.getUser()
     }
   };
@@ -85,12 +90,14 @@ export class CartComponent {
   async ngOnInit() {
     // console.log(this.user.stripeCustomerId);
     this.user = await this.clientService.getOneUser(this.userId);
-    console.log(this.user);
+    // console.log(this.user);
     if(this.user.stripeCustomerId == "none") {
       this.createStripeUser();
-    } else {
+    }
+    else {
       // this.userIsStripeOk = true
-      console.log("Stripe user ID ==>   ", this.user.stripeCustomerId);
+      console.log("in ngOnInit nothing happend");
+      // console.log("Stripe user ID ==>   ", this.user.stripeCustomerId);
     };
   };
 
@@ -98,7 +105,7 @@ export class CartComponent {
     const firstNameStripe = this.user.firstname;
     const lastNameStripe = this.user.lastname;
     const fullnameStripe = firstNameStripe + ' ' + lastNameStripe;
-    console.log(this.user);
+    // console.log(this.user);
     const shippingForStripe = {
       address: {
         city: this.user.city,
@@ -115,15 +122,15 @@ export class CartComponent {
       email: this.user.email,
       shipping: shippingForStripe
     };
-    console.log(userStripeCreatedForStripe);
+    // console.log(userStripeCreatedForStripe);
 
     const stripeUser$ = await this.stripeService.createUser(userStripeCreatedForStripe);
     this.stripeUser = await lastValueFrom(stripeUser$);
-    console.log(stripeUser$);
-    console.log(this.stripeUser);
-    console.log(this.user);
+    // console.log(stripeUser$);
+    // console.log(this.stripeUser);
+    // console.log(this.user);
     this.user.stripeCustomerId = this.stripeUser.id;
-    console.log(this.user);
+    // console.log(this.user);
     // console.log(userStripeCreatedForStripe);
     this.updateUserAfterStripeCreation();
   };
@@ -131,7 +138,7 @@ export class CartComponent {
   async updateUserAfterStripeCreation() {
     console.log("in update after stripe creation");
     // console.log(stripeUser);
-    console.log(this.user);
+    // console.log(this.user);
     // const userForUpdate = this.user;
     // console.log(userForUpdate);
 
@@ -140,13 +147,13 @@ export class CartComponent {
 
 
   closeCart() {
-    console.log(this.totalItems());
+    // console.log(this.totalItems());
 
     // console.log(' 1 st in cart showCart==>  ' + this.showCart);
     // this.showCart = false;
     // console.log(' 2nd in cart showCart==>  ' + this.showCart);
     this.cartOff.emit(false);
-    console.log('closeing cart ???');
+    // console.log('closeing cart ???');
 
     // this.stripeOnCartOn.emit({stripeOn:null, cartOn:false});
   };
@@ -154,7 +161,7 @@ export class CartComponent {
   subtractOneFromCart(product: Product) {
     this.cartService.substractOneItem(product);
     this.checkIfNoItemes();
-    console.log(this.shippingAmount());
+    // console.log(this.shippingAmount());
   };
 
   addOneFromCart(product: Product) {
@@ -163,7 +170,7 @@ export class CartComponent {
 
   addOneFromCartFromZero() {
     this.product = this.monoproductService.returnMonoproduct();
-    console.log(this.product);
+    // console.log(this.product);
     this.cartService.addToCart(this.product);
   };
 
@@ -178,7 +185,7 @@ export class CartComponent {
     if (this.totalItems() == 0) {
       this.shippingAmount.set(0);
     } else {
-      console.log('still items in cart');
+      // console.log('still items in cart');
     }
   };
 
@@ -235,11 +242,15 @@ export class CartComponent {
     const user = this.user;
     const product = "este producto copado";
     const quantity = this.totalItems();
-    console.log(user, product, quantity);
-    const sessionToWait$ = this.stripeService.getSessionCheckout(user, product, quantity);
+    const stripeShippingId = this.shippingStripeId();
+    // console.log(user, product, quantity);
+    // console.log(stripeShippingId);
+
+
+    const sessionToWait$ = this.stripeService.getSessionCheckout(user, product, quantity, stripeShippingId);
     this.stripeSession = await lastValueFrom(sessionToWait$);
-    console.log(sessionToWait$);
-    console.log(this.stripeSession);
+    // console.log(sessionToWait$);
+    // console.log(this.stripeSession);
     if (this.stripeSession) {
       let checkoutUrl = this.stripeSession.url;
       window.location.href = checkoutUrl;
@@ -253,6 +264,14 @@ export class CartComponent {
   //   console.log(test$);
   //   console.log(this.test);
   // }
+
+  fromShippingPolicy(event: boolean) {
+    this.showPolicy = event
+  };
+
+  showShippingPolicy() {
+    this.showPolicy = true
+  }
 
 
 }

@@ -17,6 +17,7 @@ module.exports = {
         'brand': '#a8935f',
         'brandgold': '#d9c38c',
         'xdark': '#4C4E56',
+        // 'xlight': '#82de79', // DEV COLOR
         'xlight': '#eae6dd',
         'xbrown': '#615257',
       },
@@ -26,6 +27,12 @@ module.exports = {
         'cordillera-vertical': "url('assets/img/css/bg-cordillera-vertical.jpg')",
         'nubes': "url('assets/img/css/bg-nubes.jpg')",
       }
+      // backgroundImage: { // DEV backgrounds
+      //   'cordillera': "url('assets/img/cordillera-bw.jpg')",
+      //   'cordillera-sepia': "url('assets/img/cordillera-sepia.jpg')",
+      //   'cordillera-vertical': "url('assets/img/cordillera-sepia.jpg')",
+      //   'nubes': "url('assets/img/aacordillera.jpg')",
+      // }
     },
   },
   plugins: [],

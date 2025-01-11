@@ -12,14 +12,17 @@ export class ShippingService {
 
 
   setValue(loquesea: any) {
-    if (loquesea == 'UPS Next day') {
-      this.cartService.setShippingAmount(80)
+    if (loquesea == 'Pick up at Warehouse') {
+      this.cartService.setShippingAmount(6);
+      this.cartService.setShippingStripeId('shr_1Pzh4ERtorj52eamXRL27RHT');
     }
-    if (loquesea == 'UPS 2nd day') {
-      this.cartService.setShippingAmount(65)
+    if (loquesea == 'Ground shipping') {
+      this.cartService.setShippingAmount(20);
+      this.cartService.setShippingStripeId('shr_1Pzh4nRtorj52eamvxRLabqL');
     }
-    if (loquesea == 'UPS 3 days') {
-      this.cartService.setShippingAmount(40)
+    if (loquesea == 'Piola el shipping') {
+      this.cartService.setShippingAmount(45);
+      this.cartService.setShippingStripeId('shr_1Pzh5JRtorj52eamhpKyUEpL');
     }
     if (loquesea == 'UPS Ground') {
       this.cartService.setShippingAmount(33)
@@ -27,7 +30,7 @@ export class ShippingService {
   };
 
   setShippingTextValue(loquesea:any) {
-    console.log(typeof(loquesea));
+    // console.log(typeof(loquesea));
     this.cartService.setShippingText(loquesea)
   }
 
