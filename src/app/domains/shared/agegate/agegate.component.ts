@@ -24,7 +24,7 @@ export class AgegateComponent {
   constructor() {
     this.showAlert = false
     const older = this.cookieService.get('ageKey');
-    console.log(older);
+    // console.log(older);
     if(older == 'older') {
       // alert('vamoooo');
       this.showGate = false

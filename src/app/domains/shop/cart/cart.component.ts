@@ -77,7 +77,7 @@ export class CartComponent {
     const id = this.auth.getUserUid();
     if (id) {
       this.userId = id
-      console.log('IN CART nav user ID', this.userId);
+      // console.log('IN CART nav user ID', this.userId);
       // this.getUser()
     }
   };
@@ -85,12 +85,14 @@ export class CartComponent {
   async ngOnInit() {
     // console.log(this.user.stripeCustomerId);
     this.user = await this.clientService.getOneUser(this.userId);
-    console.log(this.user);
+    // console.log(this.user);
     if(this.user.stripeCustomerId == "none") {
       this.createStripeUser();
-    } else {
+    }
+    else {
       // this.userIsStripeOk = true
-      console.log("Stripe user ID ==>   ", this.user.stripeCustomerId);
+      console.log("in ngOnInit nothing happend");
+      // console.log("Stripe user ID ==>   ", this.user.stripeCustomerId);
     };
   };
 
@@ -98,7 +100,7 @@ export class CartComponent {
     const firstNameStripe = this.user.firstname;
     const lastNameStripe = this.user.lastname;
     const fullnameStripe = firstNameStripe + ' ' + lastNameStripe;
-    console.log(this.user);
+    // console.log(this.user);
     const shippingForStripe = {
       address: {
         city: this.user.city,
@@ -115,13 +117,13 @@ export class CartComponent {
       email: this.user.email,
       shipping: shippingForStripe
     };
-    console.log(userStripeCreatedForStripe);
+    // console.log(userStripeCreatedForStripe);
 
     const stripeUser$ = await this.stripeService.createUser(userStripeCreatedForStripe);
     this.stripeUser = await lastValueFrom(stripeUser$);
-    console.log(stripeUser$);
-    console.log(this.stripeUser);
-    console.log(this.user);
+    // console.log(stripeUser$);
+    // console.log(this.stripeUser);
+    // console.log(this.user);
     this.user.stripeCustomerId = this.stripeUser.id;
     console.log(this.user);
     // console.log(userStripeCreatedForStripe);
@@ -140,13 +142,13 @@ export class CartComponent {
 
 
   closeCart() {
-    console.log(this.totalItems());
+    // console.log(this.totalItems());
 
     // console.log(' 1 st in cart showCart==>  ' + this.showCart);
     // this.showCart = false;
     // console.log(' 2nd in cart showCart==>  ' + this.showCart);
     this.cartOff.emit(false);
-    console.log('closeing cart ???');
+    // console.log('closeing cart ???');
 
     // this.stripeOnCartOn.emit({stripeOn:null, cartOn:false});
   };
@@ -154,7 +156,7 @@ export class CartComponent {
   subtractOneFromCart(product: Product) {
     this.cartService.substractOneItem(product);
     this.checkIfNoItemes();
-    console.log(this.shippingAmount());
+    // console.log(this.shippingAmount());
   };
 
   addOneFromCart(product: Product) {
@@ -163,7 +165,7 @@ export class CartComponent {
 
   addOneFromCartFromZero() {
     this.product = this.monoproductService.returnMonoproduct();
-    console.log(this.product);
+    // console.log(this.product);
     this.cartService.addToCart(this.product);
   };
 
@@ -178,7 +180,7 @@ export class CartComponent {
     if (this.totalItems() == 0) {
       this.shippingAmount.set(0);
     } else {
-      console.log('still items in cart');
+      // console.log('still items in cart');
     }
   };
 

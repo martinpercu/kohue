@@ -30,24 +30,25 @@ export class MonoproductComponent {
 
   constructor() {
     this.monoproduct = this.monoproductService.returnMonoproduct();
-    console.log(this.monoproduct);
+    // console.log(this.monoproduct);
   };
 
   addToCartHandler() {
-    console.log('clicking from the child');
     // this.addToCart.emit('este produto goes to the cart ==> ' + this.product.title + "\n" + "this is the price ===> " + this.product.price);
     // this.addToCart.emit(this.monoproduct);
     this.cartService.addToCart(this.monoproduct);
     this.showTheCart();
-    this.monoproductShowOff();
+    // this.monoproductShowOff();
   };
 
   showTheCart() {
+    // console.log('clicking from the child');
     this.cartOnOff.emit(true);
   };
 
-  monoproductShowOff() {
-    this.monoproductOff.emit(false);
-  };
+  // monoproductShowOff() {
+  //   // console.log('clicking from the child monoproduct to Turn itself off');
+  //   this.monoproductOff.emit(false);
+  // };
 
 }
