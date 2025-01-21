@@ -3,6 +3,9 @@
   </app-navbarsigned>
 </div>
 
+@if(showPolicy == true) {
+<app-shipping-policy-modal (showStayTuned)="fromShippingPolicy($event)"></app-shipping-policy-modal>
+}
 
 <div class="pt-14">
 
@@ -24,7 +27,7 @@
           {{ monoproduct.title }}
         </div>
         <div class="font-normal">
-          2021 Kohue Malbec bottle 750ml
+          2021 Kohue Malbec, 1 bottle (750ml)
         </div>
 
         <!-- <div class="font-semibold pt-2">
@@ -32,7 +35,7 @@
         </div> -->
 
 
-    <!-- <div class="text-center m-auto py-4">
+        <!-- <div class="text-center m-auto py-4">
       @if(quantities == 3) {
       <div class="text-center m-auto">
         <div class="flex gap-4 sm:gap-4">
@@ -67,6 +70,11 @@
 
         <div class="button m-auto" (click)="toCheckoutLink()">
           Checkout
+        </div>
+
+
+        <div class="font-light text-xs text-center pb-2 text-xdark pt-4">
+          <span (click)="showShippingPolicy()" class="cursor-pointer underline">Shipping Policy.</span>
         </div>
 
       </div>

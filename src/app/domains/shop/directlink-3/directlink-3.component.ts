@@ -9,10 +9,13 @@ import { environment } from '@env/environment';
 import { StripeService } from '@services/stripe.service';
 import { lastValueFrom } from 'rxjs';
 
+import { ShippingPolicyModalComponent } from '@shop/shipping-policy-modal/shipping-policy-modal.component'
+
+
 @Component({
   selector: 'app-directlink-3',
   standalone: true,
-  imports: [NavbarsignedComponent, FooterComponent],
+  imports: [NavbarsignedComponent, FooterComponent, ShippingPolicyModalComponent],
   templateUrl: './directlink-3.component.html'
 })
 export class Directlink3Component {
@@ -24,6 +27,8 @@ export class Directlink3Component {
   stripeSession!: any;
 
   quantities:number = 1;
+
+  showPolicy: boolean = false;
 
   constructor() {
     this.monoproduct = this.monoproductService.returnMonoproduct();
@@ -62,6 +67,15 @@ export class Directlink3Component {
       window.location.href = checkoutUrl;
     }
   };
+
+
+  fromShippingPolicy(event: boolean) {
+    this.showPolicy = event
+  };
+
+  showShippingPolicy() {
+    this.showPolicy = true
+  }
 
 
   // getShippingId2Rates() {
