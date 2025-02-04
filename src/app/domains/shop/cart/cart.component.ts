@@ -14,13 +14,15 @@ import { MonoproductService } from '@services/monoproduct.service';
 
 import { StripeService } from '@services/stripe.service';
 
-import { Client } from '@models/client.model'
+import { Client } from '@models/client.model';
+
+import { ShippingPolicyModalComponent } from '@shop/shipping-policy-modal/shipping-policy-modal.component'
 
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [ShippingmethodComponent],
+  imports: [ShippingmethodComponent, ShippingPolicyModalComponent],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css'
 })
@@ -45,6 +47,8 @@ export class CartComponent {
   showCartInNav: boolean = true;
   showCartInLand: boolean = false;
 
+  showPolicy: boolean = false;
+
 
   // hideSideMenu = signal(false);
 
@@ -55,6 +59,7 @@ export class CartComponent {
 
   shippingAmount = this.cartService.shippingAmount;
   shippingText = this.cartService.shippingText;
+  shippingStripeId = this.cartService.shippingId;
 
   totalAmount = this.cartService.totalAmount;
 
@@ -157,10 +162,15 @@ export class CartComponent {
     this.cartService.substractOneItem(product);
     this.checkIfNoItemes();
     // console.log(this.shippingAmount());
+    console.log("substrac one from cart");
+    console.log(this.shippingText());
+
+
   };
 
   addOneFromCart(product: Product) {
     this.cartService.addToCartFromCart(product);
+    this.setShippingServiceValue();
   };
 
   addOneFromCartFromZero() {
@@ -179,10 +189,17 @@ export class CartComponent {
   checkIfNoItemes() {
     if (this.totalItems() == 0) {
       this.shippingAmount.set(0);
+      // this.shippingText.set('FREE');
+      this.shippingText.set('none');
     } else {
       // console.log('still items in cart');
+      this.setShippingServiceValue();
     }
   };
+
+  setShippingServiceValue() {
+    this.shippingService.setValue(this.shippingText())
+  }
 
   toggleCartOnNav() {
     console.log(' 1 st in cart showCart==>  ' + this.showCartInNav);
@@ -237,8 +254,12 @@ export class CartComponent {
     const user = this.user;
     const product = "este producto copado";
     const quantity = this.totalItems();
+    const stripeShippingId = this.shippingStripeId();
     // console.log(user, product, quantity);
-    const sessionToWait$ = this.stripeService.getSessionCheckout(user, product, quantity);
+    // console.log(stripeShippingId);
+
+
+    const sessionToWait$ = this.stripeService.getSessionCheckout(user, product, quantity, stripeShippingId);
     this.stripeSession = await lastValueFrom(sessionToWait$);
     // console.log(sessionToWait$);
     // console.log(this.stripeSession);
@@ -255,6 +276,14 @@ export class CartComponent {
   //   console.log(test$);
   //   console.log(this.test);
   // }
+
+  fromShippingPolicy(event: boolean) {
+    this.showPolicy = event
+  };
+
+  showShippingPolicy() {
+    this.showPolicy = true
+  }
 
 
 }

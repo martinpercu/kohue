@@ -10,9 +10,11 @@ export class MonoproductService {
 
   monoproduct: Product = {
     id: 22,
-    title: "2021 Kohue Wines Malbec",
+    title: "2021 Kohue Malbec",
+    titleCart: "2021 Kohue Malbec 3-Pack",
     price: 435,
-    image: "./../../../../assets/img/Botella-Kohue-2021-small.png",
+    imageMobile: "./../../../../assets/img/Botella-Kohue-2024-Mobile.png",
+    imageDesktop: "./../../../../assets/img/Botella-Kohue-2024-Desktop.png",
     description: "Case of 3 bottles (750ml)",
     images: ["./../../../../assets/img/Botella-Kohue-2021-small.png", "./../../../../assets/img/Botella-Kohue-2021-small.png"],
     category: {

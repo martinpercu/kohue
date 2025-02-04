@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { Firestore, collection, addDoc, collectionData, doc, deleteDoc, getDoc, updateDoc, setDoc } from '@angular/fire/firestore';
+import { Firestore, collection, addDoc, collectionData, doc, deleteDoc, getDoc, updateDoc, setDoc, orderBy, query } from '@angular/fire/firestore';
 import { Client } from '@models/client.model'
 import { Observable } from 'rxjs';
 
@@ -17,9 +17,15 @@ export class ClientService {
     return addDoc(clientsRef, client)
   };
 
+  // getClients(): Observable<Client[]> {
+  //   const clientsRef = collection(this.firestore, 'clientsjoinedlist');
+  //   return collectionData(clientsRef, { idField: 'clientUID' }) as Observable<Client[]>
+  // };
+
   getClients(): Observable<Client[]> {
     const clientsRef = collection(this.firestore, 'clientsjoinedlist');
-    return collectionData(clientsRef, { idField: 'clientUID' }) as Observable<Client[]>
+    const clientsQuery = query(clientsRef, orderBy('email')); // Order by email attribute
+    return collectionData(clientsQuery, { idField: 'clientUID' }) as Observable<Client[]>;
   };
 
   async getOneClient(clientId: string) {
