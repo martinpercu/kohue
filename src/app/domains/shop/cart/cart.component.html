@@ -19,7 +19,7 @@
         </svg>
       </button>
     </div>
-    <div class="flow-root py-4">
+    <div class="flow-root pt-4">
       <ul role="list" class="divide-y divide-gray-200">
         @for (product of cart(); track $index) {
         <li class="py-3 sm:py-4">
@@ -27,13 +27,13 @@
           <div class="grid grid-cols-3 items-center">
 
             <div class="col-span-1">
-              <img class="rounded-full max-h-32 m-auto" [src]="product.image" [alt]="product.title">
+              <img class="max-h-32 m-auto" [src]="product.imageDesktop" [alt]="product.title">
             </div>
 
             <div class="col-span-2 flex flex-col gap-2">
 
               <div class="text-sm text-gray-700 truncate">
-                {{ product.title }}
+                {{ product.titleCart }}
               </div>
 
               <div class="inline-flex items-center text-base font-semibold text-gray-700">
@@ -156,6 +156,10 @@
 
       <div class="font-light text-xs text-center pb-2 text-xdark pt-2">
         <span (click)="showShippingPolicy()"  class="cursor-pointer underline">Shipping Policy.</span>
+      </div>
+
+      <div class="font-light text-xs text-center pb-2 text-xdark pt-2">
+        <span class="">You must be 21 years or older to purchase.</span>
       </div>
 
     </div>
