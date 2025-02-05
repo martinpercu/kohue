@@ -22,6 +22,7 @@ export class CartService {
 
   shippingAmount = signal<number>(0);
   shippingText = signal<string>('');
+  shippingId = signal<string>('');
 
   totalAmount = computed(() => this.subTotalAmount() + this.shippingAmount());
 
@@ -136,12 +137,17 @@ export class CartService {
 
   setShippingAmount(guita: number) {
     this.shippingAmount.set(guita);
-    console.log(this.shippingAmount());
+    // console.log(this.shippingAmount());
   };
 
   setShippingText(text: string) {
     this.shippingText.set(text);
-    console.log(this.shippingText());
+    // console.log(this.shippingText());
+  };
+
+  setShippingStripeId(text: string) { // this is the Stripe Shipping Rate ID
+    this.shippingId.set(text);
+    // console.log(this.shippingId());
   }
 
 

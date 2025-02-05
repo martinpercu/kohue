@@ -24,7 +24,7 @@ export class ShippingmethodComponent {
   ngOnInit() {
     this.shippingField.valueChanges
     .subscribe(value => {
-      console.log(value);
+      // console.log(value);
       this.shippingService.setValue(value);
       this.shippingService.setShippingTextValue(value);
     })
