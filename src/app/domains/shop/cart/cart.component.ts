@@ -14,13 +14,15 @@ import { MonoproductService } from '@services/monoproduct.service';
 
 import { StripeService } from '@services/stripe.service';
 
-import { Client } from '@models/client.model'
+import { Client } from '@models/client.model';
+
+import { ShippingPolicyModalComponent } from '@shop/shipping-policy-modal/shipping-policy-modal.component'
 
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [ShippingmethodComponent],
+  imports: [ShippingmethodComponent, ShippingPolicyModalComponent],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.css'
 })
@@ -44,6 +46,8 @@ export class CartComponent {
   showCart: boolean = true;
   showCartInNav: boolean = true;
   showCartInLand: boolean = false;
+
+  showPolicy: boolean = true;
 
 
   // hideSideMenu = signal(false);
@@ -255,6 +259,16 @@ export class CartComponent {
   //   console.log(test$);
   //   console.log(this.test);
   // }
+
+  fromShippingPolicy(event: boolean) {
+    this.showPolicy = event
+  };
+
+  showShippingPolicy() {
+    console.log("ddddd");
+
+    this.showPolicy = true
+  }
 
 
 }
