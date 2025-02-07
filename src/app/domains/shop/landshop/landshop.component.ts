@@ -15,18 +15,21 @@ import { lastValueFrom } from 'rxjs';
 import { AuthService } from '@services/auth.service';
 import { ClientService } from '@services/client.service';
 import { ShopService } from '@services/shop.service';
+import { EmailService } from '@services/email.service';
 
 import { Client } from '@models/client.model'
 // import { DatePipe } from '@angular/common';
 
 import { HistorystripeComponent } from '@users/historystripe/historystripe.component';
 
+import { ThanksInterestModalComponent } from '@shop/thanks-interest-modal/thanks-interest-modal.component';
+
 
 
 @Component({
   selector: 'app-landshop',
   standalone: true,
-  imports: [EditComponent, NavbarsignedComponent, FooterComponent, MonoproductComponent, ShippingmethodComponent, CartComponent, CardStripeComponent, StaytunedComponent, InfopurchaseComponent, HistorystripeComponent],
+  imports: [EditComponent, NavbarsignedComponent, FooterComponent, MonoproductComponent, ShippingmethodComponent, CartComponent, CardStripeComponent, StaytunedComponent, InfopurchaseComponent, HistorystripeComponent, ThanksInterestModalComponent],
   templateUrl: './landshop.component.html',
   styleUrl: './landshop.component.css'
 })
@@ -36,6 +39,7 @@ export class LandshopComponent {
   private auth = inject(AuthService);
   private clientService = inject(ClientService);
   private shopService = inject(ShopService);
+  private emailsender = inject(EmailService)
 
   showWine!: boolean;
   showEditAccount: boolean = true;
@@ -46,6 +50,9 @@ export class LandshopComponent {
   showStripeAndCart: boolean = false;
 
   showStayTune!: boolean;
+
+  showThanksForInterest!: boolean;
+
 
   private userId!: any;
   user!: Client;
@@ -63,6 +70,8 @@ export class LandshopComponent {
 
   constructor() {
     this.showStayTune = false;
+    this.showThanksForInterest = false;
+
     // this.showWine = true;
     const id = this.auth.getUserUid();
     if (id) {
@@ -151,6 +160,21 @@ export class LandshopComponent {
     console.log(data + ' this is staytuned status');
     this.showStayTune = data
   };
+
+  fromThanksForInterest(data: any) {
+    console.log(data + ' this is Thanks for Interest status');
+    this.showThanksForInterest = data
+  }
+
+  fromProductShowThanks(data: any) {
+    console.log(data + 'from monoproduct thanks for Interest status');
+    this.showThanksForInterest = data
+    console.log(this.user.email + "en fromProductShowThanks");
+    if(this.user.email) {
+      this.emailsender.sendEmailInterested(this.user);
+      console.log('dentro del if');
+    }
+  }
 
 
   async knowIfUserHasBuyed() {
