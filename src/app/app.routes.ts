@@ -11,6 +11,7 @@ import { DashboardComponent } from '@users/dashboard/dashboard.component';
 import { EditComponent } from '@users/edit/edit.component';
 import { JoinmailComponent } from '@users/joinmail/joinmail.component';
 import { JoinedmaillistComponent } from '@users/joinedmaillist/joinedmaillist.component';
+// import { HistorystripeComponent } from '@users/historystripe/historystripe.component';
 import { NotfoundComponent } from '@shared/notfound/notfound.component';
 import { MonoproductComponent  } from '@shop/monoproduct/monoproduct.component';
 import { LandshopComponent  } from '@shop/landshop/landshop.component';
@@ -18,6 +19,9 @@ import { ShippingmethodComponent  } from '@shop/shippingmethod/shippingmethod.co
 import { CardStripeComponent } from '@shop/card-stripe/card-stripe.component';
 import { TermsComponent } from '@shared/terms/terms.component';
 import { PrivacyComponent } from '@shared/privacy/privacy.component';
+import { DirectlinkComponent  } from '@shop/directlink/directlink.component';
+import { Directlink2Component  } from '@shop/directlink-2/directlink-2.component';
+import { Directlink3Component  } from '@shop/directlink-3/directlink-3.component';
 
 import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard'
 
@@ -109,6 +113,22 @@ export const routes: Routes = [
     path: 'edit',
     component: EditComponent,
     ...canActivate(() => redirectUnauthorizedTo(['login']))
+  },
+  {
+    path: 'offering',
+    component: DirectlinkComponent,
+  },
+  {
+    path: 'merrychrismas',
+    component: Directlink3Component,
+  },
+  // {
+  //   path: 'offering',
+  //   component: DirectlinkComponent,
+  // },
+  {
+    path: 'success_offering',
+    component: Directlink2Component,
   },
   {
     path: 'test',

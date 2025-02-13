@@ -15,7 +15,7 @@ import { ShippingService } from '@services/shipping.service';
 })
 export class ShippingmethodComponent {
 
-  @Output() shippingText = new EventEmitter();
+  // @Output() shippingText = new EventEmitter();
 
   private shippingService = inject(ShippingService);
 
