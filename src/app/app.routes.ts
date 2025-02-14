@@ -18,6 +18,8 @@ import { ShippingmethodComponent  } from '@shop/shippingmethod/shippingmethod.co
 import { CardStripeComponent } from '@shop/card-stripe/card-stripe.component';
 import { TermsComponent } from '@shared/terms/terms.component';
 import { PrivacyComponent } from '@shared/privacy/privacy.component';
+import { DirectlinkComponent  } from '@shop/directlink/directlink.component';
+
 
 import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard'
 
@@ -109,6 +111,10 @@ export const routes: Routes = [
     path: 'edit',
     component: EditComponent,
     ...canActivate(() => redirectUnauthorizedTo(['login']))
+  },
+  {
+    path: 'offering',
+    component: DirectlinkComponent,
   },
   {
     path: 'test',

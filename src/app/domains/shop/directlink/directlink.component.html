@@ -1,0 +1,42 @@
+<div class="fixed w-full z-10">
+  <app-navbarsigned>
+  </app-navbarsigned>
+</div>
+
+
+<div class="pt-14">
+
+
+  <div class="m-auto min-w-80 max-w-4xl p-2  sm:p-6 md:p-8 text-center">
+
+    <div class="text-lg flex justify-center mt-2 mb-2 uppercase">
+      Your Exclusive Offer
+    </div>
+    <div class="grid grid-cols-3 border border-gray-500  shadow">
+      <div class="block sm:hidden col-span-1 ">
+        <!-- <img class="p-2 rounded-t-lg max-h-52 m-auto" src="./../../../../assets/img/Botella-Kohue-2021-small.png" alt="malbec-2023" /> -->
+        <img class="p-2 rounded-t-lg max-h-52 sm:max-h-72 m-auto" src="{{ monoproduct.imageMobile }}" />
+      </div>
+      <div class="hidden sm:block col-span-1 ">
+        <!-- <img class="p-2 rounded-t-lg max-h-52 m-auto" src="./../../../../assets/img/Botella-Kohue-2021-small.png" alt="malbec-2023" /> -->
+        <img class="p-2 rounded-t-lg max-h-52 sm:max-h-72 m-auto" src="{{ monoproduct.imageDesktop }}" />
+      </div>
+      <div class="col-span-2 flex flex-col sm:gap-2 text-sm sm:text-lg m-auto">
+        <div class="font-semibold">
+          {{ monoproduct.title  }}
+        </div>
+        <div class="font-normal">
+          {{ monoproduct.description  }}
+        </div>
+
+        <div class="font-semibold">
+          ${{ monoproduct.price  }}
+        </div>
+        <div class="button m-auto" (click)="toCheckoutLink()">
+          Checkout
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -68,12 +68,16 @@
     - TEST STRIPE
   </div> -->
 
+  <!-- <div (click)="knowIfUserHasBuyed()" class="button_off">
+    - TEST STRIPE
+  </div> -->
+
 
   @if(showWine == true) {
     <app-monoproduct (cartOnOff)="fromProduct($event)"></app-monoproduct>
     }
 
-  <app-monoproduct (cartOnOff)="fromProduct($event)"></app-monoproduct>
+  <!-- <app-monoproduct (cartOnOff)="fromProduct($event)"></app-monoproduct> -->
 
   @if (showPurchase() == true ) {
     <app-infopurchase></app-infopurchase>
