@@ -13,13 +13,13 @@
   <table class="w-full text-sm text-left rtl:text-right text-gray-500">
     <thead class="text-xs text-gray-700 uppercase bg-gray-50">
       <tr>
-        <th scope="col" class="px-6 py-3">
+        <th scope="col" class="px-6 py-3 hover:cursor-pointer" (click)="orderByFirstName()">
           Fist Name
         </th>
-        <th scope="col" class="px-6 py-3">
+        <th scope="col" class="px-6 py-3 hover:cursor-pointer" (click)="orderByLastName()">
           Last Name
         </th>
-        <th scope="col" class="px-6 py-3">
+        <th scope="col" class="px-6 py-3 hover:cursor-pointer" (click)="orderByEmail()">
           Email
         </th>
         <th scope="col" class="px-6 py-3">
@@ -31,7 +31,7 @@
       </tr>
     </thead>
     <tbody>
-      @for (client of clients; track client; let i = $index)
+      @for (client of clientsToShow; track client; let i = $index)
       {
       <tr class="odd:bg-white even:bg-gray-50 border-b">
         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
@@ -53,5 +53,28 @@
 
       }
     </tbody>
+    <!-- <tbody>
+      @for (client of clients; track client; let i = $index)
+      {
+      <tr class="odd:bg-white even:bg-gray-50 border-b">
+        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+          {{client.firstname}}
+        </th>
+        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+          {{client.lastname}}
+        </th>
+        <td class="px-6 py-4">
+          {{client.email}}
+        </td>
+        <td class="px-6 py-4">
+          <a [routerLink]="[client.clientUID]" class="font-medium text-blue-600  hover:underline">View/Edit </a>
+        </td>
+        <td class="px-6 py-4">
+          <div class="cursor-pointer text-red-600 font-extrabold"  (click)="deleteClient(client)">DELETE</div>
+        </td>
+      </tr>
+
+      }
+    </tbody> -->
   </table>
 </div>
