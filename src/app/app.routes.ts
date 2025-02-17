@@ -113,12 +113,12 @@ export const routes: Routes = [
     component: EditComponent,
     ...canActivate(() => redirectUnauthorizedTo(['login']))
   },
+  // {
+  //   path: 'offering',
+  //   component: DirectlinkComponent,
+  // },
   {
-    path: 'offering',
-    component: DirectlinkComponent,
-  },
-  {
-    path: 'riverplate',
+    path: 'success_offering',
     component: Directlink2Component,
   },
   {

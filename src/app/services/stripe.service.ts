@@ -58,12 +58,26 @@ export class StripeService {
     return this.http.get(`${environment.apiURL}/test`);
   };
 
-  getSessionCheckout(user: any, product:any, quantity:any, stripeShippingId:any) {
+  getSessionCheckout(user: any, product:any, quantity:any, stripeShippingId:any, priceProductId:any) {
     return this.http.post(`${environment.apiURL}/create-checkout-session`, {
       user: user,
       product: product,
       quantity: quantity,
-      stripeShippingId: stripeShippingId
+      stripeShippingId: stripeShippingId,
+      priceProductId: priceProductId,
+      californiaTaxId: environment.CALI_TAX_RATE
+    });
+  };
+
+  getDirectLinkSessionCheckout(product:any, quantity:any, stripeShippingId1:any, stripeShippingId2:any, stripeShippingId3:any, priceProductId:any) {
+    return this.http.post(`${environment.apiURL}/directlink-create-checkout-session`, {
+      product: product,
+      quantity: "1",
+      stripeShippingId1: stripeShippingId1,
+      stripeShippingId2: stripeShippingId2,
+      stripeShippingId3: stripeShippingId3,
+      priceProductId: priceProductId,
+      californiaTaxId: environment.CALI_TAX_RATE
     });
   };
 
