@@ -1,8 +1,63 @@
 <app-admin-navbar></app-admin-navbar>
 
-@if (user) {
 
-<div class="m-auto min-w-80 p-4  rounded-lg sm:border md:shadow-md sm:p-6 md:p-8 md:border-gray-200 dark:bg-gray-800">
+@if (user) {
+@if(stripeOrders){
+
+
+<div class="relative overflow-x-auto">
+  <table class="w-full text-sm text-gray-500 text-center">
+    <thead class="text-xs text-gray-700 uppercase bg-gray-50 text-center">
+      <tr>
+        <th scope="col" class="px-6 py-3">
+          Date
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Product
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Quantity
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Subtotal
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Price
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (order of stripeOrders; track $index) {
+      <tr class="bg-white border-b text-center">
+        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap text-center">
+          {{ order.createdAt | date:'fullDate' }}
+        </th>
+        @for (item of order.lineItems; track $index) {
+        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap text-center">
+          {{ item.description }}
+        </th>
+        <td class="px-6 py-4 text-center">
+          {{ item.quantity }}
+        </td>
+        <td class="px-6 py-4">
+          {{ item.price.unit_amount / 100 }}
+        </td>
+        <td class="px-6 py-4">
+          {{ item.amount_subtotal / 100 }}
+        </td>
+        }
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>
+
+
+}
+
+
+
+<div class="m-auto min-w-80 p-4  rounded-lg sm:border md:shadow-md sm:p-6 md:p-8 md:border-gray-200">
 
   <form [formGroup]="form" (ngSubmit)="saveUser($event)">
 
@@ -118,7 +173,7 @@
       <div>
         <label class="block mb-2 text-sm font-medium text-gray-900">Optional:</label>
         <!-- <input type="text" formControlName="optionalText" class="x_input" /> -->
-        <textarea formControlName="optionalText"  rows="4"
+        <textarea formControlName="optionalText" rows="4"
           class="block p-2.5 w-full text-sm text-gray-900 bg-transparent rounded-lg border border-gray-400"></textarea>
       </div>
     </div>
@@ -353,8 +408,7 @@
 
 
 
-    <button [disabled]="form.invalid" [class.buttonDisabled]="form.invalid" type="submit"
-      class="button">
+    <button [disabled]="form.invalid" [class.buttonDisabled]="form.invalid" type="submit" class="button">
       Save USER
     </button>
 

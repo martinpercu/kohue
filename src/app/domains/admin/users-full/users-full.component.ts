@@ -10,6 +10,8 @@ import { ButtonlogoutComponent } from '@shared/buttonlogout/buttonlogout.compone
 
 import { AdminNavbarComponent } from '@admin/admin-navbar/admin-navbar.component';
 
+import { AdminService } from '@services/admin.service';
+
 @Component({
   selector: 'app-users-full',
   standalone: true,
@@ -21,22 +23,42 @@ export class UsersFullComponent {
 
   private clientService = inject(ClientService);
   private router = inject(Router);
+  private adminService = inject(AdminService);
 
   expand: boolean = true;
 
   users!: Client[];
+  usersToShow!: any[];
 
 
   ngOnInit() {
     this.clientService.getUsers().subscribe(users => {
       this.users = users;
       console.log(this.users);
+      this.usersToShow = this.users;
+      console.log(this.usersToShow);
     })
   }
 
   navEditClient(clientId: string) {
     this.expand = !this.expand
     this.router.navigate(['edit', clientId])
+  }
+
+  orderByFirstName() {
+    this.usersToShow = this.adminService.orderFirstName(this.users);
+  };
+
+  orderByLastName() {
+    this.usersToShow = this.adminService.orderLastName(this.users);
+  };
+
+  orderByEmail() {
+    this.usersToShow = this.adminService.orderEmail(this.users);
+  };
+
+  orderByStripe() {
+    this.usersToShow = this.adminService.orderStripeId(this.users);
   }
 
 

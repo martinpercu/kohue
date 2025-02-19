@@ -19,6 +19,8 @@ import { ShopService } from '@services/shop.service';
 import { Client } from '@models/client.model'
 // import { DatePipe } from '@angular/common';
 
+import { HistorystripeComponent } from '@users/historystripe/historystripe.component';
+
 
 
 
@@ -26,7 +28,7 @@ import { Client } from '@models/client.model'
 @Component({
   selector: 'app-landshop',
   standalone: true,
-  imports: [EditComponent, NavbarsignedComponent, FooterComponent, MonoproductComponent, ShippingmethodComponent, CartComponent, CardStripeComponent, StaytunedComponent, InfopurchaseComponent],
+  imports: [EditComponent, NavbarsignedComponent, FooterComponent, MonoproductComponent, ShippingmethodComponent, CartComponent, CardStripeComponent, StaytunedComponent, InfopurchaseComponent, HistorystripeComponent],
   templateUrl: './landshop.component.html',
   styleUrl: './landshop.component.css'
 })
@@ -156,7 +158,7 @@ export class LandshopComponent {
   async knowIfUserHasBuyed() {
     const user = this.user;
     console.log('the user to know if already buyed');
-    // console.log(user);
+    console.log(user);
 
     const paymentIntentsByUser$ = this.stripeService.getPaimentsByUser(user);
     this.intentsByUser = await lastValueFrom(paymentIntentsByUser$);

@@ -7,6 +7,8 @@ import { ClientService } from '@services/client.service';
 
 import { AdminNavbarComponent } from '@admin/admin-navbar/admin-navbar.component';
 
+import { StripeService } from '@services/stripe.service';
+import { StripeOrderModel } from '@models/stripeorder.model';
 
 @Component({
   selector: 'app-edit-user',
@@ -19,7 +21,8 @@ export class EditUserComponent {
 
   private clientService = inject(ClientService);
   private router = inject(Router);
-  private activatedRoute = inject(ActivatedRoute)
+  private activatedRoute = inject(ActivatedRoute);
+  private stripeService = inject(StripeService);
 
   private formBuilder = inject(FormBuilder)
 
@@ -28,6 +31,11 @@ export class EditUserComponent {
   user!: Client;
   userId!: string;
 
+  userBuyerHistory!: any;
+
+  stripeOrder!: StripeOrderModel;
+  // stripeOrders!: [StripeOrderModel];
+  stripeOrders!: any;
 
   constructor() {
     const id = String(this.activatedRoute.snapshot.paramMap.get('id'));
@@ -39,13 +47,21 @@ export class EditUserComponent {
   };
 
   // ngOnInit() {
-
+  //   this.getStripeOrders();
   // };
+
+  async getStripeOrders() {
+    console.log('here');
+
+    this.stripeOrders = await this.stripeService.getCustomerSessionHistory(this.user);
+    console.log(this.stripeOrders);
+  };
 
   async getUser() {
     const userGetted = await this.clientService.getOneUser(this.userId);
-    this.user = userGetted
+    this.user = userGetted;
     console.log(this.user);
+    this.getStripeOrders();
     this.buildForm();
   };
 
@@ -297,5 +313,6 @@ export class EditUserComponent {
   get xzipCodeFieldInvalid() {
     return this.xzipCodeField!.touched && this.xzipCodeField!.invalid
   };
+
 
 }
