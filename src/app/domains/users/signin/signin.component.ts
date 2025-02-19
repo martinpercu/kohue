@@ -66,7 +66,7 @@ export class SigninComponent {
           const emailUsed = this.formReg.value.email;
           const currentUser = this.authService.checkerIfCurrentUser();
           if(currentUser){
-            window.alert("You are already register with " + emailUsed);
+            window.alert("You are already registered with " + emailUsed);
             this.navToShopArea();
           } else {
             window.alert("An account with " + emailUsed + " already exist. Please Log In");
