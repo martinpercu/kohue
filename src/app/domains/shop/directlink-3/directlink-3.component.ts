@@ -9,14 +9,16 @@ import { environment } from '@env/environment';
 import { StripeService } from '@services/stripe.service';
 import { lastValueFrom } from 'rxjs';
 
+import { ShippingPolicyModalComponent } from '@shop/shipping-policy-modal/shipping-policy-modal.component'
+
+
 @Component({
-  selector: 'app-directlink',
+  selector: 'app-directlink-3',
   standalone: true,
-  imports: [NavbarsignedComponent, FooterComponent],
-  templateUrl: './directlink.component.html',
-  styleUrl: './directlink.component.css'
+  imports: [NavbarsignedComponent, FooterComponent, ShippingPolicyModalComponent],
+  templateUrl: './directlink-3.component.html'
 })
-export class DirectlinkComponent {
+export class Directlink3Component {
 
   private monoproductService = inject(MonoproductService);
   private stripeService = inject(StripeService);
@@ -25,6 +27,8 @@ export class DirectlinkComponent {
   stripeSession!: any;
 
   quantities:number = 1;
+
+  showPolicy: boolean = false;
 
   constructor() {
     this.monoproduct = this.monoproductService.returnMonoproduct();
@@ -39,12 +43,14 @@ export class DirectlinkComponent {
 
   async checkoutToStripeDirectLink() {
     const product = "este producto copado";
-    const quantity = this.quantities;
+    const quantity = 1;
     const stripeShippingId1 = environment.SHIP_LOCAL;
-    const stripeShippingId2 = this.getShippingId2Rates();
-    const stripeShippingId3 = this.getShippingId3Rates();
+    const stripeShippingId2 = environment.SHIP_GROUND_1_ONE;
+    const stripeShippingId3 = environment.SHIP_OVERNIGHT_1_ONE;
+    // const stripeShippingId2 = this.getShippingId2Rates();
+    // const stripeShippingId3 = this.getShippingId3Rates();
 
-    const priceProductId = environment.PRICE_PRODUCT;
+    const priceProductId = environment.PRICE_PRODUCT_ONE;
     console.log(quantity);
 
 
@@ -63,40 +69,49 @@ export class DirectlinkComponent {
   };
 
 
-  getShippingId2Rates() {
-    if(this.quantities == 1) {
-      return environment.SHIP_GROUND_1
-    };
-    if(this.quantities == 2) {
-      return environment.SHIP_GROUND_2
-    };
-    if(this.quantities == 3) {
-      return environment.SHIP_GROUND_3
-    }
-    return null
+  fromShippingPolicy(event: boolean) {
+    this.showPolicy = event
   };
 
-  getShippingId3Rates() {
-    if(this.quantities == 1) {
-      return environment.SHIP_OVERNIGHT_1
-    };
-    if(this.quantities == 2) {
-      return environment.SHIP_OVERNIGHT_2
-    };
-    if(this.quantities == 3) {
-      return environment.SHIP_OVERNIGHT_3
-    }
-    return null
+  showShippingPolicy() {
+    this.showPolicy = true
   }
 
-  addOne() {
-    this.quantities = this.quantities +1
-  };
+
+  // getShippingId2Rates() {
+  //   if(this.quantities == 1) {
+  //     return environment.SHIP_GROUND_1
+  //   };
+  //   if(this.quantities == 2) {
+  //     return environment.SHIP_GROUND_2
+  //   };
+  //   if(this.quantities == 3) {
+  //     return environment.SHIP_GROUND_3
+  //   }
+  //   return null
+  // };
+
+  // getShippingId3Rates() {
+  //   if(this.quantities == 1) {
+  //     return environment.SHIP_OVERNIGHT_1
+  //   };
+  //   if(this.quantities == 2) {
+  //     return environment.SHIP_OVERNIGHT_2
+  //   };
+  //   if(this.quantities == 3) {
+  //     return environment.SHIP_OVERNIGHT_3
+  //   }
+  //   return null
+  // }
+
+  // addOne() {
+  //   this.quantities = this.quantities +1
+  // };
 
 
-  subtractOne() {
-    this.quantities = this.quantities -1
-  }
+  // subtractOne() {
+  //   this.quantities = this.quantities -1
+  // }
 
 
 

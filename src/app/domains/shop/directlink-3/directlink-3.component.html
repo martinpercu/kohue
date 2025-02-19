@@ -3,6 +3,9 @@
   </app-navbarsigned>
 </div>
 
+@if(showPolicy == true) {
+<app-shipping-policy-modal (showStayTuned)="fromShippingPolicy($event)"></app-shipping-policy-modal>
+}
 
 <div class="pt-14">
 
@@ -15,28 +18,24 @@
 
 
     <div class="grid grid-cols-3 border border-gray-500  shadow">
-      <div class="block sm:hidden col-span-1 ">
+      <div class="col-span-1 ">
         <!-- <img class="p-2 rounded-t-lg max-h-52 m-auto" src="./../../../../assets/img/Botella-Kohue-2021-small.png" alt="malbec-2023" /> -->
         <img class="p-2 rounded-t-lg max-h-52 sm:max-h-72 m-auto" src="{{ monoproduct.imageMobile }}" />
-      </div>
-      <div class="hidden sm:block col-span-1 ">
-        <!-- <img class="p-2 rounded-t-lg max-h-52 m-auto" src="./../../../../assets/img/Botella-Kohue-2021-small.png" alt="malbec-2023" /> -->
-        <img class="p-2 rounded-t-lg max-h-52 sm:max-h-72 m-auto" src="{{ monoproduct.imageDesktop }}" />
       </div>
       <div class="col-span-2 flex flex-col sm:gap-2 text-sm sm:text-lg m-auto">
         <div class="font-semibold">
           {{ monoproduct.title }}
         </div>
         <div class="font-normal">
-          {{ monoproduct.description }}
+          2021 Kohue Malbec, 1 bottle (750ml)
         </div>
 
-        <div class="font-semibold pt-2">
+        <!-- <div class="font-semibold pt-2">
           ${{ monoproduct.price * quantities }}
-        </div>
+        </div> -->
 
 
-    <div class="text-center m-auto py-4">
+        <!-- <div class="text-center m-auto py-4">
       @if(quantities == 3) {
       <div class="text-center m-auto">
         <div class="flex gap-4 sm:gap-4">
@@ -64,13 +63,18 @@
         </div>
       </div>
       }
-    </div>
+    </div> -->
 
 
 
 
         <div class="button m-auto" (click)="toCheckoutLink()">
           Checkout
+        </div>
+
+
+        <div class="font-light text-xs text-center pb-2 text-xdark pt-4">
+          <span (click)="showShippingPolicy()" class="cursor-pointer underline">Shipping Policy.</span>
         </div>
 
       </div>
