@@ -6,12 +6,14 @@ import { CartService  } from '@services/cart.service';
 import { Product } from '@models/product.model';
 import { ShippingmethodComponent } from '@shop/shippingmethod/shippingmethod.component';
 
+import { ButtonlogoutComponent } from '@shared/buttonlogout/buttonlogout.component'
+
 
 
 @Component({
   selector: 'app-navbarsigned',
   standalone: true,
-  imports: [ShippingmethodComponent],
+  imports: [ShippingmethodComponent, ButtonlogoutComponent],
   templateUrl: './navbarsigned.component.html',
   styleUrl: './navbarsigned.component.css'
 })
