@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup, ReactiveFormsModule, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ClientService } from '@services/client.service';
-import { Client } from '@models/client.model'
+import { Client } from '@models/client.model';
 
 import { EmailService } from '@services/email.service';
 
