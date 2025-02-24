@@ -22,6 +22,7 @@ export class MonoproductComponent {
 
   @Output() cartOnOff = new EventEmitter();
   @Output() monoproductOff = new EventEmitter();
+  @Output() showThanksForInterest = new EventEmitter();
 
 
   monoproduct: Product;
@@ -50,5 +51,10 @@ export class MonoproductComponent {
   //   // console.log('clicking from the child monoproduct to Turn itself off');
   //   this.monoproductOff.emit(false);
   // };
+
+  showThanksForYourInterestAlert() {
+    // alert('CLOSE ALERT this fall 2024. Stay tuned!')
+    this.showThanksForInterest.emit(true);
+  };
 
 }

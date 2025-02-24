@@ -11,6 +11,7 @@ import { DashboardComponent } from '@users/dashboard/dashboard.component';
 import { EditComponent } from '@users/edit/edit.component';
 import { JoinmailComponent } from '@users/joinmail/joinmail.component';
 import { JoinedmaillistComponent } from '@users/joinedmaillist/joinedmaillist.component';
+// import { HistorystripeComponent } from '@users/historystripe/historystripe.component';
 import { NotfoundComponent } from '@shared/notfound/notfound.component';
 import { MonoproductComponent  } from '@shop/monoproduct/monoproduct.component';
 import { LandshopComponent  } from '@shop/landshop/landshop.component';
@@ -20,9 +21,12 @@ import { TermsComponent } from '@shared/terms/terms.component';
 import { PrivacyComponent } from '@shared/privacy/privacy.component';
 import { DirectlinkComponent  } from '@shop/directlink/directlink.component';
 import { Directlink2Component  } from '@shop/directlink-2/directlink-2.component';
+import { Directlink3Component  } from '@shop/directlink-3/directlink-3.component';
+import { ThanksInterestModalComponent  } from '@shop/thanks-interest-modal/thanks-interest-modal.component';
+import { StaytunedComponent } from '@shop/staytuned/staytuned.component';
 
 
-import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard'
+import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 
 
 export const routes: Routes = [
@@ -37,22 +41,22 @@ export const routes: Routes = [
   {
     path: 'card',
     component: CardStripeComponent,
-    ...canActivate(() => redirectUnauthorizedTo(['acquire']))
+    ...canActivate(() => redirectUnauthorizedTo(['join']))
   },
   {
     path: 'ship',
     component: ShippingmethodComponent,
-    ...canActivate(() => redirectUnauthorizedTo(['acquire']))
+    ...canActivate(() => redirectUnauthorizedTo(['login']))
   },
   {
     path: 'members',
     component: LandshopComponent,
-    ...canActivate(() => redirectUnauthorizedTo(['acquire']))
+    ...canActivate(() => redirectUnauthorizedTo(['login']))
   },
   {
     path: 'mono',
     component: MonoproductComponent,
-    ...canActivate(() => redirectUnauthorizedTo(['acquire']))
+    ...canActivate(() => redirectUnauthorizedTo(['login']))
   },
   {
     path: '',
@@ -84,15 +88,15 @@ export const routes: Routes = [
     // ...canActivate(() => redirectUnauthorizedTo(['login']))
   },
   {
-    path: 'join',
+    path: 'ex-join',
     component: JoinmailComponent
   },
   {
-    path: 'joinedmaillist',
+    path: 'ex-joinedmaillist',
     component: JoinedmaillistComponent
   },
   {
-    path: 'signin',
+    path: 'join',
     component: SigninComponent
   },
   {
@@ -117,6 +121,10 @@ export const routes: Routes = [
     path: 'offering',
     component: DirectlinkComponent,
   },
+  {
+    path: 'offer1',
+    component: Directlink3Component,
+  },
   // {
   //   path: 'offering',
   //   component: DirectlinkComponent,
@@ -128,6 +136,14 @@ export const routes: Routes = [
   {
     path: 'test',
     component: NotfoundComponent,
+  },
+  {
+    path: 'thanks',
+    component: ThanksInterestModalComponent,
+  },
+  {
+    path: 'stay',
+    component: StaytunedComponent,
   },
   // {
   //   path: 'admin',
