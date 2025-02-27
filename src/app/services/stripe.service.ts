@@ -1,5 +1,5 @@
 import { Injectable, inject, signal } from '@angular/core';
-import { HttpClient  } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { environment } from '@env/environment';
 
 import { Client } from '@models/client.model';
@@ -20,9 +20,13 @@ export class StripeService {
 
   purchaseDate = signal<number>(0);
 
+  allSessions!: any;
+  theListOfSessionsIds!: any;
+  listItems!: any;
+
   constructor() { }
 
-  charge(cantidad:any, tokenID:any) {
+  charge(cantidad: any, tokenID: any) {
     return this.http.post(`${environment.apiURL}/stripe_checkout`, {
       stripeToken: tokenID,
       cantidad: cantidad
@@ -30,8 +34,8 @@ export class StripeService {
   };
 
 
-  charge2(source:any) {
-    console.log('in service stripe CHARGE FRONT ==>' );
+  charge2(source: any) {
+    console.log('in service stripe CHARGE FRONT ==>');
     console.log(source);
     return this.http.post(`${environment.apiURL}/stripe_check`, {
       source: source
@@ -58,7 +62,7 @@ export class StripeService {
     return this.http.get(`${environment.apiURL}/test`);
   };
 
-  getSessionCheckout(user: any, product:any, quantity:any, stripeShippingId:any, priceProductId:any) {
+  getSessionCheckout(user: any, product: any, quantity: any, stripeShippingId: any, priceProductId: any) {
     return this.http.post(`${environment.apiURL}/create-checkout-session`, {
       user: user,
       product: product,
@@ -69,7 +73,7 @@ export class StripeService {
     });
   };
 
-  getDirectLinkSessionCheckout(product:any, quantity:any, stripeShippingId1:any, stripeShippingId2:any, stripeShippingId3:any, priceProductId:any) {
+  getDirectLinkSessionCheckout(product: any, quantity: any, stripeShippingId1: any, stripeShippingId2: any, stripeShippingId3: any, priceProductId: any) {
     return this.http.post(`${environment.apiURL}/directlink-create-checkout-session`, {
       product: product,
       quantity: quantity,
@@ -135,8 +139,39 @@ export class StripeService {
   // }
 
   getTimeLastOrder(epoch: number) {
-    this.purchaseDate.set(epoch*1000);
+    this.purchaseDate.set(epoch * 1000);
     // console.log(this.purchaseDate());
+  };
+
+  async getCustomerSessionHistory(user: any) {
+    console.log(user);
+    const stripeCustomerId = user.stripeCustomerId;
+    console.log(stripeCustomerId);
+
+    const allSessions$ = this.http.get(
+      `${environment.apiURL}/customers/sessions/${stripeCustomerId}`);
+    this.allSessions = await lastValueFrom(allSessions$);
+
+    const theListOfSessionsIds = this.sessionListToListOfIds(this.allSessions);
+    console.log(theListOfSessionsIds);
+
+    this.sessionListToListOfIds(this.allSessions);
+
+    const listItems$ = this.http.post(
+      `${environment.apiURL}/sessions/products-in-session/`, theListOfSessionsIds);
+      this.listItems = await lastValueFrom(listItems$);
+
+    console.log(listItems$);
+    console.log(this.listItems);
+
+    return this.listItems
+  }
+
+  sessionListToListOfIds(allSessions: any) {
+    const theListOfSessionsIds = allSessions
+      .filter((session: { status: string; id: any; }) => session.status === 'complete')
+      .map((session: { id: any; }) => session.id);
+    return theListOfSessionsIds
   }
 
 }
