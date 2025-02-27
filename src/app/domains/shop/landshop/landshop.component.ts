@@ -23,8 +23,6 @@ import { HistorystripeComponent } from '@users/historystripe/historystripe.compo
 
 
 
-
-
 @Component({
   selector: 'app-landshop',
   standalone: true,
