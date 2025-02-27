@@ -148,23 +148,29 @@ export class StripeService {
     const stripeCustomerId = user.stripeCustomerId;
     console.log(stripeCustomerId);
 
-    const allSessions$ = this.http.get(
-      `${environment.apiURL}/customers/sessions/${stripeCustomerId}`);
-    this.allSessions = await lastValueFrom(allSessions$);
+    if (stripeCustomerId) {
+      const allSessions$ = this.http.get(
+        `${environment.apiURL}/customers/sessions/${stripeCustomerId}`);
+      this.allSessions = await lastValueFrom(allSessions$);
 
-    const theListOfSessionsIds = this.sessionListToListOfIds(this.allSessions);
-    console.log(theListOfSessionsIds);
+      const theListOfSessionsIds = this.sessionListToListOfIds(this.allSessions);
+      console.log(theListOfSessionsIds);
 
-    this.sessionListToListOfIds(this.allSessions);
+      this.sessionListToListOfIds(this.allSessions);
 
-    const listItems$ = this.http.post(
-      `${environment.apiURL}/sessions/products-in-session/`, theListOfSessionsIds);
+      const listItems$ = this.http.post(
+        `${environment.apiURL}/sessions/products-in-session/`, theListOfSessionsIds);
       this.listItems = await lastValueFrom(listItems$);
 
-    console.log(listItems$);
-    console.log(this.listItems);
+      console.log(listItems$);
+      console.log(this.listItems);
 
-    return this.listItems
+      return this.listItems
+    }
+    else {
+      return
+    }
+
   }
 
   sessionListToListOfIds(allSessions: any) {

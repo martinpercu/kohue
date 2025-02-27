@@ -119,7 +119,7 @@ export const routes: Routes = [
     component: DirectlinkComponent,
   },
   {
-    path: 'merrychrismas',
+    path: 'offer1',
     component: Directlink3Component,
   },
   // {

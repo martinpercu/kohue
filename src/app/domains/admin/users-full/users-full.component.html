@@ -14,14 +14,17 @@
   <table class="w-full text-sm text-left rtl:text-right text-gray-500 ">
     <thead class="text-xs text-gray-700 uppercase bg-gray-50  ">
       <tr>
-        <th scope="col" class="px-6 py-3">
+        <th scope="col" class="px-6 py-3 hover:cursor-pointer" (click)="orderByFirstName()">
           Fist Name
         </th>
-        <th scope="col" class="px-6 py-3">
+        <th scope="col" class="px-6 py-3 hover:cursor-pointer" (click)="orderByLastName()">
           Last Name
         </th>
-        <th scope="col" class="px-6 py-3">
+        <th scope="col" class="px-6 py-3 hover:cursor-pointer" (click)="orderByEmail()">
           Email
+        </th>
+        <th scope="col" class="px-6 py-3 hover:cursor-pointer" (click)="orderByStripe()">
+          Stripe ID
         </th>
         <th scope="col" class="px-6 py-3">
           Phone
@@ -35,7 +38,7 @@
       </tr>
     </thead>
     <tbody>
-      @for (user of users; track user; let i = $index)
+      @for (user of usersToShow; track user; let i = $index)
       {
       <tr class="odd:bg-white even:bg-gray-50 border-b">
         <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
@@ -46,6 +49,9 @@
         </th>
         <td class="px-6 py-4">
           {{user.email}}
+        </td>
+        <td class="px-6 py-4">
+          {{user.stripeCustomerId}}
         </td>
         <td class="px-6 py-4">
           {{user.phone}}

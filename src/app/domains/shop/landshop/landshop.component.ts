@@ -158,7 +158,7 @@ export class LandshopComponent {
   async knowIfUserHasBuyed() {
     const user = this.user;
     console.log('the user to know if already buyed');
-    // console.log(user);
+    console.log(user);
 
     const paymentIntentsByUser$ = this.stripeService.getPaimentsByUser(user);
     this.intentsByUser = await lastValueFrom(paymentIntentsByUser$);
