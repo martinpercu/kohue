@@ -41,22 +41,22 @@ export const routes: Routes = [
   {
     path: 'card',
     component: CardStripeComponent,
-    ...canActivate(() => redirectUnauthorizedTo(['acquire']))
+    ...canActivate(() => redirectUnauthorizedTo(['join']))
   },
   {
     path: 'ship',
     component: ShippingmethodComponent,
-    ...canActivate(() => redirectUnauthorizedTo(['acquire']))
+    ...canActivate(() => redirectUnauthorizedTo(['login']))
   },
   {
     path: 'members',
     component: LandshopComponent,
-    ...canActivate(() => redirectUnauthorizedTo(['acquire']))
+    ...canActivate(() => redirectUnauthorizedTo(['login']))
   },
   {
     path: 'mono',
     component: MonoproductComponent,
-    ...canActivate(() => redirectUnauthorizedTo(['acquire']))
+    ...canActivate(() => redirectUnauthorizedTo(['login']))
   },
   {
     path: '',
@@ -88,15 +88,15 @@ export const routes: Routes = [
     // ...canActivate(() => redirectUnauthorizedTo(['login']))
   },
   {
-    path: 'join',
+    path: 'ex-join',
     component: JoinmailComponent
   },
   {
-    path: 'joinedmaillist',
+    path: 'ex-joinedmaillist',
     component: JoinedmaillistComponent
   },
   {
-    path: 'signin',
+    path: 'join',
     component: SigninComponent
   },
   {

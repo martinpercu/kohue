@@ -31,9 +31,9 @@ export class EmailService {
   };
 
   async sendEmailRegister(client: any) {
-    emailjs.init(EmailVars.INIT_VAR);
+    emailjs.init(EmailVars.INIT_VAR_PROD);
     // console.log(client);
-    let response = await emailjs.send(EmailVars.CREATED_SERVICE, EmailVars.CREATED_TEMPLATE, {
+    let response = await emailjs.send(EmailVars.CREATED_SERVICE_2025_PROD, EmailVars.CREATED_TEMPLATE_2025_PROD, {
       firstname: client.firstname,
       client_email: client.email,
     });
