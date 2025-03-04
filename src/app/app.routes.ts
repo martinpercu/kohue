@@ -22,8 +22,11 @@ import { PrivacyComponent } from '@shared/privacy/privacy.component';
 import { DirectlinkComponent  } from '@shop/directlink/directlink.component';
 import { Directlink2Component  } from '@shop/directlink-2/directlink-2.component';
 import { Directlink3Component  } from '@shop/directlink-3/directlink-3.component';
+import { ThanksInterestModalComponent  } from '@shop/thanks-interest-modal/thanks-interest-modal.component';
+import { StaytunedComponent } from '@shop/staytuned/staytuned.component';
 
-import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard'
+
+import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 
 
 export const routes: Routes = [
@@ -133,6 +136,14 @@ export const routes: Routes = [
   {
     path: 'test',
     component: NotfoundComponent,
+  },
+  {
+    path: 'thanks',
+    component: ThanksInterestModalComponent,
+  },
+  {
+    path: 'stay',
+    component: StaytunedComponent,
   },
   // {
   //   path: 'admin',
