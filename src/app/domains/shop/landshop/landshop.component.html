@@ -10,6 +10,11 @@
   <app-staytuned (showStayTuned)="fromNavbarAndStayTuned($event)"> </app-staytuned>
 }
 
+
+@if(showThanksForInterest == true) {
+  <app-thanks-interest-modal (showThanksForInterest)="fromThanksForInterest($event)"></app-thanks-interest-modal>
+}
+
 <div class="pt-14">
 
   <!-- <app-historystripe></app-historystripe> -->
@@ -82,7 +87,7 @@
     <app-monoproduct (cartOnOff)="fromProduct($event)"></app-monoproduct>
     } -->
 
-  <app-monoproduct (cartOnOff)="fromProduct($event)"></app-monoproduct>
+  <app-monoproduct (cartOnOff)="fromProduct($event)" (showThanksForInterest)="fromProductShowThanks($event)"></app-monoproduct>
 
 
 

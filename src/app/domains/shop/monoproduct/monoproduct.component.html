@@ -5,7 +5,7 @@
 
 
   <div class="text-lg flex justify-center mt-2 mb-2 uppercase">
-    INAUGURAL RELEASE
+    INAUGURAL RELEASE CLOSED
   </div>
 
   <div class="grid grid-cols-3 border border-gray-500  shadow">
@@ -25,11 +25,16 @@
           {{ monoproduct.description  }}
         </div>
 
-        <div class="font-semibold">
+        <!-- <div class="font-semibold">
           ${{ monoproduct.price  }}
+        </div> -->
+        <div class="font-semibold h-2">
         </div>
-        <div class="button m-auto" (click)="addToCartHandler()">
+        <!-- <div class="button m-auto" (click)="addToCartHandler()">
           Add to cart
+        </div> -->
+        <div class="button m-auto" (click)="showThanksForYourInterestAlert()">
+          Request To Acquire
         </div>
 
     </div>
