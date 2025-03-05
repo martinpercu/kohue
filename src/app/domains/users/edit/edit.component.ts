@@ -68,10 +68,10 @@ export class EditComponent {
   // //   console.log(this.userUid);
   // // };
 
-  logOut() {
-    this.auth.logout();
-    this.router.navigate(['test'])
-  };
+  // logOut() {
+  //   this.auth.logout();
+  //   this.router.navigate(['test'])
+  // };
 
   async getUser() {
     const userGetted = await this.clientService.getOneUser(this.userId);
