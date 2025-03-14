@@ -95,7 +95,7 @@ export class EditComponent {
   private buildForm() {
     this.form = this.formBuilder.group({
       firstname: [this.user.firstname, [Validators.required, Validators.minLength(2), Validators.maxLength(30)]],
-      lastname: [this.user.lastname, [Validators.minLength(2), Validators.maxLength(30)]],
+      lastname: [this.user.lastname, [Validators.minLength(1), Validators.maxLength(30)]],
       email: [this.user.email, [Validators.required, Validators.email, Validators.maxLength(80)]],
       phone: [this.user.phone, [Validators.minLength(9), Validators.maxLength(15), Validators.pattern("^[0-9]*$")]],
       birthdate: [this.user.birthdate, [Validators.minLength(7)]],
@@ -110,7 +110,7 @@ export class EditComponent {
       // // country: [this.user.country],
       billDifThanShip: [this.user.billDifThanShip],
       xfirstname: [this.user.xfirstname, [Validators.minLength(2), Validators.maxLength(30)]],
-      xlastname: [this.user.xlastname, [Validators.minLength(2), Validators.maxLength(30)]],
+      xlastname: [this.user.xlastname, [Validators.minLength(1), Validators.maxLength(30)]],
       xaddress: [this.user.xaddress],
       xaddressExtra: [this.user.xaddressExtra],
       xcity: [this.user.xcity],

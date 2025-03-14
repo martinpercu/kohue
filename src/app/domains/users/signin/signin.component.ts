@@ -59,7 +59,25 @@ export class SigninComponent {
         // console.log(this.client);
         this.createRegisteredUser(this.client, response.user.uid);
       })
-      .catch(error => console.log(error));
+      .catch(error => {
+        console.log(error);
+        console.log(error.code);
+        if (error.code == "auth/email-already-in-use") {
+          const emailUsed = this.formReg.value.email;
+          const currentUser = this.authService.checkerIfCurrentUser();
+          if(currentUser){
+            window.alert("You are already registered with " + emailUsed);
+            this.navToShopArea();
+          } else {
+            window.alert("An account with " + emailUsed + " already exist. Please Log In");
+            this.navToLogin();
+          }
+          console.log("esto esta despues");
+        }
+        else {
+          console.log(error)
+        };
+      });
   };
 
   async createRegisteredUser(userBasic: Client, userUID: any) {
