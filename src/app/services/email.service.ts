@@ -51,4 +51,16 @@ export class EmailService {
     console.log(response);
   };
 
+
+  async sendEmailClubMember(user: any) {
+    emailjs.init(EmailVars.INIT_VAR_PROD);
+    console.log(user);
+    let response = await emailjs.send(EmailVars.CLUB_MEMBERS_SERVICE_2025_PROD, EmailVars.CLUB_MEMBERS_TEMPLATE_2025_PROD, {
+      firstname: user.firstname,
+      lastname: user.lastname,
+      client_email: user.email,
+    });
+    console.log(response);
+  };
+
 }

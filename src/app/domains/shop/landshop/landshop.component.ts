@@ -26,11 +26,13 @@ import { ThanksInterestModalComponent } from '@shop/thanks-interest-modal/thanks
 
 import { DatePipe } from '@angular/common';
 
+import { ClubmemberModalComponent } from '@shop/clubmember-modal/clubmember-modal.component';
+
 
 @Component({
   selector: 'app-landshop',
   standalone: true,
-  imports: [EditComponent, NavbarsignedComponent, FooterComponent, MonoproductComponent, ShippingmethodComponent, CartComponent, CardStripeComponent, StaytunedComponent, InfopurchaseComponent, HistorystripeComponent, ThanksInterestModalComponent, DatePipe],
+  imports: [EditComponent, NavbarsignedComponent, FooterComponent, MonoproductComponent, ShippingmethodComponent, CartComponent, CardStripeComponent, StaytunedComponent, InfopurchaseComponent, HistorystripeComponent, ThanksInterestModalComponent, DatePipe, ClubmemberModalComponent],
   templateUrl: './landshop.component.html',
   styleUrl: './landshop.component.css'
 })
@@ -40,7 +42,7 @@ export class LandshopComponent {
   private auth = inject(AuthService);
   private clientService = inject(ClientService);
   private shopService = inject(ShopService);
-  private emailsender = inject(EmailService)
+  private emailsender = inject(EmailService);
 
   showWine!: boolean;
   showEditAccount: boolean = true;
@@ -53,6 +55,8 @@ export class LandshopComponent {
   showStayTune!: boolean;
 
   showThanksForInterest!: boolean;
+
+  showClubMemberModal!: boolean;
 
 
   private userId!: any;
@@ -172,7 +176,7 @@ export class LandshopComponent {
   fromThanksForInterest(data: any) {
     console.log(data + ' this is Thanks for Interest status');
     this.showThanksForInterest = data
-  }
+  };
 
   fromProductShowThanks(data: any) {
     console.log(data + 'from monoproduct thanks for Interest status');
@@ -182,6 +186,20 @@ export class LandshopComponent {
       this.emailsender.sendEmailInterested(this.user);
       console.log('dentro del if');
     }
+  };
+
+
+  fromClubMemberModal(data: any) {
+    console.log(data + ' this is Thanks for Interest status');
+    this.showClubMemberModal = data
+    if (this.user.email) {
+      this.emailsender.sendEmailClubMember(this.user);
+      console.log('dentro del if');
+    }
+  };
+
+  requestForClubMember(){
+    this.showClubMemberModal = true
   }
 
 
