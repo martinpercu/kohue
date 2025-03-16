@@ -52,13 +52,15 @@ export class EmailService {
   };
 
 
-  async sendEmailClubMember(user: any) {
+  async sendWildCardEmail(user: any, subject: string, text: string) {
     emailjs.init(EmailVars.INIT_VAR_PROD);
     console.log(user);
-    let response = await emailjs.send(EmailVars.CLUB_MEMBERS_SERVICE_2025_PROD, EmailVars.CLUB_MEMBERS_TEMPLATE_2025_PROD, {
+    let response = await emailjs.send(EmailVars.MULTI_EMAIL_SERVICE_2025_PROD, EmailVars.MULTI_EMAIL_TEMPLATE_2025_PROD, {
       firstname: user.firstname,
       lastname: user.lastname,
       client_email: user.email,
+      subject: subject,
+      text: text
     });
     console.log(response);
   };

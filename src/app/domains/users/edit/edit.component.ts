@@ -9,10 +9,9 @@ import { FormControl, Validators, FormGroup, ReactiveFormsModule, FormBuilder } 
 
 import { AuthService } from '@services/auth.service';
 import { ClientService } from '@services/client.service';
-
+import { EmailService } from '@services/email.service';
 
 import { MonoproductComponent } from '@shop/monoproduct/monoproduct.component';
-
 
 import { StripeService } from '@services/stripe.service';
 
@@ -31,6 +30,7 @@ export class EditComponent {
   private router = inject(Router);
   private formBuilder = inject(FormBuilder);
   private stripeService = inject(StripeService);
+  private emailService = inject(EmailService);
 
   form!: FormGroup;
 
@@ -416,6 +416,23 @@ export class EditComponent {
   updateUser() {
     this.clientService.updateOneUser(this.user, this.userId);
     this.buildForm();
+  }
+
+  modalSubscription(value: string) {
+    if(value == "active") {
+      alert('We are happy! We will contact you via email to confirm your choice.');
+      this.clientService.updateOneUserJustOneField('subscription', value, this.userId);
+      this.user.subscription == value;
+      this.emailService.sendWildCardEmail(this.user, 'Se RE SUBSCRIBIÓ el cliente', 'Este user clickeo RE SUBSCRIBIRSE');
+      this.getUser();
+    }
+    if(value == "inactive") {
+      alert('Sorry to see you go! We will contact you via email to confirm.');
+      this.clientService.updateOneUserJustOneField('subscription', value, this.userId);
+      this.user.subscription == value;
+      this.emailService.sendWildCardEmail(this.user, 'UNSUBSCRIBE', 'Este user click en UNSUBSCRIBE');
+      this.getUser();
+    }
   }
 
 

@@ -193,7 +193,7 @@ export class LandshopComponent {
     console.log(data + ' this is Thanks for Interest status');
     this.showClubMemberModal = data
     if (this.user.email) {
-      this.emailsender.sendEmailClubMember(this.user);
+      this.emailsender.sendWildCardEmail(this.user, 'Click en Wine Club Membership', 'Este user clickeo para Club Membership');
       console.log('dentro del if');
     }
   };
