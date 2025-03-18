@@ -24,6 +24,7 @@ import { Directlink2Component  } from '@shop/directlink-2/directlink-2.component
 import { Directlink3Component  } from '@shop/directlink-3/directlink-3.component';
 import { ThanksInterestModalComponent  } from '@shop/thanks-interest-modal/thanks-interest-modal.component';
 import { StaytunedComponent } from '@shop/staytuned/staytuned.component';
+import { ClubmemberModalComponent } from '@shop/clubmember-modal/clubmember-modal.component';
 
 
 import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
@@ -144,6 +145,10 @@ export const routes: Routes = [
   {
     path: 'stay',
     component: StaytunedComponent,
+  },
+  {
+    path: 'clubmember',
+    component: ClubmemberModalComponent,
   },
   // {
   //   path: 'admin',
