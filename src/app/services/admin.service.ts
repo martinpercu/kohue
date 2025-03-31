@@ -76,4 +76,32 @@ export class AdminService {
   }
 
 
+  // orderOptionalText(clients: Client[]) {
+  //   const listOfClientsChanged = clients.sort((a, b) => {
+  //     const subscriptionA = a.optionalText null?.trim().toLowerCase() || '';
+  //     const subscriptionB = b.optionalText null?.trim().toLowerCase() || '';
+  //     if (subscriptionA === '' && subscriptionB === '') return 0;
+  //     if (subscriptionA === '') return 1;
+  //     if (subscriptionB === '') return -1;
+  //     return subscriptionA.localeCompare(subscriptionB);
+  // });
+  //   return listOfClientsChanged
+  // }
+
+
+  orderOptionalText(clients: Client[]) {
+    const listOfClientsChanged = clients.sort((a, b) => {
+      const firstnameA = a.optionalText?.trim().toLowerCase() || ''; // empty string for null/undefined
+      const firstnameB = b.optionalText?.trim().toLowerCase() || ''; // empty string for null/undefined
+      // If both empty, they are considered equal
+      if (firstnameA === '' && firstnameB === '') return 0;
+      // If only one of them is empty (null/undefined), move it to the end
+      if (firstnameA === '') return 1;
+      if (firstnameB === '') return -1;
+      // Normal comparison for non-empty last names
+      return firstnameA.localeCompare(firstnameB);
+  });
+    return listOfClientsChanged
+  }
+
 }
