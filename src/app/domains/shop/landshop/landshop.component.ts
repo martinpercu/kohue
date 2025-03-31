@@ -72,7 +72,7 @@ export class LandshopComponent {
 
   showPurchase = this.shopService.showPurchase;
 
-  subMenuChoice: string = 'dash';
+  subMenuChoice: string = 'current';
 
 
   stripeOrders!: any;

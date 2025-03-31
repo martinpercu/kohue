@@ -13,13 +13,13 @@ import { environment } from '@env/environment';
 })
 export class AppComponent {
   title = environment.TITLE_INDEX;
-  // constructor()  {
-  //   if(environment.REDIRECT_TO_KOHUE) {
-  //     // alert("Estamos para ir a KOHUE");
-  //     window.location.href = 'https://kohuewines.com';
-  //   }
-  //   if(!environment.REDIRECT_TO_KOHUE) {
-  //     alert("Estamos En KOHUE");
-  //   }
-  // }
+  constructor()  {
+    // if(environment.REDIRECT_TO_KOHUE) {
+    //   // alert("Estamos para ir a KOHUE");
+    //   window.location.href = 'https://kohuewines.com';
+    // }
+    // if(!environment.REDIRECT_TO_KOHUE) {
+    //   // alert("Estamos En KOHUE");
+    // }
+  }
 }
