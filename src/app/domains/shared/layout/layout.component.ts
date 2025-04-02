@@ -27,5 +27,13 @@ export class LayoutComponent {
     this.router.navigate(['acquire'])
   };
 
+  navOurWines() {
+    this.router.navigate(['ourwines'])
+  };
+
+  navAbout() {
+    this.router.navigate(['about'])
+  };
+
 
 }

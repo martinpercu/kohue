@@ -1,37 +1,31 @@
 
-  <nav class="sm:hidden">
+  <nav class="sm:hidden bg-xlight bg-opacity-80 backdrop-blur-sm">
 
-    <div class="flex justify-between max-w-screen-xl py-2 px-2">
+    <div class="flex justify-between py-2 px-2">
 
-      <div (click)="navToHome()" class="my-auto">
-        <!-- <img src="./../../../../assets/img/kohue-sello.svg" class="h-7 hover:cursor-pointer" alt="Kohue Wines" /> -->
-      </div>
+      <!-- <div (click)="navToHome()" class="my-auto">
+        <img src="./../../../../assets/img/kohue-sello.svg" class="h-7 hover:cursor-pointer" alt="Kohue Wines" />
+      </div> -->
 
       <!-- <div (click)="navToHome()" class="flex-none w-1/6">
         <img src="./../../../../assets/img/kohue-sello.svg" class="h-7 hover:cursor-pointer" alt="Kohue Wines" />
       </div> -->
 
-      <div class="flex flex-row gap-4">
+      <div class="flex flex-row gap-4 m-auto">
           <button (click)="navJointhelist()" class="button_navbar_notLogged uppercase">
-            Join the List
+            Join
+          </button>
+          <button (click)="navAbout()" class="button_navbar_notLogged uppercase">
+            About us
+          </button>
+          <button (click)="navOurWines()" class="button_navbar_notLogged uppercase">
+            Wines
           </button>
           <button (click)="navMembers()" class="button_navbar_notLogged uppercase">
             Members
           </button>
       </div>
 
-      <!-- <div class="flex flex-1 gap-4 justify-end">
-        <div class="">
-          <button (click)="navJointhelist()" class="button_navbar uppercase">
-            Join the List
-          </button>
-        </div>
-        <div class="">
-          <button (click)="navMembers()" class="button_navbar uppercase">
-            Membersdddd
-          </button>
-        </div>
-      </div> -->
 
     </div>
 
@@ -39,7 +33,7 @@
 
 
 
-  <nav class="hidden sm:block">
+  <nav class="hidden sm:block bg-xlight bg-opacity-80 backdrop-blur-sm">
     <div class="flex justify-between py-1 px-3 sm:py-4 sm:px-8">
 
       <div class="my-auto">
@@ -49,7 +43,13 @@
 
       <div class="flex flex-row">
         <button (click)="navJointhelist()" class="button_navbar_notLogged mr-1 uppercase">
-          Join the List
+          Join
+        </button>
+        <button (click)="navAbout()" class="button_navbar_notLogged uppercase">
+          About us
+        </button>
+        <button (click)="navOurWines()" class="button_navbar_notLogged uppercase">
+          Wines
         </button>
         <button (click)="navMembers()" class="button_navbar_notLogged uppercase">
           Members
