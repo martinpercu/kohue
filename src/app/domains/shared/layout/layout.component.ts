@@ -1,6 +1,8 @@
 import { Component, inject } from '@angular/core';
 // import { NavbarComponent } from '@shared/navbar/navbar.component';
 import { Router } from '@angular/router';
+import { AuthService } from '@services/auth.service';
+
 
 @Component({
   selector: 'app-layout',
@@ -13,6 +15,8 @@ import { Router } from '@angular/router';
 export class LayoutComponent {
 
   private router = inject(Router);
+
+  authService = inject(AuthService);
 
 
   navJointhelist() {
