@@ -18,8 +18,8 @@
 </div> -->
 
 <div
-class="flex justify-center items-center my-4 sm:mx-10 mt-12 aspect-[3/2]">
-<img class="inset-0 w-full h-full object-cover" src="./../../../../assets/img/maxi-barrels.jpg" alt="">
+class="flex justify-center items-center my-4 sm:mx-10 mt-12 aspect-[3/2] sm:aspect-[8/5] md:aspect-[9/5] lg:aspect-[10/5]  xl:aspect-[11/5]">
+<img class="inset-0 w-full h-full object-cover filterForMaxBarrels" src="./../../../../assets/img/maxi-barrels.jpg" alt="">
 </div>
 
 <div class="pt-8">
@@ -53,14 +53,14 @@ class="flex justify-center items-center my-4 sm:mx-10 mt-12 aspect-[3/2]">
 </div>
 
 
-<div class="pt-20 mb-16 sm:mb-28 w-full text-center px-8 sm:px-20">
+<div class="pt-20 mb-12 sm:mb-20 w-full text-center px-8 sm:px-20">
   <div class="flex flex-col sm:flex-row max-w-[900px] m-auto">
 
     <div class="relative sm:w-1/2 aspect-square">
       <img class="absolute inset-0 w-full h-full object-cover" src="./../../../../assets/img/our-wines.jpg" alt="">
     </div>
 
-    <div class="flex flex-col text-center sm:pl-4 md:pl-12 lg:pl-20 my-16 sm:my-20 sm:w-1/2">
+    <div class="flex flex-col text-center sm:pl-4 md:pl-12 lg:pl-20 my-8 sm:my-12 sm:w-1/2">
 
       <div class="flex-initial">
         <div class="font-serif text-lg mb-2">
@@ -86,13 +86,32 @@ class="flex justify-center items-center my-4 sm:mx-10 mt-12 aspect-[3/2]">
         </div>
       </div>
 
+      <div class="grow h-12"></div>
+
+      <div class="w-1/2 m-auto">
+        @if(!this.authService.user()) {
+          <div (click)="navToSignIn()" class="button !px-0">
+            Join The List
+          </div>
+        }
+        @if(this.authService.user()) {
+          <div (click)="navToMembers()" class="button !px-0">
+            Acquire
+          </div>
+        }
+      </div>
+
     </div>
 
   </div>
+
+  <div class="mt-10 sm:mt-28 m-auto w-10/12 h-0.5 bg-xdark bg-opacity-60"></div>
+
 </div>
 
 
+
 <div
-  class="sm:gap-6 flex flex-row w-full bottom-0 text-black p-2 mt-12 text-sm bg-xlight bg-opacity-80 backdrop-blur-sm z-50">
+  class="w-full p-2 mt-12 text-sm z-50">
 <app-footer></app-footer>
 </div>

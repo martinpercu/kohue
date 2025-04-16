@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { NavbarComponent } from '@shared/navbar/navbar.component';
 import { FooterComponent } from '@shared/footer/footer.component';
 
+import { AuthService } from '@services/auth.service';
 
 @Component({
   selector: 'app-ourwines',
@@ -15,8 +16,19 @@ import { FooterComponent } from '@shared/footer/footer.component';
 export class OurwinesComponent {
   private router = inject(Router);
 
+  authService = inject(AuthService);
+
   navToHome() {
     this.router.navigate([''])
   };
+
+  navToSignIn() {
+    this.router.navigate(['join'])
+  };
+
+  navToMembers() {
+    this.router.navigate(['members'])
+  }
+
 
 }
