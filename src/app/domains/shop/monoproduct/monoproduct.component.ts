@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter, signal, inject } from '@angular/core';
-import { NavbarsignedComponent } from '@shared/navbarsigned/navbarsigned.component';
+// import { NavbarsignedComponent } from '@shared/navbarsigned/navbarsigned.component';
 import { Product } from '@models/product.model';
 
 import { CartService  } from '@services/cart.service';
@@ -9,7 +9,7 @@ import { MonoproductService  } from '@services/monoproduct.service';
 @Component({
   selector: 'app-monoproduct',
   standalone: true,
-  imports: [NavbarsignedComponent],
+  imports: [],
   templateUrl: './monoproduct.component.html',
   styleUrl: './monoproduct.component.css'
 })
@@ -30,6 +30,7 @@ export class MonoproductComponent {
 
   product_old: Product;
 
+  showTest: boolean = false;
   showThis: boolean = true;
   showMalbec: boolean = false;
 
@@ -63,5 +64,31 @@ export class MonoproductComponent {
     // alert('CLOSE ALERT this fall 2024. Stay tuned!')
     this.showThanksForInterest.emit(true);
   };
+
+  // showMagic() {
+  //   alert()
+  // }
+  showMagic() {
+    const texto = prompt('uds. saben:');
+    if (texto && texto.trim().toLowerCase() === 'blanquito') {
+      this.showNew(); // Ejecuta la función X si el texto es "blanquito"
+    }
+    // Si el texto es cualquier otra cosa o se cancela, no pasa nada
+  }
+
+  showNew() {
+    this.showTest = !this.showTest;
+    this.showThis = !this.showThis;
+  }
+
+  toPdf(path: any) {
+    const pdfPath = path;
+    if (pdfPath) {
+      window.open(`/assets/pdf/${pdfPath}`, '_blank');
+      // this.router.navigate(['/pdf-viewer']);
+    } else {
+      alert('No hay PDF disponible');
+    }
+  }
 
 }

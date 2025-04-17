@@ -30,5 +30,15 @@ export class OurwinesComponent {
     this.router.navigate(['members'])
   }
 
+  toPdf(path: any) {
+    const pdfPath = path;
+    if (pdfPath) {
+      window.open(`/assets/pdf/${pdfPath}`, '_blank');
+      // this.router.navigate(['/pdf-viewer']);
+    } else {
+      alert('No hay PDF disponible');
+    }
+  }
+
 
 }
