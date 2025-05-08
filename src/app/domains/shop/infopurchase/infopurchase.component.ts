@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { StripeService } from '@services/stripe.service';
 import { DatePipe } from '@angular/common';
+import { Client } from '@models/client.model'
 
 @Component({
   selector: 'app-infopurchase',
@@ -13,8 +14,7 @@ export class InfopurchaseComponent {
 
   private stripeService = inject(StripeService);
 
-
-
   purchaseDate = this.stripeService.purchaseDate;
+
 
 }

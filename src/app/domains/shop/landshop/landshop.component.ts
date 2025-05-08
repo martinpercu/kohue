@@ -24,12 +24,13 @@ import { HistorystripeComponent } from '@users/historystripe/historystripe.compo
 
 import { ThanksInterestModalComponent } from '@shop/thanks-interest-modal/thanks-interest-modal.component';
 
+import { DatePipe } from '@angular/common';
 
 
 @Component({
   selector: 'app-landshop',
   standalone: true,
-  imports: [EditComponent, NavbarsignedComponent, FooterComponent, MonoproductComponent, ShippingmethodComponent, CartComponent, CardStripeComponent, StaytunedComponent, InfopurchaseComponent, HistorystripeComponent, ThanksInterestModalComponent],
+  imports: [EditComponent, NavbarsignedComponent, FooterComponent, MonoproductComponent, ShippingmethodComponent, CartComponent, CardStripeComponent, StaytunedComponent, InfopurchaseComponent, HistorystripeComponent, ThanksInterestModalComponent, DatePipe],
   templateUrl: './landshop.component.html',
   styleUrl: './landshop.component.css'
 })
@@ -66,6 +67,13 @@ export class LandshopComponent {
   // purchaseDate = this.stripeService.purchaseDate;
 
   showPurchase = this.shopService.showPurchase;
+
+  subMenuChoice: string = 'dash';
+
+
+  stripeOrders!: any;
+
+
 
 
   constructor() {
@@ -170,7 +178,7 @@ export class LandshopComponent {
     console.log(data + 'from monoproduct thanks for Interest status');
     this.showThanksForInterest = data
     console.log(this.user.email + "en fromProductShowThanks");
-    if(this.user.email) {
+    if (this.user.email) {
       this.emailsender.sendEmailInterested(this.user);
       console.log('dentro del if');
     }
@@ -205,11 +213,8 @@ export class LandshopComponent {
       this.stripeService.getTimeLastOrder(epoch);
       this.shopService.handlerShowPurchase(true);
 
-      // this is test to retrieve transacctions from user
-
-      // const retrieveInfo$ = this.stripeService.retrieveUserTransactions(user);
-      // this.testRetrieve = await lastValueFrom(retrieveInfo$);
-      // console.log(this.testRetrieve);
+      this.stripeOrders = await this.stripeService.getCustomerSessionHistory(this.user);
+      console.log(this.stripeOrders);
 
     }
   }
@@ -217,6 +222,10 @@ export class LandshopComponent {
   // getTimeLastOrder(epoch: any) {
   //   this.purchaseDate = epoch*1000;
   // }
+
+  setSubMenuChoice(value: string) {
+    this.subMenuChoice = value;
+  }
 
 
 
