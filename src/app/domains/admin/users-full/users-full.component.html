@@ -26,6 +26,9 @@
         <th scope="col" class="px-6 py-3 hover:cursor-pointer" (click)="orderByStripe()">
           Stripe ID
         </th>
+        <th scope="col" class="px-6 py-3 hover:cursor-pointer" (click)="orderBySubscription()">
+          Subscription
+        </th>
         <th scope="col" class="px-6 py-3">
           Phone
         </th>
@@ -52,6 +55,9 @@
         </td>
         <td class="px-6 py-4">
           {{user.stripeCustomerId}}
+        </td>
+        <td class="px-6 py-4">
+          {{user.subscription}}
         </td>
         <td class="px-6 py-4">
           {{user.phone}}

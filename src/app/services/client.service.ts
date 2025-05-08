@@ -88,6 +88,19 @@ export class ClientService {
       })
   };
 
+  updateOneUserJustOneField(fieldName: string, newValue: any, userId: string) {
+    const userDocRef = doc(this.firestore, 'users', userId);
+    const updateObject = { [fieldName]: newValue };
+    updateDoc(userDocRef, updateObject)
+      .then(() => {
+        console.log('User field updated');
+        // alert('User field Updated');
+      })
+      .catch((error) => {
+        console.log(error);
+      })
+  }
+
   deleteUser(user: Client) {
     const userDocRef = doc(this.firestore, `users/${user.clientUID}`);
     return deleteDoc(userDocRef)
