@@ -15,6 +15,10 @@
 <app-thanks-interest-modal (showThanksForInterest)="fromThanksForInterest($event)"></app-thanks-interest-modal>
 }
 
+@if(showClubMemberModal == true) {
+  <app-clubmember-modal (showClubMemberModal)="fromClubMemberModal($event)"></app-clubmember-modal>
+}
+
 <div class="pt-14">
 
   <!-- <app-historystripe></app-historystripe> -->
@@ -102,16 +106,31 @@
   <div class="m-auto min-w-80 max-w-4xl p-2  sm:p-6 md:p-8">
 
     <div class="text-lg flex justify-center mt-2 mb-2 uppercase">
-      Orders
+      Acquire
     </div>
 
-    <div class="p-4 bg-transparent border border-gray-500 ">
+    <div class="p-4 bg-transparent border border-gray-500 mb-12">
       <div class="flex flex-col sm:flex-row mb-2">
         <div class="grow text-lg text-center sm:text-left">
           Start shopping to place your order.
         </div>
         <div class="flex-none mt-3 sm:mt-0 hover:cursor-pointer text-base tracking-wider">
           <div (click)="setSubMenuChoice('current')" class="button">Start Shopping</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-lg flex justify-center mt-2 mb-2 uppercase">
+      Wine Club Membership
+    </div>
+
+    <div class="p-4 bg-transparent border border-gray-500 mb-12">
+      <div class="flex flex-col sm:flex-row mb-2">
+        <div class="grow text-lg text-center sm:text-left">
+          Enjoy Wine club membership benefits.
+        </div>
+        <div class="flex-none mt-3 sm:mt-0 hover:cursor-pointer text-base tracking-wider">
+          <div (click)="requestForClubMember()" class="button">More info</div>
         </div>
       </div>
     </div>
