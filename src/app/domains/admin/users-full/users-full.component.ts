@@ -59,6 +59,14 @@ export class UsersFullComponent {
 
   orderByStripe() {
     this.usersToShow = this.adminService.orderStripeId(this.users);
+  };
+
+  orderBySubscription() {
+    this.usersToShow = this.adminService.orderSubscription(this.users);
+  }
+
+  orderByOptionalText() {
+    this.usersToShow = this.adminService.orderOptionalText(this.users);
   }
 
 
