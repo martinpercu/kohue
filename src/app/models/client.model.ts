@@ -12,6 +12,7 @@ export interface Client {
   byPhone?: boolean;
   byEmail?: boolean;
   agree?: boolean;
+  subscription?: "active" | "inactive";
   address?: string;
   addressExtra?: string;
   state?: string;

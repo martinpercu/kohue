@@ -225,6 +225,33 @@
 
       </div>
 
+
+      @if(this.user.subscription == 'inactive') {
+        <div class="text-lg justify-center mt-6 mb-2">
+          <div class="hidden sm:block mb-2 text-xs font-medium sm:w-3/4">Monster no tenés subscription. METELE
+            communications from us.<br>You can unsubscribe anytime by clicking <span (click)="modalSubscription('active')" class="hover:underline hover:cursor-pointer">here</span>.
+          </div>
+
+          <div class="block sm:hidden mb-2 text-xs font-medium">Monster no tenés subscription. METELE
+            communications from us.You can unsubscribe anytime by clicking <span (click)="modalSubscription('active')" class="hover:underline hover:cursor-pointer">here</span>.
+          </div>
+        </div>
+      }
+
+      @if(!this.user.subscription || this.user.subscription == 'active') {
+        <div class="text-lg justify-center mt-6 mb-2">
+          <div class="hidden sm:block mb-2 text-xs font-medium sm:w-3/4">As a member of Kohue Wines, you agree to receive marketing
+            communications from us.<br>You can unsubscribe anytime by clicking <span (click)="modalSubscription('inactive')" class="hover:underline hover:cursor-pointer">here</span>.
+          </div>
+
+          <div class="block sm:hidden mb-2 text-xs font-medium">As a member of Kohue Wines, you agree to receive marketing
+            communications from us.You can unsubscribe anytime by clicking <span (click)="modalSubscription('inactive')" class="hover:underline hover:cursor-pointer">here</span>.
+          </div>
+        </div>
+      }
+
+
+
       <div class="text-lg justify-center mt-6 mb-2">
         <div>
           <label class="block mb-2 text-sm font-medium text-gray-900">Optional notes:</label>
