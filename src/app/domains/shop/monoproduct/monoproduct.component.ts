@@ -30,8 +30,8 @@ export class MonoproductComponent {
 
   product_old: Product;
 
-  showTest: boolean = false;
-  showThis: boolean = true;
+  showTest: boolean = true;
+  showThis: boolean = false;
   showMalbec: boolean = false;
   showMalbec2: boolean = false;
 
@@ -83,6 +83,36 @@ export class MonoproductComponent {
   }
 
   toPdf(path: any) {
+    const pdfPath = path;
+    if (pdfPath) {
+      window.open(`/assets/pdf/${pdfPath}`, '_blank');
+      // this.router.navigate(['/pdf-viewer']);
+    } else {
+      alert('No hay PDF disponible');
+    }
+  }
+
+  toPdff(path: any) {
+    const pdfPath = path;
+    if (pdfPath) {
+      window.open(`/assets/pdf/${pdfPath}`, '_blank');
+      // this.router.navigate(['/pdf-viewer']);
+    } else {
+      alert('No hay PDF disponible');
+    }
+  }
+
+  toPdfs(path: any) {
+    const pdfPath = path;
+    if (pdfPath) {
+      window.open(`/assets/pdf/${pdfPath}`, '_blank');
+      // this.router.navigate(['/pdf-viewer']);
+    } else {
+      alert('No hay PDF disponible');
+    }
+  }
+
+  toPdfd(path: any) {
     const pdfPath = path;
     if (pdfPath) {
       window.open(`/assets/pdf/${pdfPath}`, '_blank');

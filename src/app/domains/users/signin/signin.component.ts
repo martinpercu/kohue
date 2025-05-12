@@ -74,6 +74,9 @@ export class SigninComponent {
           }
           console.log("esto esta despues");
         }
+        if (error.code == "auth/weak-password") {
+            window.alert("Password should be at least 6 characters");
+        }
         else {
           console.log(error)
         };

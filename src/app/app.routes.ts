@@ -29,6 +29,8 @@ import { ClubmemberModalComponent } from '@shop/clubmember-modal/clubmember-moda
 import { AboutComponent } from '@users/about/about.component';
 import { OurwinesComponent } from '@users/ourwines/ourwines.component';
 
+import { InfopurchaseComponent } from '@shop/infopurchase/infopurchase.component';
+
 import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 
 
@@ -159,6 +161,10 @@ export const routes: Routes = [
   {
     path: 'clubmember',
     component: ClubmemberModalComponent,
+  },
+  {
+    path: 'succes',
+    component: InfopurchaseComponent,
   },
   // {
   //   path: 'admin',
