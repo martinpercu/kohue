@@ -50,6 +50,7 @@ export class AdminService {
     });
     return listOfClientsChanged
   }
+
   orderStripeId(clients: Client[]) {
     const listOfClientsChanged = clients.sort((a, b) => {
       const stripeIdA = a.stripeCustomerId?.trim().toLowerCase() || '';
@@ -58,6 +59,18 @@ export class AdminService {
       if (stripeIdA === '') return 1;
       if (stripeIdB === '') return -1;
       return stripeIdA.localeCompare(stripeIdB);
+  });
+    return listOfClientsChanged
+  }
+
+  orderSubscription(clients: Client[]) {
+    const listOfClientsChanged = clients.sort((a, b) => {
+      const subscriptionA = a.subscription?.trim().toLowerCase() || '';
+      const subscriptionB = b.subscription?.trim().toLowerCase() || '';
+      if (subscriptionA === '' && subscriptionB === '') return 0;
+      if (subscriptionA === '') return 1;
+      if (subscriptionB === '') return -1;
+      return subscriptionA.localeCompare(subscriptionB);
   });
     return listOfClientsChanged
   }
