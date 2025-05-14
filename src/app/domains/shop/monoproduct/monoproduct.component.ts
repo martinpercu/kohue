@@ -27,11 +27,17 @@ export class MonoproductComponent {
 
   monoproduct: Product;
 
+  product_old: Product;
+
+  showThis: boolean = false;
+  showMalbec: boolean = true;
+
   // @Output() addToCart = new EventEmitter();
 
   constructor() {
     this.monoproduct = this.monoproductService.returnMonoproduct();
     // console.log(this.monoproduct);
+    this.product_old = this.monoproductService.returnMonoproduct_old();
   };
 
   addToCartHandler() {
