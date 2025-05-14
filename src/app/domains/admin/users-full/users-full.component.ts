@@ -65,5 +65,9 @@ export class UsersFullComponent {
     this.usersToShow = this.adminService.orderSubscription(this.users);
   }
 
+  orderByOptionalText() {
+    this.usersToShow = this.adminService.orderOptionalText(this.users);
+  }
+
 
 }
