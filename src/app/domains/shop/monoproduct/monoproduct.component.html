@@ -1,5 +1,6 @@
 <!-- <app-navbarsigned></app-navbarsigned> -->
 
+@if(showThis) {
 
 <div class="m-auto min-w-80 max-w-4xl p-2  sm:p-6 md:p-8 text-center">
 
@@ -10,13 +11,12 @@
 
   <div class="grid grid-cols-3 border border-gray-500  shadow">
     <div class="block sm:hidden col-span-1 ">
-      <!-- <img class="p-2 rounded-t-lg max-h-52 m-auto" src="./../../../../assets/img/Botella-Kohue-2021-small.png" alt="malbec-2023" /> -->
       <img class="p-2 rounded-t-lg max-h-52 sm:max-h-72 m-auto" src="{{ monoproduct.imageMobile }}" />
     </div>
     <div class="hidden sm:block col-span-1 ">
-      <!-- <img class="p-2 rounded-t-lg max-h-52 m-auto" src="./../../../../assets/img/Botella-Kohue-2021-small.png" alt="malbec-2023" /> -->
       <img class="p-2 rounded-t-lg max-h-52 sm:max-h-72 m-auto" src="{{ monoproduct.imageDesktop }}" />
     </div>
+
     <div class="col-span-2 flex flex-col sm:gap-2 text-sm sm:text-lg m-auto">
         <div class="font-semibold">
           {{ monoproduct.title  }}
@@ -43,7 +43,7 @@
 
 
 
-<div class="m-auto mt-8 min-w-80 max-w-4xl p-2  sm:p-6 md:p-8 text-center">
+<div class="m-auto mt-84 min-w-80 max-w-4xl p-2  sm:p-6 md:p-8 text-center">
 
 
   <div class="text-sm flex justify-center mt-2 mb-2 uppercase">
@@ -76,36 +76,41 @@
   </div>
 </div>
 
+}
 
 
+@if(showMalbec) {
+  <div class="m-auto min-w-80 max-w-4xl p-2  sm:p-6 md:p-8 text-center">
 
 
-<!-- <div class="m-auto my-8 min-w-80 max-w-4xl p-2  sm:p-6 md:p-8 text-center">
+    <div class="text-lg flex justify-center mt-2 mb-2 uppercase">
+      INAUGURAL RELEASE CLOSED
+    </div>
 
+    <div class="grid grid-cols-3 border border-gray-500  shadow">
+      <div class="block sm:hidden col-span-1 ">
+        <img class="p-2 rounded-t-lg max-h-52 sm:max-h-72 m-auto" src="{{ product_old.imageMobile }}" />
+      </div>
+      <div class="hidden sm:block col-span-1 ">
+        <img class="p-2 rounded-t-lg max-h-52 sm:max-h-72 m-auto" src="{{ product_old.imageDesktop }}" />
+      </div>
 
-  <div class="text-lg flex justify-center mt-2 mb-2 uppercase">
-    INAUGURAL RELEASE CLOSED
+      <div class="col-span-2 flex flex-col sm:gap-2 text-sm sm:text-lg m-auto">
+
+        <div class="font-semibold">
+          {{ product_old.title  }}
+        </div>
+        <div class="font-normal">
+          {{ product_old.description  }}
+        </div>
+        <div class="font-semibold h-2">
+        </div>
+        <div class="button m-auto" (click)="showThanksForYourInterestAlert()">
+          Request To Acquire
+        </div>
+
+      </div>
+    </div>
   </div>
+}
 
-  <div class="border-gray-500">
-    <div class="block sm:hidden col-span-1 ">
-      <img class="p-2 rounded-t-lg max-h-52 sm:max-h-72 m-auto" src="{{ product_old.imageMobile }}" />
-    </div>
-    <div class="hidden sm:block col-span-1 ">
-      <img class="p-2 rounded-t-lg max-h-52 sm:max-h-72 m-auto" src="{{ product_old.imageDesktop }}" />
-    </div>
-    <div class="flex flex-col sm:flex-row gap-2 text-sm sm:text-lg m-auto">
-
-      <div class="font-semibold w-2/3">
-        {{ product_old.title  }}
-      </div>
-      <div class="font-normal grow">
-        {{ product_old.description  }}
-      </div>
-      <div class="button w-1/3" (click)="showThanksForYourInterestAlert()">
-        Request To Acquire
-      </div>
-
-    </div>
-  </div>
-</div> -->

@@ -26,6 +26,8 @@ import { ThanksInterestModalComponent  } from '@shop/thanks-interest-modal/thank
 import { StaytunedComponent } from '@shop/staytuned/staytuned.component';
 import { ClubmemberModalComponent } from '@shop/clubmember-modal/clubmember-modal.component';
 
+import { AboutComponent } from '@users/about/about.component';
+import { OurwinesComponent } from '@users/ourwines/ourwines.component';
 
 import { canActivate, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 
@@ -62,6 +64,14 @@ export const routes: Routes = [
   {
     path: '',
     component: LayoutComponent
+  },
+  {
+    path: 'ourwines',
+    component: OurwinesComponent
+  },
+  {
+    path: 'about',
+    component: AboutComponent
   },
   {
     path: 'admin',

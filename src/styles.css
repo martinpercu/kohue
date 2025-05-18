@@ -30,7 +30,7 @@ input{
 };
 
 .button_navbar_notLogged {
-  @apply hover:cursor-pointer font-buttonFont text-xdark text-center align-middle hover:text-black font-medium rounded-md text-xs px-2 py-1 sm:px-6 sm:py-2;
+  @apply hover:cursor-pointer font-buttonFont text-xdark text-center align-middle hover:text-black font-medium rounded-md text-xs px-2 py-1 sm:px-4 sm:py-2;
 }
 
 .navbar_cart {
