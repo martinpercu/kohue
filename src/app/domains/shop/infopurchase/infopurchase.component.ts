@@ -1,7 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { StripeService } from '@services/stripe.service';
 import { DatePipe } from '@angular/common';
-import { Client } from '@models/client.model'
+import { Client } from '@models/client.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-infopurchase',
@@ -12,9 +13,16 @@ import { Client } from '@models/client.model'
 })
 export class InfopurchaseComponent {
 
+  router = inject(Router);
+
   private stripeService = inject(StripeService);
 
   purchaseDate = this.stripeService.purchaseDate;
+
+
+  closeSucces() {
+    this.router.navigate(['members'])
+  }
 
 
 }

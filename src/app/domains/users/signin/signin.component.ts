@@ -32,6 +32,8 @@ export class SigninComponent {
 
   showPassword: boolean = false;
 
+  infoPasswordRequirement: boolean = false;
+
 
   constructor() {
     this.formReg = new FormGroup({
@@ -73,6 +75,10 @@ export class SigninComponent {
             this.navToLogin();
           }
           console.log("esto esta despues");
+        }
+        if (error.code == "auth/weak-password") {
+            // window.alert("Password should be at least 6 characters");
+            this.infoPasswordRequirement = true;
         }
         else {
           console.log(error)
