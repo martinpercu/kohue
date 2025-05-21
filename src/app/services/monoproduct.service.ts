@@ -13,8 +13,8 @@ export class MonoproductService {
     title: "2021 Kohue Cabernet Sauvignon",
     titleCart: "2021 Kohue Cabernet Sauvignon 3-Pack",
     price: 435,
-    imageMobile: "./../../../../assets/img/Botella-Kohue-2024-Mobile.png",
-    imageDesktop: "./../../../../assets/img/Botella-Kohue-2024-Desktop.png",
+    imageMobile: "./../../../../assets/img/Cabernet-2021-Mobile.png",
+    imageDesktop: "./../../../../assets/img/Cabernet-2021-Desktop.png",
     description: "Case of 3 bottles (750ml)",
     images: ["./../../../../assets/img/Botella-Kohue-2021-small.png", "./../../../../assets/img/Botella-Kohue-2021-small.png"],
     category: {
