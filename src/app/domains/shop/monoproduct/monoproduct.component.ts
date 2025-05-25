@@ -29,6 +29,9 @@ export class MonoproductComponent {
 
   product_old: Product;
 
+  showThis: boolean = false;
+  showMalbec: boolean = true;
+
   // @Output() addToCart = new EventEmitter();
 
   constructor() {

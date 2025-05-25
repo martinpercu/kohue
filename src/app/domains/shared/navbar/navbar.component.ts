@@ -28,5 +28,13 @@ export class NavbarComponent {
     this.router.navigate(['members'])
   };
 
+  navOurWines() {
+    this.router.navigate(['ourwines'])
+  };
+
+  navAbout() {
+    this.router.navigate(['about'])
+  };
+
 
 }
