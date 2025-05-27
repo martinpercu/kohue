@@ -11,8 +11,9 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent {
 
-  private authService = inject(AuthService);
+  authService = inject(AuthService);
   private router = inject(Router);
+
 
 
 
