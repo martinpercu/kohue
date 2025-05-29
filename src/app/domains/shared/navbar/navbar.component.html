@@ -12,9 +12,11 @@
       </div> -->
 
       <div class="flex flex-row gap-4 m-auto">
+        @if(!this.authService.user()) {
           <button (click)="navJointhelist()" class="button_navbar_notLogged uppercase">
             Join
           </button>
+        }
           <button (click)="navAbout()" class="button_navbar_notLogged uppercase">
             About us
           </button>
@@ -42,9 +44,11 @@
       </div>
 
       <div class="flex flex-row">
-        <button (click)="navJointhelist()" class="button_navbar_notLogged mr-1 uppercase">
-          Join
-        </button>
+        @if(!this.authService.user()) {
+          <button (click)="navJointhelist()" class="button_navbar_notLogged mr-1 uppercase">
+            Join
+          </button>
+        }
         <button (click)="navAbout()" class="button_navbar_notLogged uppercase">
           About us
         </button>

@@ -8,11 +8,12 @@
     </div>
 
     <div class="flex gap-3 justify-center pt-0">
-
+      @if(!this.authService.user()) {
       <div (click)="navJointhelist()"
         class="font-serif text-xdark text-center items-center hover:text-black hover:cursor-pointer text-xs font-medium px-2 py-2 uppercase">
         Join
       </div>
+      }
       <div (click)="navAbout()"
         class="font-serif text-xdark text-center items-center hover:text-black hover:cursor-pointer text-xs font-medium px-2 py-2 uppercase">
         About us
@@ -32,36 +33,38 @@
 
   <div class="hidden sm:block bg-cordillera-sepia bg-top cover_background_tallest_screens  h-screen">
 
-      <!-- <div class="flex justify-center items-center pt-16">
+    <!-- <div class="flex justify-center items-center pt-16">
     <img class="h-20" src="./../../../../assets/img/kohue-sello-dark.svg" alt="">
   </div> -->
-      <div class="flex justify-center items-center py-2 px-10 pt-28">
-        <img class="h-6" src="./../../../../assets/img/kohue-name-dark.svg" alt="">
-      </div>
+    <div class="flex justify-center items-center py-2 px-10 pt-28">
+      <img class="h-6" src="./../../../../assets/img/kohue-name-dark.svg" alt="">
+    </div>
 
-      <div class="flex gap-4 justify-center pt-2">
+    <div class="flex gap-4 justify-center pt-2">
 
-        <!-- <div (click)="navJointhelist()" class="text-xdark text-center items-center hover:underline hover:cursor-pointer text-lg font-medium px-6 py-2 uppercase">
+      <!-- <div (click)="navJointhelist()" class="text-xdark text-center items-center hover:underline hover:cursor-pointer text-lg font-medium px-6 py-2 uppercase">
         Join the List
     </div> -->
-        <div (click)="navJointhelist()"
-          class="font-serif text-xdark text-center items-center hover:text-black hover:cursor-pointer text-xs font-medium px-2 py-2 uppercase">
-          Join
-        </div>
-        <div (click)="navAbout()"
-          class="font-serif text-xdark text-center items-center hover:text-black hover:cursor-pointer text-xs font-medium px-2 py-2 uppercase">
-          About us
-        </div>
-        <div (click)="navOurWines()"
-          class="font-serif text-xdark text-center items-center hover:text-black hover:cursor-pointer text-xs font-medium px-2 py-2 uppercase">
-          Wines
-        </div>
-        <div (click)="navToShopArea()"
-          class="font-serif text-xdark text-center items-center hover:text-black hover:cursor-pointer text-xs font-medium px-2 py-2 uppercase">
-          Members
-        </div>
-
+      @if(!this.authService.user()) {
+      <div (click)="navJointhelist()"
+        class="font-serif text-xdark text-center items-center hover:text-black hover:cursor-pointer text-xs font-medium px-2 py-2 uppercase">
+        Join
       </div>
+      }
+      <div (click)="navAbout()"
+        class="font-serif text-xdark text-center items-center hover:text-black hover:cursor-pointer text-xs font-medium px-2 py-2 uppercase">
+        About us
+      </div>
+      <div (click)="navOurWines()"
+        class="font-serif text-xdark text-center items-center hover:text-black hover:cursor-pointer text-xs font-medium px-2 py-2 uppercase">
+        Wines
+      </div>
+      <div (click)="navToShopArea()"
+        class="font-serif text-xdark text-center items-center hover:text-black hover:cursor-pointer text-xs font-medium px-2 py-2 uppercase">
+        Members
+      </div>
+
+    </div>
 
 
   </div>
