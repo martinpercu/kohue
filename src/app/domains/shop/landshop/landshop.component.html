@@ -1,29 +1,32 @@
 <!-- <p>landshop works!</p> -->
 <!-- <app-navbarsigned></app-navbarsigned> -->
-<div class="fixed w-full z-10">
-  <app-navbarsigned (showMonoproduct)="fromNavbarMonoproduct($event)" (cartOnOff)="fromNavbarCart($event)"
-    (showAccount)="fromNavbarAccountHandler($event)" (showStayTuned)="fromNavbarAndStayTuned($event)">
-  </app-navbarsigned>
-</div>
 
-@if(showStayTune == true) {
-<app-staytuned (showStayTuned)="fromNavbarAndStayTuned($event)"> </app-staytuned>
-}
+<div class="flex flex-col min-h-screen">
+
+  <div class="fixed w-full z-10">
+    <app-navbarsigned (showMonoproduct)="fromNavbarMonoproduct($event)" (cartOnOff)="fromNavbarCart($event)"
+      (showAccount)="fromNavbarAccountHandler($event)" (showStayTuned)="fromNavbarAndStayTuned($event)">
+    </app-navbarsigned>
+  </div>
+
+  @if(showStayTune == true) {
+  <app-staytuned (showStayTuned)="fromNavbarAndStayTuned($event)"> </app-staytuned>
+  }
 
 
-@if(showThanksForInterest == true) {
-<app-thanks-interest-modal (showThanksForInterest)="fromThanksForInterest($event)"></app-thanks-interest-modal>
-}
+  @if(showThanksForInterest == true) {
+  <app-thanks-interest-modal (showThanksForInterest)="fromThanksForInterest($event)"></app-thanks-interest-modal>
+  }
 
-@if(showClubMemberModal == true) {
+  @if(showClubMemberModal == true) {
   <app-clubmember-modal (showClubMemberModal)="fromClubMemberModal($event)"></app-clubmember-modal>
-}
+  }
 
-<div class="pt-14">
+  <div class="pt-14">
 
-  <!-- <app-historystripe></app-historystripe> -->
+    <!-- <app-historystripe></app-historystripe> -->
 
-  <!-- <div class="m-auto sm:flex sm:flex-row min-w-80 max-w-4xl p-2 rounded-lg sm:p-6 md:p-8 text-center">
+    <!-- <div class="m-auto sm:flex sm:flex-row min-w-80 max-w-4xl p-2 rounded-lg sm:p-6 md:p-8 text-center">
     @if(showStripeAndCart == true) {
     <div class="sm:w-1/2">
       <app-card-stripe></app-card-stripe>
@@ -42,118 +45,118 @@
 
 
 
-  @if(showCart == true) {
-  <app-cart (cartOff)="fromNavbarCart($event)"></app-cart>
-  }
+    @if(showCart == true) {
+    <app-cart (cartOff)="fromNavbarCart($event)"></app-cart>
+    }
 
-  <!-- <app-cart (cartOff)="fromNavbarCart($event)"></app-cart> -->
+    <!-- <app-cart (cartOff)="fromNavbarCart($event)"></app-cart> -->
 
-  <!-- @if(showCart == true) {
+    <!-- @if(showCart == true) {
     <app-cart (cartOff)="fromNavbarCart($event)"></app-cart>
   } -->
 
-  <!-- <div [class.hidden]="!showCart">
+    <!-- <div [class.hidden]="!showCart">
     <app-cart (cartOff)="fromNavbarCart($event)"></app-cart>
   </div> -->
 
-  <!-- <app-monoproduct (cartOnOff)="fromProduct($event)" (monoproductOff)="fromProductCloserMonoproduct($event)"></app-monoproduct> -->
+    <!-- <app-monoproduct (cartOnOff)="fromProduct($event)" (monoproductOff)="fromProductCloserMonoproduct($event)"></app-monoproduct> -->
 
-  <!-- @if(showWine == true) {
+    <!-- @if(showWine == true) {
   <app-monoproduct (cartOnOff)="fromProduct($event)"
     (monoproductOff)="fromProductCloserMonoproduct($event)"></app-monoproduct>
   } -->
 
-  <!-- <div (click)="knowIfUserHasBuyed()" class="button_off">
+    <!-- <div (click)="knowIfUserHasBuyed()" class="button_off">
     - TEST STRIPE
   </div> -->
 
-  <!-- <div (click)="knowIfUserHasBuyed()" class="button_off">
+    <!-- <div (click)="knowIfUserHasBuyed()" class="button_off">
     - TEST STRIPE
   </div> -->
 
-  <!-- @if(showWine == true) {
+    <!-- @if(showWine == true) {
     <app-monoproduct (cartOnOff)="fromProduct($event)"></app-monoproduct>
     } -->
-  <div class="flex justify-center mt-10 text-3xl">
-    Hello @if(this.user.firstname){{{this.user.firstname}}}!
-  </div>
-  <div class="flex justify-center mt-4 text-1xl">
-    Welcome to your account!
-  </div>
-
-  <div class="flex justify-center mt-6 mb-6">
-    <div class="flex flex-row gap-4 mt-4 justify-center text-base sm:text-lg underline text-center">
-      @if(subMenuChoice == 'dash'){
-      <div class="font-semibold">Dashboad</div>
-      } @else {
-      <div class="cursor-pointer" (click)="setSubMenuChoice('dash')">Dashboad</div>
-      }
-      @if(subMenuChoice == 'history'){
-      <div class="font-semibold">Order History</div>
-      } @else {
-      <div class="cursor-pointer" (click)="setSubMenuChoice('history')">Order History</div>
-      }
-      @if(subMenuChoice == 'account'){
-      <div class="font-semibold">Account Details</div>
-      } @else {
-      <div class="cursor-pointer" (click)="setSubMenuChoice('account')">Account Details</div>
-      }
+    <div class="flex justify-center mt-10 text-3xl">
+      Hello @if(this.user.firstname){{{this.user.firstname}}}!
     </div>
-  </div>
-
-
-  @if(subMenuChoice == 'dash'){
-  <div class="m-auto min-w-80 max-w-4xl p-2  sm:p-6 md:p-8">
-
-    <div class="text-lg flex justify-center mt-2 mb-2 uppercase">
-      Acquire
+    <div class="flex justify-center mt-4 text-1xl">
+      Welcome to your account!
     </div>
 
-    <div class="p-4 bg-transparent border border-gray-500 mb-12">
-      <div class="flex flex-col sm:flex-row mb-2">
-        <div class="grow text-lg text-center sm:text-left">
-          Start shopping to place your order.
-        </div>
-        <div class="flex-none mt-3 sm:mt-0 hover:cursor-pointer text-base tracking-wider">
-          <div (click)="setSubMenuChoice('current')" class="button">Start Shopping</div>
-        </div>
+    <div class="flex justify-center mt-6 mb-6">
+      <div class="flex flex-row gap-4 mt-4 justify-center text-base sm:text-lg underline text-center">
+        @if(subMenuChoice == 'dash'){
+        <div class="font-semibold">Dashboad</div>
+        } @else {
+        <div class="cursor-pointer" (click)="setSubMenuChoice('dash')">Dashboad</div>
+        }
+        @if(subMenuChoice == 'history'){
+        <div class="font-semibold">Order History</div>
+        } @else {
+        <div class="cursor-pointer" (click)="setSubMenuChoice('history')">Order History</div>
+        }
+        @if(subMenuChoice == 'account'){
+        <div class="font-semibold">Account Details</div>
+        } @else {
+        <div class="cursor-pointer" (click)="setSubMenuChoice('account')">Account Details</div>
+        }
       </div>
     </div>
 
-    <div class="text-lg flex justify-center mt-2 mb-2 uppercase">
-      Wine Club Membership
-    </div>
 
-    <div class="p-4 bg-transparent border border-gray-500 mb-12">
-      <div class="flex flex-col sm:flex-row mb-2">
-        <div class="grow text-lg text-center sm:text-left">
-          Enjoy wine club membership benefits.
-        </div>
-        <div class="flex-none mt-3 sm:mt-0 hover:cursor-pointer text-base tracking-wider">
-          <div (click)="requestForClubMember()" class="button">More info</div>
+    @if(subMenuChoice == 'dash'){
+    <div class="m-auto min-w-80 max-w-4xl p-2  sm:p-6 md:p-8">
+
+      <div class="text-lg flex justify-center mt-2 mb-2 uppercase">
+        Acquire
+      </div>
+
+      <div class="p-4 bg-transparent border border-gray-500 mb-12">
+        <div class="flex flex-col sm:flex-row mb-2">
+          <div class="grow text-lg text-center sm:text-left">
+            Start shopping to place your order.
+          </div>
+          <div class="flex-none mt-3 sm:mt-0 hover:cursor-pointer text-base tracking-wider">
+            <div (click)="setSubMenuChoice('current')" class="button">Start Shopping</div>
+          </div>
         </div>
       </div>
+
+      <div class="text-lg flex justify-center mt-2 mb-2 uppercase">
+        Wine Club Membership
+      </div>
+
+      <div class="p-4 bg-transparent border border-gray-500 mb-12">
+        <div class="flex flex-col sm:flex-row mb-2">
+          <div class="grow text-lg text-center sm:text-left">
+            Wine Club Membership - Coming Fall 2025
+          </div>
+          <div class="flex-none mt-3 sm:mt-0 hover:cursor-pointer text-base tracking-wider">
+            <div (click)="requestForClubMember()" class="button">Request More info</div>
+          </div>
+        </div>
+      </div>
+
     </div>
+    }
 
-  </div>
-  }
+    @if(subMenuChoice == 'current'){
+    <app-monoproduct (cartOnOff)="fromProduct($event)"
+      (showThanksForInterest)="fromProductShowThanks($event)"></app-monoproduct>
+    }
 
-  @if(subMenuChoice == 'current'){
-  <app-monoproduct (cartOnOff)="fromProduct($event)"
-    (showThanksForInterest)="fromProductShowThanks($event)"></app-monoproduct>
-  }
-
-  <!-- @if(subMenuChoice == 'history'){
+    <!-- @if(subMenuChoice == 'history'){
   <app-infopurchase></app-infopurchase>
   } -->
 
-  @if(subMenuChoice == 'account') {
-  <div [class.hidden]="!showEditAccount">
-    <app-edit></app-edit>
-  </div>
-  }
+    @if(subMenuChoice == 'account') {
+    <div [class.hidden]="!showEditAccount">
+      <app-edit></app-edit>
+    </div>
+    }
 
-  <!-- This is closer to "history" in logic
+    <!-- This is closer to "history" in logic
   @if (showPurchase() == true ) {
     <app-infopurchase></app-infopurchase>
     } -->
@@ -164,94 +167,94 @@
 
 
 
-  @if(subMenuChoice == 'history'){
-  <div class="m-auto min-w-80 max-w-4xl p-2  sm:p-6 md:p-8">
+    @if(subMenuChoice == 'history'){
+    <div class="m-auto min-w-80 max-w-4xl p-2  sm:p-6 md:p-8">
 
-    <div class="text-lg flex justify-center mt-2 mb-2 uppercase">
-      Orders
-    </div>
-
-    @if(!stripeOrders) {
-    <div class="mb-2 mt-4 w-full">
-      <div class="mt-8 text-lg text-center">
-        You haven't made any orders yet.
+      <div class="text-lg flex justify-center mt-2 mb-2 uppercase">
+        Orders
       </div>
-      <div class="mt-10 hover:cursor-pointer text-center text-base">
-        <div (click)="setSubMenuChoice('current')" class="button w-fit m-auto">Start Shopping</div>
+
+      @if(!stripeOrders) {
+      <div class="mb-2 mt-4 w-full">
+        <div class="mt-8 text-lg text-center">
+          You haven't made any orders yet.
+        </div>
+        <div class="mt-10 hover:cursor-pointer text-center text-base">
+          <div (click)="setSubMenuChoice('current')" class="button w-fit m-auto">Start Shopping</div>
+        </div>
       </div>
-    </div>
-    }
+      }
 
-    @if(stripeOrders) {
-    <div class="flex flex-col p-4 bg-transparent border border-gray-500 ">
+      @if(stripeOrders) {
+      <div class="flex flex-col p-4 bg-transparent border border-gray-500 ">
 
-      <div class="flex flex-row w-full text-sm font-semibold text-gray-900 pb-4">
-        <div class="grow text-left">
-          Date
-        </div>
-        <div class="grow text-center">
-          Purchased
-        </div>
-        <div class="grow text-right">
-          Qty
-        </div>
-        <!-- <div class="px-6 py-3">
+        <div class="flex flex-row w-full text-sm font-semibold text-gray-900 pb-4">
+          <div class="grow text-left">
+            Date
+          </div>
+          <div class="grow text-center">
+            Purchased
+          </div>
+          <div class="grow text-right">
+            Qty
+          </div>
+          <!-- <div class="px-6 py-3">
                   Subtotal
                 </div>
                 <div class="px-6 py-3">
                   Price
                 </div> -->
-      </div>
+        </div>
 
-      <div>
-        @for (order of stripeOrders; track $index) {
-        <div class="flex flex-row w-full text-sm font-base">
-          <div class="grow text-gray-900 whitespace-nowrap text-left">
-            {{ order.createdAt | date:'shortDate' }}
-          </div>
-          @for (item of order.lineItems; track $index) {
-          <div class="grow text-gray-900 whitespace-nowrap text-center">
-            {{ item.description }}
-          </div>
-          <td class="grow text-gray-900 whitespace-nowrap text-right pr-2">
-            {{ item.quantity }}
-          </td>
-          <!-- <td class="px-6 py-4">
+        <div>
+          @for (order of stripeOrders; track $index) {
+          <div class="flex flex-row w-full text-sm font-base">
+            <div class="grow text-gray-900 whitespace-nowrap text-left">
+              {{ order.createdAt | date:'shortDate' }}
+            </div>
+            @for (item of order.lineItems; track $index) {
+            <div class="grow text-gray-900 whitespace-nowrap text-center">
+              {{ item.description }}
+            </div>
+            <td class="grow text-gray-900 whitespace-nowrap text-right pr-2">
+              {{ item.quantity }}
+            </td>
+            <!-- <td class="px-6 py-4">
                   {{ item.price.unit_amount / 100 }}
                 </td>
                 <td class="px-6 py-4">
                   {{ item.amount_subtotal / 100 }}
                 </td> -->
+            }
+          </div>
           }
         </div>
-        }
       </div>
-    </div>
 
+      }
+
+
+
+
+    </div>
     }
 
 
+    <!-- <app-shippingmethod></app-shippingmethod> -->
+    <!-- <app-monoproduct (cartOnOff)="fromProduct($event)"></app-monoproduct> -->
+
+    <!-- <div class="hidden" [class="showEditAccount"]> -->
 
 
   </div>
-  }
-
-
-  <!-- <app-shippingmethod></app-shippingmethod> -->
-  <!-- <app-monoproduct (cartOnOff)="fromProduct($event)"></app-monoproduct> -->
-
-  <!-- <div class="hidden" [class="showEditAccount"]> -->
-
-
-</div>
 
 
 
+  <!-- este grow sirve para mandar para abajo el footer siempre usando flex -->
+  <div class="grow"></div>
 
+  <div class="flex flex-row w-full text-black p-2 text-sm bg-xlight bg-opacity-80 backdrop-blur-sm z-50 sm:gap-6">
+    <app-footer></app-footer>
+  </div>
 
-
-<div
-  class="fixed sm:gap-6 flex flex-row w-full bottom-0 text-black p-2 mt-12 text-sm bg-xlight bg-opacity-80 backdrop-blur-sm z-50">
-
-<app-footer></app-footer>
 </div>

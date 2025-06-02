@@ -1,12 +1,129 @@
 <!-- <app-navbarsigned></app-navbarsigned> -->
 
+@if(showTest) {
+
+<div class="m-auto p-2  sm:p-6 md:p-8 text-center max-w-7xl">
+
+
+  <div class="text-lg flex justify-center mt-2 mb-4 sm:mb-12 font-semibold">
+    RELEASE: April 23rd, <div class="pl-2">2025</div>
+  </div>
+
+  <div class="flex flex-col sm:flex-row">
+    <div class="flex sm:w-2/5 items-center">
+      <div class="block sm:hidden">
+        <img class="p-2 m-auto" src="{{ monoproduct.imageAll }}" />
+      </div>
+      <div class="hidden sm:block">
+        <img class="p-2 m-auto h-96 object-cover" src="{{ monoproduct.imageAll }}" />
+      </div>
+    </div>
+
+    <div class="flex flex-col sm:w-3/5 text-sm sm:text-lg m-auto">
+
+      <div class="font-semibold text-lg sm:text-xl mt-4 sm:mt-0">
+        {{ monoproduct.title  }}
+      </div>
+
+      <div class="mb-3 sm:mb-8">
+        {{ monoproduct.subtitle  }}
+      </div>
+
+      <div class="text-left text-sm sm:text-base px-2 sm:pl-6">
+        <div class="mb-4">
+          {{ monoproduct.description_a  }}
+        </div>
+        <div class="mb-4">
+          {{ monoproduct.description_b  }}
+        </div>
+      </div>
+
+      <div class="font-normal mb-4 sm:mb-4 sm:mt-8">
+        {{ monoproduct.description  }}
+      </div>
+
+      <div class="button m-auto" (click)="addToCartHandler()">
+        Add to cart
+      </div>
+
+      <div (click)="toPdf(monoproduct.specsheet)" class="cursor-pointer font-semibold underline text-xs pt-2">
+        SPEC SHEET
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<div class="my-10 sm:my-20 m-auto max-w-6xl w-10/12 h-0.5 bg-xdark bg-opacity-60"></div>
+
+
+<div class="m-auto p-2  sm:p-6 md:p-8 text-center max-w-7xl scale-90 opacity-90 mb-12">
+
+
+  <div class="text-lg flex justify-center mt-2 mb-2 sm:mb-8">
+    INAUGURAL RELEASE: NOW CLOSED
+  </div>
+
+  <div class="flex flex-col sm:flex-row">
+    <!-- <div class="flex sm:w-2/5 items-center">
+      <div class="block sm:hidden">
+        <img class="p-2 m-auto" src="{{ monoproduct.imageAll }}" />
+      </div>
+      <div class="hidden sm:block">
+        <img class="p-2 m-auto" src="{{ monoproduct.imageAll }}" />
+      </div>
+    </div> -->
+
+    <div class="flex flex-col sm:w-3/5 text-sm sm:text-lg m-auto">
+
+      <div class="font-semibold text-lg sm:text-xl mt-4 sm:mt-0">
+        {{ product_old.title  }}
+      </div>
+
+      <div class="mb-3 sm:mb-8">
+        {{ product_old.subtitle  }}
+      </div>
+
+      <div class="text-left text-sm sm:text-base px-2 sm:pl-6">
+        <div class="mb-4">
+          {{ product_old.description_a  }}
+        </div>
+        <!-- <div class="mb-4">
+          {{ product_old.description_b  }}
+        </div> -->
+      </div>
+
+      <div class="font-normal sm:mb-4 sm:mt-8">
+        {{ product_old.description  }}
+      </div>
+
+      <div class="button m-auto" (click)="showThanksForYourInterestAlert()">
+        Request To Acquire
+      </div>
+
+      <div (click)="toPdf(product_old.specsheet)" class="cursor-pointer font-semibold underline text-xs pt-2">
+        SPEC SHEET
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+}
+
+
 @if(showThis) {
 
 <div class="m-auto min-w-80 max-w-4xl p-2  sm:p-6 md:p-8 text-center">
 
 
-  <div class="text-lg flex justify-center mt-2 mb-2 uppercase">
-    CURRENT RELEASE
+  <div class="text-lg flex justify-center mt-2 mb-2">
+    RELEASE: April 23rd,<div class="pl-2" (click)="showMagic()">2025</div>
   </div>
 
   <div class="grid grid-cols-3 border border-gray-500  shadow">
@@ -18,22 +135,28 @@
     </div>
 
     <div class="col-span-2 flex flex-col sm:gap-2 text-sm sm:text-lg m-auto">
-        <div class="font-semibold">
-          {{ monoproduct.title  }}
-        </div>
-        <div class="font-normal">
-          {{ monoproduct.description  }}
-        </div>
+      <div class="font-semibold">
+        {{ monoproduct.title  }}
+      </div>
+      <div class="font-normal">
+        {{ monoproduct.description  }}
+      </div>
 
-        <!-- <div class="font-semibold">
+      <!-- <div class="font-semibold">
           ${{ monoproduct.price  }}
         </div> -->
-        <div class="font-semibold h-2">
-        </div>
-        <div class="button m-auto" (click)="addToCartHandler()">
+      <div class="font-semibold h-2">
+      </div>
+
+      <!-- <div class="button m-auto" (click)="addToCartHandler()">
           Add to cart
-        </div>
-        <!-- <div class="button m-auto" (click)="showThanksForYourInterestAlert()">
+        </div> -->
+
+      <!-- <div class="button m-auto" (click)="addToCartHandler()">
+          Add to cart
+        </div> -->
+
+      <!-- <div class="button !px-0 mx-4" (click)="showThanksForYourInterestAlert()">
           Request To Acquire
         </div> -->
 
@@ -47,7 +170,7 @@
 
 
   <div class="text-sm flex justify-center mt-2 mb-2 uppercase">
-    INAUGURAL RELEASE CLOSED
+    INAUGURAL RELEASE: NOW CLOSED
   </div>
 
   <div class="grid border border-gray-500  shadow">
@@ -58,19 +181,20 @@
       <img class="p-2 rounded-t-lg max-h-12 sm:max-h-24 m-auto opacity-40" src="{{ product_old.imageDesktop }}" />
     </div> -->
     <div class="flex flex-row gap-4 sm:gap-32 text-sm sm:text-lg text-center items-center justify-center">
-        <div class="flex">
-          {{ product_old.title  }}
-        </div>
-        <!-- <div class="font-normal">
+      <div class="flex">
+        {{ product_old.title  }}
+      </div>
+      <!-- <div class="font-normal">
           {{ product_old.description  }}
         </div> -->
 
-        <!-- <div class="font-semibold">
+      <!-- <div class="font-semibold">
           ${{ monoproduct.price  }}
         </div> -->
-        <div class="flex button my-2 !px-4 sm:!px-8 !py-1" (click)="showThanksForYourInterestAlert()">
+
+      <!-- <div class="flex button my-2 !px-4 sm:!px-8 !py-1" (click)="showThanksForYourInterestAlert()">
           Request To Acquire
-        </div>
+        </div> -->
 
     </div>
   </div>
@@ -80,37 +204,58 @@
 
 
 @if(showMalbec) {
-  <div class="m-auto min-w-80 max-w-4xl p-2  sm:p-6 md:p-8 text-center">
+<div class="m-auto min-w-80 max-w-4xl p-2  sm:p-6 md:p-8 text-center">
 
 
-    <div class="text-lg flex justify-center mt-2 mb-2 uppercase">
-      INAUGURAL RELEASE CLOSED
+  <div class="text-lg flex justify-center mt-2 mb-2 uppercase">
+    INAUGURAL RELEASE CLOSED
+  </div>
+
+  <div class="grid grid-cols-3 border border-gray-500  shadow">
+    <div class="block sm:hidden col-span-1 ">
+      <img class="p-2 rounded-t-lg max-h-52 sm:max-h-72 m-auto" src="{{ product_old.imageMobile }}" />
+    </div>
+    <div class="hidden sm:block col-span-1 ">
+      <img class="p-2 rounded-t-lg max-h-52 sm:max-h-72 m-auto" src="{{ product_old.imageDesktop }}" />
     </div>
 
-    <div class="grid grid-cols-3 border border-gray-500  shadow">
-      <div class="block sm:hidden col-span-1 ">
-        <img class="p-2 rounded-t-lg max-h-52 sm:max-h-72 m-auto" src="{{ product_old.imageMobile }}" />
+    <div class="col-span-2 flex flex-col sm:gap-2 text-sm sm:text-lg m-auto">
+
+      <div class="font-semibold">
+        {{ product_old.title  }}
       </div>
-      <div class="hidden sm:block col-span-1 ">
-        <img class="p-2 rounded-t-lg max-h-52 sm:max-h-72 m-auto" src="{{ product_old.imageDesktop }}" />
+      <div class="font-normal">
+        {{ product_old.description  }}
+      </div>
+      <div class="font-semibold h-2">
+      </div>
+      <div class="button m-auto" (click)="showThanksForYourInterestAlert()">
+        Request To Acquire
       </div>
 
-      <div class="col-span-2 flex flex-col sm:gap-2 text-sm sm:text-lg m-auto">
-
-        <div class="font-semibold">
-          {{ product_old.title  }}
-        </div>
-        <div class="font-normal">
-          {{ product_old.description  }}
-        </div>
-        <div class="font-semibold h-2">
-        </div>
-        <div class="button m-auto" (click)="showThanksForYourInterestAlert()">
-          Request To Acquire
-        </div>
-
-      </div>
     </div>
   </div>
+</div>
 }
 
+
+<!-- <div>
+  qkjsdhf qhs
+
+  qsdjhfg qhjsdgf hj
+  qsdjhfg qhjsdgf hj
+
+
+  qsdfkq sdhf  qdfq q   fqjklsdfh
+  qsdjhfg qhjsdgf hj
+
+
+  qsdfkq sdhf  qdfq q   fqjklsdfh
+  qsdjhfg qhjsdgf hj
+
+
+  qsdfkq sdhf  qdfq q   fqjklsdfh
+
+
+  qsdfkq sdhf  qdfq q   fqjklsdfh
+</div> -->
