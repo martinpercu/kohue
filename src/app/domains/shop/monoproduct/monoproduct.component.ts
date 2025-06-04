@@ -33,7 +33,7 @@ export class MonoproductComponent {
   showTest: boolean = true;
   showThis: boolean = false;
   showMalbec: boolean = false;
-  showMalbec2: boolean = false;
+  // showMalbec2: boolean = false;
 
   // @Output() addToCart = new EventEmitter();
 
