@@ -14,7 +14,7 @@ export class MonoproductService {
     subtitle: "UCO VALLEY, MENDOZA",
     titleCart: "2021 Kohue Cabernet Sauvignon 3-Pack",
     specsheet: "cabernet-2021-tech.pdf",
-    price: 435,
+    price: 555,
     imageMobile: "./../../../../assets/img/Cabernet-2021-Mobile.png",
     imageDesktop: "./../../../../assets/img/Cabernet-2021-Desktop.png",
     imageAll: "./../../../../assets/img/6-cabernet.jpg",
