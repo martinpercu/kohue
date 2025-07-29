@@ -257,7 +257,13 @@ export class CartComponent {
     const quantity = this.totalItems();
     const stripeShippingId = this.shippingStripeId();
     const priceProductId = environment.PRICE_PRODUCT;
-
+    console.log({
+      "a" : user,
+      "b" : product,
+      "c" : quantity,
+      "d" : stripeShippingId,
+      "e" : priceProductId
+    });
 
     const sessionToWait$ = this.stripeService.getSessionCheckout(user, product, quantity, stripeShippingId, priceProductId);
     this.stripeSession = await lastValueFrom(sessionToWait$);
