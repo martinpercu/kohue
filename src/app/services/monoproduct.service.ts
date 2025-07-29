@@ -39,8 +39,8 @@ export class MonoproductService {
     imageMobile: "./../../../../assets/img/Botella-Kohue-2024-Mobile.png",
     imageDesktop: "./../../../../assets/img/Botella-Kohue-2024-Desktop.png",
     description: "Case of 3 bottles (750ml)",
-    description_a: "The Kohue Malbec 2021 reflects the unique character of this over 60-year- old vineyard plot with remarkable depth and elegance. Full-bodied and sensual, it’s framed by refined, silky tannins and a delicate, endless finish. This wine is beautifully balanced and set to age gracefully over the decades.",
-    description_b: ".",
+    description_a: "The Kohue Malbec 2021 reflects the unique character of this over 60-year- old vineyard plot with remarkable depth and elegance. Full-bodied and sensual, it’s framed by refined, silky tannins and a delicate, endless finish.",
+    description_b: "This wine is beautifully balanced and set to age gracefully over the decades.",
     images: ["./../../../../assets/img/Botella-Kohue-2021-small.png", "./../../../../assets/img/Botella-Kohue-2021-small.png"],
     category: {
       id: 100,
@@ -53,6 +53,9 @@ export class MonoproductService {
    }
 
   returnMonoproduct() {
+    return this.monoproduct
+  }
+  returnMonoproduct_cabernet_2021() {
     return this.monoproduct
   }
   returnMonoproduct_old() {
