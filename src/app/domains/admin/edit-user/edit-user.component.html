@@ -62,7 +62,7 @@
   <form [formGroup]="form" (ngSubmit)="saveUser($event)">
 
 
-    <div class="text-lg flex justify-center mt-4 mb-2">
+    <div class="text-lg flex justify-center mb-2">
       Personal Information
 
     </div>
@@ -167,6 +167,91 @@
       </div>
 
 
+
+      <!-- <div class="flex mt-4 mb-4 py-1">
+        <div class="flex items-center me-4">
+          <label for="inline-checked-checkbox" class="ms-2 text-sm font-medium text-gray-900 ">
+            Membership
+          </label>
+        </div>
+        <div class="flex items-center me-4">
+          <input type="checkbox" formControlName="membership"
+            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2  ">
+          <label class="ms-2 text-sm font-medium text-gray-900 ">
+            membership
+          </label>
+        </div>
+        <div class="flex items-center me-4">
+          <input type="radiobutton" formControlName="membershipLevel"
+            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2">
+          <label class="ms-2 text-sm font-medium text-gray-900 ">
+            Subscription AA
+          </label>
+        </div>
+        <div class="flex items-center me-4">
+          <input type="radiobutton" formControlName="membershipLevel"
+            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2">
+          <label class="ms-2 text-sm font-medium text-gray-900 ">
+            Subscription BB
+          </label>
+        </div>
+      </div> -->
+
+
+
+      <div class="flex mt-4 mb-4 py-1">
+        <div class="flex items-center me-4">
+          <label for="inline-checked-checkbox" class="ms-2 text-sm font-medium text-gray-900">
+            Membership
+          </label>
+        </div>
+        <div class="flex items-center me-4">
+          <input
+            type="checkbox"
+            formControlName="membership"
+            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
+          />
+          <!-- <label class="ms-2 text-sm font-medium text-gray-900">  </label> -->
+        </div>
+
+        <div *ngIf="form.get('membership')?.value" class="flex">
+          <div class="flex items-center me-4">
+            <input
+              type="radio"
+              formControlName="membershipLevel"
+              [value]="6"
+              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
+            />
+            <label class="ms-2 text-sm font-medium text-gray-900"> Tupungato </label>
+          </div>
+          <div class="flex items-center me-4">
+            <input
+              type="radio"
+              formControlName="membershipLevel"
+              [value]="12"
+              class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
+            />
+            <label class="ms-2 text-sm font-medium text-gray-900"> Aconcagua </label>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="text-lg justify-center mt-6 mb-2">
+      <div>
+        <label class="block mb-2 text-sm font-medium text-gray-900">Text Membership " A ":</label>
+        <!-- <input type="text" formControlName="optionalText" class="x_input" /> -->
+        <textarea formControlName="membershipTextA" rows="4"
+          class="block p-2.5 w-full text-sm text-gray-900 bg-transparent rounded-lg border border-gray-400"></textarea>
+      </div>
+    </div>
+    <div class="text-lg justify-center mt-6 mb-2">
+      <div>
+        <label class="block mb-2 text-sm font-medium text-gray-900">Text Membership " B ":</label>
+        <!-- <input type="text" formControlName="optionalText" class="x_input" /> -->
+        <textarea formControlName="membershipTextB" rows="4"
+          class="block p-2.5 w-full text-sm text-gray-900 bg-transparent rounded-lg border border-gray-400"></textarea>
+      </div>
     </div>
 
     <div class="text-lg justify-center mt-6 mb-2">

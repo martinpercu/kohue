@@ -23,6 +23,15 @@
         <th scope="col" class="px-6 py-3 hover:cursor-pointer" (click)="orderByEmail()">
           Email
         </th>
+        <th scope="col" class="px-6 py-3">
+          Phone
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Membership
+        </th>
+        <th scope="col" class="px-6 py-3">
+          Action
+        </th>
         <th scope="col" class="px-6 py-3 hover:cursor-pointer" (click)="orderByStripe()">
           Stripe ID
         </th>
@@ -55,6 +64,23 @@
         </th>
         <td class="px-6 py-4">
           {{user.email}}
+        </td>
+        <td class="px-6 py-4">
+          {{user.phone}}
+        </td>
+        <td class="px-6 py-4">
+          <!-- {{user.membership}} -->
+          @if(user.membership){
+            @if(user.membershipLevel == 6){
+              Tupungato
+            }
+            @if(user.membershipLevel == 12) {
+              Aconcagua
+            }
+          }
+        </td>
+        <td class="px-6 py-4">
+          <a [routerLink]="[user.clientUID]" class="font-medium text-blue-600  hover:underline">View/Edit </a>
         </td>
         <td class="px-6 py-4">
           {{user.stripeCustomerId}}

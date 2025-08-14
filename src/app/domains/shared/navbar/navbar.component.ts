@@ -18,23 +18,28 @@ export class NavbarComponent {
 
 
   navToHome() {
-    this.router.navigate([''])
+    this.router.navigate(['']);
+    window.scrollTo({ top: 0, behavior: 'auto' });
   };
 
   navJointhelist() {
-    this.router.navigate(['join'])
+    this.router.navigate(['join']);
+    window.scrollTo({ top: 0, behavior: 'auto' });
   };
 
   navMembers() {
-    this.router.navigate(['members'])
+    this.router.navigate(['members']);
+    window.scrollTo({ top: 0, behavior: 'auto' });
   };
 
   navOurWines() {
-    this.router.navigate(['ourwines'])
+    this.router.navigate(['ourwines']);
+    window.scrollTo({ top: 0, behavior: 'auto' });
   };
 
   navAbout() {
-    this.router.navigate(['about'])
+    this.router.navigate(['about']);
+    window.scrollTo({ top: 0, behavior: 'auto' });
   };
 
 
