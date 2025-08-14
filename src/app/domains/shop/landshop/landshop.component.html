@@ -91,9 +91,9 @@
     <div class="flex justify-center mt-6 mb-6">
       <div class="flex flex-row gap-4 mt-4 justify-center text-base sm:text-lg underline text-center">
         @if(subMenuChoice == 'dash'){
-        <div class="font-semibold">Dashboard</div>
+        <div class="font-semibold">Dashboad</div>
         } @else {
-        <div class="cursor-pointer" (click)="setSubMenuChoice('dash')">Dashboard</div>
+        <div class="cursor-pointer" (click)="setSubMenuChoice('dash')">Dashboad</div>
         }
         @if(subMenuChoice == 'history'){
         <div class="font-semibold">Order History</div>
@@ -110,7 +110,6 @@
 
 
     @if(subMenuChoice == 'dash'){
-    @if(!user.membership){
     <div class="m-auto min-w-80 max-w-4xl p-2  sm:p-6 md:p-8">
 
       <div class="text-lg flex justify-center mt-2 mb-2 uppercase">
@@ -144,43 +143,6 @@
       </div>
 
     </div>
-    }
-    @if(user.membership == true) {
-    <div class="m-auto min-w-80 max-w-4xl p-2  sm:p-6 md:p-8">
-
-      <div class="text-lg flex justify-center mt-2 mb-2 uppercase">
-        Acquire - dear member
-      </div>
-
-      <div class="p-4 bg-transparent border border-gray-500 mb-12">
-        <div class="flex flex-col sm:flex-row mb-2">
-          <div class="grow text-lg text-center sm:text-left">
-            Start shopping to place your order.
-          </div>
-          <div class="flex-none mt-3 sm:mt-0 hover:cursor-pointer text-base tracking-wider">
-            <div (click)="setSubMenuChoice('current')" class="button">Start Shopping</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="text-lg flex justify-center mt-2 mb-2 uppercase">
-        Wine Club Membership
-      </div>
-
-      <div class="p-4 bg-transparent border border-gray-500 mb-12">
-        <div class="flex flex-col sm:flex-row mb-2">
-          <div class="grow text-lg text-center sm:text-left">
-            @if(user.membershipLevel == 6){Your Tupungato Membership is active}
-            @if(user.membershipLevel == 12){Your Aconconcagua Membership is active}
-          </div>
-        </div>
-        <p class="[white-space:pre-wrap]">{{ user.membershipTextA }}</p>
-        <p class="[white-space:pre-wrap]">{{ user.membershipTextB }}</p>
-
-      </div>
-
-    </div>
-    }
     }
 
     @if(subMenuChoice == 'current'){

@@ -66,7 +66,6 @@ export class MonoproductComponent {
   showThanksForYourInterestAlert() {
     // alert('CLOSE ALERT this fall 2024. Stay tuned!')
     this.showThanksForInterest.emit(true);
-    // window.scrollTo({ top: 0, behavior: 'auto' });
   };
 
   // showMagic() {
