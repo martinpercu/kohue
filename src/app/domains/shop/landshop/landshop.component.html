@@ -105,6 +105,13 @@
         } @else {
         <div class="cursor-pointer" (click)="setSubMenuChoice('account')">Account Details</div>
         }
+        @if(user.membership == true){
+          @if(subMenuChoice == 'membership'){
+          <div class="font-semibold">Membership</div>
+          } @else {
+          <div class="cursor-pointer" (click)="setSubMenuChoice('membership')">Membership</div>
+        }
+        }
       </div>
     </div>
 
@@ -129,13 +136,13 @@
       </div>
 
       <div class="text-lg flex justify-center mt-2 mb-2 uppercase">
-        Wine Club Membership
+        Wine Club Membership - The Andes Society
       </div>
 
       <div class="p-4 bg-transparent border border-gray-500 mb-12">
         <div class="flex flex-col sm:flex-row mb-2">
           <div class="grow text-lg text-center sm:text-left">
-            Wine Club Membership - Coming Fall 2025
+            Wine Club Membership
           </div>
           <div class="flex-none mt-3 sm:mt-0 hover:cursor-pointer text-base tracking-wider">
             <div (click)="requestForClubMember()" class="button">Request More info</div>
@@ -149,7 +156,7 @@
     <div class="m-auto min-w-80 max-w-4xl p-2  sm:p-6 md:p-8">
 
       <div class="text-lg flex justify-center mt-2 mb-2 uppercase">
-        Acquire - dear member
+        Acquire
       </div>
 
       <div class="p-4 bg-transparent border border-gray-500 mb-12">
@@ -164,18 +171,26 @@
       </div>
 
       <div class="text-lg flex justify-center mt-2 mb-2 uppercase">
-        Wine Club Membership
+        My Wine Club Membership - The Andes Society
       </div>
 
       <div class="p-4 bg-transparent border border-gray-500 mb-12">
         <div class="flex flex-col sm:flex-row mb-2">
           <div class="grow text-lg text-center sm:text-left">
-            @if(user.membershipLevel == 6){Your Tupungato Membership is active}
-            @if(user.membershipLevel == 12){Your Aconconcagua Membership is active}
+            My
+            <span class="font-bold">
+            @if(user.membershipLevel == 6){Tupungato}
+            @if(user.membershipLevel == 12){Aconcagua}
+            </span>
+            Wine Membership is
+            <span class="font-bold">ACTIVE</span>
+          </div>
+          <div class="flex-none mt-3 sm:mt-0 hover:cursor-pointer text-base tracking-wider">
+            <div (click)="setSubMenuChoice('membership')" class="button">Access</div>
           </div>
         </div>
-        <p class="[white-space:pre-wrap]">{{ user.membershipTextA }}</p>
-        <p class="[white-space:pre-wrap]">{{ user.membershipTextB }}</p>
+        <!-- <p class="[white-space:pre-wrap]">{{ user.membershipTextA }}</p>
+        <p class="[white-space:pre-wrap]">{{ user.membershipTextB }}</p> -->
 
       </div>
 
@@ -202,6 +217,67 @@
   @if (showPurchase() == true ) {
     <app-infopurchase></app-infopurchase>
     } -->
+
+    @if(subMenuChoice == 'membership') {
+
+    <!-- @if(user.membership == true) { -->
+    <div class="m-auto min-w-80 max-w-4xl p-2  sm:p-6 md:p-8">
+
+      <div class="text-lg flex justify-center mb-2 uppercase font-bold">
+         The Andes society
+      </div>
+      <div class="text-lg flex justify-center mt-4 mb-8 uppercase">
+         My Membership History
+      </div>
+
+      @if(user.membershipText2022!.length >= 4){
+      <div class="text-lg flex mb-2 ml-2 uppercase">
+        2022 Allocation
+      </div>
+      <div class="p-4 bg-transparent border border-gray-500 mb-6">
+        <div class="flex flex-col sm:flex-row [white-space:pre-wrap]">
+          {{ user.membershipText2022 }}
+        </div>
+      </div>
+      }
+
+      @if(user.membershipText2023!.length >= 4){
+      <div class="text-lg flex mb-2 ml-2 uppercase">
+        2023 Allocation
+      </div>
+      <div class="p-4 bg-transparent border border-gray-500 mb-6">
+        <div class="flex flex-col sm:flex-row [white-space:pre-wrap]">
+          {{ user.membershipText2023 }}
+        </div>
+      </div>
+      }
+
+      @if(user.membershipText2024!.length >= 4){
+      <div class="text-lg flex mb-2 ml-2 uppercase">
+        2024 Allocation
+      </div>
+      <div class="p-4 bg-transparent border border-gray-500 mb-6">
+        <div class="flex flex-col sm:flex-row [white-space:pre-wrap]">
+          {{ user.membershipText2024 }}
+        </div>
+      </div>
+      }
+
+      @if(user.membershipText2025!.length >= 4){
+      <div class="text-lg flex mb-2 ml-2 uppercase">
+        2025 Allocation
+      </div>
+      <div class="p-4 bg-transparent border border-gray-500 mb-6">
+        <div class="flex flex-col sm:flex-row [white-space:pre-wrap]">
+          {{ user.membershipText2025 }}
+        </div>
+      </div>
+      }
+
+
+    </div>
+    <!-- } -->
+    }
 
 
 
