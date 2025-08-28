@@ -9,6 +9,28 @@ export class MonoproductService {
 
 
   monoproduct: Product = {
+    id: 26,
+    title: "2022 Kohue Malbec",
+    subtitle: "UCO VALLEY, MENDOZA",
+    titleCart: "2022 Kohue Malbec 3-Pack",
+    specsheet: "malbec-2021-tech.pdf",
+    price: 450,
+    imageMobile: "./../../../../assets/img/Cabernet-2021-Mobile.png",
+    imageDesktop: "./../../../../assets/img/Cabernet-2021-Desktop.png",
+    imageAll: "./../../../../assets/img/6-cabernet.jpg",
+    description: "Case of 3 bottles (750ml)",
+    description_a: "The Kohue Malbec 2022 reflects the unique character of this over 60-year- old vineyard plot with remarkable depth and elegance. Full-bodied and sensual, it’s framed by refined, silky tannins and a delicate, endless finish.",
+    description_b: "This wine is beautifully balanced and set to age gracefully over the decades.",
+    images: ["./../../../../assets/img/Botella-Kohue-2021-small.png", "./../../../../assets/img/Botella-Kohue-2021-small.png"],
+    category: {
+      id: 126,
+      name: "Wines"
+    },
+    quantity: 1
+  };
+
+
+  monoproduct_cabernet: Product = {
     id: 24,
     title: "2021 Kohue Cabernet Sauvignon",
     subtitle: "UCO VALLEY, MENDOZA",
