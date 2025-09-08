@@ -77,9 +77,13 @@
     <!-- @if(showWine == true) {
     <app-monoproduct (cartOnOff)="fromProduct($event)"></app-monoproduct>
     } -->
+    @if (this.user) {
     <div class="flex justify-center mt-10 text-3xl">
-      Hello @if(this.user.firstname){{{this.user.firstname}}}!
+      Hello @if(this.user.firstname){
+        {{this.user.firstname}}
+      }!
     </div>
+    }
     <div class="flex justify-center mt-4 text-1xl">
       Welcome to your account!
     </div>
