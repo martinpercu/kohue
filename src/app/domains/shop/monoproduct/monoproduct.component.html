@@ -9,7 +9,7 @@
     RELEASE: April 23rd, <div class="pl-2">2025</div>
   </div> -->
   <div class="text-xl flex justify-center mt-2 mb-4 sm:mb-12 font-semibold">
-    RELEASES
+    CURRENT RELEASE
   </div>
 
   <div class="flex flex-col sm:flex-row">
@@ -23,10 +23,15 @@
     </div>
 
     <!-- <div class="flex flex-col sm:w-3/5 text-sm sm:text-lg m-auto">
-      <div class="uppercase font-semibold text-xl sm:text-2xl mt-8 sm:mt-0">next release in fall:<br>september 2025</div>
+      <div class="font-semibold text-xl sm:text-2xl mt-8 sm:mt-0">NEXT RELEASE IN FALL:<br>
+        SEPTEMBER 23rd, 2025</div>
     </div> -->
 
     <div class="flex flex-col sm:w-3/5 text-sm sm:text-lg m-auto">
+
+      <!-- <div class="font-semibold text-lg sm:text-xl mt-4 sm:mt-0 sm:mb-4 text-brand">
+        NOW AVAILABLE!
+      </div> -->
 
       <div class="font-semibold text-lg sm:text-xl mt-4 sm:mt-0">
         {{ monoproduct.title  }}
@@ -45,8 +50,12 @@
         </div>
       </div>
 
-      <div class="font-normal mb-4 sm:mb-4 sm:mt-8">
+      <!-- <div class="font-normal mb-4 sm:mb-4 sm:mt-8">
         {{ monoproduct.description  }}
+      </div> -->
+
+      <div class="font-normal mb-4 sm:mb-4 sm:mt-8">
+        $185 / 750ml
       </div>
 
       <div class="button m-auto" (click)="addToCartHandler()">
@@ -59,6 +68,7 @@
 
     </div>
 
+
   </div>
 
 </div>
@@ -68,6 +78,11 @@
 
 <div class="m-auto p-2  sm:p-6 md:p-8 text-center max-w-7xl scale-90 opacity-90 mb-12">
 
+
+
+  <div class="text-xl flex justify-center mt-2 mb-1 sm:mb-4 font-semibold">
+    LIBRARY WINES
+  </div>
 
   <div class="text-lg sm:text-xl flex justify-center mt-2 mb-8 sm:mb-16">
     INAUGURAL RELEASES: NOW CLOSED
@@ -94,8 +109,10 @@
         </div>
       </div>
 
-      <div class="font-normal sm:mb-4 sm:mt-6">
-        {{ cabernet_2021.description  }}
+      <!-- -- Case of 3 Bottle -- -->
+      <div class="font-normal sm:mb-4 sm:mt-2">
+      <!-- <div class="font-normal sm:mb-4 sm:mt-6"> -->
+        <!-- {{ cabernet_2021.description  }} -->
       </div>
 
       <div class="button m-auto" (click)="showThanksForYourInterestAlert()">
@@ -140,8 +157,10 @@
         </div>
       </div>
 
-      <div class="font-normal sm:mb-4 sm:mt-6">
-        {{ product_old.description  }}
+      <!-- -- Case of 3 Bottle -- -->
+      <div class="font-normal sm:mb-4 sm:mt-2">
+      <!-- <div class="font-normal sm:mb-4 sm:mt-6"> -->
+        <!-- {{ product_old.description  }} -->
       </div>
 
       <div class="button m-auto" (click)="showThanksForYourInterestAlert()">

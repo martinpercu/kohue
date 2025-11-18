@@ -114,7 +114,7 @@
 
     <div class="mt-4">
 
-      @if(shippingAmount() || shippingText() == "Local Pick up") {
+      @if(shippingAmount() || shippingText() == "Local Pick up" || shippingText() == "Ground shipping") {
       <div (click)="checkoutToStripe()" class="button paddingOff">
         ${{ totalAmount()}} - Checkout
       </div>
@@ -142,7 +142,7 @@
         </div>
         } -->
 
-      @if(shippingAmount() == 0 && shippingText() != "Local Pick up") {
+      @if(shippingAmount() == 0 && shippingText() != "Local Pick up" && shippingText() != "Ground shipping") {
       <div (click)="alertAddShippingMethod()" class="button_off">
         ${{ totalAmount() }} - Checkout
       </div>

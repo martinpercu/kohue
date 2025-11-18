@@ -77,13 +77,16 @@
     <!-- @if(showWine == true) {
     <app-monoproduct (cartOnOff)="fromProduct($event)"></app-monoproduct>
     } -->
-    @if (this.user) {
+
+  @if (this.user) {
+
+
     <div class="flex justify-center mt-10 text-3xl">
       Hello @if(this.user.firstname){
         {{this.user.firstname}}
       }!
     </div>
-    }
+
     <div class="flex justify-center mt-4 text-1xl">
       Welcome to your account!
     </div>
@@ -105,7 +108,7 @@
         } @else {
         <div class="cursor-pointer" (click)="setSubMenuChoice('account')">Account Details</div>
         }
-        @if(user.membership == true){
+        @if(this.user.membership == true){
           @if(subMenuChoice == 'membership'){
           <div class="font-semibold">Membership</div>
           } @else {
@@ -152,7 +155,7 @@
 
     </div>
     }
-    @if(user.membership == true) {
+    @if(this.user.membership == true) {
     <div class="m-auto min-w-80 max-w-4xl p-2  sm:p-6 md:p-8">
 
       <div class="text-lg flex justify-center mt-2 mb-2 uppercase">
@@ -179,8 +182,8 @@
           <div class="grow text-lg text-center sm:text-left">
             My
             <span class="font-bold">
-            @if(user.membershipLevel == 6){Tupungato}
-            @if(user.membershipLevel == 12){Aconcagua}
+            @if(this.user.membershipLevel == 6){Tupungato}
+            @if(this.user.membershipLevel == 12){Aconcagua}
             </span>
             Wine Membership is
             <span class="font-bold">ACTIVE</span>
@@ -220,6 +223,13 @@
 
     @if(subMenuChoice == 'membership') {
 
+    <!--
+    VERY IMPORTANT ==> Use the comment in the user.membershipText
+    to avoid first space in the text
+    MUY IMPORTANTE ==> Hay que usar COMENTADO en el Salto de linea
+    en los user.membershipText para que evitar el primer espacio de texto
+    -->
+
     <!-- @if(user.membership == true) { -->
     <div class="m-auto min-w-80 max-w-4xl p-2  sm:p-6 md:p-8">
 
@@ -230,46 +240,46 @@
          My Membership History
       </div>
 
-      @if(user.membershipText2022!.length >= 4){
+      @if(this.user.membershipText2022){
       <div class="text-lg flex mb-2 ml-2 uppercase">
         2022 Allocation
       </div>
       <div class="p-4 bg-transparent border border-gray-500 mb-6">
-        <div class="flex flex-col sm:flex-row [white-space:pre-wrap]">
-          {{ user.membershipText2022 }}
+        <div class="flex flex-col sm:flex-row [white-space:pre-wrap]"><!--
+          -->{{ this.user.membershipText2022 }}
         </div>
       </div>
       }
 
-      @if(user.membershipText2023!.length >= 4){
+      @if(this.user.membershipText2023){
       <div class="text-lg flex mb-2 ml-2 uppercase">
         2023 Allocation
       </div>
       <div class="p-4 bg-transparent border border-gray-500 mb-6">
-        <div class="flex flex-col sm:flex-row [white-space:pre-wrap]">
-          {{ user.membershipText2023 }}
+        <div class="flex flex-col sm:flex-row p-0 m-0 [white-space:pre-wrap]"><!--
+          -->{{ this.user.membershipText2023 }}
         </div>
       </div>
       }
 
-      @if(user.membershipText2024!.length >= 4){
+      @if(this.user.membershipText2024){
       <div class="text-lg flex mb-2 ml-2 uppercase">
         2024 Allocation
       </div>
       <div class="p-4 bg-transparent border border-gray-500 mb-6">
-        <div class="flex flex-col sm:flex-row [white-space:pre-wrap]">
-          {{ user.membershipText2024 }}
+        <div class="flex flex-col sm:flex-row [white-space:pre-wrap]"><!--
+          -->{{ this.user.membershipText2024 }}
         </div>
       </div>
       }
 
-      @if(user.membershipText2025!.length >= 4){
+      @if(this.user.membershipText2025){
       <div class="text-lg flex mb-2 ml-2 uppercase">
         2025 Allocation
       </div>
       <div class="p-4 bg-transparent border border-gray-500 mb-6">
-        <div class="flex flex-col sm:flex-row [white-space:pre-wrap]">
-          {{ user.membershipText2025 }}
+        <div class="flex flex-col sm:flex-row [white-space:pre-wrap]"><!--
+          -->{{ this.user.membershipText2025 }}
         </div>
       </div>
       }
@@ -278,8 +288,6 @@
     </div>
     <!-- } -->
     }
-
-
 
 
 
@@ -363,6 +371,7 @@
 
     <!-- <div class="hidden" [class="showEditAccount"]> -->
 
+  }
 
   </div>
 

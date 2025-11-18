@@ -29,6 +29,7 @@ import { DatePipe } from '@angular/common';
 import { ClubmemberModalComponent } from '@shop/clubmember-modal/clubmember-modal.component';
 
 
+
 @Component({
   selector: 'app-landshop',
   standalone: true,
@@ -97,9 +98,12 @@ export class LandshopComponent {
     // console.log(this.user.stripeCustomerId);
     this.user = await this.clientService.getOneUser(this.userId);
     // console.log(this.user);
+    if(this.user.membership){
+      this.subMenuChoice = 'dash'
+    }
 
     if (this.user.stripeCustomerId == 'none') {
-      this.showWine = true
+      this.showWine = true // Hoy no hace nada. Esta comentado todo en HTML
     }
     else {
       this.knowIfUserHasBuyed();
@@ -135,7 +139,7 @@ export class LandshopComponent {
   };
 
   fromProduct(event: boolean) {
-    console.log(event);
+    // console.log(event);
     // console.log("this.showCart  ==>  ", event);
     this.showCart = event;
     // console.log(event);
@@ -205,13 +209,13 @@ export class LandshopComponent {
 
   async knowIfUserHasBuyed() {
     const user = this.user;
-    console.log('the user to know if already buyed');
-    console.log(user);
+    // console.log('the user to know if already buyed');
+    // console.log(user);
 
     const paymentIntentsByUser$ = this.stripeService.getPaimentsByUser(user);
     this.intentsByUser = await lastValueFrom(paymentIntentsByUser$);
     // console.log(paymentIntentsByUser$);
-    console.log(this.intentsByUser);
+    // console.log(this.intentsByUser);
     // const data = this.intentsByUser.data
     // console.log(this.intentsByUser.data[0].created);
     // console.log(data[0]);
@@ -221,18 +225,18 @@ export class LandshopComponent {
     // console.log(dataLength);
     // console.log("User data Lenght from Stripe");
     if (dataLength == 0) {
-      console.log("no buys");
+      // console.log("no buys");
       this.showWine = true
     }
     else {
-      console.log('This guy already buyed something');
+      // console.log('This guy already buyed something');
       this.showWine = false;
       const epoch = this.intentsByUser.data[0].created;
       this.stripeService.getTimeLastOrder(epoch);
       this.shopService.handlerShowPurchase(true);
 
       this.stripeOrders = await this.stripeService.getCustomerSessionHistory(this.user);
-      console.log(this.stripeOrders);
+      // console.log(this.stripeOrders);
 
     }
   }
