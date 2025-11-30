@@ -33,4 +33,8 @@ export interface Client {
   membershipLevel?: number;
   membershipTextA?: string;
   membershipTextB?: string;
+  membershipText2022?: string;
+  membershipText2023?: string;
+  membershipText2024?: string;
+  membershipText2025?: string;
 }
