@@ -25,13 +25,13 @@ export class ShippingService {
 
     const shippingOptions: { [key: string]: { [key: number]: { amount: number; stripeId: string } } } = {
       'Overnight': {
-        1: { amount: 70, stripeId: environment.SHIP_OVERNIGHT_1 },
-        2: { amount: 90, stripeId: environment.SHIP_OVERNIGHT_2 },
+        1: { amount: 90, stripeId: environment.SHIP_OVERNIGHT_1 },
+        2: { amount: 110, stripeId: environment.SHIP_OVERNIGHT_2 },
         3: { amount: 130, stripeId: environment.SHIP_OVERNIGHT_3 },
       },
       'Ground shipping': {
         1: { amount: 35, stripeId: environment.SHIP_GROUND_1 },
-        2: { amount: 45, stripeId: environment.SHIP_GROUND_2 },
+        2: { amount: 50, stripeId: environment.SHIP_GROUND_2 },
         3: { amount: 85, stripeId: environment.SHIP_GROUND_3 },
       },
       'Local Pick up': {
