@@ -5,8 +5,11 @@
 <div class="m-auto p-2  sm:p-6 md:p-8 text-center max-w-7xl">
 
 
-  <div class="text-lg flex justify-center mt-2 mb-4 sm:mb-12 font-semibold">
+  <!-- <div class="text-lg flex justify-center mt-2 mb-4 sm:mb-12 font-semibold">
     RELEASE: April 23rd, <div class="pl-2">2025</div>
+  </div> -->
+  <div class="text-xl flex justify-center mt-2 mb-4 sm:mb-12 font-semibold">
+    RELEASES
   </div>
 
   <div class="flex flex-col sm:flex-row">
@@ -20,6 +23,10 @@
     </div>
 
     <div class="flex flex-col sm:w-3/5 text-sm sm:text-lg m-auto">
+      <div class="uppercase font-semibold text-xl sm:text-2xl mt-8 sm:mt-0">next relelease in fall:<br>september 2025</div>
+    </div>
+
+    <!-- <div class="flex flex-col sm:w-3/5 text-sm sm:text-lg m-auto">
 
       <div class="font-semibold text-lg sm:text-xl mt-4 sm:mt-0">
         {{ monoproduct.title  }}
@@ -50,21 +57,59 @@
         SPEC SHEET
       </div>
 
-    </div>
+    </div> -->
 
   </div>
 
 </div>
 
-<div class="my-10 sm:my-20 m-auto max-w-6xl w-10/12 h-0.5 bg-xdark bg-opacity-60"></div>
+<div class="my-6 sm:my-12 m-auto max-w-6xl w-10/12 h-0.5 bg-xdark bg-opacity-60"></div>
 
 
 <div class="m-auto p-2  sm:p-6 md:p-8 text-center max-w-7xl scale-90 opacity-90 mb-12">
 
 
-  <div class="text-lg flex justify-center mt-2 mb-2 sm:mb-8">
-    INAUGURAL RELEASE: NOW CLOSED
+  <div class="text-lg sm:text-xl flex justify-center mt-2 mb-8 sm:mb-16">
+    INAUGURAL RELEASES: NOW CLOSED
   </div>
+
+  <div class="flex flex-col sm:flex-row">
+
+    <div class="flex flex-col sm:w-3/5 text-sm sm:text-lg m-auto">
+
+      <div class="font-semibold text-lg sm:text-xl mt-4 sm:mt-0">
+        {{ cabernet_2021.title  }}
+      </div>
+
+      <div class="mb-3 sm:mb-6">
+        {{ cabernet_2021.subtitle  }}
+      </div>
+
+      <div class="text-left text-sm sm:text-base px-2 sm:pl-6">
+        <div class="mb-4">
+          {{ cabernet_2021.description_a  }}
+        </div>
+        <div class="mb-4">
+          {{ cabernet_2021.description_b  }}
+        </div>
+      </div>
+
+      <div class="font-normal sm:mb-4 sm:mt-6">
+        {{ cabernet_2021.description  }}
+      </div>
+
+      <div class="button m-auto" (click)="showThanksForYourInterestAlert()">
+        Request To Acquire
+      </div>
+
+      <div (click)="toPdf(cabernet_2021.specsheet)" class="cursor-pointer font-semibold underline text-xs pt-2">
+        SPEC SHEET
+      </div>
+
+    </div>
+
+  </div>
+  <div class="h-24 sm:h32"></div>
 
   <div class="flex flex-col sm:flex-row">
     <!-- <div class="flex sm:w-2/5 items-center">
@@ -82,7 +127,7 @@
         {{ product_old.title  }}
       </div>
 
-      <div class="mb-3 sm:mb-8">
+      <div class="mb-3 sm:mb-6">
         {{ product_old.subtitle  }}
       </div>
 
@@ -90,12 +135,12 @@
         <div class="mb-4">
           {{ product_old.description_a  }}
         </div>
-        <!-- <div class="mb-4">
+        <div class="mb-4">
           {{ product_old.description_b  }}
-        </div> -->
+        </div>
       </div>
 
-      <div class="font-normal sm:mb-4 sm:mt-8">
+      <div class="font-normal sm:mb-4 sm:mt-6">
         {{ product_old.description  }}
       </div>
 
