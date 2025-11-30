@@ -97,7 +97,7 @@ export class CartComponent {
     }
     else {
       // this.userIsStripeOk = true
-      console.log("in ngOnInit nothing happend");
+      // console.log("in ngOnInit nothing happend");
       // console.log("Stripe user ID ==>   ", this.user.stripeCustomerId);
     };
   };

@@ -144,9 +144,9 @@ export class StripeService {
   };
 
   async getCustomerSessionHistory(user: any) {
-    console.log(user);
+    // console.log(user);
     const stripeCustomerId = user.stripeCustomerId;
-    console.log(stripeCustomerId);
+    // console.log(stripeCustomerId);
 
     if (stripeCustomerId) {
       const allSessions$ = this.http.get(
@@ -154,7 +154,7 @@ export class StripeService {
       this.allSessions = await lastValueFrom(allSessions$);
 
       const theListOfSessionsIds = this.sessionListToListOfIds(this.allSessions);
-      console.log(theListOfSessionsIds);
+      // console.log(theListOfSessionsIds);
 
       this.sessionListToListOfIds(this.allSessions);
 
@@ -162,8 +162,8 @@ export class StripeService {
         `${environment.apiURL}/sessions/products-in-session/`, theListOfSessionsIds);
       this.listItems = await lastValueFrom(listItems$);
 
-      console.log(listItems$);
-      console.log(this.listItems);
+      // console.log(listItems$);
+      // console.log(this.listItems);
 
       return this.listItems
     }
