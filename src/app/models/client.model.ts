@@ -29,4 +29,8 @@ export interface Client {
   xzipCode?: string;
   xcountry?: string;
   shippingForStripe?: object;
+  membership?: boolean;
+  membershipLevel?: number;
+  membershipTextA?: string;
+  membershipTextB?: string;
 }

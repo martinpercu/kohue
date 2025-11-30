@@ -9,6 +9,8 @@ import { AdminNavbarComponent } from '@admin/admin-navbar/admin-navbar.component
 
 import { StripeService } from '@services/stripe.service';
 import { StripeOrderModel } from '@models/stripeorder.model';
+import { Subscription } from 'rxjs'; // Importamos Subscription
+
 
 @Component({
   selector: 'app-edit-user',
@@ -37,6 +39,8 @@ export class EditUserComponent {
   // stripeOrders!: [StripeOrderModel];
   stripeOrders!: any;
 
+  private membershipSubscription!: Subscription
+
   constructor() {
     const id = String(this.activatedRoute.snapshot.paramMap.get('id'));
     if (id) {
@@ -45,6 +49,19 @@ export class EditUserComponent {
       this.getUser()
     };
   };
+
+  ngOnInit() {
+    // buildForm se llama dentro de getUser, así que configuramos los listeners después de que el formulario esté listo.
+    // Aunque `getUser` es async, `setupListeners` debe llamarse después de que `this.form` se inicialice.
+    // Esto lo manejamos asegurándonos que `buildForm` se llame antes de `setupListeners` en `getUser`.
+  }
+
+  ngOnDestroy() {
+    // Es crucial desuscribirse para evitar fugas de memoria cuando el componente se destruye
+    if (this.membershipSubscription) {
+      this.membershipSubscription.unsubscribe();
+    }
+  }
 
   // ngOnInit() {
   //   this.getStripeOrders();
@@ -63,6 +80,8 @@ export class EditUserComponent {
     console.log(this.user);
     this.getStripeOrders();
     this.buildForm();
+    this.setupListeners(); // Llamamos a setupListeners DESPUÉS de construir el formulario
+
   };
 
   private buildForm() {
@@ -74,6 +93,10 @@ export class EditUserComponent {
       birthdate: [this.user.birthdate, [Validators.required, Validators.minLength(7)]],
       byEmail: [this.user.byEmail],
       byPhone: [this.user.byPhone],
+      membership: [this.user.membership],
+      membershipLevel: [this.user.membershipLevel || 0],
+      membershipTextA: [this.user.membershipTextA],
+      membershipTextB: [this.user.membershipTextB],
       optionalText: [this.user.optionalText, Validators.maxLength(80)],
       address: [this.user.address, Validators.minLength(8)],
       addressExtra: [this.user.addressExtra],
@@ -90,6 +113,33 @@ export class EditUserComponent {
       // xcountry: [this.user.xcountry],
     });
   };
+
+  // Nuevo método para configurar los listeners de los controles del formulario
+  private setupListeners() {
+    // Escucha los cambios del checkbox de 'membership'
+    this.membershipSubscription = this.form.get('membership')!.valueChanges.subscribe(isChecked => {
+      if (!isChecked) {
+        // Si el checkbox está desmarcado, limpia el valor de 'membershipLevel'
+        this.form.get('membershipLevel')!.setValue(0);
+        // Opcional: Si quieres deshabilitar los radio buttons cuando el checkbox está desmarcado
+        this.form.get('membershipLevel')!.disable();
+      } else {
+        // Si el checkbox está marcado, habilita los radio buttons
+        this.form.get('membershipLevel')!.enable();
+        // Opcional: Si quieres establecer un valor por defecto cuando se marca
+        // if (!this.form.get('membershipLevel')!.value) {
+        //   this.form.get('membershipLevel')!.setValue(6); // Establece AA como predeterminado si no hay nada
+        // }
+      }
+    });
+
+    // Opcional: Asegúrate de que los radio buttons estén deshabilitados al inicio si el checkbox no está marcado
+    // Esto se ejecutará una vez que el formulario esté construido y el valor inicial cargado.
+    if (!this.form.get('membership')!.value) {
+      this.form.get('membershipLevel')!.disable();
+    }
+  }
+
 
 
   saveUser(event: Event) {
