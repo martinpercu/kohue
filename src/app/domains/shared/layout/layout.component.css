@@ -1,4 +1,16 @@
+.bg-zoom.zoomed {
+  transition: transform 7500ms linear;
+  transform: scale(1.06);
+}
 
+.bg-crossfade {
+  transition: opacity 2000ms ease-in-out;
+}
+
+.bg-crossfade.zoomed {
+  transition: opacity 2000ms ease-in-out, transform 7500ms linear;
+  transform: scale(1.06);
+}
 
 @media (min-height: 740px) {
   .cover_background_tallest_screens {
