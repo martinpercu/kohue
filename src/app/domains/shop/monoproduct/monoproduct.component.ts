@@ -30,6 +30,7 @@ export class MonoproductComponent {
 
   product_old: Product;
   cabernet_2021: Product;
+  monoproduct_malbec_2022: Product;
 
   showTest: boolean = true;
   showThis: boolean = false;
@@ -43,6 +44,7 @@ export class MonoproductComponent {
     // console.log(this.monoproduct);
     this.product_old = this.monoproductService.returnMonoproduct_old();
     this.cabernet_2021 = this.monoproductService.returnMonoproduct_cabernet_2021();
+    this.monoproduct_malbec_2022 = this.monoproductService.returnMonoproduct_malbec_2022();
   };
 
   addToCartHandler() {

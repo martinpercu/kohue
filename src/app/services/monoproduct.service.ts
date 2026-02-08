@@ -10,21 +10,21 @@ export class MonoproductService {
 
   monoproduct: Product = {
     id: 28,
-    title: "2022 Kohue Malbec",
-    subtitle: "UCO VALLEY, MENDOZA",
-    titleCart: "2022 Kohue Malbec",
-    specsheet: "malbec-2022-tech.pdf",
-    price: 185,
+    title: "2023 Kohue Rancho Pequeño Vineyard Cabernet Sauvignon",
+    subtitle: "OAKVILLE, NAPA VALLEY",
+    titleCart: "2023 Kohue Rancho Pequeño Vineyard Cabernet Sauvignon 3-Pack",
+    specsheet: "",
+    price: 396,
     imageMobile: "./../../../../assets/img/Cabernet-2021-Mobile.png",
     imageDesktop: "./../../../../assets/img/Cabernet-2021-Desktop.png",
-    imageAll: "./../../../../assets/img/8-malbec-2022.jpg",
+    imageAll: "./../../../../assets/img/molino-napa.jpg",
     // imageAll: "./../../../../assets/img/8-test.jpg",
     description: "Bottle 750ml",
-    description_a: "The 2022 season brought overall cool conditions, yielding Malbecs with ideal acidity, excellent phenolic development, and a concentrated aromatic profile with remarkable aging potential.",
-    description_b: "This classic Malbec is delicate and pure, revealing layers of red and black fruit, balanced by savory notes of graphite and minerality, giving the wine depth and complexity that reflect the authenticity of its site.",
+    description_a: "\"The 2023 Cabernet Sauvignon Rancho Pequeño is stellar. Blackberry, sage, menthol, licorice, dried herbs and chocolate are some of the notes that open first. All of this fruit is from Block 2, which is planted with Fay clone Cabernet. Readers who enjoy fine, classically built Cabernet Sauvignons will adore this.\"",
+    description_b: "Antonio Galloni, Vinous",
     images: ["./../../../../assets/img/Botella-Kohue-2021-small.png", "./../../../../assets/img/Botella-Kohue-2021-small.png"],
     category: {
-      id: 131,
+      id: 132,
       name: "Wines"
     },
     quantity: 1
@@ -33,7 +33,7 @@ export class MonoproductService {
   // This is the 3PACK Malbec 2022
   monoproduct_old_3_Pack_Malbec_2022: Product = {
     id: 26,
-    title: "2022 Kohue Malbec",
+    title: "2022 Kohue Paraje Altamira Malbec",
     subtitle: "UCO VALLEY, MENDOZA",
     titleCart: "2022 Kohue Malbec 3-Pack",
     specsheet: "malbec-2022-tech.pdf",
@@ -54,9 +54,29 @@ export class MonoproductService {
   };
 
 
+  monoproduct_malbec_2022: Product = {
+    id: 25,
+    title: "2022 Kohue Paraje Altamira Malbec",
+    subtitle: "UCO VALLEY, MENDOZA",
+    titleCart: "2022 Kohue Malbec 3-Pack",
+    specsheet: "malbec-2022-tech.pdf",
+    price: 555,
+    imageMobile: "./../../../../assets/img/Botella-Kohue-2024-Mobile.png",
+    imageDesktop: "./../../../../assets/img/Botella-Kohue-2024-Desktop.png",
+    description: "Case of 3 bottles (750ml)",
+    description_a: "The 2022 season brought overall cool conditions, yielding Malbecs with ideal acidity, excellent phenolic development, and a concentrated aromatic profile with remarkable aging potential.",
+    description_b: "This classic Malbec is delicate and pure, revealing layers of red and black fruit, balanced by savory notes of graphite and minerality, giving the wine depth and complexity that reflect the authenticity of its site.",
+    images: ["./../../../../assets/img/Botella-Kohue-2021-small.png", "./../../../../assets/img/Botella-Kohue-2021-small.png"],
+    category: {
+      id: 100,
+      name: "Wines"
+    },
+    quantity: 1
+  };
+
   monoproduct_cabernet: Product = {
     id: 24,
-    title: "2021 Kohue Cabernet Sauvignon",
+    title: "2021 Kohue Paraje Altamira Cabernet Sauvignon",
     subtitle: "UCO VALLEY, MENDOZA",
     titleCart: "2021 Kohue Cabernet Sauvignon 3-Pack",
     specsheet: "cabernet-2021-tech.pdf",
@@ -77,7 +97,7 @@ export class MonoproductService {
 
   monoproduct_malbec: Product = {
     id: 22,
-    title: "2021 Kohue Malbec",
+    title: "2021 Kohue Paraje Altamira Malbec",
     subtitle: "UCO VALLEY, MENDOZA",
     titleCart: "2021 Kohue Malbec 3-Pack",
     specsheet: "malbec-2021-tech.pdf",
@@ -106,5 +126,8 @@ export class MonoproductService {
   }
   returnMonoproduct_old() {
     return this.monoproduct_malbec
+  }
+  returnMonoproduct_malbec_2022() {
+    return this.monoproduct_malbec_2022
   }
 }
