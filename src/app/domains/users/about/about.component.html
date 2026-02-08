@@ -1,5 +1,6 @@
-<div class="flex w-full h-12">
-  <app-navbar class="fixed w-full bg-xlight bg-opacity-80 backdrop-blur-sm"></app-navbar>
+<div class="w-full h-12">
+  <!-- <app-navbar class="fixed w-full bg-xlight bg-opacity-80 backdrop-blur-sm"></app-navbar> -->
+  <app-navbar class="z-50 fixed w-full bg-xlight bg-opacity-80 backdrop-blur-sm"></app-navbar>
 </div>
 
 <div (click)="navToHome()" class="hover:cursor-pointer flex justify-center items-center py-4 px-10 pt-12">
@@ -19,8 +20,8 @@
 </div> -->
 
 <div
-class="flex justify-center items-center my-4 sm:mx-10 mt-12 aspect-[3/2] sm:aspect-[8/5] md:aspect-[9/5] lg:aspect-[10/5]  xl:aspect-[11/5]">
-  <img class="inset-0 w-full h-full object-cover contrast-[115%]" src="./../../../../assets/img/maxi-mount.jpg" alt="">
+class="-z-10 justify-center items-center my-4 sm:mx-10 mt-12 aspect-[3/2] sm:aspect-[8/5] md:aspect-[9/5] lg:aspect-[10/5]  xl:aspect-[11/5]">
+  <img class="inset-0 w-full h-full object-cover contrast-[115%]" src="./../../../../assets/img/foto-familia.png" alt="">
 </div>
 
 <div class="pt-8">
@@ -29,38 +30,160 @@ class="flex justify-center items-center my-4 sm:mx-10 mt-12 aspect-[3/2] sm:aspe
   </div>
 </div>
 
+<div class="relative mt-8 mb-8">
 
-<div class="pt-8">
-  <div class="px-4 sm:px-8 md:px-16 lg:px-44 xl:px-72 2xl:px-96 text-left text-base font-normal text-gray-900">
-    Kohue Wines produces a limited collection of hand-crafted, high altitude mountain wines from the finest terroirs in
-    the foothills of the Andes in Mendoza, Argentina.
-    <br><br>
-    This majestic region offers a unique synergy that nurtures naturally healthy vineyards. The high altitude, distinct
-    soil types, glacial waters, and dry microclimate, allow berries to develop an incredible complexity of aromas and
-    flavors characteristic of the terraces of the Andes.
-    <br><br>
-    With minimal intervention, we entrust nature to unveil the identity of each site, preserving the inherent qualities
-    of the fruit. Grounded in years of winemaking experience and a deep respect for nature and its ecosystems, Kohue
-    crafts singular wines that are profound and elegant, offering depth, complexity, and the ability to age beautifully
-    over the years.
-    <br><br>
-    Each year, the Kohue family embarks on a journey between two hemispheres, following the rhythm of the harvest—from
-    Mendoza to Napa. Every bottle tells the story of their journey while capturing the incredible terroir of their
-    native land.
-    <br><br>
+  <div class="pt-8  w-full flex justify-center gap-8 font-medium">
+    <div class="uppercase text-center text-xl text-gray-500">
+      Mendoza 
+    </div>
+    <div class="text-gray-500">|</div>
+    <div class="uppercase text-center text-xl text-gray-500">
+      Napa Valley
+    </div>
   </div>
+
+  @if(showRootedInMendoza) {
+    <div class="absolute top-0 w-full pt-8 flex justify-center gap-8 font-medium">
+      <div @fadeInOutTitles class="uppercase underline text-center text-xl text-gray-900 text-bold">
+        Mendoza
+      </div>
+      <div class="text-gray-500">|</div>
+      <div @fadeInOutTitles (click)="handleSwitchText()" class="uppercase transparent text-center text-xl text-gray-500 hover:cursor-pointer">
+        Napa Valley
+      </div>
+    </div>
+  }
+
+  @if(showGroundedInNapaValley) {
+    <div class="absolute top-0 w-full pt-8 flex justify-center gap-8 font-medium">
+      <div @fadeInOutTitles (click)="handleSwitchText()" class="uppercase transparent text-center text-xl text-gray-500 hover:cursor-pointer">
+        Mendoza
+      </div>
+      <div class="text-gray-500">|</div>
+      <div @fadeInOutTitles class="uppercase underline text-center text-xl text-gray-900 text-bold">
+        Napa Valley
+      </div>
+    </div>
+  }
+
+
+</div>
+
+<!-- <div class="pt-8 flex justify-center gap-8 font-medium">
+  <div (click)="handleSwitchText()" class="text-center text-xl text-gray-900 hover:cursor-pointer" [class.underline]="showRootedInMendoza">
+    Rooted in Mendoza
+  </div>
+  <div (click)="handleSwitchText()" class="text-center text-xl text-gray-900 hover:cursor-pointer" [class.underline]="showGroundedInNapaValley">
+    Grounded in Napa Valley
+  </div>
+  <div @fadeInOutTitles (click)="handleSwitchText()" class="text-center text-xl text-gray-900 hover:cursor-pointer" [class.underline]="showRootedInMendoza">
+    Rooted in Mendoza
+  </div>
+  <div @fadeInOutTitles (click)="handleSwitchText()" class="text-center text-xl text-gray-900 hover:cursor-pointer" [class.underline]="showGroundedInNapaValley">
+    Grounded in Napa Valley
+  </div>
+  <div @fadeInOutTitles (click)="handleSwitchText()" class="text-center text-xl text-gray-900 hover:cursor-pointer" [class.underline]="showRootedInMendoza">
+    Rooted in Mendoza
+  </div>
+  <div @fadeInOutTitles (click)="handleSwitchText()" class="text-center text-xl text-gray-900 hover:cursor-pointer" [class.underline]="showGroundedInNapaValley">
+    Grounded in Napa Valley
+  </div>
+</div> -->
+
+
+<div class="relative">
+  <!-- Spacer invisible - mantiene la altura del contenedor -->
+  <div class="pt-8 invisible" aria-hidden="true">
+    <div class="px-4 sm:px-8 md:px-16 lg:px-44 xl:px-72 2xl:px-96 text-left text-base font-normal">
+      <div class="font-semibold mb-4">SARAZA</div>
+      The vision of Kohue Wines lived as a dream in our minds for many years
+      before coming to life in 2018 when we began producing a limited collection of
+      hand-crafted, high altitude mountain wines from the finest terroirs in the
+      foothills of the Andes.
+      <br><br>
+      This majestic region offers a unique synergy that nurtures naturally healthy
+      vineyards. The high altitude, distinct soil types, glacial waters, and dry
+      microclimate, allow berries to develop an incredible complexity of aromas and
+      flavors particular to this place in the Andes that captured our attention from
+      the beginning.
+      <br><br>
+      With minimal intervention, we entrust nature to reveal the identity of each
+      site, preserving the inherent qualities of the fruit. Grounded in years of
+      winemaking experience and a deep respect for nature and its ecosystems, we
+      craft singular wines from this region that are profound and elegant, offering
+      depth, complexity, and the ability to age gracefully over the years.
+      <br><br>
+      Each year, our family embarks on a journey between two hemispheres,
+      following the rhythm of the harvest, from Mendoza to Napa.
+      <br><br>
+    </div>
+  </div>
+  <!-- Contenido visible con animación -->
+  @if(showRootedInMendoza) {
+    <div @fadeInOut class="pt-8 absolute top-0 w-full">
+      <div class="px-4 sm:px-8 md:px-16 lg:px-44 xl:px-72 2xl:px-96 text-left text-base font-normal text-gray-900">
+        <div class="font-semibold mb-6">Rooted In Mendoza</div>
+        The vision of Kohue Wines lived as a dream in our minds for many years
+        before coming to life in 2018 when we began producing a limited collection of
+        hand-crafted, high altitude mountain wines from the finest terroirs in the
+        foothills of the Andes.
+        <br><br>
+        This majestic region offers a unique synergy that nurtures naturally healthy
+        vineyards. The high altitude, distinct soil types, glacial waters, and dry
+        microclimate, allow berries to develop an incredible complexity of aromas and
+        flavors particular to this place in the Andes that captured our attention from
+        the beginning.
+        <br><br>
+        With minimal intervention, we entrust nature to reveal the identity of each
+        site, preserving the inherent qualities of the fruit. Grounded in years of
+        winemaking experience and a deep respect for nature and its ecosystems, we
+        craft singular wines from this region that are profound and elegant, offering
+        depth, complexity, and the ability to age gracefully over the years.
+        <br><br>
+        Each year, our family embarks on a journey between two hemispheres,
+        following the rhythm of the harvest, from Mendoza to Napa.
+        <br><br>
+      </div>
+    </div>
+  }
+  @if(showGroundedInNapaValley) {
+    <div @fadeInOut class="pt-8 absolute top-0 w-full">
+      <div class="px-4 sm:px-8 md:px-16 lg:px-44 xl:px-72 2xl:px-96 text-left text-base font-normal text-gray-900">
+        <div class="font-semibold mb-6">Grounded In Napa Valley</div>
+        After nearly two decades of living between both regions and contributing to
+        some of Napa’s most prestigious wine projects, a natural opportunity
+        emerged in 2023 for us to craft our very own first Napa Valley Cabernet
+        Sauvignon, one that felt deeply aligned with our history and values.
+        <br><br>
+        Maxi had already begun shaping his winemaking path in Napa when in 2007,
+        he met Bart and Daphne Araujo. While working in Pomerol, he was invited to
+        join their winemaking team in 2009 at the legendary Eisele Vineyard, formerly
+        known as Araujo Estate. He later became part of the Kinsman Consulting
+        team, where for many years he has continued to contribute to some of the
+        valley’s most respected wines.
+        <br><br>
+        After countless seasons living the demanding yet rewarding rhythm of
+        double harvests, bringing a Napa Valley wine into Kohue felt like a new
+        horizon in our story.
+        <br><br>
+        Our Napa Valley Cabernet Sauvignon completes a circle between the
+        renowned wine regions that have defined our vision, reflecting the essence of
+        both our journey and the Spirit of Kohue Wines.
+        <br><br>
+      </div>
+    </div>
+  }
 </div>
 
 
-
-<div class="pt-20">
+<div class="pt-14">
   <div
-    class="text-center sm:text-left text-lg px-4 sm:px-8 md:px-16 lg:px-44 xl:px-72 2xl:px-96  font-bold text-gray-900">
-    THE NAME
+    class="sm:text-left text-lg px-4 sm:px-8 md:px-16 lg:px-44 xl:px-72 2xl:px-96  font-semibold text-gray-900">
+    The Name
   </div>
 </div>
 
-<div class="pt-8">
+<div class="pt-6">
   <div class="px-4 sm:px-8 md:px-16 lg:px-44 xl:px-72 2xl:px-96 text-left text-base font-normal text-gray-900">
     Kohue, pronounced Ko-[weh], is the name of a remarkable native wild plant in the indigenous language, a true
     protagonist of the flora, fauna, and culture of Mendoza. With its vibrant yellow flowers and captivating aroma, it

@@ -1,75 +1,87 @@
 <div class="">
 
-  <div class="block sm:hidden bg-cordillera-vertical bg-cover cover_background_tallest_screens h-screen">
-    <!-- <div class="block sm:hidden bg-cordillera-vertical bg-cover cover_background_tallest_screens h-[850px]"> -->
-
-    <div class="flex justify-center items-center py-4 px-10 pt-32">
-      <img class="h-5" src="./../../../../assets/img/kohue-name-dark.svg" alt="">
+  <!-- Mobile -->
+  <div class="block sm:hidden relative h-screen overflow-hidden">
+    <!-- Background base: Mendoza -->
+    <div class="absolute inset-0 bg-cordillera-vertical bg-cover cover_background_tallest_screens bg-zoom"
+         [class.zoomed]="zoomMendoza">
     </div>
-
-    <div class="flex gap-3 justify-center pt-0">
-      @if(!this.authService.user()) {
-      <div (click)="navJointhelist()"
-        class="font-serif text-xdark text-center items-center hover:text-black hover:cursor-pointer text-xs font-medium px-2 py-2 uppercase">
-        Join
-      </div>
-      }
-      <div (click)="navAbout()"
-        class="font-serif text-xdark text-center items-center hover:text-black hover:cursor-pointer text-xs font-medium px-2 py-2 uppercase">
-        About us
-      </div>
-      <div (click)="navOurWines()"
-        class="font-serif text-xdark text-center items-center hover:text-black hover:cursor-pointer text-xs font-medium px-2 py-2 uppercase">
-        Wines
-      </div>
-      <div (click)="navToShopArea()"
-        class="font-serif text-xdark text-center items-center hover:text-black hover:cursor-pointer text-xs font-medium px-2 py-2 uppercase">
-        Members
-      </div>
-
+    <!-- Background overlay: Napa (fades in/out + zoom) -->
+    <div class="absolute inset-0 bg-cordillera-vertical-napa bg-cover cover_background_tallest_screens bg-crossfade"
+         [class.opacity-100]="showNapa"
+         [class.opacity-0]="!showNapa"
+         [class.zoomed]="zoomNapa">
     </div>
+    <!-- Content -->
+    <div class="relative z-10">
+      <div class="flex justify-center items-center py-4 px-10 pt-32">
+        <img class="h-5" src="./../../../../assets/img/kohue-name-dark.svg" alt="">
+      </div>
 
-  </div>
-
-  <div class="hidden sm:block bg-cordillera-sepia bg-top cover_background_tallest_screens  h-screen">
-
-    <!-- <div class="flex justify-center items-center pt-16">
-    <img class="h-20" src="./../../../../assets/img/kohue-sello-dark.svg" alt="">
-  </div> -->
-    <div class="flex justify-center items-center py-2 px-10 pt-28">
-      <img class="h-6" src="./../../../../assets/img/kohue-name-dark.svg" alt="">
+      <div class="flex gap-3 justify-center pt-0">
+        @if(!this.authService.user()) {
+        <div (click)="navJointhelist()"
+          class="font-serif text-xdark text-center items-center hover:text-black hover:cursor-pointer text-xs font-medium px-2 py-2 uppercase">
+          Join
+        </div>
+        }
+        <div (click)="navAbout()"
+          class="font-serif text-xdark text-center items-center hover:text-black hover:cursor-pointer text-xs font-medium px-2 py-2 uppercase">
+          About us
+        </div>
+        <div (click)="navOurWines()"
+          class="font-serif text-xdark text-center items-center hover:text-black hover:cursor-pointer text-xs font-medium px-2 py-2 uppercase">
+          Wines
+        </div>
+        <div (click)="navToShopArea()"
+          class="font-serif text-xdark text-center items-center hover:text-black hover:cursor-pointer text-xs font-medium px-2 py-2 uppercase">
+          Members
+        </div>
+      </div>
     </div>
-
-    <div class="flex gap-4 justify-center pt-2">
-
-      <!-- <div (click)="navJointhelist()" class="text-xdark text-center items-center hover:underline hover:cursor-pointer text-lg font-medium px-6 py-2 uppercase">
-        Join the List
-    </div> -->
-      @if(!this.authService.user()) {
-      <div (click)="navJointhelist()"
-        class="font-serif text-xdark text-center items-center hover:text-black hover:cursor-pointer text-xs font-medium px-2 py-2 uppercase">
-        Join
-      </div>
-      }
-      <div (click)="navAbout()"
-        class="font-serif text-xdark text-center items-center hover:text-black hover:cursor-pointer text-xs font-medium px-2 py-2 uppercase">
-        About us
-      </div>
-      <div (click)="navOurWines()"
-        class="font-serif text-xdark text-center items-center hover:text-black hover:cursor-pointer text-xs font-medium px-2 py-2 uppercase">
-        Wines
-      </div>
-      <div (click)="navToShopArea()"
-        class="font-serif text-xdark text-center items-center hover:text-black hover:cursor-pointer text-xs font-medium px-2 py-2 uppercase">
-        Members
-      </div>
-
-    </div>
-
-
   </div>
 
 
+  <!-- Desktop -->
+  <div class="hidden sm:block relative h-screen overflow-hidden">
+    <!-- Background base: Mendoza -->
+    <div class="absolute inset-0 bg-cordillera-sepia bg-top cover_background_tallest_screens bg-zoom"
+         [class.zoomed]="zoomMendoza">
+    </div>
+    <!-- Background overlay: Napa (fades in/out + zoom) -->
+    <div class="absolute inset-0 bg-cordillera-sepia-napa bg-top cover_background_tallest_screens bg-crossfade"
+         [class.opacity-100]="showNapa"
+         [class.opacity-0]="!showNapa"
+         [class.zoomed]="zoomNapa">
+    </div>
+    <!-- Content -->
+    <div class="relative z-10">
+      <div class="flex justify-center items-center py-2 px-10 pt-28">
+        <img class="h-6" src="./../../../../assets/img/kohue-name-dark.svg" alt="">
+      </div>
+
+      <div class="flex gap-4 justify-center pt-2">
+        @if(!this.authService.user()) {
+        <div (click)="navJointhelist()"
+          class="font-serif text-xdark text-center items-center hover:text-black hover:cursor-pointer text-xs font-medium px-2 py-2 uppercase">
+          Join
+        </div>
+        }
+        <div (click)="navAbout()"
+          class="font-serif text-xdark text-center items-center hover:text-black hover:cursor-pointer text-xs font-medium px-2 py-2 uppercase">
+          About us
+        </div>
+        <div (click)="navOurWines()"
+          class="font-serif text-xdark text-center items-center hover:text-black hover:cursor-pointer text-xs font-medium px-2 py-2 uppercase">
+          Wines
+        </div>
+        <div (click)="navToShopArea()"
+          class="font-serif text-xdark text-center items-center hover:text-black hover:cursor-pointer text-xs font-medium px-2 py-2 uppercase">
+          Members
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 

@@ -24,7 +24,9 @@ module.exports = {
       backgroundImage: {
         'cordillera': "url('assets/img/cordillera-bw.jpg')",
         'cordillera-sepia': "url('assets/img/css/bg-cordillera.jpg')",
+        'cordillera-sepia-napa': "url('assets/img/css/bg-cordillera-napa.jpg')",
         'cordillera-vertical': "url('assets/img/css/bg-cordillera-vertical.jpg')",
+        'cordillera-vertical-napa': "url('assets/img/css/bg-cordillera-vertical-napa.jpg')",
         'nubes': "url('assets/img/css/bg-nubes.jpg')",
       }
       // backgroundImage: { // DEV backgrounds

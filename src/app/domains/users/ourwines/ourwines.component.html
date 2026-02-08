@@ -1,5 +1,6 @@
 <div class="flex w-full h-12">
-  <app-navbar class="fixed w-full bg-xlight bg-opacity-80 backdrop-blur-sm"></app-navbar>
+  <!-- <app-navbar class="fixed w-full bg-xlight bg-opacity-80 backdrop-blur-sm"></app-navbar> -->
+  <app-navbar class="z-50 fixed w-full bg-xlight bg-opacity-80 backdrop-blur-sm"></app-navbar>
 </div>
 
 <div (click)="navToHome()" class="hover:cursor-pointer flex justify-center items-center py-4 px-10 pt-12">
@@ -19,7 +20,7 @@
 
 <div
 class="flex justify-center items-center my-4 sm:mx-10 mt-12 aspect-[3/2] sm:aspect-[8/5] md:aspect-[9/5] lg:aspect-[10/5]  xl:aspect-[11/5]">
-<img class="inset-0 w-full h-full object-cover filterForMaxBarrels" src="./../../../../assets/img/maxi-barrels.jpg" alt="">
+<img class="inset-0 w-full h-full object-cover filterForMaxBarrels" src="./../../../../assets/img/maxi-mount.jpg" alt="">
 </div>
 
 <div class="pt-8">
@@ -28,22 +29,291 @@ class="flex justify-center items-center my-4 sm:mx-10 mt-12 aspect-[3/2] sm:aspe
   </div>
 </div>
 
-<div class="pt-8">
+<div class="px-0 sm:px-16">
+  <div class="pt-8 px-4 sm:px-8 md:px-16 lg:px-44 xl:px-72 2xl:px-96">
+    <div class="p-6 bg-stone-300 bg-opacity-30 text-justify shadow text-left text-sm font-normal italic text-gray-900">
+      "These are the first wines I have tasted from Maxi Valsecchi's Kohue, which offers an intriguing mix of wines
+      from Argentina and Napa Valley. Valsecchi worked with Nigel Kinsman at Araujo Estate in 2009 and 2010
+      and coninues to make the trip to Napa Valley for harvest with Kinsman each year. I am far from an expert
+      on the wines of Argentina, but I can say that the Kohue Cabernet Sauvignon in this range is terrific."
+      <br><br>
+      By Antonio Galloni on November 2025
+    </div>
+  </div>
+</div>
+
+<div class="pt-8 sm:mt-6">
   <div class="px-4 sm:px-8 md:px-16 lg:px-44 xl:px-72 2xl:px-96 text-left text-base font-normal text-gray-900">
-    Our portfolio features hand-crafted, single-vineyard Malbecs and Cabernet Sauvignons from the finest terroirs,
-    nestled in the majestic foothills of the Andes.
-    <br><br>
-    We have explored every corner of the Mendoza wine country, meticulously selecting vineyard sites down to the precise
-    rows—where old, wise vines—some of them over 100 years old, impart complexity and character.
-    <br><br>
-    Carefully tended by pioneering vintners, watched over by the soaring Andes Mountains, nurtured by sunlight, shaped
-    by the wind and altitude, and rooted in ancient alluvial soils, these vines tell a story we are passionate about
-    sharing.
+    From April in Mendoza to October in Napa Valley, each year we craft wines
+    across two hemispheres.
+    <br>
+    Our portfolio brings together wines from these two renowned regions,
+    reflecting our experience and winemaking journey: Hand-crafted, single-
+    vineyard Malbecs and Cabernet Sauvignons from the finest terroirs nestled in
+    the majestic foothills of the Andes, and Cabernet Sauvignons from
+    distinguished vineyards in the iconic heart of Napa Valley.
   </div>
 </div>
 
 
-<div class="pt-20">
+
+<div class="relative mt-8">
+
+  <div class="pt-8  w-full flex justify-center gap-8 font-medium">
+    <div class="uppercase text-center text-xl text-gray-500">
+      Mendoza
+    </div>
+    <div class="text-gray-500">|</div>
+    <div class="uppercase text-center text-xl text-gray-500">
+      Napa Valley
+    </div>
+  </div>
+
+  @if(showMendozaWine) {
+    <div class="absolute top-0 w-full pt-8 flex justify-center gap-8 font-medium">
+      <div @fadeInOutTitles class="uppercase underline text-center text-xl text-gray-900 text-bold">
+        Mendoza
+      </div>
+      <div class="text-gray-500">|</div>
+      <div @fadeInOutTitles (click)="handleSwitchText()" class="uppercase transparent text-center text-xl text-gray-500 hover:cursor-pointer">
+        Napa Valley
+      </div>
+    </div>
+  }
+
+  @if(showNapaWine) {
+    <div class="absolute top-0 w-full pt-8 flex justify-center gap-8 font-medium">
+      <div @fadeInOutTitles (click)="handleSwitchText()" class="uppercase transparent text-center text-xl text-gray-500 hover:cursor-pointer">
+        Mendoza
+      </div>
+      <div class="text-gray-500">|</div>
+      <div @fadeInOutTitles class="uppercase underline text-center text-xl text-gray-900 text-bold">
+        Napa Valley
+      </div>
+    </div>
+  }
+
+</div>
+
+
+<div class="relative">
+  <!-- Spacer invisible - mantiene la altura del contenedor -->
+  <div class="pt-8 invisible" aria-hidden="true">
+    <div class="px-4 sm:px-8 md:px-16 lg:px-44 xl:px-72 2xl:px-96 text-left text-base font-normal">
+      We have explored every corner of the Mendoza wine country, meticulously
+        selecting vineyard sites down to the precise rows, where old, wise vines, some
+        of them over 100 years old, impart complexity and character.
+        <br><br>
+        Carefully tended by pioneering vintners, watched over by the soaring Andes
+        Mountains, nurtured by radiant sunlight, shaped by the wind and altitude,
+        and rooted in ancient alluvial soils. These vines tell a story – one we are
+        passionate about sharing as we reveal the extraordinary potential of the
+        terroir of our native land.
+    </div>
+
+    <div class="pt-20 mb-12 sm:mb-20 w-full text-center px-8 sm:px-20">
+      <div class="flex flex-col sm:flex-row max-w-[900px] m-auto">
+
+        <div class="relative sm:w-1/2 aspect-square">
+          <img class="absolute inset-0 w-full h-full object-cover" src="./../../../../assets/img/our-wines.jpg" alt="">
+        </div>
+
+        <div class="flex flex-col text-center sm:pl-4 md:pl-12 lg:pl-20 my-8 sm:my-12 sm:w-1/2">
+
+          <div class="flex-initial">
+            <div class="font-serif text-lg mb-2">
+              Malbec
+            </div>
+            <div>
+              Paraje Altamira, Uco Valley
+              <br>
+              Vintage: <span (click)='toPdf("malbec-2021-tech.pdf")' class="cursor-pointer hover:underline font-bold">2021</span>
+            </div>
+          </div>
+
+          <div class="grow h-12"></div>
+
+          <div class="">
+            <div class="font-serif text-lg mb-2">
+              Cabernet Sauvignon
+            </div>
+            <div>
+              Paraje Altamira, Uco Valley
+              <br>
+              Vintage: <span (click)='toPdf("cabernet-2021-tech.pdf")' class="cursor-pointer hover:underline font-bold">2021</span>
+            </div>
+          </div>
+
+          <div class="grow h-12"></div>
+
+          <div class="w-1/2 m-auto">
+            @if(!this.authService.user()) {
+              <div (click)="navToSignIn()" class="button !px-0">
+                Join The List
+              </div>
+            }
+            @if(this.authService.user()) {
+              <div (click)="navToMembers()" class="button !px-0">
+                Acquire
+              </div>
+            }
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="mt-10 sm:mt-28 m-auto w-10/12 h-0.5 bg-xdark bg-opacity-60"></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- Contenido visible con animación -->
+  @if(showMendozaWine) {
+    <div @fadeInOut class="pt-8 absolute top-0 w-full">
+      <div class="px-4 sm:px-8 md:px-16 lg:px-44 xl:px-72 2xl:px-96 text-left text-base font-normal text-gray-900">
+        We have explored every corner of the Mendoza wine country, meticulously
+        selecting vineyard sites down to the precise rows, where old, wise vines, some
+        of them over 100 years old, impart complexity and character.
+        <br><br>
+        Carefully tended by pioneering vintners, watched over by the soaring Andes
+        Mountains, nurtured by radiant sunlight, shaped by the wind and altitude,
+        and rooted in ancient alluvial soils. These vines tell a story – one we are
+        passionate about sharing as we reveal the extraordinary potential of the
+        terroir of our native land.
+      </div>
+
+      <div class="pt-20 mb-12 sm:mb-20 w-full text-center px-8 sm:px-20">
+        <div class="flex flex-col sm:flex-row max-w-[900px] m-auto">
+
+          <div class="relative sm:w-1/2 aspect-square">
+            <img class="absolute inset-0 w-full h-full object-cover" src="./../../../../assets/img/our-wines.jpg" alt="">
+          </div>
+
+          <div class="flex flex-col text-center sm:pl-4 md:pl-12 lg:pl-20 my-8 sm:my-12 sm:w-1/2">
+
+            <div class="flex-initial">
+              <div class="font-serif text-lg mb-2">
+                Malbec
+              </div>
+              <div>
+                Paraje Altamira, Uco Valley
+                <br>
+                Vintage: <span (click)='toPdf("malbec-2021-tech.pdf")' class="cursor-pointer hover:underline font-bold">2021</span>,
+                <span (click)='toPdf("malbec-2022-tech.pdf")' class="cursor-pointer hover:underline font-bold">2022</span>
+              </div>
+            </div>
+
+            <div class="grow h-12"></div>
+
+            <div class="">
+              <div class="font-serif text-lg mb-2">
+                Cabernet Sauvignon
+              </div>
+              <div>
+                Paraje Altamira, Uco Valley
+                <br>
+                Vintage: <span (click)='toPdf("cabernet-2021-tech.pdf")' class="cursor-pointer hover:underline font-bold">2021</span>
+              </div>
+            </div>
+
+            <div class="grow h-12"></div>
+
+            <div class="w-1/2 m-auto">
+              @if(!this.authService.user()) {
+                <div (click)="navToSignIn()" class="button !px-0">
+                  Join The List
+                </div>
+              }
+              @if(this.authService.user()) {
+                <div (click)="navToMembers()" class="button !px-0">
+                  Acquire
+                </div>
+              }
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="mt-10 sm:mt-28 m-auto w-10/12 h-0.5 bg-xdark bg-opacity-60"></div>
+
+      </div>
+
+    </div>
+
+  }
+  @if(showNapaWine) {
+    <div @fadeInOut class="pt-8 absolute top-0 w-full">
+      <div class="px-4 sm:px-8 md:px-16 lg:px-44 xl:px-72 2xl:px-96 text-left text-base font-normal text-gray-900">
+        After years of scouting vineyards across nearly the entire valley,
+        understanding its soils, crafting wines from its diverse terroirs, and building
+        collaborations and friendships grounded in this region, the opportunity to
+        make our own wine from truly exceptional vineyards came about in 2023.
+        <br><br>
+        Crafting the wine at Wheeler Farms, a state-of-the-art winery woven into our
+        story, felt like a natural evolution and brought the project full circle. Our
+        journey between two hemispheres is now fully reflected in our Napa Valley
+        wines.
+      </div>
+
+      <div class="pt-20 mb-12 sm:mb-20 w-full text-center px-8 sm:px-20">
+        <div class="flex flex-col sm:flex-row max-w-[900px] m-auto">
+
+          <div class="relative sm:w-1/2 aspect-square">
+            <img class="absolute inset-0 w-full h-full object-cover" src="./../../../../assets/img/napa-test.jpg" alt="">
+          </div>
+
+          <div class="flex flex-col text-center sm:pl-4 md:pl-12 lg:pl-20 my-8 sm:my-12 sm:w-1/2">
+            
+            <div class="grow h-12"></div>
+
+            <div class="">
+              <div class="font-serif text-lg mb-2">
+                Cabernet Sauvignon
+              </div>
+              <div>
+                Oakville, Napa Valley
+                <br>
+                <!-- Vintage: <span (click)='toPdf("cabernet-2021-tech.pdf")' class="cursor-pointer hover:underline font-bold">2021</span> -->
+                Vintage: 2023
+              </div>
+            </div>
+
+            <div class="grow h-12"></div>
+
+            <div class="w-1/2 m-auto">
+              @if(!this.authService.user()) {
+                <div (click)="navToSignIn()" class="button !px-0">
+                  Join The List
+                </div>
+              }
+              @if(this.authService.user()) {
+                <div (click)="navToMembers()" class="button !px-0">
+                  Acquire
+                </div>
+              }
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="mt-10 sm:mt-28 m-auto w-10/12 h-0.5 bg-xdark bg-opacity-60"></div>
+
+      </div>
+      
+    </div>
+  }
+</div>
+
+
+
+
+
+<!-- <div class="pt-20">
   <div class="text-center text-lg font-bold text-gray-900">
     Explore our site-driven Malbecs and Cabernet Sauvignons
   </div>
@@ -107,7 +377,7 @@ class="flex justify-center items-center my-4 sm:mx-10 mt-12 aspect-[3/2] sm:aspe
 
   <div class="mt-10 sm:mt-28 m-auto w-10/12 h-0.5 bg-xdark bg-opacity-60"></div>
 
-</div>
+</div> -->
 
 
 
