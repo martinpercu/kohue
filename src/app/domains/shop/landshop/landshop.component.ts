@@ -99,7 +99,8 @@ export class LandshopComponent {
     this.user = await this.clientService.getOneUser(this.userId);
     // console.log(this.user);
     if(this.user.membership){
-      this.subMenuChoice = 'dash'
+      // this.subMenuChoice = 'dash'
+      this.subMenuChoice = 'current' // por ahora va a current
     }
 
     if (this.user.stripeCustomerId == 'none') {

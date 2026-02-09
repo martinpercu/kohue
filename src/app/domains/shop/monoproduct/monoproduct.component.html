@@ -33,15 +33,22 @@
         NOW AVAILABLE!
       </div> -->
 
-      <div class="font-semibold text-lg sm:text-xl mt-4 sm:mt-0">
+      <!-- <div class="font-semibold text-lg sm:text-xl mt-4 sm:mt-0">
         {{ monoproduct.title  }}
-      </div>
+      </div> -->
 
-      <div class="mb-3 sm:mb-8">
+      <div class="font-semibold text-lg sm:text-xl mt-4 sm:mt-0">
+        2023 Kohue Rancho Pequeño Vineyard
+      </div>
+      <div class="font-semibold text-lg sm:text-xl mt-4 sm:mt-0">
+        Cabernet Sauvignon
+      </div>
+      
+      <div class="mb-3 sm:mb-8 pt-2">
         {{ monoproduct.subtitle  }}
       </div>
 
-      <div class="text-left text-sm sm:text-base px-2 sm:pl-6">
+      <div class="text-left italic text-sm sm:text-base px-2 sm:pl-6">
         <div class="mb-4">
           {{ monoproduct.description_a  }}
         </div>
@@ -55,16 +62,16 @@
       </div> -->
 
       <div class="font-normal mb-4 sm:mb-4 sm:mt-8">
-        $185 / 750ml
+        $396 / 3-Pack
       </div>
 
       <div class="button m-auto" (click)="addToCartHandler()">
         Add to cart
       </div>
 
-      <div (click)="toPdf(monoproduct.specsheet)" class="cursor-pointer font-semibold underline text-xs pt-2">
+      <!-- <div (click)="toPdf(monoproduct.specsheet)" class="cursor-pointer font-semibold underline text-xs pt-2">
         SPEC SHEET
-      </div>
+      </div> -->
 
     </div>
 
@@ -97,9 +104,49 @@
     LIBRARY WINES
   </div>
 
-  <div class="text-lg sm:text-xl flex justify-center mt-2 mb-8 sm:mb-16">
+  <!-- <div class="text-lg sm:text-xl flex justify-center mt-2 mb-8 sm:mb-16">
     INAUGURAL RELEASES: NOW CLOSED
+  </div> -->
+
+  <div class="flex flex-col sm:flex-row">
+
+    <div class="flex flex-col sm:w-3/5 text-sm sm:text-lg m-auto">
+
+      <div class="font-semibold text-lg sm:text-xl mt-4 sm:mt-0">
+        {{ monoproduct_malbec_2022.title  }}
+      </div>
+
+      <div class="mb-3 sm:mb-6">
+        {{ monoproduct_malbec_2022.subtitle  }}
+      </div>
+
+      <div class="text-left text-sm sm:text-base px-2 sm:pl-6">
+        <div class="mb-4">
+          {{ monoproduct_malbec_2022.description_a  }}
+        </div>
+        <div class="mb-4">
+          {{ monoproduct_malbec_2022.description_b  }}
+        </div>
+      </div>
+
+      <!-- -- Case of 3 Bottle -- -->
+      <div class="font-normal sm:mb-4 sm:mt-2">
+      <!-- <div class="font-normal sm:mb-4 sm:mt-6"> -->
+        <!-- {{ monoproduct_malbec_2022.description  }} -->
+      </div>
+
+      <div class="button m-auto" (click)="showThanksForYourInterestAlert()">
+        Request To Acquire
+      </div>
+
+      <div (click)="toPdf(monoproduct_malbec_2022.specsheet)" class="cursor-pointer font-semibold underline text-xs pt-2">
+        SPEC SHEET
+      </div>
+
+    </div>
+
   </div>
+  <div class="h-24 sm:h32"></div>
 
   <div class="flex flex-col sm:flex-row">
 

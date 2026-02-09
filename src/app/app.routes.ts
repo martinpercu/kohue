@@ -61,6 +61,11 @@ export const routes: Routes = [
     ...canActivate(() => redirectUnauthorizedTo(['login']))
   },
   {
+    path: 'PreReleaseNapaValley',
+    component: LandshopComponent,
+    ...canActivate(() => redirectUnauthorizedTo(['login']))
+  },
+  {
     path: 'mono',
     component: MonoproductComponent,
     ...canActivate(() => redirectUnauthorizedTo(['login']))

@@ -25,14 +25,14 @@ export class ShippingService {
 
     const shippingOptions: { [key: string]: { [key: number]: { amount: number; stripeId: string } } } = {
       'Overnight': {
-        1: { amount: 48, stripeId: environment.SHIP_OVERNIGHT_FLAT_ONE },
-        2: { amount: 48, stripeId: environment.SHIP_OVERNIGHT_FLAT_ONE },
-        3: { amount: 48, stripeId: environment.SHIP_OVERNIGHT_FLAT_ONE },
+        1: { amount: 90, stripeId: environment.SHIP_OVERNIGHT_1 },
+        2: { amount: 110, stripeId: environment.SHIP_OVERNIGHT_2 },
+        3: { amount: 130, stripeId: environment.SHIP_OVERNIGHT_3 },
       },
       'Ground shipping': {
-        1: { amount: 0, stripeId: environment.SHIP_GROUND_FLAT_ONE },
-        2: { amount: 0, stripeId: environment.SHIP_GROUND_FLAT_ONE },
-        3: { amount: 0, stripeId: environment.SHIP_GROUND_FLAT_ONE },
+        1: { amount: 35, stripeId: environment.SHIP_GROUND_1 },
+        2: { amount: 50, stripeId: environment.SHIP_GROUND_2 },
+        3: { amount: 90, stripeId: environment.SHIP_GROUND_3 },
       },
       'Local Pick up': {
         1: { amount: 0, stripeId: environment.SHIP_LOCAL }, // For consistency, you can have this, even if it doesn't depend on quantity
