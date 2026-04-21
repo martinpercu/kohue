@@ -40,13 +40,16 @@ export class EmailService {
     console.log(response);
   };
 
-  async sendEmailInterested(user: any) {
+  async sendEmailInterested(user: any, productClicked: string) {
     emailjs.init(EmailVars.INIT_VAR_PROD);
-    console.log(user);
+    console.log(productClicked);
+
+    // console.log(user);
     let response = await emailjs.send(EmailVars.CLICKER_SERVICE_PROD, EmailVars.CLICKER_TEMPLATE_PROD, {
       firstname: user.firstname,
       lastname: user.lastname,
       client_email: user.email,
+      product_clicked: productClicked
     });
     console.log(response);
   };

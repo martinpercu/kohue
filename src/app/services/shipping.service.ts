@@ -32,7 +32,7 @@ export class ShippingService {
       'Ground shipping': {
         1: { amount: 35, stripeId: environment.SHIP_GROUND_1 },
         2: { amount: 50, stripeId: environment.SHIP_GROUND_2 },
-        3: { amount: 90, stripeId: environment.SHIP_GROUND_3 },
+        3: { amount: 85, stripeId: environment.SHIP_GROUND_3 },
       },
       'Local Pick up': {
         1: { amount: 0, stripeId: environment.SHIP_LOCAL }, // For consistency, you can have this, even if it doesn't depend on quantity

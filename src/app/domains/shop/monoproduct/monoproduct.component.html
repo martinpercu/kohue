@@ -9,7 +9,7 @@
     RELEASE: April 23rd, <div class="pl-2">2025</div>
   </div> -->
   <div class="text-xl flex justify-center mt-2 mb-4 sm:mb-12 font-semibold">
-    RELEASES
+    CURRENT RELEASE
   </div>
 
   <div class="flex flex-col sm:flex-row">
@@ -19,18 +19,74 @@
       </div>
       <div class="hidden sm:block">
         <img class="p-2 m-auto h-96 object-cover" src="{{ monoproduct.imageAll }}" />
+        <!-- <img class="pl-20 p-2 m-auto h-96 object-cover" src="{{ monoproduct.imageAll }}" /> -->
       </div>
     </div>
 
-    <div class="flex flex-col sm:w-3/5 text-sm sm:text-lg m-auto">
+    <!-- <div class="flex flex-col sm:w-3/5 text-sm sm:text-lg m-auto">
       <div class="font-semibold text-xl sm:text-2xl mt-8 sm:mt-0">NEXT RELEASE IN SPRING<br>
         APRIL 28th, 2026</div>
-    </div>
+    </div> -->
 
     <!-- <div class="flex flex-col sm:w-3/5 text-sm sm:text-lg m-auto">
       <div class="font-semibold text-xl sm:text-2xl mt-8 sm:mt-0">NEXT RELEASE IN FALL:<br>
         SEPTEMBER 23rd, 2025</div>
     </div> -->
+
+
+    <div class="flex flex-col sm:w-3/5 text-sm sm:text-lg m-auto">
+
+      <!-- <div class="font-semibold text-lg sm:text-xl mt-4 sm:mt-0 sm:mb-4 text-brand">
+        NOW AVAILABLE!
+      </div>
+
+
+      <div class="font-semibold text-lg sm:text-xl mt-4 sm:mt-0 sm:mb-4 text-brand">
+        NOW AVAILABLE!
+      </div> -->
+
+      <div class="font-semibold text-lg sm:text-xl mt-4 sm:mt-0">
+        {{ monoproduct.title  }}
+      </div>
+
+      <!-- <div class="font-semibold text-lg sm:text-xl mt-4 sm:mt-0">
+        2023 Kohue Rancho Pequeño Vineyard
+      </div>
+      <div class="font-semibold text-lg sm:text-xl mt-4 sm:mt-0">
+        Cabernet Sauvignon
+      </div> -->
+
+      <div class="mb-3 sm:mb-8 pt-2">
+        {{ monoproduct.subtitle  }}
+      </div>
+
+      <div class="text-left italic text-sm sm:text-base px-2 sm:pl-6">
+        <div class="mb-4">
+          {{ monoproduct.description_a  }}
+        </div>
+        <div class="mb-4">
+          {{ monoproduct.description_b  }}
+        </div>
+      </div>
+
+      <div class="font-normal mb-4 sm:mb-4 sm:mt-8">
+        {{ monoproduct.description  }}
+      </div>
+
+      <!-- <div class="font-normal mb-4 sm:mb-4 sm:mt-8">
+        $396 / 3-Pack
+      </div> -->
+
+      <div class="button m-auto" (click)="addToCartHandler()">
+        Add to cart
+      </div>
+
+      <!-- <div (click)="toPdf(monoproduct.specsheet)" class="cursor-pointer font-semibold underline text-xs pt-2">
+        SPEC SHEET
+      </div> -->
+
+    </div>
+
 
     <!-- <div class="flex flex-col sm:w-3/5 text-sm sm:text-lg m-auto">
 
@@ -90,35 +146,87 @@
 
 </div>
 
-<div class="mt-6 mb-2 sm:mt-12 sm:mb-4 m-auto max-w-6xl w-10/12 h-0.5 bg-xdark bg-opacity-60"></div>
+
+<div class="m-auto p-2  sm:p-6 md:p-8 sm:pt-2 md:pt-4 text-center max-w-7xl opacity-90 mb-12">
 
 
-<div class="m-auto p-2  sm:p-6 md:p-8 text-center max-w-7xl scale-90 opacity-90 mb-12">
+  <div class="mt-6 mb-2 sm:mt-12 sm:mb-4 m-auto max-w-6xl w-10/12 h-0.5 bg-xdark bg-opacity-60"></div>
 
 
+<!-- <div class="m-auto p-2  sm:p-6 md:p-8 sm:pt-2 md:pt-4 text-center max-w-7xl opacity-90 mb-12"> -->
 
-  <div class="text-xl flex justify-center mt-2 mb-1 sm:mb-4 font-semibold">
+
+  <div class="mt-16"></div>
+
+  <div class="text-xl flex justify-center mt-2 mb-1 sm:mb-4 font-semibold scale-90">
     UPCOMING RELEASES
   </div>
 
-  <div class="flex-col font-medium sm:text-xl flex justify-center mt-2 mb-8 sm:mb-16">
+  <div class="flex-col font-medium sm:text-xl flex justify-center mt-2 mb-4 sm:mb-8 scale-90">
     <div class="w-full  mb-3 sm:mb-4">
       2022 Kohue Cabernet Sauvignon, Uco Valley: Spring, 2026<br>
     </div>
-    <div class="w-full ">
+    <!-- <div class="w-full ">
       2023 Kohue Cabernet Sauvignon, Napa Valley: Fall, 2026
-    </div>
+    </div> -->
   </div>
 
-  <div class="text-xl flex justify-center mt-2 mb-1 sm:mb-4 font-semibold">
-    LIBRARY WINES
-  </div>
 
   <!-- <div class="text-lg sm:text-xl flex justify-center mt-2 mb-8 sm:mb-16">
     INAUGURAL RELEASES: NOW CLOSED
   </div> -->
 
-  <div class="flex flex-col sm:flex-row">
+  <div class="mt-6 mb-0 sm:mt-12 sm:mb-2 m-auto max-w-6xl w-10/12 h-0.5 bg-xdark bg-opacity-60"></div>
+
+  <div class="mt-16"></div>
+
+  <div class="text-xl flex justify-center mb-4 sm:mb-8 font-semibold scale-90 ">
+    LIBRARY WINES
+  </div>
+
+
+
+  <div class="flex flex-col sm:flex-row  scale-90 ">
+
+    <div class="flex flex-col sm:w-3/5 text-sm sm:text-lg m-auto">
+
+      <div class="font-semibold text-lg sm:text-xl mt-4 sm:mt-0">
+        {{ monoproduct_Napa_2023.title  }}
+      </div>
+
+      <div class="mb-3 sm:mb-6">
+        {{ monoproduct_Napa_2023.subtitle  }}
+      </div>
+
+      <div class="text-left text-sm sm:text-base px-2 sm:pl-6">
+        <div class="mb-4">
+          {{ monoproduct_Napa_2023.description_a  }}
+        </div>
+        <div class="mb-4">
+          {{ monoproduct_Napa_2023.description_b  }}
+        </div>
+      </div>
+
+      <!-- -- Case of 3 Bottle -- -->
+      <div class="font-normal sm:mb-4 sm:mt-2">
+      <!-- <div class="font-normal sm:mb-4 sm:mt-6"> -->
+        <!-- {{ monoproduct_Napa_2023.description  }} -->
+      </div>
+
+      <div class="button m-auto" (click)="showThanksForYourInterestAlert(monoproduct_Napa_2023.title)">
+        Request To Acquire
+      </div>
+
+      <!-- <div (click)="toPdf(monoproduct_Napa_2023.specsheet)" class="cursor-pointer font-semibold underline text-xs pt-2">
+        SPEC SHEET
+      </div> -->
+
+    </div>
+
+  </div>
+  <div class="h-24 sm:h32"></div>
+
+  <div class="flex flex-col sm:flex-row scale-90">
 
     <div class="flex flex-col sm:w-3/5 text-sm sm:text-lg m-auto">
 
@@ -145,7 +253,7 @@
         <!-- {{ monoproduct_malbec_2022.description  }} -->
       </div>
 
-      <div class="button m-auto" (click)="showThanksForYourInterestAlert()">
+      <div class="button m-auto" (click)="showThanksForYourInterestAlert(monoproduct_malbec_2022.title)">
         Request To Acquire
       </div>
 
@@ -158,7 +266,7 @@
   </div>
   <div class="h-24 sm:h32"></div>
 
-  <div class="flex flex-col sm:flex-row">
+  <div class="flex flex-col sm:flex-row scale-90">
 
     <div class="flex flex-col sm:w-3/5 text-sm sm:text-lg m-auto">
 
@@ -185,7 +293,7 @@
         <!-- {{ cabernet_2021.description  }} -->
       </div>
 
-      <div class="button m-auto" (click)="showThanksForYourInterestAlert()">
+      <div class="button m-auto" (click)="showThanksForYourInterestAlert(cabernet_2021.title)">
         Request To Acquire
       </div>
 
@@ -196,9 +304,10 @@
     </div>
 
   </div>
+
   <div class="h-24 sm:h32"></div>
 
-  <div class="flex flex-col sm:flex-row">
+  <div class="flex flex-col sm:flex-row scale-90">
     <!-- <div class="flex sm:w-2/5 items-center">
       <div class="block sm:hidden">
         <img class="p-2 m-auto" src="{{ monoproduct.imageAll }}" />
@@ -233,7 +342,7 @@
         <!-- {{ product_old.description  }} -->
       </div>
 
-      <div class="button m-auto" (click)="showThanksForYourInterestAlert()">
+      <div class="button m-auto" (click)="showThanksForYourInterestAlert(product_old.title)">
         Request To Acquire
       </div>
 
@@ -363,7 +472,7 @@
       </div>
       <div class="font-semibold h-2">
       </div>
-      <div class="button m-auto" (click)="showThanksForYourInterestAlert()">
+      <div class="button m-auto" (click)="showThanksForYourInterestAlert(product_old.title)">
         Request To Acquire
       </div>
 
