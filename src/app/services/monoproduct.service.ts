@@ -9,6 +9,28 @@ export class MonoproductService {
 
 
   monoproduct: Product = {
+    id: 29,
+    title: "2022 Kohue Paraje Altamira Cabernet Sauvignon",
+    subtitle: "UCO VALLEY, MENDOZA",
+    titleCart: "2022 Kohue Paraje Altamira Cabernet Sauvignon 3-Pack",
+    specsheet: "",
+    price: 435,
+    imageMobile: "./../../../../assets/img/Cabernet-2021-Mobile.png",
+    imageDesktop: "./../../../../assets/img/Cabernet-2021-Desktop.png",
+    imageAll: "./../../../../assets/img/2022-mesita-web.jpg",
+    description: "Case of 3 bottles (750ml)",
+    description_a: "The 2022 Cabernet Sauvignon, with 10% Malbec, comes from Paraje Altamira. It opens with ripe, well-defined aromas of ash, softly roasted bell pepper and black fruit, framed by clear oak and a subtle hint of orange petit four. Dry and lightly indulgent, it flows with juiciness and very fine, polished tannins that shape a mature yet agile palate of medium concentration. The vintage lends energy and balance, allowing the wine to feel complete without heaviness. This is a serious, confident Cabernet, classic in spirit yet lifted by the grace of 2022.",
+    description_b: "Joaquín Hidalgo, Vinous",
+    images: ["./../../../../assets/img/Botella-Kohue-2021-small.png", "./../../../../assets/img/Botella-Kohue-2021-small.png"],
+    category: {
+      id: 133,
+      name: "Wines"
+    },
+    quantity: 1
+  };
+
+  // This is 2023 Kohue Rancho Pequeño Vineyard Cabernet Sauvignon
+  monoproduct_Napa_2023: Product = {
     id: 28,
     title: "2023 Kohue Rancho Pequeño Vineyard Cabernet Sauvignon",
     subtitle: "OAKVILLE, NAPA VALLEY",
@@ -17,7 +39,8 @@ export class MonoproductService {
     price: 396,
     imageMobile: "./../../../../assets/img/Cabernet-2021-Mobile.png",
     imageDesktop: "./../../../../assets/img/Cabernet-2021-Desktop.png",
-    imageAll: "./../../../../assets/img/6-cabernet.jpg",
+    // imageAll: "./../../../../assets/img/6-cabernet.jpg",
+    imageAll: "./../../../../assets/img/botella-2026.jpg",
     // imageAll: "./../../../../assets/img/8-test.jpg",
     description: "Bottle 750ml",
     description_a: "\"The 2023 Cabernet Sauvignon Rancho Pequeño is stellar. Blackberry, sage, menthol, licorice, dried herbs and chocolate are some of the notes that open first. All of this fruit is from Block 2, which is planted with Fay clone Cabernet. Readers who enjoy fine, classically built Cabernet Sauvignons will adore this.\"",
@@ -129,5 +152,8 @@ export class MonoproductService {
   }
   returnMonoproduct_malbec_2022() {
     return this.monoproduct_malbec_2022
+  }
+  returnMonoproduct_napa_cabernet_2023() {
+    return this.monoproduct_Napa_2023
   }
 }

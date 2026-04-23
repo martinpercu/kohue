@@ -183,12 +183,12 @@ export class LandshopComponent {
     this.showThanksForInterest = data
   };
 
-  fromProductShowThanks(data: any) {
+  fromProductShowThanks(data: any, productClicked: string) {
     console.log(data + 'from monoproduct thanks for Interest status');
     this.showThanksForInterest = data
     console.log(this.user.email + "en fromProductShowThanks");
     if (this.user.email) {
-      this.emailsender.sendEmailInterested(this.user);
+      this.emailsender.sendEmailInterested(this.user, productClicked);
       console.log('dentro del if');
     }
   };

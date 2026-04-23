@@ -52,7 +52,7 @@
               </div>
               } -->
 
-              @if(product.quantity == 2) {
+              @if(product.quantity == 3) {
               <div class="text-center m-auto">
                 <div class="flex gap-4 sm:gap-4">
                   <div (click)="subtractOneFromCart(product)" class="minibutton">-</div>
@@ -65,7 +65,7 @@
                 </div> -->
               }
 
-              @if(product.quantity >= 1 && product.quantity <= 1) { <div class="text-center m-auto">
+              @if(product.quantity >= 1 && product.quantity <= 2) { <div class="text-center m-auto">
                 <div class="flex gap-4 sm:gap-4">
                   <div (click)="subtractOneFromCart(product)" class="minibutton">-</div>
                   <div class="minibuttonReverse">{{ product.quantity }}</div>
@@ -96,7 +96,7 @@
     @if(totalItems() > 0) {
     <div class="items-center text-base font-semibold text-gray-700">
 
-      @if(totalItems() == 2) {
+      @if(totalItems() == 3) {
       <div class="font-light text-xs text-center pb-2 text-xdark">
         <span class="">You've reached the maximum quantity limit.</span>
       </div>
@@ -113,7 +113,7 @@
         <!-- Shipping <app-shippingmethod></app-shippingmethod>
         <span class="font-semibold"> $ {{ shippingAmount() }}</span>
       </div> -->
-      
+
       <div class="flex flex-col sm:flex-row my-4 font-normal hover:cursor-pointer sm:px-4">
         <!-- Shipping {{ shippingText() }} <span class="font-semibold"> $ {{ shippingAmount() }}</span> -->
         <div class="sm:flex text-center sm:text-left">
@@ -121,7 +121,7 @@
         </div>
         <div class="sm:grow text-center items-center">
           <app-shippingmethod></app-shippingmethod>
-        </div> 
+        </div>
         <div class="sm:end text-center sm:text-right font-semibold w-full sm:w-14">
           $ {{ shippingAmount() }}
         </div>

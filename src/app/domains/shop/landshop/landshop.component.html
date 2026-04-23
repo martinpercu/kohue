@@ -203,7 +203,7 @@
 
     @if(subMenuChoice == 'current'){
     <app-monoproduct (cartOnOff)="fromProduct($event)"
-      (showThanksForInterest)="fromProductShowThanks($event)"></app-monoproduct>
+      (showThanksForInterest)="fromProductShowThanks($event.show, $event.product)"></app-monoproduct>
     }
 
     <!-- @if(subMenuChoice == 'history'){

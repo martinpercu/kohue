@@ -1,4 +1,5 @@
 import { Component, Output, EventEmitter, signal, inject } from '@angular/core';
+import { ProductCart } from '@models/product-cart.model';
 // import { NavbarsignedComponent } from '@shared/navbarsigned/navbarsigned.component';
 import { Product } from '@models/product.model';
 
@@ -31,6 +32,7 @@ export class MonoproductComponent {
   product_old: Product;
   cabernet_2021: Product;
   monoproduct_malbec_2022: Product;
+  monoproduct_Napa_2023: Product;
 
   showTest: boolean = true;
   showThis: boolean = false;
@@ -45,6 +47,7 @@ export class MonoproductComponent {
     this.product_old = this.monoproductService.returnMonoproduct_old();
     this.cabernet_2021 = this.monoproductService.returnMonoproduct_cabernet_2021();
     this.monoproduct_malbec_2022 = this.monoproductService.returnMonoproduct_malbec_2022();
+    this.monoproduct_Napa_2023 = this.monoproductService.returnMonoproduct_napa_cabernet_2023();
   };
 
   addToCartHandler() {
@@ -65,9 +68,10 @@ export class MonoproductComponent {
   //   this.monoproductOff.emit(false);
   // };
 
-  showThanksForYourInterestAlert() {
+  showThanksForYourInterestAlert(theWine: string) {
     // alert('CLOSE ALERT this fall 2024. Stay tuned!')
-    this.showThanksForInterest.emit(true);
+    const theProductClicked = theWine
+    this.showThanksForInterest.emit({ show: true, product: theProductClicked });
     // window.scrollTo({ top: 0, behavior: 'auto' });
   };
 
