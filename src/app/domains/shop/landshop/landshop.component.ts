@@ -139,12 +139,9 @@ export class LandshopComponent {
     this.showCartInLand = event
   };
 
-  fromProduct(event: boolean) {
-    // console.log(event);
-    // console.log("this.showCart  ==>  ", event);
+  async fromProduct(event: boolean) {
     this.showCart = event;
-    // console.log(event);
-    // console.log("qsdfqdfqsdf");
+    this.user = await this.clientService.getOneUser(this.userId);
   };
 
   fromProductCloserMonoproduct(event: boolean) {
