@@ -92,7 +92,7 @@ export class CartComponent {
     // console.log(this.user.stripeCustomerId);
     this.user = await this.clientService.getOneUser(this.userId);
     // console.log(this.user);
-    if(this.user.stripeCustomerId == "none") {
+    if(!this.user.stripeCustomerId || this.user.stripeCustomerId === "none") {
       this.createStripeUser();
     }
     else {
@@ -252,6 +252,7 @@ export class CartComponent {
   // };
 
   async checkoutToStripe() {
+    this.user = await this.clientService.getOneUser(this.userId);
     const user = this.user;
     const product = "este producto copado";
     const quantity = this.totalItems();

@@ -103,7 +103,7 @@ export class LandshopComponent {
       this.subMenuChoice = 'current' // por ahora va a current
     }
 
-    if (this.user.stripeCustomerId == 'none') {
+    if (!this.user.stripeCustomerId || this.user.stripeCustomerId === 'none') {
       this.showWine = true // Hoy no hace nada. Esta comentado todo en HTML
     }
     else {
@@ -141,7 +141,11 @@ export class LandshopComponent {
 
   async fromProduct(event: boolean) {
     this.showCart = event;
+    console.log('eeeeeeee');
+
     this.user = await this.clientService.getOneUser(this.userId);
+    console.log(this.user);
+
   };
 
   fromProductCloserMonoproduct(event: boolean) {
