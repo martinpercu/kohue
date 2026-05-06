@@ -101,12 +101,14 @@ export class SigninComponent {
 
   signGoogle() {
     this.authService.loginWithGoogle()
-    .then(response => {
-      // console.log(response);
-      // console.log(response.user);
-      // console.log(response.user.uid);
+    .then(async response => {
       if(response.user.email && response.user.displayName) {
-          this.client = {
+        const existing = await this.clientService.getOneUser(response.user.uid);
+        if (existing) {
+          this.navToShopArea();
+          return;
+        }
+        this.client = {
           firstname: response.user.displayName,
           lastname: ' ',
           email: response.user.email,
@@ -114,8 +116,7 @@ export class SigninComponent {
           billDifThanShip: true,
           stripeCustomerId: 'none'
         };
-      // console.log(this.client);
-      this.createRegisteredUser(this.client, response.user.uid);
+        this.createRegisteredUser(this.client, response.user.uid);
       };
     })
     .catch(error => console.log(error));
