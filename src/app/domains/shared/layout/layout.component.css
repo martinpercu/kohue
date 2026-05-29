@@ -12,7 +12,11 @@
   transform: scale(1.06);
 }
 
-@media (min-height: 740px) {
+/* .cover_background_tallest_screens {
+  background-size: auto 100%;
+} */
+
+@media (min-height: 280px) {
   .cover_background_tallest_screens {
     background-size: cover;
   }
