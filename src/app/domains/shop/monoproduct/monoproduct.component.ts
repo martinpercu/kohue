@@ -5,12 +5,13 @@ import { Product } from '@models/product.model';
 
 import { CartService  } from '@services/cart.service';
 import { MonoproductService  } from '@services/monoproduct.service';
+import { ExpandableTextComponent } from '@shared/expandable-text/expandable-text.component';
 
 
 @Component({
   selector: 'app-monoproduct',
   standalone: true,
-  imports: [],
+  imports: [ExpandableTextComponent],
   templateUrl: './monoproduct.component.html',
   styleUrl: './monoproduct.component.css'
 })
