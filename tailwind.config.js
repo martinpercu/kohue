@@ -8,6 +8,14 @@ module.exports = {
       sans: ['Montserrat', 'sans-serif'],
       serif: ['Engravers', 'serif'],
     },
+    screens: {
+      'xs': '480px',
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
+    },
     extend: {
       fontFamily: {
         buttonFont: 'Engravers', // Adds a new `font-button` class
@@ -20,6 +28,10 @@ module.exports = {
         // 'xlight': '#82de79', // DEV COLOR
         'xlight': '#eae6dd',
         'xbrown': '#615257',
+      },
+      fontSize: {
+        '2xs': '0.625rem',
+        '3xs': '0.5rem',
       },
       backgroundImage: {
         'cordillera': "url('assets/img/cordillera-bw.jpg')",

@@ -1,7 +1,7 @@
 <div class="">
 
   <!-- Mobile -->
-  <div class="block sm:hidden relative h-screen overflow-hidden">
+  <div class="block xs:hidden relative h-screen overflow-hidden">
     <!-- Background base: Mendoza -->
     <div class="absolute inset-0 bg-cordillera-vertical bg-cover cover_background_tallest_screens bg-zoom"
          [class.zoomed]="zoomMendoza">
@@ -43,7 +43,7 @@
 
 
   <!-- Desktop -->
-  <div class="hidden sm:block relative h-screen overflow-hidden">
+  <div class="hidden xs:block relative h-screen overflow-hidden">
     <!-- Background base: Mendoza -->
     <div class="absolute inset-0 bg-cordillera-sepia bg-top cover_background_tallest_screens bg-zoom"
          [class.zoomed]="zoomMendoza">
@@ -56,27 +56,27 @@
     </div>
     <!-- Content -->
     <div class="relative z-10">
-      <div class="flex justify-center items-center py-2 px-10 pt-28">
-        <img class="h-6" src="./../../../../assets/img/kohue-name-dark.svg" alt="">
+      <div class="flex justify-center items-center py-2 xs:pt-12 sm:pt-16 md:pt-20 lg:pt-23 xl:pt-26">
+        <img class="h-4 xs:h-3 sm:h-4 md:h-5 lg:h-6" src="./../../../../assets/img/kohue-name-dark.svg" alt="">
       </div>
 
-      <div class="flex gap-4 justify-center pt-2">
+      <div class="flex gap-2 md:gap-4 justify-center xs:pt-1 sm:pt-2 md:pt-4 lg:pt-6">
         @if(!this.authService.user()) {
         <div (click)="navJointhelist()"
-          class="font-serif text-xdark text-center items-center hover:text-black hover:cursor-pointer text-xs font-medium px-2 py-2 uppercase">
+          class="font-serif text-xdark text-center items-center hover:text-black hover:cursor-pointer text-2xs md:text-xs font-medium px-2 uppercase">
           Join
         </div>
         }
         <div (click)="navAbout()"
-          class="font-serif text-xdark text-center items-center hover:text-black hover:cursor-pointer text-xs font-medium px-2 py-2 uppercase">
+          class="font-serif text-xdark text-center items-center hover:text-black hover:cursor-pointer text-2xs md:text-xs font-medium px-2 uppercase">
           About us
         </div>
         <div (click)="navOurWines()"
-          class="font-serif text-xdark text-center items-center hover:text-black hover:cursor-pointer text-xs font-medium px-2 py-2 uppercase">
+          class="font-serif text-xdark text-center items-center hover:text-black hover:cursor-pointer text-2xs md:text-xs font-medium px-2 uppercase">
           Wines
         </div>
         <div (click)="navToShopArea()"
-          class="font-serif text-xdark text-center items-center hover:text-black hover:cursor-pointer text-xs font-medium px-2 py-2 uppercase">
+          class="font-serif text-xdark text-center items-center hover:text-black hover:cursor-pointer text-2xs md:text-xs font-medium px-2 uppercase">
           Members
         </div>
       </div>
