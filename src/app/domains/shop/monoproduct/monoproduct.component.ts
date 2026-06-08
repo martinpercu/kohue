@@ -33,6 +33,7 @@ export class MonoproductComponent {
   cabernet_2021: Product;
   monoproduct_malbec_2022: Product;
   monoproduct_Napa_2023: Product;
+  monoproduct_cabernet_2022: Product;;
 
   showTest: boolean = true;
   showThis: boolean = false;
@@ -48,6 +49,7 @@ export class MonoproductComponent {
     this.cabernet_2021 = this.monoproductService.returnMonoproduct_cabernet_2021();
     this.monoproduct_malbec_2022 = this.monoproductService.returnMonoproduct_malbec_2022();
     this.monoproduct_Napa_2023 = this.monoproductService.returnMonoproduct_napa_cabernet_2023();
+    this.monoproduct_cabernet_2022 = this.monoproductService.returnMonoproduct_cabernet_2022();
   };
 
   addToCartHandler() {
