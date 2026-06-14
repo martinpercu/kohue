@@ -1,0 +1,26 @@
+<div class="">
+  <div class="relative">
+    <div
+      [ngClass]="isExpanded() ? 'max-h-[800px]' : 'max-h-[3rem]'"
+      class="overflow-hidden transition-[max-height] duration-1000 ease-in-out"
+    >
+      {{ textA }}<br><br>{{ textB }}
+    </div>
+    @if (!isExpanded()) {
+      <div class="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-xlight to-transparent pointer-events-none"></div>
+    }
+  </div>
+  <button
+    (click)="toggle()"
+    class="mt-1 text-xs font-semibold uppercase tracking-wide text-brand opacity-70 hover:opacity-100 cursor-pointer hidden xs:block ml-auto"
+  >
+    {{ isExpanded() ? 'less' : 'more' }}
+  </button>
+</div>
+
+  <button
+    (click)="toggle()"
+    class="my-3 text-xs font-semibold uppercase tracking-wide text-brand opacity-70 hover:opacity-100 cursor-pointer block xs:hidden mx-auto text-center"
+  >
+    {{ isExpanded() ? 'less' : 'more' }}
+  </button>

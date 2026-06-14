@@ -70,6 +70,7 @@
         <div class="mb-4">
           {{ monoproduct.description_b  }}
         </div>
+        <!-- <app-expandable-text [textA]="monoproduct.description_a" [textB]="monoproduct.description_b" /> -->
       </div>
 
       <!-- <div class="font-normal mb-4 sm:mb-4 sm:mt-8">
@@ -172,24 +173,28 @@
         {{ monoproduct_cabernet_2022.title  }}
       </div>
 
-      <div class="mb-3 sm:mb-6">
+      <div class="mb-3 sm:mb-3">
         {{ monoproduct_cabernet_2022.subtitle  }}
       </div>
 
-      <div class="text-left text-sm sm:text-base px-2 sm:pl-6">
+      <div class="text-left text-sm xs:text-base px-2 sm:pl-6">
+        <app-expandable-text [textA]="monoproduct_cabernet_2022.description_a" [textB]="monoproduct_cabernet_2022.description_b" />
+      </div>
+
+      <!-- <div class="text-left text-sm sm:text-base px-2 sm:pl-6">
         <div class="mb-4">
           {{ monoproduct_cabernet_2022.description_a  }}
         </div>
         <div class="mb-4">
           {{ monoproduct_cabernet_2022.description_b  }}
         </div>
-      </div>
+      </div> -->
 
       <!-- -- Case of 3 Bottle -- -->
-      <div class="font-normal sm:mb-4 sm:mt-2">
+      <!-- <div class="font-normal sm:mb-4 sm:mt-2"> -->
       <!-- <div class="font-normal sm:mb-4 sm:mt-6"> -->
         <!-- {{ monoproduct_cabernet_2022.description  }} -->
-      </div>
+      <!-- </div> -->
 
       <div class="button m-auto" (click)="showThanksForYourInterestAlert(monoproduct_cabernet_2022.title)">
         Request To Acquire
@@ -202,7 +207,8 @@
     </div>
 
   </div>
-  <div class="h-24 sm:h32"></div>
+  <!-- <div class="h-8 xs:h12"></div> -->
+  <div class="mt-6 mb-2 xs:mt-8 xs:mb-6 m-auto max-w-6xl w-1/2 h-0.5 bg-xdark bg-opacity-20"></div>
 
   <div class="flex flex-col sm:flex-row scale-90">
 
@@ -212,17 +218,12 @@
         {{ monoproduct_malbec_2022.title  }}
       </div>
 
-      <div class="mb-3 sm:mb-6">
+      <div class="mb-3 sm:mb-3">
         {{ monoproduct_malbec_2022.subtitle  }}
       </div>
 
-      <div class="text-left text-sm sm:text-base px-2 sm:pl-6">
-        <div class="mb-4">
-          {{ monoproduct_malbec_2022.description_a  }}
-        </div>
-        <div class="mb-4">
-          {{ monoproduct_malbec_2022.description_b  }}
-        </div>
+      <div class="text-left text-sm xs:text-base px-2 sm:pl-6">
+        <app-expandable-text [textA]="monoproduct_malbec_2022.description_a" [textB]="monoproduct_malbec_2022.description_b" />
       </div>
 
       <!-- -- Case of 3 Bottle -- -->
@@ -243,7 +244,7 @@
 
   </div>
 
-  <div class="h-24 sm:h32"></div>
+  <div class="mt-6 mb-2 xs:mt-8 xs:mb-6 m-auto max-w-6xl w-1/2 h-0.5 bg-xdark bg-opacity-20"></div>
 
   <div class="flex flex-col sm:flex-row scale-90">
 
@@ -253,17 +254,12 @@
         {{ cabernet_2021.title  }}
       </div>
 
-      <div class="mb-3 sm:mb-6">
+      <div class="mb-3 sm:mb-3">
         {{ cabernet_2021.subtitle  }}
       </div>
 
-      <div class="text-left text-sm sm:text-base px-2 sm:pl-6">
-        <div class="mb-4">
-          {{ cabernet_2021.description_a  }}
-        </div>
-        <div class="mb-4">
-          {{ cabernet_2021.description_b  }}
-        </div>
+      <div class="text-left text-sm xs:text-base px-2 sm:pl-6">
+        <app-expandable-text [textA]="cabernet_2021.description_a" [textB]="cabernet_2021.description_b" />
       </div>
 
       <!-- -- Case of 3 Bottle -- -->
@@ -284,17 +280,9 @@
 
   </div>
 
-  <div class="h-24 sm:h32"></div>
+  <div class="mt-6 mb-2 xs:mt-8 xs:mb-6 m-auto max-w-6xl w-1/2 h-0.5 bg-xdark bg-opacity-20"></div>
 
   <div class="flex flex-col sm:flex-row scale-90">
-    <!-- <div class="flex sm:w-2/5 items-center">
-      <div class="block sm:hidden">
-        <img class="p-2 m-auto" src="{{ monoproduct.imageAll }}" />
-      </div>
-      <div class="hidden sm:block">
-        <img class="p-2 m-auto" src="{{ monoproduct.imageAll }}" />
-      </div>
-    </div> -->
 
     <div class="flex flex-col sm:w-3/5 text-sm sm:text-lg m-auto">
 
@@ -302,17 +290,12 @@
         {{ product_old.title  }}
       </div>
 
-      <div class="mb-3 sm:mb-6">
+      <div class="mb-3 sm:mb-3">
         {{ product_old.subtitle  }}
       </div>
 
-      <div class="text-left text-sm sm:text-base px-2 sm:pl-6">
-        <div class="mb-4">
-          {{ product_old.description_a  }}
-        </div>
-        <div class="mb-4">
-          {{ product_old.description_b  }}
-        </div>
+      <div class="text-left text-sm xs:text-base px-2 sm:pl-6">
+        <app-expandable-text [textA]="product_old.description_a" [textB]="product_old.description_b" />
       </div>
 
       <!-- -- Case of 3 Bottle -- -->
@@ -332,6 +315,8 @@
     </div>
 
   </div>
+
+  <div class="mt-6 mb-2 xs:mt-8 xs:mb-6 m-auto max-w-6xl w-1/2 h-0.5 bg-xdark bg-opacity-20"></div>
 
 </div>
 
