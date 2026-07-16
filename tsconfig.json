@@ -33,6 +33,7 @@
       "@models/*": ["./src/app/models/*"],
       "@env/*": ["./src/environments/*"],
       "@shop/*": ["./src/app/domains/shop/*"],
+      "@utils/*": ["./src/app/utils/*"],
     }
   },
   "angularCompilerOptions": {
