@@ -62,14 +62,14 @@ export class StripeService {
     return this.http.get(`${environment.apiURL}/test`);
   };
 
-  getSessionCheckout(user: any, product: any, quantity: any, stripeShippingId: any, priceProductId: any) {
+  getSessionCheckout(user: any, product: any, quantity: any, stripeShippingId: any, priceProductId: any, taxId: string) {
     return this.http.post(`${environment.apiURL}/create-checkout-session`, {
       user: user,
       product: product,
       quantity: quantity,
       stripeShippingId: stripeShippingId,
       priceProductId: priceProductId,
-      californiaTaxId: environment.CALI_TAX_RATE
+      californiaTaxId: taxId
     });
   };
 

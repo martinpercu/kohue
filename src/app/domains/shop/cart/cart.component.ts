@@ -19,6 +19,7 @@ import { Client } from '@models/client.model';
 import { ShippingPolicyModalComponent } from '@shop/shipping-policy-modal/shipping-policy-modal.component'
 
 import { environment } from '@env/environment'
+import { esZipCodeIllinois } from '@utils/zip.utils'
 
 @Component({
   selector: 'app-cart',
@@ -251,6 +252,16 @@ export class CartComponent {
   //   window.location.href = astripe2Wines;
   // };
 
+  private determineTaxId(user: Client): string {
+    if (esZipCodeIllinois(user.zipCode ?? '')) {
+      return environment.ILLINOIS_TAX_RATE;
+    }
+    if (user.billDifThanShip && esZipCodeIllinois(user.xzipCode ?? '')) {
+      return environment.ILLINOIS_TAX_RATE;
+    }
+    return environment.CALI_TAX_RATE;
+  }
+
   async checkoutToStripe() {
     this.user = await this.clientService.getOneUser(this.userId);
     const user = this.user;
@@ -258,15 +269,17 @@ export class CartComponent {
     const quantity = this.totalItems();
     const stripeShippingId = this.shippingStripeId();
     const priceProductId = environment.PRICE_PRODUCT;
+    const taxId = this.determineTaxId(user);
     console.log({
       "a" : user,
       "b" : product,
       "c" : quantity,
       "d" : stripeShippingId,
-      "e" : priceProductId
+      "e" : priceProductId,
+      "f" : taxId
     });
 
-    const sessionToWait$ = this.stripeService.getSessionCheckout(user, product, quantity, stripeShippingId, priceProductId);
+    const sessionToWait$ = this.stripeService.getSessionCheckout(user, product, quantity, stripeShippingId, priceProductId, taxId);
     this.stripeSession = await lastValueFrom(sessionToWait$);
     // console.log(sessionToWait$);
     // console.log(this.stripeSession);
