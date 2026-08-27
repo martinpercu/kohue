@@ -99,6 +99,12 @@ src/
 - PRICE_PRODUCT_ONE: `price_1QeO9qRtorj52eambX2C809r` ($185)
 - CALI_TAX_RATE: `txr_1QECkRRtorj52eamS6motspO`
 
+## IMPORTANTE: Direct Link es aparte
+- Los direct links (`/offering` → DirectlinkComponent, `/offer1` → Directlink3Component, `/success_offering` → Directlink2Component) son un sistema totalmente aparte del sistema principal.
+- NO tocar, modificar ni "arreglar" nada de direct links a menos que el usuario lo pida explícitamente.
+- No aplicarles la lógica del sistema principal (tax, shipping, checkout del cart). Usan `getDirectLinkSessionCheckout()` con `californiaTaxId` fijo.
+- Al analizar checkout, tax, shipping o precios, ignorar direct links.
+
 ## Observaciones técnicas
 - Los componentes usan `lastValueFrom()` para convertir Observables HTTP a Promises
 - Los guards de rutas admin están comentados (desactivados)

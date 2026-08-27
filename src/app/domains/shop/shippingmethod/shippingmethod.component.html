@@ -1,4 +1,5 @@
-  <select [formControl]="shippingField" class="border text-sm w-36">
+  <select [formControl]="shippingField"
+    class="border text-sm w-36 disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed">
     <option value="Overnight">Overnight</option>
     <option value="Ground shipping">Ground</option>
     <option value="Local Pick up">Local Pick up</option>

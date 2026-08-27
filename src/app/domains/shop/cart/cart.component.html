@@ -114,23 +114,47 @@
         <span class="font-semibold"> $ {{ shippingAmount() }}</span>
       </div> -->
 
-      <div class="flex flex-col sm:flex-row my-4 font-normal hover:cursor-pointer sm:px-4">
-        <!-- Shipping {{ shippingText() }} <span class="font-semibold"> $ {{ shippingAmount() }}</span> -->
-        <div class="sm:flex text-center sm:text-left">
-          Shipping
+      <div class="group relative">
+
+        @if(!zipValid() && !zipTipDismissed()) {
+        <div role="tooltip"
+          class="pointer-events-none absolute left-1/2 -top-2 z-50 w-52 -translate-x-1/2 -translate-y-full rounded-md bg-xdark px-3 py-2 text-xs font-light text-white text-center shadow-lg opacity-0 transition-opacity duration-200 group-hover:opacity-100">
+          We just need your ZIP code to calculate your shipping cost.
+          <span class="absolute left-1/2 top-full block h-0 w-0 -translate-x-1/2 border-4 border-transparent border-t-xdark"></span>
         </div>
-        <div class="sm:grow text-center items-center">
-          <app-shippingmethod></app-shippingmethod>
+        }
+
+        <div class="flex flex-col sm:flex-row sm:items-center my-4 font-normal sm:px-4">
+          <label for="zipCode" class="sm:flex text-center sm:text-left whitespace-nowrap sm:w-20">
+            ZIP code
+          </label>
+          <div class="sm:grow">
+            <input id="zipCode" #zipField type="text" [value]="zipInput()" (input)="onZipChange(zipField.value)"
+              (keydown)="onZipKeydown($event)" (focus)="zipTipDismissed.set(true)" (blur)="zipTipDismissed.set(false)"
+              maxlength="5" inputmode="numeric" placeholder="12345"
+              class="bg-transparent border text-sm w-full px-1 py-0.5 text-center text-gray-900 placeholder:text-gray-400 focus:outline-none focus:border-gray-500" />
+          </div>
         </div>
-        <div class="sm:end text-center sm:text-right font-semibold w-full sm:w-14">
-          $ {{ shippingAmount() }}
+
+        <div class="flex flex-col sm:flex-row sm:items-center my-4 font-normal sm:px-4">
+          <!-- Shipping {{ shippingText() }} <span class="font-semibold"> $ {{ shippingAmount() }}</span> -->
+          <div class="sm:flex text-center sm:text-left sm:w-20">
+            Shipping
+          </div>
+          <div class="sm:grow text-center">
+            <app-shippingmethod [disabled]="!zipConfirmed()"></app-shippingmethod>
+          </div>
+          <div class="sm:end text-center sm:text-right font-semibold w-full sm:w-14">
+            $ {{ shippingAmount() }}
+          </div>
         </div>
+
       </div>
     </div>
 
     <div class="mt-4">
 
-      @if(shippingAmount() || shippingText() == "Local Pick up" || shippingText() == "Ground shipping") {
+      @if(zipValid() && (shippingAmount() || shippingText() == "Local Pick up" || shippingText() == "Ground shipping")) {
       <div (click)="checkoutToStripe()" class="button paddingOff">
         ${{ totalAmount()}} - Checkout
       </div>
@@ -158,7 +182,13 @@
         </div>
         } -->
 
-      @if(shippingAmount() == 0 && shippingText() != "Local Pick up" && shippingText() != "Ground shipping") {
+      @if(!zipValid()) {
+      <div (click)="alertAddZipCode()" class="button_off">
+        ${{ totalAmount() }} - Checkout
+      </div>
+      }
+
+      @if(zipValid() && shippingAmount() == 0 && shippingText() != "Local Pick up" && shippingText() != "Ground shipping") {
       <div (click)="alertAddShippingMethod()" class="button_off">
         ${{ totalAmount() }} - Checkout
       </div>

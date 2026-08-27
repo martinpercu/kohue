@@ -1,4 +1,4 @@
-import { Component, inject, signal, Output, EventEmitter, SimpleChanges } from '@angular/core';
+import { Component, inject, signal, computed, Output, EventEmitter, SimpleChanges } from '@angular/core';
 import { Product } from '@models/product.model';
 import { lastValueFrom } from 'rxjs';
 
@@ -65,6 +65,12 @@ export class CartComponent {
 
   totalAmount = this.cartService.totalAmount;
 
+  zipInput = signal<string>('');
+  zipConfirmed = signal<boolean>(false);
+  zipTipDismissed = signal<boolean>(false);
+
+  zipValid = computed(() => /^\d{5}$/.test(this.zipInput().trim()));
+
   // shippingText!: string;
 
   product!: Product;
@@ -93,6 +99,10 @@ export class CartComponent {
     // console.log(this.user.stripeCustomerId);
     this.user = await this.clientService.getOneUser(this.userId);
     // console.log(this.user);
+    if (this.user.zipCode) {
+      this.zipInput.set(this.user.zipCode);
+      this.zipConfirmed.set(true);
+    }
     if(!this.user.stripeCustomerId || this.user.stripeCustomerId === "none") {
       this.createStripeUser();
     }
@@ -101,6 +111,32 @@ export class CartComponent {
       // console.log("in ngOnInit nothing happend");
       // console.log("Stripe user ID ==>   ", this.user.stripeCustomerId);
     };
+  };
+
+  onZipKeydown(event: KeyboardEvent) {
+    const allowedKeys = ['Backspace', 'Delete', 'ArrowLeft', 'ArrowRight', 'Tab', 'Home', 'End'];
+    if (allowedKeys.includes(event.key)) return;
+    if (event.ctrlKey || event.metaKey) return;
+    if (!/^\d$/.test(event.key)) {
+      event.preventDefault();
+    }
+  };
+
+  onZipChange(value: string) {
+    const onlyDigits = value.replace(/\D/g, '').substring(0, 5);
+    this.zipInput.set(onlyDigits);
+
+    if (/^\d{5}$/.test(onlyDigits)) {
+      this.zipConfirmed.set(true);
+      this.user.zipCode = onlyDigits;
+      this.clientService.updateOneUserJustOneField('zipCode', onlyDigits, this.userId);
+      this.setShippingServiceValue();
+    } else {
+      this.zipConfirmed.set(false);
+      this.shippingAmount.set(0);
+      this.shippingText.set('none');
+      this.shippingStripeId.set('');
+    }
   };
 
   async createStripeUser() {
@@ -238,6 +274,10 @@ export class CartComponent {
 
   alertAddShippingMethod() {
     alert('Please choose a shipping method');
+  };
+
+  alertAddZipCode() {
+    alert('Please enter your ZIP code to choose a shipping method');
   };
 
   // checkToStripeOne() {
