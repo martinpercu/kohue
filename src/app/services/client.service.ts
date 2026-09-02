@@ -88,16 +88,17 @@ export class ClientService {
       })
   };
 
-  updateOneUserJustOneField(fieldName: string, newValue: any, userId: string) {
+  updateOneUserJustOneField(fieldName: string, newValue: any, userId: string): Promise<void> {
     const userDocRef = doc(this.firestore, 'users', userId);
     const updateObject = { [fieldName]: newValue };
-    updateDoc(userDocRef, updateObject)
+    return updateDoc(userDocRef, updateObject)
       .then(() => {
         console.log('User field updated');
         // alert('User field Updated');
       })
       .catch((error) => {
         console.log(error);
+        throw error;
       })
   }
 

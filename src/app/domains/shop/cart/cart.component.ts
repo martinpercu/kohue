@@ -122,15 +122,26 @@ export class CartComponent {
     }
   };
 
-  onZipChange(value: string) {
+  async onZipChange(value: string) {
     const onlyDigits = value.replace(/\D/g, '').substring(0, 5);
     this.zipInput.set(onlyDigits);
 
     if (/^\d{5}$/.test(onlyDigits)) {
       this.zipConfirmed.set(true);
       this.user.zipCode = onlyDigits;
-      this.clientService.updateOneUserJustOneField('zipCode', onlyDigits, this.userId);
+      try {
+        await this.clientService.updateOneUserJustOneField('zipCode', onlyDigits, this.userId);
+      } catch (e) {
+        console.log(e);
+      }
       this.setShippingServiceValue();
+      if (this.user.stripeCustomerId && this.user.stripeCustomerId !== 'none') {
+        try {
+          await this.stripeService.updateStripeUser(this.user);
+        } catch (e) {
+          console.log('Stripe zip sync failed', e);
+        }
+      }
     } else {
       this.zipConfirmed.set(false);
       this.shippingAmount.set(0);

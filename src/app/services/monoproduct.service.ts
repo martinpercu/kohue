@@ -18,7 +18,7 @@ export class MonoproductService {
     imageMobile: "./../../../../assets/img/Cabernet-2021-Mobile.png",
     imageDesktop: "./../../../../assets/img/Cabernet-2021-Desktop.png",
     // imageAll: "./../../../../assets/img/6-cabernet.jpg",
-    imageAll: "./../../../../assets/img/molino-napa.jpg",
+    imageAll: "./../../../../assets/img/Botella-Cabernet-Napa-800.jpg",
     // imageAll: "./../../../../assets/img/8-test.jpg",
     description: "Bottle 750ml",
     description_a: "\"The 2023 Cabernet Sauvignon Rancho Pequeño is stellar. Blackberry, sage, menthol, licorice, dried herbs and chocolate are some of the notes that open first. All of this fruit is from Block 2, which is planted with Fay clone Cabernet. Readers who enjoy fine, classically built Cabernet Sauvignons will adore this.\"",
