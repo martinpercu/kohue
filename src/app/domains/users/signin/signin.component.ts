@@ -50,13 +50,16 @@ export class SigninComponent {
         // console.log(response);
         // console.log(response.user);
         // console.log(response.user.uid);
+        const now = new Date().toISOString();
         this.client = {
           firstname: this.formReg.value.firstname,
           lastname: this.formReg.value.lastname,
           email: this.formReg.value.email,
           clientUID: response.user.uid,
           billDifThanShip: true,
-          stripeCustomerId: 'none'
+          stripeCustomerId: 'none',
+          createdAt: now,
+          lastLoginAt: now
         };
         // console.log(this.client);
         this.createRegisteredUser(this.client, response.user.uid);
@@ -104,7 +107,13 @@ export class SigninComponent {
     .then(async response => {
       if(response.user.email && response.user.displayName) {
         const existing = await this.clientService.getOneUser(response.user.uid);
+        const now = new Date().toISOString();
         if (existing) {
+          try {
+            await this.clientService.updateOneUserJustOneField('lastLoginAt', now, response.user.uid);
+          } catch (error) {
+            console.log(error);
+          }
           this.navToShopArea();
           return;
         }
@@ -114,7 +123,9 @@ export class SigninComponent {
           email: response.user.email,
           clientUID: response.user.uid,
           billDifThanShip: true,
-          stripeCustomerId: 'none'
+          stripeCustomerId: 'none',
+          createdAt: now,
+          lastLoginAt: now
         };
         this.createRegisteredUser(this.client, response.user.uid);
       };

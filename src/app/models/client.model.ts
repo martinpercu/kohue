@@ -3,6 +3,8 @@ export interface Client {
   stripeCustomerId?: string;
   clientUID: string;
   email: string;
+  createdAt?: string;
+  lastLoginAt?: string;
   fullname?: string;
   firstname?: string;
   lastname?: string;
