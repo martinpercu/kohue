@@ -1,0 +1,13 @@
+- generic [ref=e2]:
+  - generic [ref=e5]:
+    - generic [ref=e6]: Are you over 21 years old?
+    - generic [ref=e7]: Please verify your age to enter this site
+    - generic [ref=e8]:
+      - generic [ref=e9]: I am under 21
+      - generic [ref=e10]: I am over 21
+    - generic [ref=e11]: By entering this website you are agreeing to our terms of use and privacy policy
+  - generic [ref=e19]:
+    - generic [ref=e20]: Join
+    - generic [ref=e21]: About us
+    - generic [ref=e22]: Wines
+    - generic [ref=e23]: Members

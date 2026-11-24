@@ -13,7 +13,7 @@ export class MonoproductService {
     title: "2023 Kohue Rancho Pequeño Vineyard Cabernet Sauvignon",
     subtitle: "OAKVILLE, NAPA VALLEY",
     titleCart: "2023 Kohue Rancho Pequeño Vineyard Cabernet Sauvignon 3-Pack",
-    specsheet: "",
+    specsheet: "cabernet-napa-2023-tech.pdf",
     price: 435,
     imageMobile: "./../../../../assets/img/Cabernet-2021-Mobile.png",
     imageDesktop: "./../../../../assets/img/Cabernet-2021-Desktop.png",
@@ -31,18 +31,19 @@ export class MonoproductService {
     quantity: 1
   };
 
+  
   // This is 2023 Kohue Rancho Pequeño Vineyard Cabernet Sauvignon
   monoproduct_Napa_2023: Product = {
     id: 28,
     title: "2023 Kohue Rancho Pequeño Vineyard Cabernet Sauvignon",
     subtitle: "OAKVILLE, NAPA VALLEY",
     titleCart: "2023 Kohue Rancho Pequeño Vineyard Cabernet Sauvignon 3-Pack",
-    specsheet: "",
+    specsheet: "cabernet-napa-2023-tech.pdf",
     price: 435,
     imageMobile: "./../../../../assets/img/Cabernet-2021-Mobile.png",
     imageDesktop: "./../../../../assets/img/Cabernet-2021-Desktop.png",
     // imageAll: "./../../../../assets/img/6-cabernet.jpg",
-    imageAll: "./../../../../assets/img/botella-2026.jpg",
+    imageAll: "./../../../../assets/img/Botella-Cabernet-Napa-800.jpg",
     // imageAll: "./../../../../assets/img/8-test.jpg",
     description: "Bottle 750ml",
     description_a: "\"The 2023 Cabernet Sauvignon Rancho Pequeño is stellar. Blackberry, sage, menthol, licorice, dried herbs and chocolate are some of the notes that open first. All of this fruit is from Block 2, which is planted with Fay clone Cabernet. Readers who enjoy fine, classically built Cabernet Sauvignons will adore this.\"",
@@ -61,7 +62,7 @@ export class MonoproductService {
     title: "2022 Kohue Paraje Altamira Cabernet Sauvignon",
     subtitle: "UCO VALLEY, MENDOZA",
     titleCart: "2022 Kohue Paraje Altamira Cabernet Sauvignon 3-Pack",
-    specsheet: "",
+    specsheet: "cabernet-2022-tech.pdf",
     price: 435,
     imageMobile: "./../../../../assets/img/Cabernet-2021-Mobile.png",
     imageDesktop: "./../../../../assets/img/Cabernet-2021-Desktop.png",

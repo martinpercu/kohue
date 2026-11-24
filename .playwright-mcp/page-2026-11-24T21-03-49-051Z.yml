@@ -1,0 +1,34 @@
+- generic [ref=f2e3]:
+  - navigation [ref=f2e6]:
+    - generic [ref=f2e8]:
+      - button "Join" [ref=f2e9] [cursor=pointer]
+      - button "About us" [ref=f2e10] [cursor=pointer]
+      - button "Wines" [ref=f2e11] [cursor=pointer]
+      - button "Members" [ref=f2e12] [cursor=pointer]
+  - generic [ref=f2e15]: WINES
+  - generic [ref=f2e17]: "\"These are the first wines I have tasted from Maxi Valsecchi's Kohue, which offers an intriguing mix of wines from Argentina and Napa Valley. Valsecchi worked with Nigel Kinsman at Araujo Estate in 2009 and 2010 and coninues to make the trip to Napa Valley for harvest with Kinsman each year. I am far from an expert on the wines of Argentina, but I can say that the Kohue Cabernet Sauvignon in this range is terrific.\" By Antonio Galloni on November 2025"
+  - generic [ref=f2e20]: "From April in Mendoza to October in Napa Valley, each year we craft wines across two hemispheres. Our portfolio brings together wines from these two renowned regions, reflecting our experience and winemaking journey: Hand-crafted, single- vineyard Malbecs and Cabernet Sauvignons from the finest terroirs nestled in the majestic foothills of the Andes, and Cabernet Sauvignons from distinguished vineyards in the iconic heart of Napa Valley."
+  - generic [ref=f2e22]:
+    - generic [ref=f2e23]:
+      - generic [ref=f2e24]: Mendoza
+      - generic [ref=f2e25]: "|"
+      - generic [ref=f2e26]: Napa Valley
+    - generic [ref=f2e27]:
+      - generic [ref=f2e28]: Mendoza
+      - generic [ref=f2e29]: "|"
+      - generic [ref=f2e30]: Napa Valley
+  - generic [ref=f2e32]:
+    - generic [ref=f2e33]: We have explored every corner of the Mendoza wine country, meticulously selecting vineyard sites down to the precise rows, where old, wise vines, some of them over 100 years old, impart complexity and character. Carefully tended by pioneering vintners, watched over by the soaring Andes Mountains, nurtured by radiant sunlight, shaped by the wind and altitude, and rooted in ancient alluvial soils. These vines tell a story – one we are passionate about sharing as we reveal the extraordinary potential of the terroir of our native land.
+    - generic [ref=f2e37]:
+      - generic [ref=f2e38]:
+        - generic [ref=f2e39]: Malbec
+        - generic [ref=f2e40]: "Paraje Altamira, Uco Valley Vintage: 2021, 2022"
+      - generic [ref=f2e42]:
+        - generic [ref=f2e43]: Cabernet Sauvignon
+        - generic [ref=f2e44]: "Paraje Altamira, Uco Valley Vintage: 2021, 2022"
+      - generic [ref=f2e46]: Join The List
+  - generic [ref=f2e52]:
+    - generic [ref=f2e53]: 707-287-8653
+    - link "EMAIL" [ref=f2e55] [cursor=pointer]:
+      - /url: mailto:info@kohuewines.com?subject=Hello everyone
+    - generic [ref=f2e56] [cursor=pointer]: CREDITS
